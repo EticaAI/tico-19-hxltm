@@ -1,0 +1,11 @@
+data/original-git/
+data/original/paper/
+data/original/terminologies/
+data/original/TM/
+data/original/fb_covid-19.zip
+data/original/google_covid-19.zip
+data/original/terminologies.zip
+data/original/tico19-testset.zip
+!.gitignore
+!README.md
+tmp/

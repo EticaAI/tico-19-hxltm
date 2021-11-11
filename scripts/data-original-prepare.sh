@@ -20,32 +20,37 @@
 #       VERSION:  v1.0
 #       CREATED:  2021-11-11 16:63 UTC started
 # ==============================================================================
+set -e
 
 TMP_DIR="tmp"
 DATA_DIR="data"
-DATA_ORIGINAL_DIR="data-original"
+DATA_ORIGINAL_DIR="data/original"
+DATA_ORIGINAL_GIT_DIR="tmp/original-git"
 
-rsync -a "${TMP_DIR}/tico-19.github.io-master/data/" "$DATA_ORIGINAL_DIR/"
+set -x
+rsync --archive --verbose "${DATA_ORIGINAL_GIT_DIR}/data/" "$DATA_ORIGINAL_DIR/"
+set +x
 
-if [ ! -d "${DATA_ORIGINAL_DIR}/terminology" ]; then
-    mkdir "${DATA_ORIGINAL_DIR}/terminology"
-    # echo "todo"
-fi
-
-# if [ ! -d "${DATA_ORIGINAL_DIR}/terminology/google" ]; then
-    mkdir "${DATA_ORIGINAL_DIR}/terminology/google"
-    tmpdir1=$(mktemp --directory tmp.XXXXXXXXXX )
-    echo "$tmpdir1"
-    ls -l "$tmpdir1"
-    rsync -a "${DATA_ORIGINAL_DIR}/terminologies/" --include='g_*' --exclude='*' "$tmpdir1"
-    # cp -r "${DATA_ORIGINAL_DIR}/data/terminologies/g_*" "$tmpdir1"
-    ls -l "$tmpdir1"
-
-    echo "todo"
+# if [ ! -d "${DATA_ORIGINAL_DIR}/terminology" ]; then
+#     mkdir "${DATA_ORIGINAL_DIR}/terminology"
+#     # echo "todo"
 # fi
 
-if [ ! -d "${DATA_ORIGINAL_DIR}/terminology/facebook" ]; then
-    mkdir "${DATA_ORIGINAL_DIR}/terminology/facebook"
-    echo "todo"
-fi
+# # if [ ! -d "${DATA_ORIGINAL_DIR}/terminology/google" ]; then
+#     mkdir "${DATA_ORIGINAL_DIR}/terminology/google"
+#     tmpdir1=$(mktemp -d --tmpdir -t "tmp.XXXXXXXXXX" )
+#     echo "$tmpdir1"
+#     ls -l "$tmpdir1"
+#     # rsync -a "${DATA_ORIGINAL_DIR}/terminologies/" --include='g_*' --exclude='*' "$tmpdir1"
+#     # cp -r "${DATA_ORIGINAL_DIR}/data/terminologies/g_*" "$tmpdir1"
+#     ls -l "$tmpdir1"
+#     pwd "$tmpdir1"
+
+#     echo "todo"
+# # fi
+
+# if [ ! -d "${DATA_ORIGINAL_DIR}/terminology/facebook" ]; then
+#     mkdir "${DATA_ORIGINAL_DIR}/terminology/facebook"
+#     echo "todo"
+# fi
 

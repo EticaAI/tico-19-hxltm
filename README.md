@@ -2,6 +2,8 @@
 **[draft] Public domain datasets from Translation Initiative for COVID-19
 on the format HXLTM (Multilingual Terminology in Humanitarian Language Exchange)**
 
+> TODO: move to @EticaAI organization
+
 ## License
 
 [![Public Domain](https://i.creativecommons.org/p/zero/1.0/88x31.png)](UNLICENSE)
