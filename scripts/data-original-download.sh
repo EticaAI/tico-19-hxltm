@@ -1,9 +1,9 @@
-#!/bin/sh -l
+#!/bin/sh
 # ==============================================================================
 #
-#          FILE:  download-source.sh
+#          FILE:  data-original-download.sh
 #
-#         USAGE:  ./download-source.sh
+#         USAGE:  ./scripts/data-original-download.sh
 #
 #   DESCRIPTION:  ---
 #
@@ -18,22 +18,22 @@
 #       LICENSE:  Public Domain dedication OR Zero-Clause BSD
 #                 SPDX-License-Identifier: Unlicense OR 0BSD
 #       VERSION:  v1.0
-#       CREATED:  2021-11-11 15:25 UTC started (on hxltm-action)
+#       CREATED:  2021-11-11 15:25 UTC started
 # ==============================================================================
 
-pwd_now=$(pwd)
-data_original_dir=$(dirname "$0")
-
-cd "$data_original_dir" || exit
+TMP_DIR="./tmp"
+DATA_DIR="./data"
+DATA_ORIGINAL_DIR="./data-original"
 
 # wget https://github.com/tico-19/tico-19.github.io/archive/refs/heads/master.zip
 
-curl -L "https://github.com/tico-19/tico-19.github.io/archive/refs/heads/master.zip" \
-  --output "tico-19.github.io.zip"
+if [ ! -f ${TMP_DIR}/tico-19.github.io.zip ]; then
+  curl -L "https://github.com/tico-19/tico-19.github.io/archive/refs/heads/master.zip" \
+    --output "${TMP_DIR}/tico-19.github.io.zip"
+fi
 
-unzip "tico-19.github.io.zip" "tico-19.github.io-master/data/*" -d "$data_original_dir"
+unzip "${TMP_DIR}/tico-19.github.io.zip" -d "$TMP_DIR"
+# unzip "${TMP_DIR}/tico-19.github.io.zip" -d "$DATA_ORIGINAL_DIR"
+# unzip "${TMP_DIR}/tico-19.github.io.zip" "tico-19.github.io-master/data/*" -d "$DATA_ORIGINAL_DIR"
 # unzip myfile.zip -d "some directory"
 # rm -f myfile.zip
-
-
-cd "$pwd_now" || exit
