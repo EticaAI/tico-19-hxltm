@@ -10,7 +10,7 @@
 #
 #       OPTIONS:  ---
 #
-#  REQUIREMENTS:  ---
+#  REQUIREMENTS:  - git
 #          BUGS:  ---
 #         NOTES:  ---
 #       AUTHORS:  Emerson Rocha <rocha[at]ieee.org>

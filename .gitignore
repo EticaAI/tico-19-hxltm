@@ -9,3 +9,6 @@ data/original/tico19-testset.zip
 !.gitignore
 !README.md
 tmp/
+
+# temp
+data/original/terminology/facebook/*.csv

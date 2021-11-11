@@ -1,8 +1,10 @@
 # tico-19-hxltm
-**[draft] Public domain datasets from Translation Initiative for COVID-19
-on the format HXLTM (Multilingual Terminology in Humanitarian Language Exchange)**
+**[draft] Public domain datasets from
+[Translation Initiative for COVID-19](tico-19.github.io) on the format
+HXLTM (Multilingual Terminology in Humanitarian Language Exchange).**
 
-> TODO: move to @EticaAI organization
+> TODO: move to [@EticaAI](https://github.com/EticaAI) organization and
+  publish on a subdomain.
 
 ## License
 
