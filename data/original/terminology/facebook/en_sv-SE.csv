@@ -160,7 +160,7 @@ id,sourceLang,targetLang,sourceString,targetString
 159,en,sv_SE,lack of tests,brist på tester
 160,en,sv_SE,latest updates,senaste uppdateringar
 161,en,sv_SE,liver failure,leversvikt
-162,en,sv_SE,local public health authority,lokal, offentlig hälsovårdsmyndighet
+162,en,sv_SE,local public health authority,"lokal, offentlig hälsovårdsmyndighet"
 163,en,sv_SE,lockdown,nedstängning
 164,en,sv_SE,lungs,lungor
 165,en,sv_SE,masks,masker
@@ -241,7 +241,7 @@ id,sourceLang,targetLang,sourceString,targetString
 240,en,sv_SE,self-quarantine,självkarantän
 241,en,sv_SE,sepsis,sepsis
 242,en,sv_SE,septic shock,septisk chock
-243,en,sv_SE,Severe Acute Respiratory Syndrome,Svår, akut luftvägssjukdom
+243,en,sv_SE,Severe Acute Respiratory Syndrome,"Svår, akut luftvägssjukdom"
 244,en,sv_SE,shortness of breath,svårt att andas
 245,en,sv_SE,sickened,insjuknade
 246,en,sv_SE,sickness,sjukdom

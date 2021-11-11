@@ -62,12 +62,18 @@ for i in "${DATA_ORIGINAL_DIR}"/terminology/facebook/*-XX.csv; do
   mv "$i" "$(echo "$i" | sed "s/-XX.csv/.csv/")";
 done
 
+### scripts/patch/data-terminology-facebook.diff: Patch missing DQUOTES
+# patch --dry-run --verbose --unified -p1 --input=scripts/patch/data-terminology-facebook.diff
+patch --verbose --unified -p1 --input=scripts/patch/data-terminology-facebook.diff
 # exit 1
 
 ## ls
 ls "${DATA_ORIGINAL_DIR}"/terminology/facebook/
 
-# echo "TODO: normalize _XX"
+### Concatenate Facebook terminology
+mlr --csv cat "${DATA_ORIGINAL_DIR}"/terminology/facebook/*.csv > "${DATA_ORIGINAL_DIR}"/tico-19-terminology-facebook.csv
+
+# original/terminology
 
 #### terminology/google ______________________________________________________
 
@@ -88,8 +94,12 @@ done
 ## ls
 ls "${DATA_ORIGINAL_DIR}"/terminology/google/
 
+### Concatenate Facebook terminology
+mlr --csv cat "${DATA_ORIGINAL_DIR}"/terminology/google/*.csv > "${DATA_ORIGINAL_DIR}"/tico-19-terminology-google.csv
 
 #### validate __________________________________________________________________
 
-# mlr --icsv check data/original/terminology/google/*.csv
-# mlr --icsv check data/original/terminology/facebook/*.csv
+mlr --icsv check data/original/terminology/google/*.csv
+mlr --icsv check data/original/terminology/facebook/*.csv
+
+echo "Okay!"

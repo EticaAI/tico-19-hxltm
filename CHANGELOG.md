@@ -12,6 +12,13 @@
   - `en_es-XX`, `en_fr-XX`, `en_ja-XX`, `en_nl-XX`, `en_no-XX`, `en_pt-XX`,
     `en_tl-XX`
 
+### Fixed
+- `scripts/patch/data-terminology-facebook.diff` for
+  `data/original/terminology/facebook/`. As per
+  [RFC 4180 -  Common Format and MIME Type for Comma-Separated Values (CSV) Files](https://datatracker.ietf.org/doc/html/rfc4180)
+  the manually applied DQUOTE `"` to non-optional fields with data containing
+  `,` as text.
+
 ## [1.0.0] - 2021-11-11
 ### Added
 - **Fiat lux!**

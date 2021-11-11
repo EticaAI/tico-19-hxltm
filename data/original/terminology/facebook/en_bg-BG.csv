@@ -81,7 +81,7 @@ id,sourceLang,targetLang,sourceString,targetString
 80,en,bg_BG,detergent,почистващ препарат
 81,en,bg_BG,difficulty breathing,затруднено дишане
 82,en,bg_BG,diabetes,диабет
-83,en,bg_BG,diagnosable disease,заболяване, подлежащо на диагностициране
+83,en,bg_BG,diagnosable disease,"заболяване, подлежащо на диагностициране"
 84,en,bg_BG,diagnostic protocol,диагностичен протокол
 85,en,bg_BG,diagnostic testing,диагностично изследване
 86,en,bg_BG,disease itself,самата болест
@@ -234,7 +234,7 @@ id,sourceLang,targetLang,sourceString,targetString
 233,en,bg_BG,SARS,SARS
 234,en,bg_BG,SARS-CoV-2,SARS-CoV-2
 235,en,bg_BG,SARS-CoV,SARS-CoV
-236,en,bg_BG,sars-related coronavirus,коронавирус, свързан със SARS
+236,en,bg_BG,sars-related coronavirus,"коронавирус, свързан със SARS"
 237,en,bg_BG,seasonal flu,сезонен грип
 238,en,bg_BG,seasonal influenza,сезонна инфлуенца
 239,en,bg_BG,secretion,секреция

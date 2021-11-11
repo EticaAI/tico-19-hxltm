@@ -3,7 +3,7 @@ id,sourceLang,targetLang,sourceString,targetString
 2,en,uk_UA,acute bronchitis,гострий бронхіт
 3,en,uk_UA,acute respiratory disease,гостре респіраторне захворювання
 4,en,uk_UA,AIDS,AIDS
-5,en,uk_UA,airborne droplets,крапельки, що передаються повітряно-крапельним шляхом
+5,en,uk_UA,airborne droplets,"крапельки, що передаються повітряно-крапельним шляхом"
 6,en,uk_UA,airway,повітряний шлях
 7,en,uk_UA,alcohol-based,на спиртовій основі
 8,en,uk_UA,alcohol-based hand rub,антисептик для рук на спиртовій основі
@@ -77,11 +77,11 @@ id,sourceLang,targetLang,sourceString,targetString
 76,en,uk_UA,death rate,смертність
 77,en,uk_UA,death toll,показник смертності
 78,en,uk_UA,decontaminate,дезінфекція
-79,en,uk_UA,detectable,такий, що можна виявити
+79,en,uk_UA,detectable,"такий, що можна виявити"
 80,en,uk_UA,detergent,миючий засіб
 81,en,uk_UA,difficulty breathing,утруднене дихання
 82,en,uk_UA,diabetes,діабет
-83,en,uk_UA,diagnosable disease,захворювання, що можна діагностувати
+83,en,uk_UA,diagnosable disease,"захворювання, що можна діагностувати"
 84,en,uk_UA,diagnostic protocol,протокол діагностики
 85,en,uk_UA,diagnostic testing,діагностичне тестування
 86,en,uk_UA,disease itself,сама хвороба
@@ -234,7 +234,7 @@ id,sourceLang,targetLang,sourceString,targetString
 233,en,uk_UA,SARS,SARS
 234,en,uk_UA,SARS-CoV-2,SARS-CoV-2
 235,en,uk_UA,SARS-CoV,SARS-CoV
-236,en,uk_UA,sars-related coronavirus,коронавірус, пов'язаний із sars
+236,en,uk_UA,sars-related coronavirus,"коронавірус, пов'язаний із sars"
 237,en,uk_UA,seasonal flu,сезонний грип
 238,en,uk_UA,seasonal influenza,сезонна інфлюенца
 239,en,uk_UA,secretion,виділення
@@ -273,7 +273,7 @@ id,sourceLang,targetLang,sourceString,targetString
 272,en,uk_UA,touch,дотик
 273,en,uk_UA,touching,торкання
 274,en,uk_UA,transmissibility,здатність передаватися
-275,en,uk_UA,transmissible,такий, що передається
+275,en,uk_UA,transmissible,"такий, що передається"
 276,en,uk_UA,transmission,передача
 277,en,uk_UA,transmission potential,ймовірність передачі
 278,en,uk_UA,typical flu,звичайний грип

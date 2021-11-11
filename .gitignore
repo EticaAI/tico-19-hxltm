@@ -9,3 +9,9 @@ data/original/tico19-testset.zip
 !.gitignore
 !README.md
 tmp/
+
+# temp
+data/original/tico-19-terminology-facebook.csv
+
+# temp
+data/original/tico-19-terminology-google.csv

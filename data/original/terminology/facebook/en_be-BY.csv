@@ -3,7 +3,7 @@ id,sourceLang,targetLang,sourceString,targetString
 2,en,be_BY,acute bronchitis,востры бранхіт
 3,en,be_BY,acute respiratory disease,вострае рэспіраторнае захворванне
 4,en,be_BY,AIDS,СНІД
-5,en,be_BY,airborne droplets,кроплі, якія пераносяцца па паветры
+5,en,be_BY,airborne droplets,"кроплі, якія пераносяцца па паветры"
 6,en,be_BY,airway,паветраны
 7,en,be_BY,alcohol-based,на аснове спірту
 8,en,be_BY,alcohol-based hand rub,сродак для апрацоўкі рук на аснове спірту
@@ -81,7 +81,7 @@ id,sourceLang,targetLang,sourceString,targetString
 80,en,be_BY,detergent,мыйны сродак
 81,en,be_BY,difficulty breathing,цяжкасці з дыханнем
 82,en,be_BY,diabetes,дыябет
-83,en,be_BY,diagnosable disease,захворванне, якое можна дыягнаставаць
+83,en,be_BY,diagnosable disease,"захворванне, якое можна дыягнаставаць"
 84,en,be_BY,diagnostic protocol,дыягнастычны пратакол
 85,en,be_BY,diagnostic testing,дыягнастычнае тэсціраванне
 86,en,be_BY,disease itself,само захворванне
@@ -234,7 +234,7 @@ id,sourceLang,targetLang,sourceString,targetString
 233,en,be_BY,SARS,SARS (атыпічная пнеўманія)
 234,en,be_BY,SARS-CoV-2,SARS-CoV-2
 235,en,be_BY,SARS-CoV,SARS-CoV
-236,en,be_BY,sars-related coronavirus,каранавірус, звязаны з атыпічнай пнеўманіяй
+236,en,be_BY,sars-related coronavirus,"каранавірус, звязаны з атыпічнай пнеўманіяй"
 237,en,be_BY,seasonal flu,сезонны грып
 238,en,be_BY,seasonal influenza,сезонная інфлюэнца
 239,en,be_BY,secretion,выдзяленні

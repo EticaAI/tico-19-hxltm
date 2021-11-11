@@ -26,7 +26,7 @@ id,sourceLang,targetLang,sourceString,targetString
 25,en,mn_MN,cv19,cv19
 26,en,mn_MN,case fatality rate,тохиолдлын нас баралтын түвшин
 27,en,mn_MN,causative agent,үүсгэгч агент
-28,en,mn_MN,CDC,Өвчний хяналт, урьдчилан сэргийлэх төвүүд
+28,en,mn_MN,CDC,"Өвчний хяналт, урьдчилан сэргийлэх төвүүд"
 29,en,mn_MN,chemical disinfection,химийн халдваргүйжүүлэлт
 30,en,mn_MN,chest x-ray,цээжний рентген зураг
 31,en,mn_MN,clinical diagnosis,эмнэлзүйн оношлогоо

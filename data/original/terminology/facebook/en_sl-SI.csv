@@ -234,7 +234,7 @@ id,sourceLang,targetLang,sourceString,targetString
 233,en,sl_SI,SARS,SARS
 234,en,sl_SI,SARS-CoV-2,SARS-CoV-2
 235,en,sl_SI,SARS-CoV,SARS-CoV
-236,en,sl_SI,sars-related coronavirus,koronavirus, povezan s sarsom
+236,en,sl_SI,sars-related coronavirus,"koronavirus, povezan s sarsom"
 237,en,sl_SI,seasonal flu,sezonska gripa
 238,en,sl_SI,seasonal influenza,sezonska gripa
 239,en,sl_SI,secretion,izločanje
