@@ -9,8 +9,10 @@
 #
 #       OPTIONS:  ---
 #
-#  REQUIREMENTS:  - rename
+#  REQUIREMENTS:  - POSIX Shell or better
 #                 - rsync
+#                 - miller
+#                   - See <https://github.com/johnkerl/miller>
 #          BUGS:  ---
 #         NOTES:  ---
 #       AUTHORS:  Emerson Rocha <rocha[at]ieee.org>
@@ -23,9 +25,9 @@
 # ==============================================================================
 set -e
 
-PWD_NOW=$(pwd)
-TMP_DIR="tmp"
-DATA_DIR="data"
+# PWD_NOW=$(pwd)
+# TMP_DIR="tmp"
+# DATA_DIR="data"
 DATA_ORIGINAL_DIR="data/original"
 DATA_ORIGINAL_GIT_DIR="tmp/original-git"
 
@@ -44,29 +46,28 @@ ls "${DATA_ORIGINAL_DIR}"/terminology/facebook/
 ### Rename
 # data/original/terminology/facebook/f_en-pt_XX.csv -> data/original/terminology/facebook/f-en-pt-XX.csv
 for i in "${DATA_ORIGINAL_DIR}"/terminology/facebook/f_en-*; do
-#   echo "$i" "$(echo "$i" | sed "s/f_//")";
-#   echo "$i" "$(echo "$i" | sed "s/f_//")";
   mv "$i" "$(echo "$i" | sed "s/_/-/g")";
 done
 
 ls "${DATA_ORIGINAL_DIR}"/terminology/facebook/
 
-# data/original/terminology/facebook/f-en-pt-XX.csv -> data/original/terminology/facebook/f-en-pt-XX.csv
+# data/original/terminology/facebook/f-en-pt-XX.csv -> data/original/terminology/facebook/en_pt-XX.csv
 for i in "${DATA_ORIGINAL_DIR}"/terminology/facebook/f-en-*; do
-#   echo "$i" "$(echo "$i" | sed "s/f_//")";
-#   echo "$i" "$(echo "$i" | sed "s/f_//")";
   mv "$i" "$(echo "$i" | sed "s/f-en-/en_/g")";
 done
 
-# for i in "${DATA_ORIGINAL_DIR}"/terminology/facebook/f_*; do
-# #   echo "$i" "$(echo "$i" | sed "s/f_//")";
-#   mv "$i" "$(echo "$i" | sed "s/f_//")";
-# done
+# data/original/terminology/facebook/en_pt-XX.csv-> data/original/terminology/facebook/en_pt.csv
+for i in "${DATA_ORIGINAL_DIR}"/terminology/facebook/*-XX.csv; do
+#   echo "$i" "$(echo "$i" | sed "s/-XX.csv/.csv/")";
+  mv "$i" "$(echo "$i" | sed "s/-XX.csv/.csv/")";
+done
+
+# exit 1
 
 ## ls
 ls "${DATA_ORIGINAL_DIR}"/terminology/facebook/
 
-echo "TODO: normalize _XX"
+# echo "TODO: normalize _XX"
 
 #### terminology/google ______________________________________________________
 
@@ -88,5 +89,7 @@ done
 ls "${DATA_ORIGINAL_DIR}"/terminology/google/
 
 
-#### terminology/google ______________________________________________________
+#### validate __________________________________________________________________
 
+# mlr --icsv check data/original/terminology/google/*.csv
+# mlr --icsv check data/original/terminology/facebook/*.csv

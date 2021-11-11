@@ -4,6 +4,14 @@
 ### Added
 - TODO: Fix Facebook terminology usage of "_XX" as suffix
 
+### Changed
+- `data/original/terminology/facebook/{.*-XX.csv -> .*.csv}`: Removed unknown
+  language suffix `_XX` / `-XX` used on filenames for Facebook terminology.
+  _If this is to mean "no specific region" can be simply omitted when
+  exchanging data._:
+  - `en_es-XX`, `en_fr-XX`, `en_ja-XX`, `en_nl-XX`, `en_no-XX`, `en_pt-XX`,
+    `en_tl-XX`
+
 ## [1.0.0] - 2021-11-11
 ### Added
 - **Fiat lux!**
