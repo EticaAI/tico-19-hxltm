@@ -15,3 +15,6 @@ tmp/
 
 # # temp
 # data/original/terminology/tico-19-terminology-facebook.csv
+# temp
+data/tico-19-terminology-google.tm2.hxl.csv
+data/tico-19-terminology-facebook.tm2.hxl.csv
