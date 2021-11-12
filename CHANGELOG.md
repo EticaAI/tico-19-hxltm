@@ -4,20 +4,25 @@
 ### Added
 - TODO: Fix Facebook terminology usage of "_XX" as suffix
 
-### Changed
+### Fixed
 - `data/original/terminology/facebook/{.*-XX.csv -> .*.csv}`: Removed unknown
   language suffix `_XX` / `-XX` used on filenames for Facebook terminology.
   _If this is to mean "no specific region" can be simply omitted when
   exchanging data._:
   - `en_es-XX`, `en_fr-XX`, `en_ja-XX`, `en_nl-XX`, `en_no-XX`, `en_pt-XX`,
     `en_tl-XX`
-
-### Fixed
 - `scripts/patch/data-terminology-facebook.diff` for
   `data/original/terminology/facebook/`. As per
   [RFC 4180 -  Common Format and MIME Type for Comma-Separated Values (CSV) Files](https://datatracker.ietf.org/doc/html/rfc4180)
   the manually applied DQUOTE `"` to non-optional fields with data containing
   `,` as text.
+- `data/original/terminology/facebook/`: field targetLang data content
+  replaced `_` with `-`:
+  - Restrict `-` language tags delimiter, as per
+    [IETF Best Current Practice 47](https://tools.ietf.org/rfc/bcp/bcp47.txt)
+     and common usage in industry.
+- `data/original/terminology/facebook/`: field targetLang data content
+  removed unknown language suffix `_XX` / `-XX`
 
 ## [1.0.0] - 2021-11-11
 ### Added
@@ -29,7 +34,7 @@
     `en_pt-XX.csv`:
     - Restrict `-` language tags delimiter, as per
       [IETF Best Current Practice 47](https://tools.ietf.org/rfc/bcp/bcp47.txt)
-      an common usage in industry.
+      and common usage in industry.
     - Use single `_` for other types of delimiter when necessary. No known
       industry convention on this decision.
       - In the case of language pair on  file names  this means unambiguously

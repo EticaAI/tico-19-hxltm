@@ -1,23 +1,39 @@
 # data/original
 
+> TODO: document it better
+
+<details>
+<summary>Code to generate this directory</summary>
+
 ```bash
 # generate data-original/
 ./scripts/data-original-download.sh
 ./scripts/data-original-prepare.sh
 ```
 
-## cat paper/ticopaper.bib
+</details>
 
-```txt
-@misc{tico-19,
-author={Anastasopoulos, Antonios and Cattelan, Alessandro and Dou, Zi-Yi and Federico, Marcello and Federmann, Christian and  Genzel, Dmitriy and Guzm\'{a}n, Francisco and Hu, Junjie and Hughes, Macduff and Koehn, Philipp and Lazar, Rosie and Lewis, Will and Neubig, Graham and Niu, Mengmeng and \"{O}ktem, Alp and Paquin, Eric and Tang, Grace and Tur, Sylwia},
-title={{TICO}-19: the {T}ranslation Initiative for {CO}vid-19},
-year={2020},
-note={{arXiv}:2007.01788}
-}
-```
+## Original content
 
-## files on .gitignore
+Note: original is downloaded from <https://github.com/tico-19/tico-19.github.io>
+and is not committed on this repository, but can be generated _as it is_ using
+the script [scripts/data-original-prepare.sh](../../scripts/data-original-prepare.sh):
+
+- paper/
+- terminologies/
+- TM/
+- fb_covid-19.zip
+- google_covid-19.zip
+- tico19-testset.zip
+
+---
+
+Click to see full list on non-committed files you would see if run the
+scripts:
+
+
+<details>
+<summary>tree data/original</summary>
 
 ```txt
 tree
@@ -402,4 +418,27 @@ tree
 
 3 directories, 374 files
 
+```
+</details>
+
+---
+
+The committed files under `data/original` are generated with
+[scripts/data-original-prepare.sh](../../scripts/data-original-prepare.sh) and
+have changes also documented / justified on [CHANGELOG.md](../../CHANGELOG.md).
+**Mostly they are data cleaning, formatting and some fixes (with explaination)
+on how language codes used to label de terminology and translations.** This
+is done as previous step to convert to HXLTM format.
+
+### cat paper/ticopaper.bib
+> Note: Emerson Rocha, from Etica.AI is not associated with the TICO-19 team.
+> Even if you use this work, please consider citing the original lexicographers.
+
+```txt
+@misc{tico-19,
+author={Anastasopoulos, Antonios and Cattelan, Alessandro and Dou, Zi-Yi and Federico, Marcello and Federmann, Christian and  Genzel, Dmitriy and Guzm\'{a}n, Francisco and Hu, Junjie and Hughes, Macduff and Koehn, Philipp and Lazar, Rosie and Lewis, Will and Neubig, Graham and Niu, Mengmeng and \"{O}ktem, Alp and Paquin, Eric and Tang, Grace and Tur, Sylwia},
+title={{TICO}-19: the {T}ranslation Initiative for {CO}vid-19},
+year={2020},
+note={{arXiv}:2007.01788}
+}
 ```

@@ -37,13 +37,13 @@ rsync --archive --verbose "${DATA_ORIGINAL_GIT_DIR}/data/" "$DATA_ORIGINAL_DIR/"
 
 
 #### terminology/facebook ______________________________________________________
-### Copy
+### Copy file ..................................................................
 find "$DATA_ORIGINAL_DIR/terminologies/" -name 'f_*' -type f -exec cp "{}" "$DATA_ORIGINAL_DIR/terminology/facebook"  \;
 
 ## ls
 ls "${DATA_ORIGINAL_DIR}"/terminology/facebook/
 
-### Rename
+### Rename file ................................................................
 # data/original/terminology/facebook/f_en-pt_XX.csv -> data/original/terminology/facebook/f-en-pt-XX.csv
 for i in "${DATA_ORIGINAL_DIR}"/terminology/facebook/f_en-*; do
   mv "$i" "$(echo "$i" | sed "s/_/-/g")";
@@ -62,7 +62,7 @@ for i in "${DATA_ORIGINAL_DIR}"/terminology/facebook/*-XX.csv; do
   mv "$i" "$(echo "$i" | sed "s/-XX.csv/.csv/")";
 done
 
-### scripts/patch/data-terminology-facebook.diff: Patch missing DQUOTES
+### scripts/patch/data-terminology-facebook.diff: Patch missing DQUOTES ........
 # patch --dry-run --verbose --unified -p1 --input=scripts/patch/data-terminology-facebook.diff
 patch --verbose --unified -p1 --input=scripts/patch/data-terminology-facebook.diff
 # exit 1
@@ -70,21 +70,45 @@ patch --verbose --unified -p1 --input=scripts/patch/data-terminology-facebook.di
 ## ls
 ls "${DATA_ORIGINAL_DIR}"/terminology/facebook/
 
-### Concatenate Facebook terminology
+
+### Replace content targetLang _ by - ..........................................
+# Restrict - language tags delimiter, as per IETF Best Current Practice 47
+# and common usage in industry.
+# example: 
+# '1,en,pt_XX,1918 flu,gripe de 1918' -> '1,en,pt-XX,1918 flu,gripe de 1918'
+for i in "${DATA_ORIGINAL_DIR}"/terminology/facebook/*.csv; do
+  # shellcheck disable=SC2016
+  mlr --csv -I put '$targetLang = gsub($targetLang, "_", "-")' "$i"
+done
+
+### Replace content targetLang _ by - ..........................................
+# Restrict - language tags delimiter, as per IETF Best Current Practice 47
+# and common usage in industry.
+# example: 
+# '1,en,pt-XX,1918 flu,gripe de 1918' -> '1,en,pt,1918 flu,gripe de 1918'
+for i in "${DATA_ORIGINAL_DIR}"/terminology/facebook/*.csv; do
+  # shellcheck disable=SC2016
+  mlr --csv -I put '$targetLang = gsub($targetLang, "-XX", "")' "$i"
+done
+
+### Concatenate Facebook terminology ...........................................
 mlr --csv cat "${DATA_ORIGINAL_DIR}"/terminology/facebook/*.csv > "${DATA_ORIGINAL_DIR}"/tico-19-terminology-facebook.csv
 
+# mlr --csv put '$targetLang2 = $targetLang' data/original/terminology/facebook/en_zh-TW.csv
+# mlr --csv put '$targetLang = gsub($targetLang, "_", "-")' data/original/terminology/facebook/en_zh-TW.csv
 # original/terminology
 
-#### terminology/google ______________________________________________________
+echo "TODO data/original/terminologies/f_en-es_XX.csv missing data"
 
-#### terminology/google ______________________________________________________
-### Copy
+#### terminology/google ________________________________________________________
+
+### Copy files .................................................................
 find "$DATA_ORIGINAL_DIR/terminologies/" -name 'g_*' -type f -exec cp "{}" "$DATA_ORIGINAL_DIR/terminology/google"  \;
 
 ## ls
 ls "${DATA_ORIGINAL_DIR}"/terminology/google/
 
-### Rename
+### Rename files ...............................................................
 
 for i in "${DATA_ORIGINAL_DIR}"/terminology/google/g_*; do
 #   echo "$i" "$(echo "$i" | sed "s/f_//")";
