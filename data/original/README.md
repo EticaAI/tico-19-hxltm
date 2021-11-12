@@ -434,7 +434,7 @@ is done as previous step to convert to HXLTM format.
 > Note: Emerson Rocha, from Etica.AI is not associated with the TICO-19 team.
 > Even if you use this work, please consider citing the original lexicographers.
 
-```txt
+```bibtex
 @misc{tico-19,
 author={Anastasopoulos, Antonios and Cattelan, Alessandro and Dou, Zi-Yi and Federico, Marcello and Federmann, Christian and  Genzel, Dmitriy and Guzm\'{a}n, Francisco and Hu, Junjie and Hughes, Macduff and Koehn, Philipp and Lazar, Rosie and Lewis, Will and Neubig, Graham and Niu, Mengmeng and \"{O}ktem, Alp and Paquin, Eric and Tang, Grace and Tur, Sylwia},
 title={{TICO}-19: the {T}ranslation Initiative for {CO}vid-19},
