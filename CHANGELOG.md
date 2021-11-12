@@ -1,8 +1,23 @@
 # Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 ### Added
-- TODO: Fix Facebook terminology usage of "_XX" as suffix
+- TODO: this is a placeholder
+
+## [1.5.0] - 2021-11-12
+### Added
+- <https://tico-19-hxltm.etica.ai/> is now the public website.
+
+### Changed
+- <https://github.com/EticaAI/tico-19-hxltm> is the (likely) definitive
+  repository for this project, as part of the
+  [Etica.AI GitHub organization](https://github.com/EticaAI).
+  The early draft was bootstrapped on
+  <https://github.com/fititnt/tico-19-hxltm> (personal account).
 
 ### Fixed
 - `data/original/terminology/facebook/{.*-XX.csv -> .*.csv}`: Removed unknown

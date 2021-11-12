@@ -1,12 +1,19 @@
 # tico-19-hxltm
+ [![Website: inclusao.etica.ai](img/badges/website.svg?1)](https://tico-19-hxltm.etica.ai/)
+ [![GitHub: EticaAI/tico-19-hxltm](img/badges/github.svg)](https://github.com/EticaAI/tico-19-hxltm)
+ [![Download: Releases](img/badges/download-releases.svg)](https://github.com/EticaAI/tico-19-hxltm/releases)
+
 **[working-draft] Public domain datasets from
 [Translation Initiative for COVID-19](https://tico-19.github.io) on the format
 HXLTM (Multilingual Terminology in Humanitarian Language Exchange).**
 
-> TODO: move to [@EticaAI](https://github.com/EticaAI) organization and
-  publish on a subdomain.
+**See [data/original](data/original)**
 
-**See [data/original/README.md](data/original/README.md)**
+<!--
+- https://github.com/pubs/pubs
+- https://github.com/JabRef/jabref
+  - snap install jabref
+-->
 
 ## License
 
