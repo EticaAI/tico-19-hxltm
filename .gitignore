@@ -10,6 +10,16 @@ data/original/tico19-testset.zip
 !README.md
 tmp/
 
+.vscode/settings.json
+# {
+#     "xml.fileAssociations": [
+#         {
+#             "pattern": "**/*.tmx",
+#             "systemId": "scripts/dtd/tmx14.dtd"
+#         }
+#     ]
+# }
+
 # # temp
 # data/original/tico-19-terminology-facebook.csv
 
@@ -22,3 +32,4 @@ data/tico-19-terminology-facebook.tm2.hxl.csv
 # temporary
 data/original/translation-memory/translators-without-borders/all/*.tmx
 data/original/translation-memory/translators-without-borders/all/*.zip
+

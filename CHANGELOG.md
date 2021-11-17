@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - TODO: this is a placeholder
+- `scripts/dtd/tmx14.dtd` from <https://www.gala-global.org/sites/default/files/migrated-pages/docs/tmx14%20%281%29.dtd>
 
 ## [1.5.0] - 2021-11-12
 ### Added
