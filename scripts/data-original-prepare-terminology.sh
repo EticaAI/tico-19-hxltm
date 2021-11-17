@@ -1,9 +1,9 @@
 #!/bin/sh
 # ==============================================================================
 #
-#          FILE:  data-original-prepare.sh
+#          FILE:  data-original-prepare-terminology.sh
 #
-#         USAGE:  ./scripts/data-original-prepare.sh
+#         USAGE:  ./scripts/data-original-prepare-terminology.sh
 #
 #   DESCRIPTION:  ---
 #

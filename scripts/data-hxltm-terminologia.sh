@@ -10,9 +10,9 @@
 #       OPTIONS:  ---
 #
 #  REQUIREMENTS:  - POSIX Shell or better
-#                 - rsync
-#                 - miller
-#                   - See <https://github.com/johnkerl/miller>
+#                 - libhxl
+#                 - ./scripts/data-original-download.sh
+#                 - ./scripts/data-original-prepare.sh
 #          BUGS:  ---
 #         NOTES:  ---
 #       AUTHORS:  Emerson Rocha <rocha[at]ieee.org>
@@ -40,12 +40,12 @@ set -x
 # TODO: decide better tagging conventions
 hxltag --default-tag='#meta' \
   --map='stringID #item+conceptum+codicem' \
-  --map='sourceLang #item+rem2+fontem+linguam+v_bcp47' \
-  --map='targetLang #item+rem2+objectivum+linguam+v_bcp47' \
+  --map='sourceLang #item+rem+fontem+linguam+v_bcp47' \
+  --map='targetLang #item+rem+objectivum+linguam+v_bcp47' \
   --map='pos #item+rem2+fontem+partem_orationis' \
-  --map='description #item+rem2+definitionem+i_mul+ii_zyyy' \
-  --map='sourceString #item+rem2+fontem+terminum' \
-  --map='targetString #item+rem2+objectivum+terminum' \
+  --map='description #item+rem+definitionem+i_mul+ii_zyyy' \
+  --map='sourceString #item+rem+fontem+terminum' \
+  --map='targetString #item+rem+objectivum+terminum' \
   data/original/tico-19-terminology-google.csv \
   data/tico-19-terminology-google.tm2.hxl.csv
 

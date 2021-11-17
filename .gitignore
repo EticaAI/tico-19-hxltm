@@ -18,3 +18,7 @@ tmp/
 # temp
 data/tico-19-terminology-google.tm2.hxl.csv
 data/tico-19-terminology-facebook.tm2.hxl.csv
+
+# temporary
+data/original/translation-memory/translators-without-borders/all/*.tmx
+data/original/translation-memory/translators-without-borders/all/*.zip
