@@ -38,10 +38,10 @@
 # python -m pybadges --left-text='Versão' --right-text='1.0.0-beta' --right-color='#808080' > version.svg
 
 # python -m pybadges --left-text='Situação' --right-text='Trabalho em progresso' --right-color='#FF773D' > status-work-in-progress.svg
-python3 -m pybadges --left-text='Downloads' --right-text='Releases' --right-color='#1E90FF' > img/badges/download-releases.svg
+python3 -m pybadges --left-text='Downloads' --right-text='Releases' --right-color='#1E90FF' > docs/img/badges/download-releases.svg
 
-python3 -m pybadges --left-text='GitHub' --right-text='EticaAI/tico-19-hxltm' --right-color='#237c02' > img/badges/github.svg
-python3 -m pybadges --left-text='Website' --right-text='tico-19-hxltm.etica.ai' --right-color='#237c02' > img/badges/website.svg
+python3 -m pybadges --left-text='GitHub' --right-text='EticaAI/tico-19-hxltm' --right-color='#237c02' > docs/img/badges/github.svg
+python3 -m pybadges --left-text='Website' --right-text='tico-19-hxltm.etica.ai' --right-color='#237c02' > docs/img/badges/website.svg
 
 #python -m pybadges --left-text='Comunidades' --right-text='2' --right-color='#26A65B' > grupos-total.svg
 #python -m pybadges --left-text='Gratuidades' --right-text='3' --right-color='#1E90FF' > gratuidades-total.svg

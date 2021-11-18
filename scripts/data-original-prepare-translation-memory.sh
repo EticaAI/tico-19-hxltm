@@ -16,7 +16,6 @@
 #                   - sudo apt  install libxml2-utils
 #                 - xmlstarlet
 #                   - sudo apt  install xmlstarlet
-#                 - pip install langcodes[data]
 #          BUGS:  ---
 #         NOTES:  ---
 #       AUTHORS:  Emerson Rocha <rocha[at]ieee.org>
@@ -44,11 +43,9 @@ TMX_OUT_ALL_DIR="${DATA_ORIGINAL_DIR}/translation-memory/translators-without-bor
 rsync --archive --verbose "${DATA_ORIGINAL_GIT_DIR}/data/" "$DATA_ORIGINAL_DIR/"
 # set +x
 
-# is this empty???
-# cp "${DATA_ORIGINAL_DIR}/TM/all.en_ckb.tmx" "${DATA_ORIGINAL_DIR}/translation-memory/translators-without-borders/all/"
-
-# xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang data/original/translation-memory/translators-without-borders/all/all.en-fr.tmx
-
+# TODO: is this empty??? Some data may be redundant on source material.
+#       Leaving here to maybe cite later
+#        cp "${DATA_ORIGINAL_DIR}/TM/all.en_ckb.tmx" "${DATA_ORIGINAL_DIR}/translation-memory/translators-without-borders/all/"
 
 #######################################
 # Extract, validate (TMX syntax only), and export formated TMX.
@@ -62,12 +59,9 @@ rsync --archive --verbose "${DATA_ORIGINAL_GIT_DIR}/data/" "$DATA_ORIGINAL_DIR/"
 #   tmx_file    Path to a TMX file on the disk.
 #######################################
 tmx_tuv_langs_unique() {
-    # echo "$*"
-    # echo "oioioi"
-    # echo "tmx_tuv_langs_sorted is [$1]"
+    # xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang data/original/translation-memory/translators-without-borders/all/all.en-fr.tmx
     xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang "$1" | sort | uniq | xargs echo
 }
-
 
 #######################################
 # Extract, validate (TMX syntax only), and export formated TMX.
@@ -80,8 +74,6 @@ tmx_tuv_langs_unique() {
 #   non-standard-lang-pair  Language pair string, _as it is_, on TICO-19
 #######################################
 tico19_tmx_extract() {
-    # TODO: better naming
-
     tmx_source_zip="${TMX_DIR_IN}/all.$1.tmx.zip"
     tmx_source_unziped="${TMX_OUT_ALL_DIR}/all.$1.tmx"
     tmx_formated_and_linted="${TMX_OUT_ALL_DIR}/$1.tmx"
@@ -90,20 +82,12 @@ tico19_tmx_extract() {
 
     # echo "$1"
     if [ ! -f "$tmx_formated_and_linted" ]; then
-    # if [ ! -f "$tmx_source_unziped" ]; then
-        # test -n "$DEBUG" || echo "start $1"
-        # echo unzip "$tmx_source_zip" -d "${TMX_OUT_ALL_DIR}/"
         unzip "$tmx_source_zip" -d "${TMX_OUT_ALL_DIR}/"
 
-        # echo xmllint --dtdvalid scripts/dtd/tmx14.dtd "${TMX_OUT_ALL_DIR}/all.am-om.tmx" 2>/dev/null
-        # xmllint --dtdvalid scripts/dtd/tmx14.dtd "${TMX_OUT_ALL_DIR}/all.am-om.tmx" 2>/dev/null
-        # echo xmllint --dtdvalid scripts/dtd/tmx14.dtd --noout "$tmx_source_unziped"
         xmllint --dtdvalid scripts/dtd/tmx14.dtd --noout "$tmx_source_unziped"
         test -n "$EXPLAIN" && echo "  >> TMX source syntax valid"
 
-        # echo xmllint --format "$tmx_source_unziped" > "$tmx_formated_and_linted"
         xmllint --format "$tmx_source_unziped" > "$tmx_formated_and_linted"
-
 
         rm "${TMX_OUT_ALL_DIR}/all.$1.tmx"
     else
@@ -117,15 +101,9 @@ tico19_tmx_extract() {
 
     if [ -n "$EXPLAIN" ]; then
         langs_all=$(tmx_tuv_langs_unique "$tmx_formated_and_linted")
-        # langs=$(xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang "$tmx_formated_and_linted" | sort | uniq | xargs echo)
         echo "  >> TMX languages <tuv> xml:lang: $langs_all"
         # echo "  >> TMX languages <tuv> xml:lang: $langs"
     fi
-
-    # Print unique languages on each file
-    # xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang "${TMX_OUT_ALL_DIR}/all.$1_linted.tmx" | sort | uniq
-
-    # xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang "${TMX_OUT_ALL_DIR}/all.$1_linted.tmx" | sort | uniq | python3 -c "from langcodes import *; import sys; print(Language.make(language='fr').display_name())"
 }
 
 
@@ -174,6 +152,25 @@ tico19_tmx_extract "en-ur"
 tico19_tmx_extract "en-zh"
 tico19_tmx_extract "en-zu"
 
+#### scripts/data-info/tico19_tm_twb_initial-language-pairs.csv ________________
+# Save the languages to CSV file to reuse later
+find data/original/TM/ -iname "all.en-*.zip" \
+  | grep -E '(en-...?.?.?.?).tmx' --only-matching \
+  | sed 's/.tmx//' | grep -v old | sort > scripts/data-info/tico19_tm_twb_initial-language-pairs.csv
+
+#### scripts/data-info/tico19_tm_twb_initial-languages.csv _____________________
+
+# cat scripts/data-info/tico19_tm_twb_initial-language-pairs.csv | sed 's/en-//'
+sed 's/en-//' scripts/data-info/tico19_tm_twb_initial-language-pairs.csv > scripts/data-info/tico19_tm_twb_initial-languages-temp.csv
+echo "en" >> scripts/data-info/tico19_tm_twb_initial-languages-temp.csv
+
+sort < scripts/data-info/tico19_tm_twb_initial-languages-temp.csv > scripts/data-info/tico19_tm_twb_initial-languages.csv
+
+rm scripts/data-info/tico19_tm_twb_initial-languages-temp.csv
+
+echo "Okay!"
+
+exit 0
 
 # tico19_tmx_extract "am-om"
 # tico19_tmx_extract "am-ti"
@@ -274,5 +271,3 @@ tico19_tmx_extract "en-zu"
 # tico19_tmx_extract "ru-ar"
 # tico19_tmx_extract "ru-es-LA"
 
-
-echo "Okay!"
