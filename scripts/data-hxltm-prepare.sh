@@ -31,6 +31,8 @@ cat scripts/data-info/tico19_t_facebook_initial+hotfixes-languages.csv \
   | sort | uniq > scripts/data-info/tico19_tm+t_twb+google+facebook_initial-languages.csv
 
 
+# NOTE: the https://github.com/datasets/language-codes, not used here, is a bit outdated
+
 # https://github.com/datasets/language-code
 # if [ ! -d "scripts/language-codes-git" ]; then
 #     git clone https://github.com/datasets/language-codes.git scripts/language-codes-git

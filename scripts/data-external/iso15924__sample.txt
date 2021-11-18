@@ -1,0 +1,10 @@
+#
+# ISO 15924 - Codes for the representation of names of scripts
+#             Codes pour la représentation des noms d’écritures
+# Format: 
+#             Code;N°;English Name;Nom français;PVA;Unicode Version;Date
+#
+
+Adlm;166;Adlam;adlam;Adlam;9.0;2016-12-05
+Afak;439;Afaka;afaka;;;2010-12-21
+Aghb;239;Caucasian Albanian;aghbanien;Caucasian_Albanian;7.0;2014-11-15

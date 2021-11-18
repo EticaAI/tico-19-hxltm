@@ -18,3 +18,8 @@ tico-19.github.io gets updated while this one does not.
 This directory has extra intermediate files used to prepare the end result.
 They are built with the scripts. While not formally documented, they can be
 used for a quick look.
+
+## data-external
+- [data-external/](data-external/)
+
+Directory that downloads external data used to process some tables.

@@ -11,6 +11,14 @@ data/original/tico19-testset
 !README.md
 tmp/
 
+#
+scripts/data-external/*
+!scripts/data-external/.gitkeep
+!scripts/data-external/iso15924__sample.csv
+!scripts/data-external/iso15924__sample.txt
+!scripts/data-external/iso-639-3__sample.csv
+!scripts/data-external/iso-639-3__sample.tab
+
 # https://github.com/datasets/language-codes
 scripts/language-codes-git
 

@@ -35,6 +35,8 @@ set -e
 
 ./scripts/data-original-download.sh
 
+./scripts/data-external-prepare.sh
+
 ./scripts/data-original-prepare-terminology.sh
 
 ./scripts/data-original-prepare-translation-memory.sh
