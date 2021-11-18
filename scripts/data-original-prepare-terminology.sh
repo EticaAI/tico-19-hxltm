@@ -13,6 +13,7 @@
 #                 - rsync
 #                 - miller
 #                   - See <https://github.com/johnkerl/miller>
+#                 - ./scripts/data-original-download.sh
 #          BUGS:  ---
 #         NOTES:  ---
 #       AUTHORS:  Emerson Rocha <rocha[at]ieee.org>
@@ -126,4 +127,38 @@ mlr --csv cat "${DATA_ORIGINAL_DIR}"/terminology/google/*.csv > "${DATA_ORIGINAL
 mlr --icsv check data/original/terminology/google/*.csv
 mlr --icsv check data/original/terminology/facebook/*.csv
 
+#### Extract unique languages __________________________________________________
+
+### The ones from Google already were good .....................................
+mlr --csv --headerless-csv-output cut -f sourceLang data/original/tico-19-terminology-google.csv | sort | uniq > scripts/data-info/tico19_t_google_initial-language-source.csv
+mlr --csv --headerless-csv-output cut -f targetLang data/original/tico-19-terminology-google.csv | sort | uniq > scripts/data-info/tico19_t_google_initial-language-target.csv
+cat scripts/data-info/tico19_t_google_initial-language-source.csv scripts/data-info/tico19_t_google_initial-language-target.csv | sort | uniq > scripts/data-info/tico19_t_google_initial-languages.csv
+
+# mlr --csv --headerless-csv-output cut -f sourceLang data/original/tico-19-terminology-google.csv | uniq
+# mlr --csv --headerless-csv-output cut -f targetLang data/original/tico-19-terminology-google.csv | uniq
+
+### The ones from facebook are poorly labeled ..................................
+mlr --csv --headerless-csv-output cut -f sourceLang data/original/tico-19-terminology-facebook.csv | sort | uniq | grep . > scripts/data-info/tico19_t_facebook_initial+hotfixes-language-source.csv
+mlr --csv --headerless-csv-output cut -f targetLang data/original/tico-19-terminology-facebook.csv | sort | uniq | grep . > scripts/data-info/tico19_t_facebook_initial+hotfixes-language-target.csv
+cat scripts/data-info/tico19_t_facebook_initial+hotfixes-language-source.csv scripts/data-info/tico19_t_facebook_initial+hotfixes-language-target.csv | sort | uniq > scripts/data-info/tico19_t_facebook_initial+hotfixes-languages.csv
+
+# print csvs
+# mlr --csv cat data/tico-19-terminology-google.tm2.hxl.csv
+# mlr --csv cut -f sourceLang,targetLang data/original/tico-19-terminology-google.csv
+### With HXL
+# hxlcut --include '#item+rem+linguam_fontem_est,#item+rem+linguam_objectivum_est' data/tico-19-terminology-google.tm2.hxl.csv
+#     mlr --csv cut -f sourceLang,targetLang data/tico-19-terminology-google.tm2.hxl.csv
+
+# #### scripts/data-info/tico19_tm_twb_initial-language-pairs.csv ________________
+# # Save the languages to CSV file to reuse later
+# find data/original/TM/ -iname "all.en-*.zip" \
+#   | grep -E '(en-...?.?.?.?).tmx' --only-matching \
+#   | sed 's/.tmx//' | grep -v old | sort > scripts/data-info/tico19_tm_twb_initial-language-pairs.csv
+
+# #### scripts/data-info/tico19_tm_twb_initial-languages.csv _____________________
+
+# # cat scripts/data-info/tico19_tm_twb_initial-language-pairs.csv | sed 's/en-//'
+# sed 's/en-//' scripts/data-info/tico19_tm_twb_initial-language-pairs.csv > scripts/data-info/tico19_tm_twb_initial-languages-temp.csv
+# echo "en" >> scripts/data-info/tico19_tm_twb_initial-languages-temp.csv
+set +x
 echo "Okay!"

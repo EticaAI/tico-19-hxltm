@@ -39,8 +39,8 @@ TMX_OUT_ALL_DIR="${DATA_ORIGINAL_DIR}/translation-memory/translators-without-bor
 
 set -x
 # TODO: extract also <prop type="note">
-hxltmdexml --agendum-linguam en-Latn@en data/original/translation-memory/translators-without-borders/all/en-pt-BR.tmx
+# hxltmdexml --agendum-linguam en-Latn@en data/original/translation-memory/translators-without-borders/all/en-pt-BR.tmx
 
 # hxltmdexml
-
+set +x
 echo "Okay!"
