@@ -1,0 +1,134 @@
+# SPDX-License-Identifier: Unlicense OR 0BSD
+# .github/workflows/tico-19-hxltm_etica-ai.yml
+
+# @see GitHub Flavored Asciidoc (GFA) https://gist.github.com/dcode/0cfbf2699a1fe9b46ff04c41721dda74
+
+name: tico-19-hxltm_etica-ai.yml
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+
+      # # TODO: make some cross-platform check if yq is installed. For now we're
+      # #       using continue-on-error: true, as the GitHu runner actually
+      # #       do have yq by default.
+      # - run: yq --version
+      #   id: yq-okay
+      #   continue-on-error: true
+
+      # # - name: setup yq
+      # #   if: steps.yq-okay.outcome != 'success'
+      # #   continue-on-error: true
+      # #   run: |
+      # #     sudo apt update -y
+      # #     sudo apt install snapd -y
+      # #     sudo snap install --classic yq
+
+      # # - run: sudo snap install yq
+      # #   # continue-on-error: true
+
+      # # # @see https://github.com/marketplace/actions/yq-portable-yaml-processor
+      # # - name: yq < ontologia/cor.hxltm.215.yml > ontologia/cor.hxltm.215.json
+      # #   uses: mikefarah/yq@v4
+      # #   with:
+      # #     cmd: yq < ontologia/cor.hxltm.215.yml > ontologia/cor.hxltm.215.json
+
+      # - run: yq < ontologia/cor.hxltm.215.yml > ontologia/cor.hxltm.215.json
+      #   continue-on-error: true
+
+      # # # @see https://github.com/marketplace/actions/yq-portable-yaml-processor
+      # # - name: yq < ontologia/0.77.995.yml > ontologia/0.77.995.json
+      # #   uses: mikefarah/yq@v4
+      # #   with:
+      # #     cmd: yq < ontologia/0.77.995.yml > ontologia/0.77.995.json
+
+      # - run: yq < ontologia/0.77.995.yml > ontologia/0.77.995.json
+      #   continue-on-error: true
+
+      # - run: cp -r bin/ docs/bin/
+      #   # continue-on-error: true
+
+      # - run: cp -r ontologia/ docs/ontologia/
+      #   # continue-on-error: true
+
+      # - run: cp -r testum/ docs/testum/
+      #   # continue-on-error: true
+
+      # # - run: cp CNAME docs/CNAME
+      # #   continue-on-error: true
+
+      - run: cp -r docs/ ./
+        continue-on-error: true
+
+      - run: cp -r docs/index.adoc ./index.adoc
+        continue-on-error: true
+      - run: cp -r docs/eng-Latn/index.adoc ./eng-Latn/index.adoc
+        continue-on-error: true
+
+      # # @see https://github.com/reitzig/actions-asciidoctor
+      # - uses: ruby/setup-ruby@v1
+      #   continue-on-error: true
+      #   with:
+      #     ruby-version: 2.7
+
+      # - uses: reitzig/actions-asciidoctor@v2.0.0
+      #   continue-on-error: true
+      #   with:
+      #     version: 2.0.16
+
+      # - run: asciidoctor --version
+      #   continue-on-error: true
+
+      # @see https://github.com/manoelcampos/asciidoctor-ghpages-action
+      # Includes the AsciiDoctor GitHub Pages Action to convert adoc files to html and publish to gh-pages branch
+      - name: asciidoctor-ghpages
+        uses: manoelcampos/asciidoctor-ghpages-action@v2
+        # continue-on-error: true
+        with:
+          # asciidoctor_params: --attribute=nofooter
+          asciidoctor_params: --attribute source-highlighter=rouge
+          # pdf_build: true
+          # ebook_main_adoc_file: index
+          # adoc_file_ext: .ascii # default is .adoc
+          # source_dir: docs/ # default is .
+          # slides_build: true
+          # pre_build:
+          # post_build: 'echo "hxltm.etica.ai" > CNAME'
+          # pre_build: find . type -f
+          # pre_build: git add .
+
+
+      # asciidoctor
+      # @see https://asciidoctor.org/#bundler
+      #    cat Gemfile
+      #    source 'https://rubygems.org'
+      #    gem 'asciidoctor'
+      #    gem 'asciidoctor-pdf'
+      #    gem 'asciidoctor-epub3'
+      #    gem 'rouge'
+
+      # bundle exec asciidoctor-pdf --attribute allow-uri-read=1 docs/eng-Latn/index.adoc
+      # bundle exec asciidoctor-epub --attribute allow-uri-read=1 docs/eng-Latn/index.adoc
+      # bundle exec asciidoctor-pdf -v --attribute allow-uri-read=1 --attribute source-highlighter=rouge docs/eng-Latn/index.adoc
+      # bundle exec asciidoctor-epub3 -v --attribute allow-uri-read=1 --attribute source-highlighter=rouge docs/eng-Latn/index.adoc
+
+      # bundle exec asciidoctor-pdf -v --attribute allow-uri-read=1 docs/eng-Latn/draft-eng-Latn.adoc
+      # bundle exec asciidoctor-pdf -v --attribute allow-uri-read=1 --attribute source-highlighter=rouge docs/eng-Latn/draft-eng-Latn.adoc
+      # bundle exec asciidoctor-pdf -v --attribute allow-uri-read=1 docs/eng-Latn/index.ado
