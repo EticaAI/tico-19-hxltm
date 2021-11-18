@@ -6,6 +6,7 @@ data/original/fb_covid-19.zip
 data/original/google_covid-19.zip
 data/original/terminologies.zip
 data/original/tico19-testset.zip
+data/original/tico19-testset
 !.gitignore
 !README.md
 tmp/
