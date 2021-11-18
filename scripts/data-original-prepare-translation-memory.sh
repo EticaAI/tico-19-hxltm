@@ -49,7 +49,27 @@ rsync --archive --verbose "${DATA_ORIGINAL_GIT_DIR}/data/" "$DATA_ORIGINAL_DIR/"
 
 # xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang data/original/translation-memory/translators-without-borders/all/all.en-fr.tmx
 
-################################################################################
+
+#######################################
+# Extract, validate (TMX syntax only), and export formated TMX.
+# Example:
+#    tmx_tuv_langs_sorted path/to/file.tmx
+# Requires:
+#   xmlstarlet
+# Globals:
+#   None
+# Arguments:
+#   tmx_file    Path to a TMX file on the disk.
+#######################################
+tmx_tuv_langs_unique() {
+    # echo "$*"
+    # echo "oioioi"
+    # echo "tmx_tuv_langs_sorted is [$1]"
+    xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang "$1" | sort | uniq | xargs echo
+}
+
+
+#######################################
 # Extract, validate (TMX syntax only), and export formated TMX.
 # Globals:
 #   TMX_OUT_ALL_DIR
@@ -58,7 +78,7 @@ rsync --archive --verbose "${DATA_ORIGINAL_GIT_DIR}/data/" "$DATA_ORIGINAL_DIR/"
 #   EXPLAIN
 # Arguments:
 #   non-standard-lang-pair  Language pair string, _as it is_, on TICO-19
-################################################################################
+#######################################
 tico19_tmx_extract() {
     # TODO: better naming
 
@@ -96,59 +116,53 @@ tico19_tmx_extract() {
     test -n "$EXPLAIN" && echo "  >> TMX linted syntax valid"
 
     if [ -n "$EXPLAIN" ]; then
-        langs=$(xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang "$tmx_formated_and_linted" | sort | uniq | xargs echo)
-        echo "  >> TMX languages <tuv> xml:lang: $langs"
+        langs_all=$(tmx_tuv_langs_unique "$tmx_formated_and_linted")
+        # langs=$(xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang "$tmx_formated_and_linted" | sort | uniq | xargs echo)
+        echo "  >> TMX languages <tuv> xml:lang: $langs_all"
+        # echo "  >> TMX languages <tuv> xml:lang: $langs"
     fi
 
     # Print unique languages on each file
     # xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang "${TMX_OUT_ALL_DIR}/all.$1_linted.tmx" | sort | uniq
-    
+
     # xmlstarlet select --template --value-of /tmx/body/tu/tuv/@xml:lang "${TMX_OUT_ALL_DIR}/all.$1_linted.tmx" | sort | uniq | python3 -c "from langcodes import *; import sys; print(Language.make(language='fr').display_name())"
 }
 
 
-tico19_tmx_extract "am-om"
-tico19_tmx_extract "am-ti"
-tico19_tmx_extract "ar-es-LA"
+# From The benchmark includes 30 documents  translated from English into 37 languages: 
 
-exit 0
+# From https://tico-19.github.io/memories.html at 2021-11-17, 37 languages
+#    document.querySelectorAll('table th').forEach(function(el){console.log(el.innerHTML)})
+# Amharic, Arabic (Modern Standard), Bengali, Chinese (Simplified), Dari, Dinka, Farsi, French (European), Hausa, Hindi, Indonesian, Kanuri, Khmer (Central), Kinyarwanda, Kurdish Kurmanji, Kurdish Sorani, Lingala, Luganda, Malay, Marathi, Myanmar, Nepali, Nigerian Fulfulde, Nuer, Oromo, Pashto, Portuguese (Brazilian), Russian, Somali, Spanish (Latin American), Swahili, Tagalog, Tamil, Ethiopian Tigrinya, Eritrean Tigrinya, Urdu, Zulu.
+# find data/original/TM/ -iname all.en-*.zip | grep -E '(en-...?.?.?.?).tmx' --only-matching | sed 's/.tmx//' | grep -v old | sort | xargs printf '\ntico19_tmx_extract "%s"'
 
-tico19_tmx_extract "ar-fr"
-tico19_tmx_extract "ar-id"
-tico19_tmx_extract "ar-pt-BR"
-tico19_tmx_extract "ar-ru"
-tico19_tmx_extract "ar-zh"
+tico19_tmx_extract "en-ar"
 tico19_tmx_extract "en-bn"
 tico19_tmx_extract "en-ckb"
-# NOTE: is all.en_ckb.tmx empty?
-# TODO: check en_ckb
 tico19_tmx_extract "en-din"
 tico19_tmx_extract "en-es-LA"
-
-# TODO: check all.en-fa.old.tmx.zip
-
 tico19_tmx_extract "en-fa"
-
-tico19_tmx_extract "en-fr" # NOTE: both .tmx and .tmx.zip present. Likely to be the same (just unziped)
-tico19_tmx_extract "en-fuv" # NOTE: both .tmx and .tmx.zip present
-tico19_tmx_extract "en-hi" # NOTE: both .tmx and .tmx.zip present
-tico19_tmx_extract "en-id" # NOTE: both .tmx and .tmx.zip present
+tico19_tmx_extract "en-fr"
+tico19_tmx_extract "en-fuv"
+tico19_tmx_extract "en-ha"
+tico19_tmx_extract "en-hi"
+tico19_tmx_extract "en-id"
 tico19_tmx_extract "en-km"
 tico19_tmx_extract "en-kr"
-tico19_tmx_extract "en-ku" # NOTE: both .tmx and .tmx.zip present
-tico19_tmx_extract "en-lg" # NOTE: both .tmx and .tmx.zip present
-tico19_tmx_extract "en-ln" # NOTE: both .tmx and .tmx.zip present
+tico19_tmx_extract "en-ku"
+tico19_tmx_extract "en-lg"
+tico19_tmx_extract "en-ln"
 tico19_tmx_extract "en-mr"
-tico19_tmx_extract "en-ms" # NOTE: both .tmx and .tmx.zip present
+tico19_tmx_extract "en-ms"
 tico19_tmx_extract "en-my"
 tico19_tmx_extract "en-ne"
 tico19_tmx_extract "en-nus"
 tico19_tmx_extract "en-om"
 tico19_tmx_extract "en-prs"
-tico19_tmx_extract "en-ps"  # NOTE: both .tmx and .tmx.zip present
-tico19_tmx_extract "en-pt-BR"  # NOTE: both .tmx and .tmx.zip present
-tico19_tmx_extract "en-ru"  # NOTE: both .tmx and .tmx.zip present
-tico19_tmx_extract "en-rw"  # NOTE: both .tmx and .tmx.zip present
+tico19_tmx_extract "en-ps"
+tico19_tmx_extract "en-pt-BR"
+tico19_tmx_extract "en-ru"
+tico19_tmx_extract "en-rw"
 tico19_tmx_extract "en-so"
 tico19_tmx_extract "en-sw"
 tico19_tmx_extract "en-ta"
@@ -156,217 +170,109 @@ tico19_tmx_extract "en-ti"
 tico19_tmx_extract "en-ti_ER"
 tico19_tmx_extract "en-ti_ET"
 tico19_tmx_extract "en-tl"
-tico19_tmx_extract "en-ur" # NOTE: both .tmx and .tmx.zip present
-tico19_tmx_extract "en-zh" # NOTE: both .tmx and .tmx.zip present
+tico19_tmx_extract "en-ur"
+tico19_tmx_extract "en-zh"
 tico19_tmx_extract "en-zu"
-tico19_tmx_extract "es-LA-ar"
-tico19_tmx_extract "es-LA-hi"
-tico19_tmx_extract "es-LA-id"
-tico19_tmx_extract "es-LA-pt-BR"
-tico19_tmx_extract "es-LA-ru"
-tico19_tmx_extract "es-LA-zh"
-tico19_tmx_extract "fa-prs"
-tico19_tmx_extract "fr-ar"
-tico19_tmx_extract "fr-es-LA"
-tico19_tmx_extract "fr-fuv"
-tico19_tmx_extract "fr-hi"
-tico19_tmx_extract "fr-id"
-tico19_tmx_extract "fr-lg"
-tico19_tmx_extract "fr-ln"
-tico19_tmx_extract "fr-pt-BR"
-tico19_tmx_extract "fr-ru"
-tico19_tmx_extract "fr-rw"
-tico19_tmx_extract "fr-sw"
-tico19_tmx_extract "fr-zh"
-tico19_tmx_extract "fr-zu"
-tico19_tmx_extract "hi-ar"
-tico19_tmx_extract "hi-bn"
-tico19_tmx_extract "hi-es-LA"
-tico19_tmx_extract "hi-fr"
-tico19_tmx_extract "hi-id"
-tico19_tmx_extract "hi-mr"
-tico19_tmx_extract "hi-pt-BR"
-tico19_tmx_extract "hi-ru"
-tico19_tmx_extract "hi-ur"
-tico19_tmx_extract "hi-zh"
-tico19_tmx_extract "id-ar"
-tico19_tmx_extract "id-es-LA"
-tico19_tmx_extract "id-fr"
-tico19_tmx_extract "id-hi"
-tico19_tmx_extract "id-pt-BR"
-tico19_tmx_extract "id-ru"
-tico19_tmx_extract "id-zh"
-tico19_tmx_extract "ku-ckb"
-tico19_tmx_extract "pt-BR-ar"
-tico19_tmx_extract "pt-BR-es-LA"
-tico19_tmx_extract "pt-BR-hi"
-tico19_tmx_extract "pt-BR-id"
-tico19_tmx_extract "pt-BR-ru"
-tico19_tmx_extract "pt-BR-zh"
-tico19_tmx_extract "ru-ar"
-tico19_tmx_extract "ru-es-LA"
-
-# ru-fr. (...)
 
 
-# https://github.com/datasets/language-codes/blob/master/language-codes.sh
-# xmllint --xpath 'text()' --dtdvalid scripts/dtd/tmx14.dtd data/original/translation-memory/translators-without-borders/all/all.en-fr.tmx
-# xmlstarlet select --value-of tmx data/original/translation-memory/translators-without-borders/all/all.en-fr.tmx
-# xmlstarlet select --template --value-of /tmx data/original/translation-memory/translators-without-borders/all/all.en-fr.tmx
+# tico19_tmx_extract "am-om"
+# tico19_tmx_extract "am-ti"
+# tico19_tmx_extract "ar-es-LA"
 
-# xmlstarlet select --template --value-of /tmx/body/tu/@lang data/original/translation-memory/translators-without-borders/all/all.en-fr.tmx
-# xmlstarlet select --template --value-of /tmx/body/tu/tuv[@xml:lang] data/original/translation-memory/translators-without-borders/all/all.en-fr.tm
-# https://pypi.org/project/langcodes/
-# python3 -c "from langcodes import *; import sys; print('rob')"
-# python3 -c "from langcodes import *; import sys; print(Language.make(language='fr').display_name())"
+# # exit 0
 
-# TODO: implement this type of help
-# xmlstarlet select --help
+# tico19_tmx_extract "ar-fr"
+# tico19_tmx_extract "ar-id"
+# tico19_tmx_extract "ar-pt-BR"
+# tico19_tmx_extract "ar-ru"
+# tico19_tmx_extract "ar-zh"
+# tico19_tmx_extract "en-bn"
+# tico19_tmx_extract "en-ckb"
+# # NOTE: is all.en_ckb.tmx empty?
+# # TODO: check en_ckb
+# tico19_tmx_extract "en-din"
+# tico19_tmx_extract "en-es-LA"
 
-# yq '.[0]' data/original/translation-memory/translators-without-borders/all/all.en-fr.tmx
-# yq '.[0]' data/original/translation-memory/translators-without-borders/all/all.ar-pt-BR_linted.tmx
+# # TODO: check all.en-fa.old.tmx.zip
 
-# xmllint --format data/original/translation-memory/translators-without-borders/all/all.am-om.tmx
-# if [ ! -f "${TMX_OUT_ALL_DIR}/all.am-om.tmx" ]; then
-#     unzip "${TMX_DIR_IN}/all.am-om.tmx.zip" -d "${TMX_OUT_ALL_DIR}/"
-#     xmllint --format "${TMX_OUT_ALL_DIR}/all.am-om.tmx" > "${TMX_OUT_ALL_DIR}/all.am-om_linted.tmx"
-# fi
+# tico19_tmx_extract "en-fa"
 
+# tico19_tmx_extract "en-fr" # NOTE: both .tmx and .tmx.zip present. Likely to be the same (just unziped)
+# tico19_tmx_extract "en-fuv" # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-hi" # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-id" # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-km"
+# tico19_tmx_extract "en-kr"
+# tico19_tmx_extract "en-ku" # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-lg" # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-ln" # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-mr"
+# tico19_tmx_extract "en-ms" # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-my"
+# tico19_tmx_extract "en-ne"
+# tico19_tmx_extract "en-nus"
+# tico19_tmx_extract "en-om"
+# tico19_tmx_extract "en-prs"
+# tico19_tmx_extract "en-ps"  # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-pt-BR"  # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-ru"  # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-rw"  # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-so"
+# tico19_tmx_extract "en-sw"
+# tico19_tmx_extract "en-ta"
+# tico19_tmx_extract "en-ti"
+# tico19_tmx_extract "en-ti_ER"
+# tico19_tmx_extract "en-ti_ET"
+# tico19_tmx_extract "en-tl"
+# tico19_tmx_extract "en-ur" # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-zh" # NOTE: both .tmx and .tmx.zip present
+# tico19_tmx_extract "en-zu"
+# tico19_tmx_extract "es-LA-ar"
+# tico19_tmx_extract "es-LA-hi"
+# tico19_tmx_extract "es-LA-id"
+# tico19_tmx_extract "es-LA-pt-BR"
+# tico19_tmx_extract "es-LA-ru"
+# tico19_tmx_extract "es-LA-zh"
+# tico19_tmx_extract "fa-prs"
+# tico19_tmx_extract "fr-ar"
+# tico19_tmx_extract "fr-es-LA"
+# tico19_tmx_extract "fr-fuv"
+# tico19_tmx_extract "fr-hi"
+# tico19_tmx_extract "fr-id"
+# tico19_tmx_extract "fr-lg"
+# tico19_tmx_extract "fr-ln"
+# tico19_tmx_extract "fr-pt-BR"
+# tico19_tmx_extract "fr-ru"
+# tico19_tmx_extract "fr-rw"
+# tico19_tmx_extract "fr-sw"
+# tico19_tmx_extract "fr-zh"
+# tico19_tmx_extract "fr-zu"
+# tico19_tmx_extract "hi-ar"
+# tico19_tmx_extract "hi-bn"
+# tico19_tmx_extract "hi-es-LA"
+# tico19_tmx_extract "hi-fr"
+# tico19_tmx_extract "hi-id"
+# tico19_tmx_extract "hi-mr"
+# tico19_tmx_extract "hi-pt-BR"
+# tico19_tmx_extract "hi-ru"
+# tico19_tmx_extract "hi-ur"
+# tico19_tmx_extract "hi-zh"
+# tico19_tmx_extract "id-ar"
+# tico19_tmx_extract "id-es-LA"
+# tico19_tmx_extract "id-fr"
+# tico19_tmx_extract "id-hi"
+# tico19_tmx_extract "id-pt-BR"
+# tico19_tmx_extract "id-ru"
+# tico19_tmx_extract "id-zh"
+# tico19_tmx_extract "ku-ckb"
+# tico19_tmx_extract "pt-BR-ar"
+# tico19_tmx_extract "pt-BR-es-LA"
+# tico19_tmx_extract "pt-BR-hi"
+# tico19_tmx_extract "pt-BR-id"
+# tico19_tmx_extract "pt-BR-ru"
+# tico19_tmx_extract "pt-BR-zh"
+# tico19_tmx_extract "ru-ar"
+# tico19_tmx_extract "ru-es-LA"
 
-
-# find data/original/TM/ -iname all.en-*.zip | wc -l
-#     38
-# find data/original/TM/ -iname all.en-*.zip
-#     data/original/TM/all.en-fr.tmx.zip
-#     data/original/TM/all.en-lg.tmx.zip
-#     data/original/TM/all.en-so.tmx.zip
-#     data/original/TM/all.en-hi.tmx.zip
-#     data/original/TM/all.en-es-LA.tmx.zip
-#     data/original/TM/all.en-ar.tmx.zip
-#     data/original/TM/all.en-ti_ET.tmx.zip
-#     data/original/TM/all.en-ru.tmx.zip
-#     data/original/TM/all.en-zh.tmx.zip
-#     data/original/TM/all.en-prs.tmx.zip
-#     data/original/TM/all.en-pt-BR.tmx.zip
-#     data/original/TM/all.en-zu.tmx.zip
-#     data/original/TM/all.en-bn.tmx.zip
-#     data/original/TM/all.en-ne.tmx.zip
-#     data/original/TM/all.en-km.tmx.zip
-#     data/original/TM/all.en-ta.tmx.zip
-#     data/original/TM/all.en-ckb.tmx.zip
-#     data/original/TM/all.en-kr.tmx.zip
-#     data/original/TM/all.en-sw.tmx.zip
-#     data/original/TM/all.en-ti.tmx.zip
-#     data/original/TM/all.en-ha.tmx.zip
-#     data/original/TM/all.en-ku.tmx.zip
-#     data/original/TM/all.en-ln.tmx.zip
-#     data/original/TM/all.en-fuv.tmx.zip
-#     data/original/TM/all.en-ms.tmx.zip
-#     data/original/TM/all.en-id.tmx.zip
-#     data/original/TM/all.en-din.tmx.zip
-#     data/original/TM/all.en-ur.tmx.zip
-#     data/original/TM/all.en-fa.tmx.zip
-#     data/original/TM/all.en-rw.tmx.zip
-#     data/original/TM/all.en-ps.tmx.zip
-#     data/original/TM/all.en-fa.old.tmx.zip
-#     data/original/TM/all.en-mr.tmx.zip
-#     data/original/TM/all.en-ti_ER.tmx.zip
-#     data/original/TM/all.en-om.tmx.zip
-#     data/original/TM/all.en-my.tmx.zip
-#     data/original/TM/all.en-tl.tmx.zip
-#     data/original/TM/all.en-nus.tmx.zip
-
-# -1, TM/all.en-fa.old.tmx.zip, 37
-
-# find data/original/TM/ -iname all.en-*.zip | grep -E en-..?.?\.
-# find data/original/TM/ -iname all.en-*.zip | grep -E en-..?.?\. --only-matching
-
-# find data/original/TM/ -iname all.en-*.zip | grep -E '(en-...?.?.?.?).tmx' --only-matching | wc -l
-#     38
-
-
-# find data/original/TM/ -iname all.en-*.zip | grep -E '(en-...?.?.?.?).tmx' --only-matching | sed 's/.tmx//'
-#     en-fr
-#     en-lg
-#     en-so
-#     en-hi
-#     en-es-LA
-#     en-ar
-#     en-ti_ET
-#     en-ru
-#     en-zh
-#     en-prs
-#     en-pt-BR
-#     en-zu
-#     en-bn
-#     en-ne
-#     en-km
-#     en-ta
-#     en-ckb
-#     en-kr
-#     en-sw
-#     en-ti
-#     en-ha
-#     en-ku
-#     en-ln
-#     en-fuv
-#     en-ms
-#     en-id
-#     en-din
-#     en-ur
-#     en-fa
-#     en-rw
-#     en-ps
-#     en-fa.old
-#     en-mr
-#     en-ti_ER
-#     en-om
-#     en-my
-#     en-tl
-#     en-nus
-
-
-# find data/original/TM/ -iname all.en-*.zip | grep -E '(en-...?.?.?.?).tmx' --only-matching | sed 's/.tmx//' | sed 's/.old//'
-#     en-fr
-#     en-lg
-#     en-so
-#     en-hi
-#     en-es-LA
-#     en-ar
-#     en-ti_ET
-#     en-ru
-#     en-zh
-#     en-prs
-#     en-pt-BR
-#     en-zu
-#     en-bn
-#     en-ne
-#     en-km
-#     en-ta
-#     en-ckb
-#     en-kr
-#     en-sw
-#     en-ti
-#     en-ha
-#     en-ku
-#     en-ln
-#     en-fuv
-#     en-ms
-#     en-id
-#     en-din
-#     en-ur
-#     en-fa
-#     en-rw
-#     en-ps
-#     en-fa
-#     en-mr
-#     en-ti_ER
-#     en-om
-#     en-my
-#     en-tl
-#     en-nus
-
-
-# xmllint --dtdvalid scripts/dtd/tmx14.dtd data/original/translation-memory/translators-without-borders/all/all.am-om.tmx
 
 echo "Okay!"

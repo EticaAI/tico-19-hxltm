@@ -28,10 +28,6 @@ Revision notes: {revremark}
 
 <<<
 
-Public domain datasets from
-[Translation Initiative for COVID-19](https://tico-19.github.io) on the format
-HXLTM (Multilingual Terminology in Humanitarian Language Exchange).**
-
 Public domain datasets of the https://tico-19.github.io[Translation Initiative for COVID-19] on the format HXLTM (Multilingual Terminology in Humanitarian Language Exchange).
 
 
