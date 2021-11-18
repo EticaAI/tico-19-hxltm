@@ -1,0 +1,47 @@
+= TICO-19 in HXLTM
+// EticaAI, Collaborators_of <etica.of.a.ai@gmail.com>; Rocha, Emerson <rocha@ieee.org>
+:toc: 1
+:toclevels: 4
+:sectnums:
+:sectlinks:
+// :rouge-style: monokai
+// :version-label: HXLTM Live 
+// :variable-organization-name-current: Collaborators of Etica.AI
+// :variable-documentation-live-link: https://hxltm.etica.ai/
+// :variable-python-package-manager-name: hxltm-eticaai
+// :variable-python-package-manager-released-version: 0.8.9
+// :variable-python-package-manager-full: v{variable-python-package-manager-released-version}~{variable-python-package-manager-name}
+// :revnumber: {variable-python-package-manager-full}
+// :revdate: July 29, 2025
+// :revremark: Summertime!
+
+////
+== Colophon
+
+[%hardbreaks]
+Revision number: {revnumber}
+Revision date: {revdate}
+Revision notes: {revremark}
+
+- https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+////
+
+<<<
+
+Public domain datasets from
+[Translation Initiative for COVID-19](https://tico-19.github.io) on the format
+HXLTM (Multilingual Terminology in Humanitarian Language Exchange).**
+
+Public domain datasets of the https://tico-19.github.io[Translation Initiative for COVID-19] on the format HXLTM (Multilingual Terminology in Humanitarian Language Exchange).
+
+
+== License
+
+link:UNLICENSE[image:../img/public-domain.png[Public Domain Dedication]]
+
+The https://github.com/EticaAI[EticaAI] has dedicated the work to the
+link:../../UNLICENSE[public domain] by waiving all of their rights to the
+work worldwide under copyright law, including all related and
+neighboring rights, to the extent allowed by law. You can copy, modify,
+distribute and perform the work, even for commercial purposes, all
+without asking permission.

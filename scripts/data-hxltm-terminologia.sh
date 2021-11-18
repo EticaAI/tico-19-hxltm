@@ -40,8 +40,8 @@ set -x
 # TODO: decide better tagging conventions
 hxltag --default-tag='#meta' \
   --map='stringID #item+conceptum+codicem' \
-  --map='sourceLang #item+rem+fontem+linguam+v_bcp47' \
-  --map='targetLang #item+rem+objectivum+linguam+v_bcp47' \
+  --map='sourceLang #item+rem+linguam_fontem_est+v_bcp47' \
+  --map='targetLang #item+rem+linguam_objectivum_est+v_bcp47' \
   --map='pos #item+rem2+fontem+partem_orationis' \
   --map='description #item+rem+definitionem+i_mul+ii_zyyy' \
   --map='sourceString #item+rem+fontem+terminum' \
