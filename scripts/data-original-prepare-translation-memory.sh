@@ -16,6 +16,7 @@
 #                   - sudo apt  install libxml2-utils
 #                 - xmlstarlet
 #                   - sudo apt  install xmlstarlet
+#                 - ./scripts/data-hxltm-prepare.sh
 #          BUGS:  ---
 #         NOTES:  ---
 #       AUTHORS:  Emerson Rocha <rocha[at]ieee.org>
@@ -152,16 +153,16 @@ tico19_tmx_extract "en-ur"
 tico19_tmx_extract "en-zh"
 tico19_tmx_extract "en-zu"
 
-#### scripts/data-info/tico19_tm_twb_initial-language-pairs.csv ________________
+#### scripts/data-info/tico19_tm_twb_initial-language-pairs_source-lang-en.csv ________________
 # Save the languages to CSV file to reuse later
 find data/original/TM/ -iname "all.en-*.zip" \
   | grep -E '(en-...?.?.?.?).tmx' --only-matching \
-  | sed 's/.tmx//' | grep -v old | sort > scripts/data-info/tico19_tm_twb_initial-language-pairs.csv
+  | sed 's/.tmx//' | grep -v old | sort > scripts/data-info/tico19_tm_twb_initial-language-pairs_source-lang-en.csv
 
 #### scripts/data-info/tico19_tm_twb_initial-languages.csv _____________________
 
-# cat scripts/data-info/tico19_tm_twb_initial-language-pairs.csv | sed 's/en-//'
-sed 's/en-//' scripts/data-info/tico19_tm_twb_initial-language-pairs.csv > scripts/data-info/tico19_tm_twb_initial-languages-temp.csv
+# cat scripts/data-info/tico19_tm_twb_initial-language-pairs_source-lang-en.csv | sed 's/en-//'
+sed 's/en-//' scripts/data-info/tico19_tm_twb_initial-language-pairs_source-lang-en.csv > scripts/data-info/tico19_tm_twb_initial-languages-temp.csv
 echo "en" >> scripts/data-info/tico19_tm_twb_initial-languages-temp.csv
 
 sort < scripts/data-info/tico19_tm_twb_initial-languages-temp.csv > scripts/data-info/tico19_tm_twb_initial-languages.csv

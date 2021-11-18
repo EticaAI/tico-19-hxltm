@@ -9,7 +9,18 @@
 #
 #       OPTIONS:  ---
 #
-#  REQUIREMENTS:  ---
+#  REQUIREMENTS:  - POSIX Shell or better
+#                 - git
+#                 - rsync
+#                 - hxltm
+#                   - pip install hxltm-eticaai
+#                 - miller
+#                   - See <https://github.com/johnkerl/miller>
+#                 - xmllint
+#                   - See <http://xmlsoft.org/>
+#                   - sudo apt  install libxml2-utils
+#                 - xmlstarlet
+#                   - sudo apt  install xmlstarlet
 #          BUGS:  ---
 #         NOTES:  ---
 #       AUTHORS:  Emerson Rocha <rocha[at]ieee.org>
@@ -26,11 +37,15 @@ set -e
 
 ./scripts/data-original-prepare-terminology.sh
 
-./scripts/data-hxltm-terminologia.sh
-
 ./scripts/data-original-prepare-translation-memory.sh
 
+./scripts/data-hxltm-prepare.sh
+
+./scripts/data-hxltm-terminologia.sh
+
 ./scripts/data-hxltm-translation-memory-import.sh
+
+# https://github.com/datasets/language-codes
 
 # @TODO maybe convert docs/eng-Latn/index.adoc
 #       to markdown before setup an ascidoctor pipeline here

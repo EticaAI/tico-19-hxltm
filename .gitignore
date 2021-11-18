@@ -11,6 +11,9 @@ data/original/tico19-testset
 !README.md
 tmp/
 
+# https://github.com/datasets/language-codes
+scripts/language-codes-git
+
 .vscode/settings.json
 # {
 #     "xml.fileAssociations": [
