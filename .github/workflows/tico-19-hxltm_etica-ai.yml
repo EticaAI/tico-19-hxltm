@@ -116,6 +116,20 @@ jobs:
       - run: rm CHANGELOG.md
         continue-on-error: true
 
+      - run: |
+          for FILE in `find . -name "README.html"`; do
+            echo "$FILE"
+            echo $(dirname $FILE)
+            # mv "`dirname $FILE`/index.html"; 
+          done
+        continue-on-error: true
+
+      - run: |
+          for FILE in `find . -name "*.html"`; do 
+              git add -f "$FILE"; 
+          done
+        continue-on-error: true
+
       ### Quick list of files to be commited on end page
       - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" 
         continue-on-error: true
@@ -144,8 +158,10 @@ jobs:
 
       #### Some checks on HTML _________________________________________________
       # We will tolerate errors, but allow manual check on GitHub actions logs
-      - run: bundle exec htmlproofer ./
+      - run: bundle exec htmlproofer ./ --file-ignore /tmp/,/vendor/
         continue-on-error: true
+
+      # bundle exec htmlproofer --url-ignore ./vendor/ .
 
       #### Deploy end result
       # @see https://github.com/peaceiris/actions-gh-pages
