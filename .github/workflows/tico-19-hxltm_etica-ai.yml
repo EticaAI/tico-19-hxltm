@@ -13,7 +13,7 @@ on:
       - "main"
       - "site-test"
   pull_request:
-    branches: 
+    branches:
       - "main"
       - "site-test"
 
@@ -29,49 +29,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-
-      # # TODO: make some cross-platform check if yq is installed. For now we're
-      # #       using continue-on-error: true, as the GitHu runner actually
-      # #       do have yq by default.
-      # - run: yq --version
-      #   id: yq-okay
-      #   continue-on-error: true
-
-      # # - name: setup yq
-      # #   if: steps.yq-okay.outcome != 'success'
-      # #   continue-on-error: true
-      # #   run: |
-      # #     sudo apt update -y
-      # #     sudo apt install snapd -y
-      # #     sudo snap install --classic yq
-
-      # # - run: sudo snap install yq
-      # #   # continue-on-error: true
-
-      # # # @see https://github.com/marketplace/actions/yq-portable-yaml-processor
-      # # - name: yq < ontologia/cor.hxltm.215.yml > ontologia/cor.hxltm.215.json
-      # #   uses: mikefarah/yq@v4
-      # #   with:
-      # #     cmd: yq < ontologia/cor.hxltm.215.yml > ontologia/cor.hxltm.215.json
-
-      # - run: yq < ontologia/cor.hxltm.215.yml > ontologia/cor.hxltm.215.json
-      #   continue-on-error: true
-
-      # # # @see https://github.com/marketplace/actions/yq-portable-yaml-processor
-      # # - name: yq < ontologia/0.77.995.yml > ontologia/0.77.995.json
-      # #   uses: mikefarah/yq@v4
-      # #   with:
-      # #     cmd: yq < ontologia/0.77.995.yml > ontologia/0.77.995.json
-
-      # - run: yq < ontologia/0.77.995.yml > ontologia/0.77.995.json
-      #   continue-on-error: true
-
-      # - run: cp -r bin/ docs/bin/
-      #   # continue-on-error: true
-
-      # - run: cp -r ontologia/ docs/ontologia/
-      #   # continue-on-error: true
-
       - run: cp -r data/ docs/data/
         continue-on-error: true
 
@@ -80,61 +37,6 @@ jobs:
 
       - run: cp LICENSE docs/LICENSE
         continue-on-error: true
-
-      - run: cp CNAME docs/CNAME
-        continue-on-error: true
-
-      # - run: cp -r docs/* .
-      #   continue-on-error: true
-
-      # # - run: rsync --archive --verbose
-      # #   continue-on-error: true
-
-      # - run: cp -r docs/index.adoc ./index.adoc
-      #   continue-on-error: true
-
-      # - run: mkdir eng-Latn
-      #   continue-on-error: true
-
-      # - run: cp -r docs/eng-Latn/index.adoc ./eng-Latn/index.adoc
-      #   continue-on-error: true
-
-      # - run: ls -lha
-      #   continue-on-error: true
-
-      # - run: ls -lha eng-Latn
-      #   continue-on-error: true
-
-      # - run: tree
-      #   continue-on-error: true
-
-      # - run: find .
-      #   continue-on-error: true
-
-      # - run: rm README.md
-      #   continue-on-error: true
-
-      # - run: rm -r docs
-      #   continue-on-error: true
-
-      # # hotfix for asciidoctor-ghpages-action 'find . -name "*$INPUT_ADOC_FILE_EXT" | xargs git rm -f --cached'
-      # #    fatal: pathspec './eng-Latn/index.adoc' did not match any file
-      # - run: git add .
-      #   continue-on-error: true
-
-      # # @see https://github.com/reitzig/actions-asciidoctor
-      # - uses: ruby/setup-ruby@v1
-      #   continue-on-error: true
-      #   with:
-      #     ruby-version: 2.7
-
-      # - uses: reitzig/actions-asciidoctor@v2.0.0
-      #   continue-on-error: true
-      #   with:
-      #     version: 2.0.16
-
-      # - run: asciidoctor --version
-      #   continue-on-error: true
 
       # @see https://github.com/manoelcampos/asciidoctor-ghpages-action
       # Includes the AsciiDoctor GitHub Pages Action to convert adoc files to html and publish to gh-pages branch
