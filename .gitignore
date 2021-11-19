@@ -11,13 +11,33 @@ data/original/tico19-testset
 !README.md
 tmp/
 
-#
 scripts/data-external/*
 !scripts/data-external/.gitkeep
 !scripts/data-external/iso15924__sample.csv
 !scripts/data-external/iso15924__sample.txt
 !scripts/data-external/iso-639-3__sample.csv
 !scripts/data-external/iso-639-3__sample.tab
+
+# # temp
+# data/original/terminology/tico-19-terminology-facebook.csv
+# temp
+data/tico-19-terminology-google.tm2.hxl.csv
+data/tico-19-terminology-facebook.tm2.hxl.csv
+
+# temporary
+data/original/translation-memory/translators-without-borders/all/*.tmx
+data/original/translation-memory/translators-without-borders/all/*.zip
+
+### ascidoctor
+# cat Gemfile 
+#    source 'https://rubygems.org'
+#    gem 'asciidoctor'
+#    gem 'asciidoctor-pdf'
+#    gem 'asciidoctor-epub3'
+#    gem 'rouge'
+.bundle
+Gemfile
+Gemfile.lock
 
 # https://github.com/datasets/language-codes
 scripts/language-codes-git
@@ -31,17 +51,4 @@ scripts/language-codes-git
 #         }
 #     ]
 # }
-
-# # temp
-# data/original/tico-19-terminology-facebook.csv
-
-# # temp
-# data/original/terminology/tico-19-terminology-facebook.csv
-# temp
-data/tico-19-terminology-google.tm2.hxl.csv
-data/tico-19-terminology-facebook.tm2.hxl.csv
-
-# temporary
-data/original/translation-memory/translators-without-borders/all/*.tmx
-data/original/translation-memory/translators-without-borders/all/*.zip
 
