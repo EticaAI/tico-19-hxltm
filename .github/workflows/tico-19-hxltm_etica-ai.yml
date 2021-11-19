@@ -20,9 +20,12 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  deploy_github_pages:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    env:
+      ASCIDOCTOR_PARAMS: '--attribute source-highlighter=rouge'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -55,15 +58,15 @@ jobs:
           ruby-version: 2.7
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-      - uses: reitzig/actions-asciidoctor@v2.0.0
-        with:
-          version: 2.0.16
+      # - uses: reitzig/actions-asciidoctor@v2.0.0
+      #   with:
+      #     version: 2.0.16
 
-      - run: asciidoctor --version
+      - run: bundle exec asciidoctor --version
         continue-on-error: true
-      - run: asciidoctor-pdf --version
+      - run: bundle exec asciidoctor-pdf --version
         continue-on-error: true
-      - run: asciidoctor-epub3 --version
+      - run: bundle exec asciidoctor-epub3 --version
         continue-on-error: true
 
       - run: bundle exec asciidoctor-pdf docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.pdf
@@ -79,6 +82,12 @@ jobs:
         continue-on-error: true
 
       - run: cp LICENSE docs/LICENSE
+        continue-on-error: true
+
+      - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc'
+        continue-on-error: true
+
+      - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc'  | xargs bundle exec asciidoctor $ASCIDOCTOR_PARAMS --backend html
         continue-on-error: true
 
       # @see https://github.com/manoelcampos/asciidoctor-ghpages-action
