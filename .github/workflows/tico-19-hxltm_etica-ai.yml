@@ -78,7 +78,7 @@ jobs:
       # # - run: cp CNAME docs/CNAME
       # #   continue-on-error: true
 
-      - run: cp -r docs/ .
+      - run: cp -r docs/* .
         continue-on-error: true
 
       # - run: rsync --archive --verbose
@@ -103,6 +103,11 @@ jobs:
         continue-on-error: true
 
       - run: find .
+        continue-on-error: true
+
+      # hotfix for asciidoctor-ghpages-action 'find . -name "*$INPUT_ADOC_FILE_EXT" | xargs git rm -f --cached'
+      #    fatal: pathspec './eng-Latn/index.adoc' did not match any file
+      - run: git add .
         continue-on-error: true
 
       # # @see https://github.com/reitzig/actions-asciidoctor
