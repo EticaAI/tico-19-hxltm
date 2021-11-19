@@ -80,7 +80,7 @@ jobs:
       # - run: rsync --dry-run --verbose --recursive docs/ ./
       #   continue-on-error: true
 
-      - run: rsync --dry-run --verbose --recursive docs/ ./
+      - run: rsync --verbose --recursive docs/ ./
         continue-on-error: true
 
       - run: mv docs/ docs-old/
