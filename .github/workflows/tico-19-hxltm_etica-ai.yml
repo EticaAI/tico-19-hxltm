@@ -75,7 +75,15 @@ jobs:
       - run: bundle exec asciidoctor-epub3 docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.epub
         continue-on-error: true
 
-      - run: cp -r 'data/*' .
+      # - run: cp -r data/* ./
+      #   continue-on-error: true
+      # - run: rsync --dry-run --verbose --recursive docs/ ./
+      #   continue-on-error: true
+
+      - run: rsync --dry-run --verbose --recursive docs/ ./
+        continue-on-error: true
+
+      - run: mv docs/ docs-old/
         continue-on-error: true
 
       # - run: cp -r data/ docs/data/
