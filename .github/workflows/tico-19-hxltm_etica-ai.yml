@@ -75,14 +75,17 @@ jobs:
       - run: bundle exec asciidoctor-epub3 docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.epub
         continue-on-error: true
 
-      - run: cp -r data/ docs/data/
+      - run: cp -r 'data/*' .
         continue-on-error: true
 
-      - run: cp -r scripts/ docs/scripts/
-        continue-on-error: true
+      # - run: cp -r data/ docs/data/
+      #   continue-on-error: true
 
-      - run: cp LICENSE docs/LICENSE
-        continue-on-error: true
+      # - run: cp -r scripts/ docs/scripts/
+      #   continue-on-error: true
+
+      # - run: cp LICENSE docs/LICENSE
+      #   continue-on-error: true
 
       - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc'
         continue-on-error: true
