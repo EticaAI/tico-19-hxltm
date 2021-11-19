@@ -9,9 +9,13 @@ name: tico-19-hxltm_etica-ai.yml
 # events but only for the master branch
 on:
   push:
-    branches: [main]
+    branches:
+      - "main"
+      - "site-test"
   pull_request:
-    branches: [main]
+    branches: 
+      - "main"
+      - "site-test"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -90,6 +94,9 @@ jobs:
         continue-on-error: true
 
       - run: ls -lha
+        continue-on-error: true
+
+      - run: ls -lha eng-Latn
         continue-on-error: true
 
       - run: tree
