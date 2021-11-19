@@ -9,127 +9,175 @@ name: tico-19-hxltm_etica-ai.yml
 # events but only for the master branch
 on:
   push:
-    branches: [main]
+    branches:
+      - "main"
+      - "site-test"
   pull_request:
-    branches: [main]
+    branches:
+      - "main"
+      - "site-test"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  deploy_github_pages:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    env:
+      ASCIDOCTOR_PARAMS: "--attribute source-highlighter=rouge"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-
-      # # TODO: make some cross-platform check if yq is installed. For now we're
-      # #       using continue-on-error: true, as the GitHu runner actually
-      # #       do have yq by default.
-      # - run: yq --version
-      #   id: yq-okay
-      #   continue-on-error: true
-
-      # # - name: setup yq
-      # #   if: steps.yq-okay.outcome != 'success'
-      # #   continue-on-error: true
-      # #   run: |
-      # #     sudo apt update -y
-      # #     sudo apt install snapd -y
-      # #     sudo snap install --classic yq
-
-      # # - run: sudo snap install yq
-      # #   # continue-on-error: true
-
-      # # # @see https://github.com/marketplace/actions/yq-portable-yaml-processor
-      # # - name: yq < ontologia/cor.hxltm.215.yml > ontologia/cor.hxltm.215.json
-      # #   uses: mikefarah/yq@v4
-      # #   with:
-      # #     cmd: yq < ontologia/cor.hxltm.215.yml > ontologia/cor.hxltm.215.json
-
-      # - run: yq < ontologia/cor.hxltm.215.yml > ontologia/cor.hxltm.215.json
-      #   continue-on-error: true
-
-      # # # @see https://github.com/marketplace/actions/yq-portable-yaml-processor
-      # # - name: yq < ontologia/0.77.995.yml > ontologia/0.77.995.json
-      # #   uses: mikefarah/yq@v4
-      # #   with:
-      # #     cmd: yq < ontologia/0.77.995.yml > ontologia/0.77.995.json
-
-      # - run: yq < ontologia/0.77.995.yml > ontologia/0.77.995.json
-      #   continue-on-error: true
-
-      # - run: cp -r bin/ docs/bin/
-      #   # continue-on-error: true
-
-      # - run: cp -r ontologia/ docs/ontologia/
-      #   # continue-on-error: true
-
-      # - run: cp -r testum/ docs/testum/
-      #   # continue-on-error: true
-
-      # # - run: cp CNAME docs/CNAME
-      # #   continue-on-error: true
-
-      - run: cp -r docs/ .
+      - run: |
+          VAR_Gemfile=$(cat << EOF
+          source 'https://rubygems.org'
+          gem 'asciidoctor'
+          gem 'asciidoctor-pdf'
+          gem 'asciidoctor-epub3'
+          # https://github.com/asciidoctor/asciidoctor-bibtex
+          gem 'asciidoctor-bibtex'
+          # https://github.com/asciidoctor/asciidoctor-chart
+          gem 'asciidoctor-chart'
+          ## https://github.com/asciidoctor/asciidoctor-latex
+          # gem 'asciidoctor-latex'
+          gem 'rouge'
+          # https://github.com/gjtorikian/html-proofer
+          gem 'html-proofer'
+          EOF
+          )
+          echo "$VAR_Gemfile" > Gemfile
         continue-on-error: true
 
-      # - run: rsync --archive --verbose
-      #   continue-on-error: true
-
-      - run: cp -r docs/index.adoc ./index.adoc
+      - run: cat Gemfile
         continue-on-error: true
 
-      - run: mkdir eng-Latn
-        continue-on-error: true
-
-      - run: cp -r docs/eng-Latn/index.adoc ./eng-Latn/index.adoc
-        continue-on-error: true
-
-      - run: ls -lha
-        continue-on-error: true
-
-      - run: tree
-        continue-on-error: true
-
-      - run: find .
-        continue-on-error: true
-
-      # # @see https://github.com/reitzig/actions-asciidoctor
-      # - uses: ruby/setup-ruby@v1
-      #   continue-on-error: true
-      #   with:
-      #     ruby-version: 2.7
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       # - uses: reitzig/actions-asciidoctor@v2.0.0
-      #   continue-on-error: true
       #   with:
       #     version: 2.0.16
+      - run: bundle exec asciidoctor --version
+        # continue-on-error: true
+      - run: bundle exec asciidoctor-pdf --version
+        # continue-on-error: true
+      - run: bundle exec asciidoctor-epub3 --version
+        # continue-on-error: true
 
-      # - run: asciidoctor --version
+      # - run: cp -r data/* ./
       #   continue-on-error: true
+      # - run: rsync --dry-run --verbose --recursive docs/ ./
+      #   continue-on-error: true
+
+      ## Copy documentation from docs/ to base folder, then delete old docs/
+      - run: rsync --verbose --recursive docs/ ./
+        continue-on-error: true
+      - run: rm -r docs/
+        continue-on-error: true
+
+      # - run: cp -r data/ docs/data/
+      #   continue-on-error: true
+
+      # - run: cp -r scripts/ docs/scripts/
+      #   continue-on-error: true
+
+      # - run: cp LICENSE docs/LICENSE
+      #   continue-on-error: true
+
+      # - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc'
+      #   continue-on-error: true
+
+      #### asciidoctor: generate HTMLs, PDFs, EPUBs ____________________________
+      # Convert .adoc -> .html
+      - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc'  | xargs bundle exec asciidoctor $ASCIDOCTOR_PARAMS --backend html
+        continue-on-error: true
+
+      ### Create ebooks ........................................................
+      - run: bundle exec asciidoctor-pdf eng-Latn/index.adoc --out-file tico-19-hxltm_eng-Latn.pdf
+        # continue-on-error: true
+      - run: bundle exec asciidoctor-epub3 eng-Latn/index.adoc --out-file tico-19-hxltm_eng-Latn.epub
+        # continue-on-error: true
+
+      # Delete old .adoc
+      - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc'  | xargs rm -rf
+        continue-on-error: true
+
+      # Delete
+      - run: rm ./README.md
+        continue-on-error: true
+      - run: rm ./CHANGELOG.md
+        continue-on-error: true
+
+      - run: |
+          for FILE in `find . -name "README.html"`; do
+            echo "$FILE"
+            echo $(dirname $FILE)
+            mv "$(dirname $FILE)/README.html" "$(dirname $FILE)/index.html"
+            # mv "`dirname $FILE`/index.html"; 
+          done
+        continue-on-error: true
+
+      ### Quick list of files to be commited on end page
+      - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*"
+        continue-on-error: true
+
+      # Test blocking user https://github.com/actions-user
 
       # @see https://github.com/manoelcampos/asciidoctor-ghpages-action
       # Includes the AsciiDoctor GitHub Pages Action to convert adoc files to html and publish to gh-pages branch
-      - name: asciidoctor-ghpages
-        uses: manoelcampos/asciidoctor-ghpages-action@v2
-        # continue-on-error: true
-        with:
-          # asciidoctor_params: --attribute=nofooter
-          asciidoctor_params: --attribute source-highlighter=rouge
-          # pdf_build: true
-          # ebook_main_adoc_file: index
-          # adoc_file_ext: .ascii # default is .adoc
-          # source_dir: docs/ # default is .
-          # slides_build: true
-          # pre_build:
-          # post_build: 'echo "hxltm.etica.ai" > CNAME'
-          # pre_build: find . type -f
-          # pre_build: git add .
+      # - name: asciidoctor-ghpages
+      #   uses: manoelcampos/asciidoctor-ghpages-action@v2
+      #   # continue-on-error: true
+      #   with:
+      #     # asciidoctor_params: --attribute=nofooter
+      #     asciidoctor_params: --attribute source-highlighter=rouge
+      #     # pdf_build: true
+      #     # ebook_main_adoc_file: index
+      #     # adoc_file_ext: .ascii # default is .adoc
+      #     source_dir: docs/ # default is .
+      #     # slides_build: true
+      #     # pre_build:
+      #     # post_build: 'echo "hxltm.etica.ai" > CNAME'
+      #     # pre_build: find . type -f
+      #     # pre_build: git add .
 
+      # TODO: maybe https://github.com/asciidoctor/asciidoctor-intellij-plugin/issues/454 ??
+
+      #### Some checks on HTML _________________________________________________
+      # We will tolerate errors, but allow manual check on GitHub actions logs
+      - run: bundle exec htmlproofer ./ --file-ignore /tmp/,/vendor/
+        continue-on-error: true
+
+      # bundle exec htmlproofer --url-ignore ./vendor/ .
+
+      #### Deploy end result
+      # @see https://github.com/peaceiris/actions-gh-pages
+      - name: Deploy docs to ghpages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./
+          enable_jekyll: true
+          # keep_files: By default, existing files in the publish branch
+          #             (or only in destination_dir if given) will be removed.
+          #             If you want the action to add new files but leave
+          #             existing ones untouched, set the optional parameter
+          #             keep_files to true.
+          keep_files: false
+          # force_orphan : We can set the force_orphan: true option. This allows you to make your publish branch with only the latest commit.
+          force_orphan: true
+          user_name: "GitHub Action"
+          user_email: "action@github.com"
+
+      # TODO: maybe this sitemap
+      #       https://github.com/cicirello/generate-sitemap
 
       # asciidoctor
       # @see https://asciidoctor.org/#bundler
