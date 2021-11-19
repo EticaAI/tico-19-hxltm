@@ -74,12 +74,28 @@ jobs:
       # # - run: cp CNAME docs/CNAME
       # #   continue-on-error: true
 
-      - run: cp -r docs/ ./
+      - run: cp -r docs/ .
         continue-on-error: true
+
+      # - run: rsync --archive --verbose
+      #   continue-on-error: true
 
       - run: cp -r docs/index.adoc ./index.adoc
         continue-on-error: true
+
+      - run: mkdir eng-Latn
+        continue-on-error: true
+
       - run: cp -r docs/eng-Latn/index.adoc ./eng-Latn/index.adoc
+        continue-on-error: true
+
+      - run: ls -lha
+        continue-on-error: true
+
+      - run: tree
+        continue-on-error: true
+
+      - run: find .
         continue-on-error: true
 
       # # @see https://github.com/reitzig/actions-asciidoctor
