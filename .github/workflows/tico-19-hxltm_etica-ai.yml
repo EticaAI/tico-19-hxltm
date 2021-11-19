@@ -47,9 +47,13 @@ jobs:
           echo "$VAR_Gemfile" > Gemfile
         continue-on-error: true
 
+      - run: cat Gemfile
+        continue-on-error: true
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - uses: reitzig/actions-asciidoctor@v2.0.0
         with:
