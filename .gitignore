@@ -33,18 +33,7 @@ data/original/translation-memory/translators-without-borders/all/*.zip
 docs/*.pdf
 docs/*.epub
 # cat Gemfile 
-#    source 'https://rubygems.org'
-#    gem 'asciidoctor'
-#    gem 'asciidoctor-pdf'
-#    gem 'asciidoctor-epub3'
-#    # https://github.com/asciidoctor/asciidoctor-bibtex
-#    gem 'asciidoctor-bibtex'
-#    # https://github.com/asciidoctor/asciidoctor-chart
-#    gem 'asciidoctor-chart'
-#    # # https://github.com/asciidoctor/asciidoctor-latex
-#    # gem 'asciidoctor-latex'
-#    gem 'rouge'
-
+#    (real example at .github/workflows/tico-19-hxltm_etica-ai.yml)
 # To install
 #    bundle
 # To test
