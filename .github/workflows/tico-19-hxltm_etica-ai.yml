@@ -83,7 +83,10 @@ jobs:
       - run: rsync --verbose --recursive docs/ ./
         continue-on-error: true
 
-      - run: mv docs/ docs-old/
+      # - run: mv docs/ docs-old/
+      #   continue-on-error: true
+
+      - run: rm -r docs/
         continue-on-error: true
 
       # - run: cp -r data/ docs/data/
@@ -126,6 +129,8 @@ jobs:
       #     # pre_build: find . type -f
       #     # pre_build: git add .
 
+      # TODO: maybe https://github.com/asciidoctor/asciidoctor-intellij-plugin/issues/454 ??
+
       # @see https://github.com/peaceiris/actions-gh-pages
       - name: Deploy docs to ghpages
         uses: peaceiris/actions-gh-pages@v3
@@ -133,7 +138,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./
-          enable_jekyll: false
+          enable_jekyll: true
           # keep_files: By default, existing files in the publish branch
           #             (or only in destination_dir if given) will be removed.
           #             If you want the action to add new files but leave
@@ -141,7 +146,7 @@ jobs:
           #             keep_files to true.
           keep_files: false
           # force_orphan : We can set the force_orphan: true option. This allows you to make your publish branch with only the latest commit.
-          # force_orphan: true
+          force_orphan: true
           user_name: 'GitHub Action'
           user_email: 'action@github.com'
 
