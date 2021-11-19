@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ASCIDOCTOR_PARAMS: '--attribute source-highlighter=rouge'
+      ASCIDOCTOR_PARAMS: "--attribute source-highlighter=rouge"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -63,14 +63,12 @@ jobs:
       # - uses: reitzig/actions-asciidoctor@v2.0.0
       #   with:
       #     version: 2.0.16
-
       - run: bundle exec asciidoctor --version
         # continue-on-error: true
       - run: bundle exec asciidoctor-pdf --version
         # continue-on-error: true
       - run: bundle exec asciidoctor-epub3 --version
         # continue-on-error: true
-
 
       # - run: cp -r data/* ./
       #   continue-on-error: true
@@ -110,28 +108,23 @@ jobs:
       - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc'  | xargs rm -rf
         continue-on-error: true
 
-      # Delete 
-      - run: rm README.md
+      # Delete
+      - run: rm ./README.md
         continue-on-error: true
-      - run: rm CHANGELOG.md
+      - run: rm ./CHANGELOG.md
         continue-on-error: true
 
       - run: |
           for FILE in `find . -name "README.html"`; do
             echo "$FILE"
             echo $(dirname $FILE)
+            mv "$(dirname $FILE)/README.html" "$(dirname $FILE)/index.html"
             # mv "`dirname $FILE`/index.html"; 
           done
         continue-on-error: true
 
-      - run: |
-          for FILE in `find . -name "*.html"`; do 
-              git add -f "$FILE"; 
-          done
-        continue-on-error: true
-
       ### Quick list of files to be commited on end page
-      - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" 
+      - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*"
         continue-on-error: true
 
       # Test blocking user https://github.com/actions-user
@@ -180,8 +173,8 @@ jobs:
           keep_files: false
           # force_orphan : We can set the force_orphan: true option. This allows you to make your publish branch with only the latest commit.
           force_orphan: true
-          user_name: 'GitHub Action'
-          user_email: 'action@github.com'
+          user_name: "GitHub Action"
+          user_email: "action@github.com"
 
       # TODO: maybe this sitemap
       #       https://github.com/cicirello/generate-sitemap
