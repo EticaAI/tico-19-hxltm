@@ -35,6 +35,12 @@ jobs:
           gem 'asciidoctor'
           gem 'asciidoctor-pdf'
           gem 'asciidoctor-epub3'
+          # https://github.com/asciidoctor/asciidoctor-bibtex
+          gem 'asciidoctor-bibtex'
+          # https://github.com/asciidoctor/asciidoctor-chart
+          gem 'asciidoctor-chart'
+          ## https://github.com/asciidoctor/asciidoctor-latex
+          # gem 'asciidoctor-latex'
           gem 'rouge'
           EOF
           )
@@ -50,6 +56,17 @@ jobs:
           version: 2.0.16
 
       - run: asciidoctor --version
+        continue-on-error: true
+      - run: asciidoctor-pdf --version
+        continue-on-error: true
+      - run: asciidoctor-epub3 --version
+        continue-on-error: true
+
+      - run: bundle exec asciidoctor-pdf docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.pdf
+        continue-on-error: true
+
+      - run: bundle exec asciidoctor-epub3 docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.epub
+        continue-on-error: true
 
       - run: cp -r data/ docs/data/
         continue-on-error: true

@@ -28,16 +28,39 @@ data/tico-19-terminology-facebook.tm2.hxl.csv
 data/original/translation-memory/translators-without-borders/all/*.tmx
 data/original/translation-memory/translators-without-borders/all/*.zip
 
-### ascidoctor
+### ascidoctor _________________________________________________________________
+# Dont' commit books on the working branch, just the website
+docs/*.pdf
+docs/*.epub
 # cat Gemfile 
 #    source 'https://rubygems.org'
 #    gem 'asciidoctor'
 #    gem 'asciidoctor-pdf'
 #    gem 'asciidoctor-epub3'
+#    # https://github.com/asciidoctor/asciidoctor-bibtex
+#    gem 'asciidoctor-bibtex'
+#    # https://github.com/asciidoctor/asciidoctor-chart
+#    gem 'asciidoctor-chart'
+#    # # https://github.com/asciidoctor/asciidoctor-latex
+#    # gem 'asciidoctor-latex'
 #    gem 'rouge'
+
+# To install
+#    bundle
+# To test
+#    bundle exec asciidoctor --version
+#    bundle exec asciidoctor-pdf --version
+#    bundle exec asciidoctor-epub3 --version
+#    bundle exec asciidoctor-pdf docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.pdf
+#    bundle exec asciidoctor-epub3 docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.epub
+vendor
 .bundle
 Gemfile
 Gemfile.lock
+
+
+
+### asciidoctor, end -----
 
 # https://github.com/datasets/language-codes
 scripts/language-codes-git
