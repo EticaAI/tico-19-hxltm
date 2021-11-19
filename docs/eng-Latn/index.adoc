@@ -24,6 +24,12 @@ Revision date: {revdate}
 Revision notes: {revremark}
 
 - https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+TODO:
+- artigos relacionados https://scholar.google.com.br/scholar?cites=15233656725192562979&as_sdt=2005&sciodt=0,5&hl=pt-BR
+  - ESSE artigo aqui parece fazer criticas realistas https://dl.acm.org/doi/abs/10.1145/3460112.3471954
+    - caralho esse artigo critica varios outros artigos, que talvez tenham conteudo pra encodar
+- Tem comentarios extras como em https://openreview.net/forum?id=-0xPrt01VXD
 ////
 
 <<<

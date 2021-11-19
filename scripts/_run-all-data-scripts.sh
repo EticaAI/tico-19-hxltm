@@ -5,14 +5,18 @@
 #
 #         USAGE:  ./scripts/_run-all-data-scripts.sh
 #
-#   DESCRIPTION:  Run all scripts, in order
+#   DESCRIPTION:  Run all data manipulation scripts in order.
+#                 In short, it will download the lastest version at
+#                 https://github.com/tico-19/tico-19.github.io/ and
+#                 rebuild ALL the data transformations, including part of the
+#                 documentation used here.
 #
 #       OPTIONS:  ---
 #
 #  REQUIREMENTS:  - POSIX Shell or better
 #                 - git
 #                 - rsync
-#                 - hxltm
+#                 - hxltm, libhxl
 #                   - pip install hxltm-eticaai
 #                 - miller
 #                   - See <https://github.com/johnkerl/miller>
@@ -46,10 +50,3 @@ set -e
 ./scripts/data-hxltm-terminologia.sh
 
 ./scripts/data-hxltm-translation-memory-import.sh
-
-# https://github.com/datasets/language-codes
-
-# @TODO maybe convert docs/eng-Latn/index.adoc
-#       to markdown before setup an ascidoctor pipeline here
-#       to generate the site. See
-#       https://github.com/asciidoctor/asciidoctor/issues/1907

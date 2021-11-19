@@ -32,7 +32,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - run: |
+      #### Setup ruby __________________________________________________________
+      - name: Gemfile
+        run: |
           VAR_Gemfile=$(cat << EOF
           source 'https://rubygems.org'
           gem 'asciidoctor'
@@ -70,32 +72,15 @@ jobs:
       - run: bundle exec asciidoctor-epub3 --version
         # continue-on-error: true
 
-      # - run: cp -r data/* ./
-      #   continue-on-error: true
-      # - run: rsync --dry-run --verbose --recursive docs/ ./
-      #   continue-on-error: true
-
       ## Copy documentation from docs/ to base folder, then delete old docs/
       - run: rsync --verbose --recursive docs/ ./
         continue-on-error: true
       - run: rm -r docs/
         continue-on-error: true
 
-      # - run: cp -r data/ docs/data/
-      #   continue-on-error: true
-
-      # - run: cp -r scripts/ docs/scripts/
-      #   continue-on-error: true
-
-      # - run: cp LICENSE docs/LICENSE
-      #   continue-on-error: true
-
-      # - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc'
-      #   continue-on-error: true
-
       #### asciidoctor: generate HTMLs, PDFs, EPUBs ____________________________
       # Convert .adoc -> .html
-      - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc'  | xargs bundle exec asciidoctor $ASCIDOCTOR_PARAMS --backend html
+      - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc' | xargs bundle exec asciidoctor $ASCIDOCTOR_PARAMS --backend html
         continue-on-error: true
 
       ### Create ebooks ........................................................
@@ -158,7 +143,7 @@ jobs:
 
       #### Deploy end result
       # @see https://github.com/peaceiris/actions-gh-pages
-      - name: Deploy docs to ghpages
+      - name: Deploy end result to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
