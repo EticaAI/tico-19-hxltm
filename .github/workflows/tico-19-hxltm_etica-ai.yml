@@ -90,6 +90,11 @@ jobs:
       - run: find . -not -path './.git*' -not -name '.' -not -path "./vendor/*" -name '*.adoc'  | xargs bundle exec asciidoctor $ASCIDOCTOR_PARAMS --backend html
         continue-on-error: true
 
+      - run: tree
+        continue-on-error: true
+
+      # Test blocking user https://github.com/actions-user
+
       # @see https://github.com/manoelcampos/asciidoctor-ghpages-action
       # Includes the AsciiDoctor GitHub Pages Action to convert adoc files to html and publish to gh-pages branch
       - name: asciidoctor-ghpages
