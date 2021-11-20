@@ -36,7 +36,12 @@ TODO:
 
 Public domain datasets of the https://tico-19.github.io[Translation Initiative for COVID-19] on the format HXLTM (Multilingual Terminology in Humanitarian Language Exchange).
 
+== Tables
 
+[%header,format=csv]
+|===
+include::../scripts/data-info/tico19_tm.csv[]
+|===
 
 == Quick explanations
 

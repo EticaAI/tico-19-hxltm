@@ -50,3 +50,10 @@ set -e
 ./scripts/data-hxltm-terminologia.sh
 
 ./scripts/data-hxltm-translation-memory-import.sh
+
+
+# TODOs
+# - tables render bad on ebooks, convert then to image and put ifelse
+#   on .adoc
+#   - https://stackoverflow.com/questions/26357137/csv-to-image-in-python
+#   - https://stackoverflow.com/questions/902761/saving-a-numpy-array-as-an-image

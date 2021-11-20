@@ -26,7 +26,8 @@
 # ==============================================================================
 set -e
 
-# TODO: move this to some file related to deploy website
+PWD_NOW=$(pwd)
+
 if [ ! -f 'Gemfile' ]; then
     VAR_Gemfile=$(cat << EOF
 source 'https://rubygems.org'
@@ -46,11 +47,65 @@ EOF
 )
     echo "$VAR_Gemfile" > Gemfile
     bundle install
+else
+    echo 'OK: Gemfile exists'
 fi
 
-set -x
-bundle exec asciidoctor-pdf -v --attribute allow-uri-read=1 --attribute source-highlighter=rouge docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.pdf
-bundle exec asciidoctor-epub3 -v --attribute allow-uri-read=1 --attribute source-highlighter=rouge docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.epub
+# TODO:
+# .vscode/settings.json
+# # {
+# #     "xml.fileAssociations": [
+# #         {
+# #             "pattern": "**/*.tmx",
+# #             "systemId": "scripts/dtd/tmx14.dtd"
+# #         }
+# #     ]
+# # }
 
+
+if [ ! -L './docs/scripts' ]; then
+    cd './docs/'
+    echo "Create link on /docs/scripts to top folder, since the docs simulate "
+    echo "GitHub pages deployment"
+    ln -s ../scripts/ ./
+    cd "$PWD_NOW"
+else
+    echo 'OK: ./docs/scripts symlink exists'
+fi
+
+if [ ! -L './docs/data' ]; then
+    cd './docs/'
+    echo "Create link on /docs/scripts to top folder, since the docs simulate "
+    echo "GitHub pages deployment"
+    ln -s ../data/ ./
+    cd "$PWD_NOW"
+else
+    echo 'OK: ./docs/data symlink exists'
+fi
+
+printf "\nTesting if some required software are already installed. "
+printf "If something fails, you may not run all software or need some changes\n"
+
+
+set -x
+git --version
+
+rsync --version
+
+## @see https://hxltm.etica.ai
+hxltmcli --version
+
+## @seehttps://github.com/johnkerl/miller
+mlr --version
+
+## @see http://xmlsoft.org/; example: sudo apt  install libxml2-utils
+xmllint --version
+
+## Example: sudo apt  install xmlstarlet
+xmlstarlet --version
 set +x
-echo 'Okay'
+
+# bundle exec asciidoctor-pdf -v --attribute allow-uri-read=1 --attribute source-highlighter=rouge docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.pdf
+# bundle exec asciidoctor-epub3 -v --attribute allow-uri-read=1 --attribute source-highlighter=rouge docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.epub
+
+echo 'OKAY. All working'

@@ -11,6 +11,12 @@ data/original/tico19-testset
 !README.md
 tmp/
 
+## @see scripts/_setup-local-machine.sh
+#  This is a symbolic link to scripts/ to allow local preview of the site.
+docs/scripts
+#  This is a symbolic link to data/ to allow local preview of the site.
+docs/data
+
 scripts/data-external/*
 !scripts/data-external/.gitkeep
 !scripts/data-external/iso15924__sample.csv
@@ -47,7 +53,6 @@ vendor
 .bundle
 Gemfile
 Gemfile.lock
-
 
 
 ### asciidoctor, end -----
