@@ -31,6 +31,7 @@ import json
 # CLDR_BASE="scripts/data-external/cldr" CLDR_CLI_DEBUG=1 ./scripts/fn/cldr_cli.py languageAlias por
 # CLDR_BASE="scripts/data-external/cldr" CLDR_CLI_DEBUG=1 ./scripts/fn/cldr_cli.py territoryAlias 076
 # CLDR_BASE="scripts/data-external/cldr" CLDR_CLI_DEBUG=1 ./scripts/fn/cldr_cli.py likelySubtags por
+# CLDR_BASE="scripts/data-external/cldr" CLDR_CLI_DEBUG=1 ./scripts/fn/cldr_cli.py territoryInfo BR
 
 if len(sys.argv) < 2 or sys.argv[1] == '-h' or sys.argv[1] == '--help':
     print('usage: ' + sys.argv[0] + ' [command] [parameters]')
@@ -44,6 +45,9 @@ if len(sys.argv) < 2 or sys.argv[1] == '-h' or sys.argv[1] == '--help':
     print('         ' + sys.argv[0] + ' likelySubtags zz')
     print('             ' + sys.argv[0] + ' likelySubtags pt')
     print('')
+    print('         ' + sys.argv[0] + ' territoryInfo zz')
+    print('             ' + sys.argv[0] + ' likelySubtags BR')
+    print('')
     print('      CLDR_CLI_DEBUG=1 ' + sys.argv[0] + ' [command] [parameters]')
     print('')
     print('NOTE: ')
@@ -52,6 +56,8 @@ if len(sys.argv) < 2 or sys.argv[1] == '-h' or sys.argv[1] == '--help':
           '  must be already defined to run this script. For example: \n')
     print('  CLDR_BASE="~/Downloads/cldr/" ' +
           sys.argv[0] + ' languageAlias por')
+    print('')
+    print('CLDR version tested: v40 (may need changes for new versions)')
 
     sys.exit()
 
@@ -61,6 +67,7 @@ if 'CLDR_BASE' not in os.environ:
 is_debug = bool(os.environ.get('CLDR_CLI_DEBUG', '0'))
 cldr_alias_path = os.environ['CLDR_BASE'] + '/aliases.json'
 cldr_likelySubtags_path = os.environ['CLDR_BASE'] + '/likelySubtags.json'
+cldr_territoryInfo_path = os.environ['CLDR_BASE'] + '/territoryInfo.json'
 repo_cldr_json_base = 'https://raw.githubusercontent.com/unicode-org/' + \
     'cldr-json/main/cldr-json/'
 
@@ -90,7 +97,7 @@ if sys.argv[1] == 'territoryAlias':
     with open(cldr_alias_path, 'r') as _file:
         data = json.loads(_file.read())
 
-        if sys.argv[2] in data['supplemental']['metadata']['alias']['territoryAlias']:
+        if sys.argv[2] in data['supplemental']['metadata']['alias']['territoryAlias']:  # noqa
             print(str(data['supplemental']['metadata']
                       ['alias']['territoryAlias'][sys.argv[2]]))
         else:
@@ -111,6 +118,20 @@ if sys.argv[1] == 'likelySubtags':
             if is_debug:
                 print('{"msg": "Not found [' + sys.argv[2] + '] on [' +
                       cldr_likelySubtags_path + ']"}')
+    sys.exit()
+
+if sys.argv[1] == 'territoryInfo':
+    with open(cldr_territoryInfo_path, 'r') as _file:
+        data = json.loads(_file.read())
+
+        # print(data['supplemental']['territoryInfo'].keys())
+
+        if sys.argv[2] in data['supplemental']['territoryInfo']:
+            print(str(data['supplemental']['territoryInfo'][sys.argv[2]]))
+        else:
+            if is_debug:
+                print('{"msg": "Not found [' + sys.argv[2] + '] on [' +
+                      cldr_territoryInfo_path + ']"}')
     sys.exit()
 
 

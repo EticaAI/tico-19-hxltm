@@ -57,6 +57,11 @@ if [ ! -f scripts/data-external/cldr/aliases.json ]; then
     head -n 15 scripts/data-external/cldr/likelySubtags.json > scripts/data-external/cldr/aliases.sample.json
 fi
 
+if [ ! -f scripts/data-external/cldr/territoryInfo.json ]; then
+    curl https://raw.githubusercontent.com/unicode-org/cldr-json/main/cldr-json/cldr-core/supplemental/territoryInfo.json --output scripts/data-external/cldr/territoryInfo.json
+    head -n 15 scripts/data-external/cldr/likelySubtags.json > scripts/data-external/cldr/territoryInfo.sample.json
+fi
+
 # https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/scriptMetadata.json
 
 # mlr --irs '|' --implicit-csv-header cat scripts/data-external/iso15924_no-comments-pipe.txt
