@@ -29,35 +29,86 @@
 
 import sys
 import argparse
+import json
 import langcodes
-# https://realpython.com/comparing-python-command-line-parsing-libraries-argparse-docopt-click/
+
 
 description = "A command line wrapper to python langcodes"
 epilog = """
-EXAMPLES:
-> Get BCP47 minimum tag
-    {0} standardize_tag por-Latn-BR
 
-> Check if language tag is valid.
-    These ones have syntax errors (no language with these country codes)
-        {0} is_valid jp-JP
-        {0} is_valid us
-
-    These are syntax valid (but likely user error)
-        {0} is_valid ar-AR
-        {0} is_valid en-UK
+ABOUT LANGUAGE-TERRITORY INFORMATION
+(--speaking-population, --writing-population)
+    The estimates for "writing population" are often overestimates,
+    as described in the CLDR documentation on territory data.
+    In most cases, they are derived from published data about literacy rates
+    in the places where those languages are spoken.
+    This doesn't take into account that many literate people around the
+    world speak a language that isn't typically written,
+    and write in a different language.
+    See https://unicode-org.github.io/cldr-staging/charts/39/supplemental
+    /territory_language_information.html
 
 """.format(sys.argv[0])
 
+parser = argparse.ArgumentParser(
+    description=description,
+    formatter_class=argparse.RawDescriptionHelpFormatter,
+    epilog=epilog
+)
+parser.add_argument(
+    'language_code',
+    help='The language code. Requires at least one option, like --info')
+parser.add_argument(
+    '--info', action='store_true',
+    help='General information (JSON output) [default]')
+parser.add_argument(
+    '--info-in-lang', help='Same as --help, ' +
+    'but requires a language parameter to in which language return ' +
+    ' the description. (JSON output)')
+parser.add_argument(
+    '--info-in-autonym', action='store_true',
+    help='Same as --info-in-lang, but defaults language_code, e.g. autonym ' +
+    '(JSON output)')
+parser.add_argument(
+    '--bcp47', action='store_true',
+    help='Standardize the language code to BCP47 if already not is'
+    '(string output) as BCP47')
+parser.add_argument(
+    '--is-valid-syntax', action='store_true',
+    help='Check if is valid. Return 0 plus error code if so wrong ' +
+    'that is not even recognizable')
+parser.add_argument(
+    '--speaking-population', action='store_true',
+    help='Estimated speaking population. ')
+parser.add_argument(
+    '--writing-population', action='store_true',
+    help='Estimated writing population')
 
-def info(args):
-    result = langcodes.Language.get(args.tag)
-    print(result.describe())
+parser.add_argument('--version', action='version', version='1.0.0')
+
+
+def info(language_code, info_in_lang=False):
+    result = langcodes.Language.get(language_code)
+    if info_in_lang:
+        if info_in_lang == 'autonym':
+            result_item = result.describe(language_code)
+        else:
+            result_item = result.describe(info_in_lang)
+    else:
+        result_item = result.describe()
+
+    result_item['bcp47'] = langcodes.standardize_tag(language_code)
+    result_item['autonym'] = langcodes.Language.get(language_code).autonym()
+    result_item['speaking_population'] = result.speaking_population()
+    result_item['writing_population'] = result.writing_population()
+    result_item['is_valid_syntax'] = langcodes.tag_is_valid(language_code)
+
+    print(json.dumps(result_item))
     # print('ooi', result)
 
 
-def is_valid(args):
-    if langcodes.tag_is_valid(args.tag):
+def is_valid_syntax(language_code):
+    if langcodes.tag_is_valid(language_code):
         print(1)
         sys.exit(0)
     else:
@@ -65,65 +116,47 @@ def is_valid(args):
         sys.exit(1)
 
 
-def standardize_tag(args):
-    print(langcodes.standardize_tag(args.tag))
+def bcp47(language_code):
+    print(json.dumps(langcodes.standardize_tag(language_code)))
 
 
-def speaking_population(args):
-    result = langcodes.Language.get(args.tag)
-    print(result.speaking_population())
-
-# def noargs():
-#     print(sys.argv[0] + ' --help')
-#     sys.exit(1)
+def speaking_population(language_code):
+    result = langcodes.Language.get(language_code)
+    print(json.dumps(result.speaking_population()))
 
 
-# parser = argparse.ArgumentParser()
-parser = argparse.ArgumentParser(
-    description=description,
-    formatter_class=argparse.RawDescriptionHelpFormatter,
-    epilog=epilog
-)
-parser.add_argument('--version', action='version', version='1.0.0')
-subparsers = parser.add_subparsers()
+def writing_population(language_code):
+    result = langcodes.Language.get(language_code)
+    print(json.dumps(result.writing_population()))
 
-standardize_tag_parser = subparsers.add_parser('standardize_tag')
-standardize_tag_parser.add_argument(
-    'tag', help='Tag value to normalize tags the minimum BCP 47')
-standardize_tag_parser.set_defaults(func=standardize_tag)
 
-info_parser = subparsers.add_parser('info')
-info_parser.add_argument(
-    'tag', help='Tag value to return information')
-info_parser.set_defaults(func=info)
+def run_cli(args):
+    if args.bcp47:
+        return bcp47(args.language_code)
+    if args.is_valid_syntax:
+        return is_valid_syntax(args.language_code)
+    if args.speaking_population:
+        return speaking_population(args.language_code)
+    if args.writing_population:
+        return writing_population(args.language_code)
+    if args.info_in_lang:
+        return info(args.language_code, args.info_in_lang)
+    if args.info_in_autonym:
+        return info(args.language_code, 'autonym')
+    if args.info:
+        return info(args.language_code)
 
-speaking_population_parser = subparsers.add_parser('speaking_population')
-speaking_population_parser.add_argument(
-    'tag', help='Tag value to return information')
-speaking_population_parser.set_defaults(func=speaking_population)
+    # parser.print_help()
+    # sys.exit(1)
+    return info(args.language_code)
 
-is_valid_parser = subparsers.add_parser('is_valid')
-is_valid_parser.add_argument(
-    'tag', help='Tag value to return information')
-is_valid_parser.set_defaults(func=is_valid)
-
-# goodbye_parser = subparsers.add_parser('goodbye')
-# goodbye_parser.add_argument('name', help='name of the person to greet')
-# goodbye_parser.add_argument('--greeting', default='Hello', help='word to use for the greeting')
-# goodbye_parser.add_argument('--caps', action='store_true', help='uppercase the output')
-# goodbye_parser.set_defaults(func=greet)
 
 if __name__ == '__main__':
-    # return 'oi'
+
+    args = parser.parse_args()
+
     if len(sys.argv) > 1:
-        args = parser.parse_args()
-        args.func(args)
+        run_cli(args)
     else:
         parser.print_help()
         sys.exit(1)
-    # try:
-    #     args = parser.parse_args()
-    #     args.func(args)
-    # except:
-    #     print('deu erro')
-    #     # parser.print_help()
