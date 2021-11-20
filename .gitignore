@@ -27,6 +27,7 @@ data/tico-19-terminology-facebook.tm2.hxl.csv
 # temporary
 data/original/translation-memory/translators-without-borders/all/*.tmx
 data/original/translation-memory/translators-without-borders/all/*.zip
+data/original/translation-memory/translators-without-borders/all_bi_en_tmx
 
 ### ascidoctor _________________________________________________________________
 # Dont' commit books on the working branch, just the website

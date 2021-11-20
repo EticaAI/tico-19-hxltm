@@ -153,6 +153,49 @@ tico19_tmx_extract "en-ur"
 tico19_tmx_extract "en-zh"
 tico19_tmx_extract "en-zu"
 
+
+./scripts/fn_tico19_datainfo_tmx.py "csv-header" > scripts/data-info/tico19_tm.csv
+
+# find data/original/TM/ -iname all.en-*.zip | grep -E '(en-...?.?.?.?).tmx' --only-matching | sed 's/.tmx//' | grep -v old | sort | xargs printf '\n./scripts/fn_tico19_datainfo_tmx.py "%s" >> scripts/data-info/tico19_tm.csv'
+
+./scripts/fn_tico19_datainfo_tmx.py "en-ar" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-bn" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ckb" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-din" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-es-LA" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-fa" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-fr" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-fuv" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ha" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-hi" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-id" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-km" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-kr" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ku" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-lg" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ln" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-mr" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ms" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-my" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ne" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-nus" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-om" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-prs" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ps" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-pt-BR" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ru" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-rw" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-so" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-sw" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ta" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ti" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ti_ER" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ti_ET" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-tl" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-ur" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-zh" >> scripts/data-info/tico19_tm.csv
+./scripts/fn_tico19_datainfo_tmx.py "en-zu" >> scripts/data-info/tico19_tm.csv
+
 #### scripts/data-info/tico19_tm_twb_initial-language-pairs_source-lang-en.csv ________________
 # Save the languages to CSV file to reuse later
 find data/original/TM/ -iname "all.en-*.zip" \

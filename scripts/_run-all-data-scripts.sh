@@ -37,27 +37,6 @@
 # ==============================================================================
 set -e
 
-# TODO: move this to some file related to deploy website
-VAR_Gemfile=$(cat << EOF
-source 'https://rubygems.org'
-gem 'asciidoctor'
-gem 'asciidoctor-pdf'
-gem 'asciidoctor-epub3'
-# https://github.com/asciidoctor/asciidoctor-bibtex
-gem 'asciidoctor-bibtex'
-# https://github.com/asciidoctor/asciidoctor-chart
-gem 'asciidoctor-chart'
-## https://github.com/asciidoctor/asciidoctor-latex
-# gem 'asciidoctor-latex'
-gem 'rouge'
-# https://github.com/gjtorikian/html-proofer
-gem 'html-proofer'
-EOF
-)
-echo "$VAR_Gemfile" > Gemfile
-# bundle install
-# bundle exec asciidoctor-pdf -v --attribute allow-uri-read=1 --attribute source-highlighter=rouge docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.pdf
-
 ./scripts/data-original-download.sh
 
 ./scripts/data-external-prepare.sh
