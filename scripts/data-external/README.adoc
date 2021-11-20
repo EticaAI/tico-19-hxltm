@@ -1,0 +1,7 @@
+== scripts/data-external/README.adoc
+
+Data here is generated using the link:../data-external-prepare.sh[].
+The versions without `.sample` are the _de facto_ used for several other internal scripts.
+It's recommended (if part of this code is reused by others) to re-download the files.
+
+The real data, without `.sample` prefix, is not committed on the repository (both to copyright and avoid redundancy)-

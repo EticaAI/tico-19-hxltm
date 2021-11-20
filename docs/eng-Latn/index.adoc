@@ -1,4 +1,4 @@
-= TICO-19 in HXLTM (draft)
+= TICO-19 in HXLTM (public working draft)
 // EticaAI, Collaborators_of <etica.of.a.ai@gmail.com>; Rocha, Emerson <rocha@ieee.org>
 :toc: 1
 :toclevels: 4
@@ -36,6 +36,11 @@ TODO:
 
 Public domain datasets of the https://tico-19.github.io[Translation Initiative for COVID-19] on the format HXLTM (Multilingual Terminology in Humanitarian Language Exchange).
 
+== Versions
+- Online: https://tico-19-hxltm.etica.ai/
+- PDF: https://tico-19-hxltm.etica.ai/tico-19-hxltm_eng-Latn.pdf[]
+- Ebook EPUB: https://tico-19-hxltm.etica.ai/tico-19-hxltm_eng-Latn.epub[]
+
 == Tables
 
 [%header,format=csv]
@@ -46,6 +51,7 @@ include::../scripts/data-info/tico19_tm.csv[]
 == Quick explanations
 
 == Original data + minor changes
+////
 
 === `data/original/terminology/google/` and `data/original/tico-19-terminology-google.csv`
 
@@ -54,7 +60,7 @@ include::../scripts/data-info/tico19_tm.csv[]
 === `data/original/terminology/facebook/` and `data/original/tico-19-terminology-google.csv`
 
 (...)
-
+////
 
 == Appendix
 

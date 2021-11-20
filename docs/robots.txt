@@ -1,0 +1,5 @@
+User-agent: *
+
+# These files are redundant. No need to index
+Disallow: /scripts/data-external/
+Disallow: /scripts/data-info/

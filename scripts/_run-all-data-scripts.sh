@@ -57,3 +57,7 @@ set -e
 #   on .adoc
 #   - https://stackoverflow.com/questions/26357137/csv-to-image-in-python
 #   - https://stackoverflow.com/questions/902761/saving-a-numpy-array-as-an-image
+#   - https://github.com/datasets/language-codes/blob/master/ietf-lanGen.php
+#   - https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/defaultContent.json
+#   - Territory
+#     - https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/supplemental/territoryInfo.json

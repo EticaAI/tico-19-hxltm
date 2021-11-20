@@ -30,8 +30,8 @@ PWD_NOW=$(pwd)
 if [ ! -f scripts/data-external/iso-639-3.tab ]; then
     curl https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab --output scripts/data-external/iso-639-3.tab
     mlr --itsv --ocsv cat scripts/data-external/iso-639-3.tab > scripts/data-external/iso-639-3.csv
-    head scripts/data-external/iso-639-3.csv > scripts/data-external/iso-639-3__sample.csv
-    head scripts/data-external/iso-639-3.tab > scripts/data-external/iso-639-3__sample.tab
+    head scripts/data-external/iso-639-3.csv > scripts/data-external/iso-639-3.sample.csv
+    head scripts/data-external/iso-639-3.tab > scripts/data-external/iso-639-3.sample.tab
 fi
 if [ ! -f scripts/data-external/iso15924.txt ]; then
     curl https://www.unicode.org/iso15924/iso15924.txt --output scripts/data-external/iso15924.txt
@@ -43,9 +43,21 @@ if [ ! -f scripts/data-external/iso15924.txt ]; then
       scripts/data-external/iso15924_no-comments.tsv \
       > scripts/data-external/iso15924.csv
 
-    head scripts/data-external/iso15924.csv > scripts/data-external/iso15924__sample.csv
-    head scripts/data-external/iso15924.txt > scripts/data-external/iso15924__sample.txt
+    head scripts/data-external/iso15924.csv > scripts/data-external/iso15924.sample.csv
+    head scripts/data-external/iso15924.txt > scripts/data-external/iso15924.sample.txt
 fi
+
+if [ ! -f scripts/data-external/cldr/likelySubtags.json ]; then
+    curl https://raw.githubusercontent.com/unicode-org/cldr-json/main/cldr-json/cldr-core/supplemental/likelySubtags.json --output scripts/data-external/cldr/likelySubtags.json
+    head -n 15 scripts/data-external/cldr/likelySubtags.json > scripts/data-external/cldr/likelySubtags.sample.json
+fi
+
+if [ ! -f scripts/data-external/cldr/aliases.json ]; then
+    curl https://raw.githubusercontent.com/unicode-org/cldr-json/main/cldr-json/cldr-core/supplemental/aliases.json --output scripts/data-external/cldr/aliases.json
+    head -n 15 scripts/data-external/cldr/likelySubtags.json > scripts/data-external/cldr/aliases.sample.json
+fi
+
+# https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/scriptMetadata.json
 
 # mlr --irs '|' --implicit-csv-header cat scripts/data-external/iso15924_no-comments-pipe.txt
 
