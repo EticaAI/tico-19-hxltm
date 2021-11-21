@@ -1,21 +1,24 @@
 #!/usr/bin/python3
 # ==============================================================================
 #
-#          FILE:  langcodescli.py
+#          FILE:  linguacodex.py
 #
-#         USAGE:  ./scripts/fn/langcodescli.py
+#         USAGE:  ./scripts/fn/linguacodex.py
 #
-#   DESCRIPTION: A command line wrapper to https://github.com/rspeer/langcodes.
+#   DESCRIPTION: _[eng-Latn] Command line to process language codes
 #                Install dependencies with
 #                    pip install langcodes[data]
+#                [eng-Latn]_
+#                Trivia:
+#                - lingua cōdex
+#                  - https://en.wiktionary.org/wiki/lingua#Latin
+#                  - https://en.wiktionary.org/wiki/codex#Latin
 #
 #       OPTIONS:  ---
 #
 #  REQUIREMENTS:  - python3
 #                   - langcodes
 #                     - https://github.com/rspeer/langcodes
-#                   - click
-#                     - https://click.palletsprojects.com/
 #          BUGS:  ---
 #         NOTES:  ---
 #       AUTHORS:  Emerson Rocha <rocha[at]ieee.org>
@@ -23,8 +26,9 @@
 #       COMPANY:  EticaAI
 #       LICENSE:  Public Domain dedication OR Zero-Clause BSD
 #                 SPDX-License-Identifier: Unlicense OR 0BSD
-#       VERSION:  v1.0
-#       CREATED:  2021-11-20 10:37 UTC
+#       VERSION:  v0.5
+#       CREATED:  2021-11-20 10:37 UTC v0.1 name langcodescli.py
+#       CHANGED:  2021-11-21 04:59 UTC v0.5 renamed as linguacodex.py
 # ==============================================================================
 
 import sys
@@ -33,7 +37,7 @@ import json
 import langcodes
 
 
-description = "A command line wrapper to python langcodes"
+description = "_[eng-Latn]Command line to process language codes[eng-Latn]_"
 epilog = """
 
 ABOUT LANGUAGE-TERRITORY INFORMATION
