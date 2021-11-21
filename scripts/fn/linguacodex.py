@@ -39,7 +39,7 @@ python3 -m doctest -v ./scripts/fn/linguacodex.py
 # >>> Simulationem('linguacodex --de_codex pt').jq('.')
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex')
-{"_crudum": "pt", "BCP47": "pt"}
+{"_crudum": "pt", "BCP47": "pt", "HXLTMa": "@TODO", "HXLTMt": "@TODO"}
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex.BCP47')
 "pt"
@@ -77,7 +77,7 @@ description = "_[eng-Latn]Command line to process language codes[eng-Latn]_"
 epilog = """
 
 ABOUT LANGUAGE-TERRITORY INFORMATION
-(--speaking-population, --writing-population)
+(--quod .communitas)
     The estimates for "writing population" are often overestimates,
     as described in the CLDR documentation on territory data.
     In most cases, they are derived from published data about literacy rates
@@ -126,32 +126,37 @@ parser.add_argument(
     in some natural language.
     """)
 parser.add_argument(
-    '--info', action='store_true',
-    help='General information (JSON output) [default]')
-parser.add_argument(
-    '--info-in-lang', help='Same as --help, ' +
-    'but requires a language parameter to in which language return ' +
-    ' the description. (JSON output)')
-parser.add_argument(
-    '--info-in-autonym', action='store_true',
-    help='Same as --info-in-lang, but defaults language_code, e.g. autonym ' +
-    '(JSON output)')
-parser.add_argument(
-    '--bcp47', action='store_true',
-    help='Standardize the language code to BCP47 if already not is'
-    '(string output) as BCP47')
-parser.add_argument(
-    '--is-valid-syntax', action='store_true',
-    help='Check if is valid. Return 0 plus error code if so wrong ' +
-    'that is not even recognizable')
-parser.add_argument(
-    '--speaking-population', action='store_true',
-    help='Estimated speaking population. ')
-parser.add_argument(
-    '--writing-population', action='store_true',
-    help='Estimated writing population')
+    '--quod', action='store', help="""
+    Dot notation to filter more exact information instead of return all
+    information. Example: --quod .codex.BCP47
+    """)
+# parser.add_argument(
+#     '--info', action='store_true',
+#     help='General information (JSON output) [default]')
+# parser.add_argument(
+#     '--info-in-lang', help='Same as --help, ' +
+#     'but requires a language parameter to in which language return ' +
+#     ' the description. (JSON output)')
+# parser.add_argument(
+#     '--info-in-autonym', action='store_true',
+#     help='Same as --info-in-lang, but defaults language_code, e.g. autonym ' +
+#     '(JSON output)')
+# parser.add_argument(
+#     '--bcp47', action='store_true',
+#     help='Standardize the language code to BCP47 if already not is'
+#     '(string output) as BCP47')
+# parser.add_argument(
+#     '--is-valid-syntax', action='store_true',
+#     help='Check if is valid. Return 0 plus error code if so wrong ' +
+#     'that is not even recognizable')
+# parser.add_argument(
+#     '--speaking-population', action='store_true',
+#     help='Estimated speaking population. ')
+# parser.add_argument(
+#     '--writing-population', action='store_true',
+#     help='Estimated writing population')
 
-parser.add_argument('--version', action='version', version='1.0.0')
+parser.add_argument('--version', action='version', version='0.5.0')
 
 
 class LinguaCodex:
@@ -171,12 +176,14 @@ class LinguaCodex:
     de_exemplum: str = None
     de_codex_norma: str = 'BCP47'
     # nomen_lingua: str = None
+    quod: str = '.'
 
     def __init__(
             self, de_codex: str = None,
             de_nomen: str = None,
             de_exemplum: str = None,
-            de_codex_norma: str = 'BCP47'
+            de_codex_norma: str = 'BCP47',
+            quod: str = '.'
     ):
         """LinguaCodex initiāle
         """
@@ -188,11 +195,15 @@ class LinguaCodex:
             self.de_exemplum = de_exemplum
         if de_codex_norma:
             self.de_codex_norma = de_codex_norma
+        if quod:
+            self.quod = quod
 
     # def quid(self):
     #     return LinguaCodexQuid.in_textum_json(self.__dict__)
 
     def quid(self, info_in_lang=False):
+
+        # TODO: try catch with errors for codes like
         result_ = langcodes.Language.get(self.de_codex)
         if info_in_lang:
             if info_in_lang == 'autonym':
@@ -202,13 +213,20 @@ class LinguaCodex:
         else:
             result = result_.describe()
 
-        result['bcp47'] = langcodes.standardize_tag(self.de_codex)
-        result['codex'] = {
-            '_crudum': self.de_codex,
-            'BCP47': langcodes.standardize_tag(self.de_codex),
-            'HXLTMa': '',
-            'HXLTMt': ''
-        }
+        # result['bcp47'] = langcodes.standardize_tag(self.de_codex)
+        # result['codex'] = {
+        #     '_crudum': self.de_codex,
+        #     'BCP47': langcodes.standardize_tag(self.de_codex),
+        #     'HXLTMa': '',
+        #     'HXLTMt': ''
+        # }
+        result['codex'] = {}
+        if self.de_codex:
+            result['codex']['_crudum'] = self.de_codex
+        result['codex']['BCP47'] = langcodes.standardize_tag(self.de_codex)
+        result['codex']['HXLTMa'] = '@TODO'
+        result['codex']['HXLTMt'] = '@TODO'
+
         # https://en.wikipedia.org/wiki/Endonym_and_exonym
         # Autonym, https://en.wikipedia.org/wiki/Autonym
         # endonym, https://en.wikipedia.org/wiki/Endonym_and_exonym
@@ -217,24 +235,35 @@ class LinguaCodex:
         # *-, https://www.englishhints.com/latin-prefixes.html
         # extra-, http://www.perseus.tufts.edu/hopper
         #         /resolveform?type=start&lookup=extra&lang=la
-        result['nomen'] = {
-            '_crudum': self.de_nomen,
-            'autonym': langcodes.Language.get(
-                self.de_codex).autonym(),
-            'exonym': {}
-        }
+        result['nomen'] = {}
+        if self.de_nomen:
+            result['nomen']['_crudum'] = self.de_nomen
+        result['nomen']['autonym'] = langcodes.Language.get(
+            self.de_codex).autonym()
+        result['nomen']['exonym'] = {}
+
         # commūnitās, https://en.wiktionary.org/wiki/communitas#Latin
         result['communitas'] = {
-            'speaking': result_.speaking_population(),
-            'writing': result_.writing_population()
+            # litterātum, https://en.wiktionary.org/wiki/litteratus#Latin
+            'litteratum': result_.speaking_population(),
+            # scrībendum, https://en.wiktionary.org/wiki/scribo#Latin
+            'scrībendum': result_.writing_population()
         }
-        # result['autonym'] = langcodes.Language.get(
-        #     self.de_codex).autonym()
-        # result['speaking_population'] = result_.speaking_population()
-        # result['writing_population'] = result_.writing_population()
-        result['is_valid_syntax'] = langcodes.tag_is_valid(self.de_codex)
+        # TODO: separate part to script
+        # scrīptum, https://en.wiktionary.org/wiki/scriptum#Latin
 
-        return result
+        # 	errōrem, https://en.wiktionary.org/wiki/error#Latin
+        # typum, https://en.wiktionary.org/wiki/typus#Latin
+        # https://en.wiktionary.org/wiki/syntaxis#Latin
+        if not langcodes.tag_is_valid(self.de_codex):
+            result['errorem_syntaxin'] = True
+
+        # result['errorem'] = not langcodes.tag_is_valid(self.de_codex)
+        # result['errorem'] = not langcodes.tag_is_valid(self.de_codex)
+
+        # print('oi', self.quod)
+
+        return in_jq(result, self.quod)
         # print(json.dumps(result_item))
         # print('ooi', result)
 
@@ -253,6 +282,51 @@ class LinguaCodexQuid:
         """LinguaCodexQuid initiāle
         """
         self.lingua_codex = lingua_codex
+
+
+def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
+    """in_jq TODO document
+    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.b')
+    10
+    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.a')
+    {'aa1': 1, 'aa2': 2}
+    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.a.aa1')
+    1
+    """
+    neo_rem = rem
+    if len(quod.strip('.')) > 0:
+        parts = quod.strip('.').split('.')
+        # print('parts', parts)
+        for item in parts:
+            # print('item', item, result)
+            if neo_rem is not None and item in neo_rem:
+                neo_rem = neo_rem[item]
+            else:
+                neo_rem = incognitum
+                break
+
+    return neo_rem
+
+
+# def jq(self, jq_argumenta='.'):
+#     sys.argv = self.argumenta.split(' ')
+#     args = parser.parse_args()
+#     # result_original = run_cli(args)
+#     result_original = LinguaCodexCli(args).resultatum()
+#     # print('ooi7', result_original, type(result_original))
+#     # TODO: implement jq_argumenta
+#     result = copy.copy(result_original)
+#     # result = []
+#     if len(jq_argumenta.strip('.')) > 0:
+#         parts = jq_argumenta.strip('.').split('.')
+#         # print('parts', parts)
+#         for item in parts:
+#             # print('item', item, result)
+#             if result is not None and item in result:
+#                 result = result[item]
+#             else:
+#                 result = '?!?'
+#                 break
 
 
 def in_textum_json(
@@ -313,77 +387,77 @@ def in_textum_json(
     return json_textum
 
 
-def info(language_code, info_in_lang=False):
-    # @deprecated
-    result = langcodes.Language.get(language_code)
-    if info_in_lang:
-        if info_in_lang == 'autonym':
-            result_item = result.describe(language_code)
-        else:
-            result_item = result.describe(info_in_lang)
-    else:
-        result_item = result.describe()
+# def info(language_code, info_in_lang=False):
+#     # @deprecated
+#     result = langcodes.Language.get(language_code)
+#     if info_in_lang:
+#         if info_in_lang == 'autonym':
+#             result_item = result.describe(language_code)
+#         else:
+#             result_item = result.describe(info_in_lang)
+#     else:
+#         result_item = result.describe()
 
-    result_item['bcp47'] = langcodes.standardize_tag(language_code)
-    result_item['codex'] = {
-        'BCP47': langcodes.standardize_tag(language_code)
-    }
-    result_item['autonym'] = langcodes.Language.get(language_code).autonym()
-    result_item['speaking_population'] = result.speaking_population()
-    result_item['writing_population'] = result.writing_population()
-    result_item['is_valid_syntax'] = langcodes.tag_is_valid(language_code)
+#     result_item['bcp47'] = langcodes.standardize_tag(language_code)
+#     result_item['codex'] = {
+#         'BCP47': langcodes.standardize_tag(language_code)
+#     }
+#     result_item['autonym'] = langcodes.Language.get(language_code).autonym()
+#     result_item['speaking_population'] = result.speaking_population()
+#     result_item['writing_population'] = result.writing_population()
+#     result_item['is_valid_syntax'] = langcodes.tag_is_valid(language_code)
 
-    print(json.dumps(result_item))
-    # print('ooi', result)
-
-
-def is_valid_syntax(language_code):
-    # @deprecated
-    if langcodes.tag_is_valid(language_code):
-        print(1)
-        sys.exit(0)
-    else:
-        print(0)
-        sys.exit(1)
+#     print(json.dumps(result_item))
+#     # print('ooi', result)
 
 
-def bcp47(language_code):
-    # @deprecated
-    print(json.dumps(langcodes.standardize_tag(language_code)))
+# def is_valid_syntax(language_code):
+#     # @deprecated
+#     if langcodes.tag_is_valid(language_code):
+#         print(1)
+#         sys.exit(0)
+#     else:
+#         print(0)
+#         sys.exit(1)
 
 
-def speaking_population(language_code):
-    # @deprecated
-    result = langcodes.Language.get(language_code)
-    print(json.dumps(result.speaking_population()))
+# def bcp47(language_code):
+#     # @deprecated
+#     print(json.dumps(langcodes.standardize_tag(language_code)))
 
 
-def writing_population(language_code):
-    # @deprecated
-    result = langcodes.Language.get(language_code)
-    print(json.dumps(result.writing_population()))
+# def speaking_population(language_code):
+#     # @deprecated
+#     result = langcodes.Language.get(language_code)
+#     print(json.dumps(result.speaking_population()))
 
 
-def run_cli(args):
-    # @deprecated
-    if args.bcp47:
-        return bcp47(args.de_codex)
-    if args.is_valid_syntax:
-        return is_valid_syntax(args.de_codex)
-    if args.speaking_population:
-        return speaking_population(args.de_codex)
-    if args.writing_population:
-        return writing_population(args.de_codex)
-    if args.info_in_lang:
-        return info(args.de_codex, args.info_in_lang)
-    if args.info_in_autonym:
-        return info(args.de_codex, 'autonym')
-    if args.info:
-        return info(args.de_codex)
+# def writing_population(language_code):
+#     # @deprecated
+#     result = langcodes.Language.get(language_code)
+#     print(json.dumps(result.writing_population()))
 
-    # parser.print_help()
-    # sys.exit(1)
-    return info(args.de_codex)
+
+# def run_cli(args):
+#     # @deprecated
+#     if args.bcp47:
+#         return bcp47(args.de_codex)
+#     if args.is_valid_syntax:
+#         return is_valid_syntax(args.de_codex)
+#     if args.speaking_population:
+#         return speaking_population(args.de_codex)
+#     if args.writing_population:
+#         return writing_population(args.de_codex)
+#     if args.info_in_lang:
+#         return info(args.de_codex, args.info_in_lang)
+#     if args.info_in_autonym:
+#         return info(args.de_codex, 'autonym')
+#     if args.info:
+#         return info(args.de_codex)
+
+#     # parser.print_help()
+#     # sys.exit(1)
+#     return info(args.de_codex)
 
 # TODO: create a class just to simulate the cli interface
 #       @see https://stackoverflow.com/questions/50886471
@@ -407,7 +481,10 @@ class LinguaCodexCli:
         self.argparse_args = argparse_args
 
         self.linguacodex = LinguaCodex(
-            de_codex=argparse_args.de_codex
+            de_codex=argparse_args.de_codex,
+            de_codex_norma=argparse_args.de_codex_norma,
+            de_nomen=argparse_args.de_nomen,
+            quod=argparse_args.quod
         )
 
     def resultatum(self):
