@@ -34,13 +34,24 @@
 python3 -m doctest ./scripts/fn/linguacodex.py
 python3 -m doctest -v ./scripts/fn/linguacodex.py
 
+# >>> Simulationem('linguacodex --de_codex pt').jq()
 
->>> LinguaCodex(de_codex='pt').quid()
-'{"de_codex": "pt", "de_codex_norma": "BCP47"}'
+# >>> Simulationem('linguacodex --de_codex pt').jq('.')
+
+>>> Simulationem('linguacodex --de_codex pt').jq('.codex')
+'{"BCP47": "pt"}'
+
+>>> Simulationem('linguacodex --de_codex pt').jq('.codex.BCP47')
+'"pt"'
+
+
+# >>> LinguaCodex(de_codex='pt').quid()
+# '{"de_codex": "pt", "de_codex_norma": "BCP47"}'
 """
 import sys
 import argparse
 from pathlib import Path
+import copy
 import json
 from dataclasses import dataclass, InitVar
 from typing import (
@@ -89,9 +100,9 @@ parser = argparse.ArgumentParser(
     formatter_class=argparse.RawDescriptionHelpFormatter,
     epilog=epilog
 )
-parser.add_argument(
-    'language_code',
-    help='The language code. Requires at least one option, like --info')
+# parser.add_argument(
+#     'language_code',
+#     help='The language code. Requires at least one option, like --info')
 parser.add_argument(
     '--de_codex', action='store', help="""
     The main natural language to inspect using some well know language code.
@@ -173,24 +184,28 @@ class LinguaCodex:
     # def quid(self):
     #     return LinguaCodexQuid.in_textum_json(self.__dict__)
 
-    def quid(self, language_code, info_in_lang=False):
-        result = langcodes.Language.get(language_code)
+    def quid(self, info_in_lang=False):
+        result = langcodes.Language.get(self.de_codex)
         if info_in_lang:
             if info_in_lang == 'autonym':
-                result_item = result.describe(language_code)
+                result_item = result.describe(self.de_codex)
             else:
                 result_item = result.describe(info_in_lang)
         else:
             result_item = result.describe()
 
-        result_item['bcp47'] = langcodes.standardize_tag(language_code)
+        result_item['bcp47'] = langcodes.standardize_tag(self.de_codex)
+        result_item['codex'] = {
+            'BCP47': langcodes.standardize_tag(self.de_codex)
+        }
         result_item['autonym'] = langcodes.Language.get(
-            language_code).autonym()
+            self.de_codex).autonym()
         result_item['speaking_population'] = result.speaking_population()
         result_item['writing_population'] = result.writing_population()
-        result_item['is_valid_syntax'] = langcodes.tag_is_valid(language_code)
+        result_item['is_valid_syntax'] = langcodes.tag_is_valid(self.de_codex)
 
-        print(json.dumps(result_item))
+        return result_item
+        # print(json.dumps(result_item))
         # print('ooi', result)
 
 
@@ -209,66 +224,67 @@ class LinguaCodexQuid:
         """
         self.lingua_codex = lingua_codex
 
-    @staticmethod
-    def in_textum_json(
-            rem: Any,
-            formosum: Union[bool, int] = None,
-            clavem_sortem: bool = False,
-            imponendum_praejudicium: bool = False
-    ) -> str:
-        """Trānslātiōnem: rem in textum JSON
 
-        Trivia:
-          - rem, https://en.wiktionary.org/wiki/res#Latin
-          - in, https://en.wiktionary.org/wiki/in#Latin
-          - json, https://www.json.org/
-          - fōrmōsum, https://en.wiktionary.org/wiki/formosus
-          - impōnendum, https://en.wiktionary.org/wiki/enforcier#Old_French
-          - praejūdicium, https://en.wiktionary.org/wiki/praejudicium#Latin
-          - sortem, https://en.wiktionary.org/wiki/sors#Latin
-          - clāvem, https://en.wiktionary.org/wiki/clavis#Latin
+def in_textum_json(
+        rem: Any,
+        formosum: Union[bool, int] = None,
+        clavem_sortem: bool = False,
+        imponendum_praejudicium: bool = False
+) -> str:
+    """Trānslātiōnem: rem in textum JSON
 
-        Args:
-            rem ([Any]): Rem
+    Trivia:
+        - rem, https://en.wiktionary.org/wiki/res#Latin
+        - in, https://en.wiktionary.org/wiki/in#Latin
+        - json, https://www.json.org/
+        - fōrmōsum, https://en.wiktionary.org/wiki/formosus
+        - impōnendum, https://en.wiktionary.org/wiki/enforcier#Old_French
+        - praejūdicium, https://en.wiktionary.org/wiki/praejudicium#Latin
+        - sortem, https://en.wiktionary.org/wiki/sors#Latin
+        - clāvem, https://en.wiktionary.org/wiki/clavis#Latin
 
-        Returns:
-            [str]: Rem in JSON textum
+    Args:
+        rem ([Any]): Rem
 
-        Exemplōrum gratiā (et Python doctest, id est, testum automata):
+    Returns:
+        [str]: Rem in JSON textum
+
+    Exemplōrum gratiā (et Python doctest, id est, testum automata):
 
 >>> rem = {"b": 2, "a": ['ت', 'ツ', '😊']}
 
->>> LinguaCodexQuid.in_textum_json(rem)
+>>> in_textum_json(rem)
 '{"b": 2, "a": ["ت", "ツ", "😊"]}'
 
-# >>> LinguaCodexQuid.in_textum_json(rem, clavem_sortem=True)
+# >>> in_textum_json(rem, clavem_sortem=True)
 # '{"a": ["ت", "ツ", "😊"], "b": 2}'
 #
-# >>> LinguaCodexQuid.in_textum_json(rem, imponendum_praejudicium=True)
+# >>> in_textum_json(rem, imponendum_praejudicium=True)
 # '{"b": 2, "a": ["\\\u062a", "\\\u30c4", "\\\ud83d\\\ude0a"]}'
 #
-# >>> LinguaCodexQuid.in_textum_json(rem, formosum=True)
+# >>> in_textum_json(rem, formosum=True)
 # '{\\n    "b": 2,\\n    \
 # "a": [\\n        "ت",\\n        "ツ",\\n        "😊"\\n    ]\\n}'
 
-        """
+"""
 
-        # print = json.dumps()
+    # print = json.dumps()
 
-        if formosum is True:
-            formosum = 4
+    if formosum is True:
+        formosum = 4
 
-        json_textum = json.dumps(
-            rem,
-            indent=formosum,
-            sort_keys=clavem_sortem,
-            ensure_ascii=imponendum_praejudicium
-        )
+    json_textum = json.dumps(
+        rem,
+        indent=formosum,
+        sort_keys=clavem_sortem,
+        ensure_ascii=imponendum_praejudicium
+    )
 
-        return json_textum
+    return json_textum
 
 
 def info(language_code, info_in_lang=False):
+    # @deprecated
     result = langcodes.Language.get(language_code)
     if info_in_lang:
         if info_in_lang == 'autonym':
@@ -279,6 +295,9 @@ def info(language_code, info_in_lang=False):
         result_item = result.describe()
 
     result_item['bcp47'] = langcodes.standardize_tag(language_code)
+    result_item['codex'] = {
+        'BCP47': langcodes.standardize_tag(language_code)
+    }
     result_item['autonym'] = langcodes.Language.get(language_code).autonym()
     result_item['speaking_population'] = result.speaking_population()
     result_item['writing_population'] = result.writing_population()
@@ -289,6 +308,7 @@ def info(language_code, info_in_lang=False):
 
 
 def is_valid_syntax(language_code):
+    # @deprecated
     if langcodes.tag_is_valid(language_code):
         print(1)
         sys.exit(0)
@@ -298,59 +318,42 @@ def is_valid_syntax(language_code):
 
 
 def bcp47(language_code):
+    # @deprecated
     print(json.dumps(langcodes.standardize_tag(language_code)))
 
 
 def speaking_population(language_code):
+    # @deprecated
     result = langcodes.Language.get(language_code)
     print(json.dumps(result.speaking_population()))
 
 
 def writing_population(language_code):
+    # @deprecated
     result = langcodes.Language.get(language_code)
     print(json.dumps(result.writing_population()))
 
 
 def run_cli(args):
+    # @deprecated
     if args.bcp47:
-        return bcp47(args.language_code)
+        return bcp47(args.de_codex)
     if args.is_valid_syntax:
-        return is_valid_syntax(args.language_code)
+        return is_valid_syntax(args.de_codex)
     if args.speaking_population:
-        return speaking_population(args.language_code)
+        return speaking_population(args.de_codex)
     if args.writing_population:
-        return writing_population(args.language_code)
+        return writing_population(args.de_codex)
     if args.info_in_lang:
-        return info(args.language_code, args.info_in_lang)
+        return info(args.de_codex, args.info_in_lang)
     if args.info_in_autonym:
-        return info(args.language_code, 'autonym')
+        return info(args.de_codex, 'autonym')
     if args.info:
-        return info(args.language_code)
+        return info(args.de_codex)
 
     # parser.print_help()
     # sys.exit(1)
-    return info(args.language_code)
-
-
-def run_cli(args):
-    if args.bcp47:
-        return bcp47(args.language_code)
-    if args.is_valid_syntax:
-        return is_valid_syntax(args.language_code)
-    if args.speaking_population:
-        return speaking_population(args.language_code)
-    if args.writing_population:
-        return writing_population(args.language_code)
-    if args.info_in_lang:
-        return info(args.language_code, args.info_in_lang)
-    if args.info_in_autonym:
-        return info(args.language_code, 'autonym')
-    if args.info:
-        return info(args.language_code)
-
-    # parser.print_help()
-    # sys.exit(1)
-    return info(args.language_code)
+    return info(args.de_codex)
 
 # TODO: create a class just to simulate the cli interface
 #       @see https://stackoverflow.com/questions/50886471
@@ -364,10 +367,80 @@ def run_cli(args):
 # /simulating-argparse-command-line-arguments-input-while-debugging
 # /50886791#50886791
 
+class LinguaCodexCli:
+    argparse_args = None
+    linguacodex: Type['LinguaCodex'] = None
 
-def linguacodex(argumenta: str):
-    parts = 'linguacodex.py' + ' '.split(argumenta)
-    sys.argv = parts
+    def __init__(self, argparse_args):
+        """Simulationem initiāle
+        """
+        self.argparse_args = argparse_args
+
+        self.linguacodex = LinguaCodex(
+            de_codex=argparse_args.de_codex
+        )
+
+    def resultatum(self):
+        # print('oooi', self.linguacodex)
+        # print('oooi5', self.linguacodex.__dict__)
+        # print('oooi6', self.linguacodex.quid())
+        return self.linguacodex.quid()
+
+    def resultatum_in_textum(self):
+        return in_textum_json(self.resultatum())
+
+
+class Simulationem:
+    argumenta: str = None
+
+    def __init__(self, argumenta):
+        """Simulationem initiāle
+        """
+        self.argumenta = argumenta
+
+    # def __repr__(self):
+
+    #     sys.argv = self.argumenta.split(' ')
+    #     # print(sys.argv, argumenta, ' '.split(argumenta))
+    #     args = parser.parse_args()
+    #     # print(run_cli(args))
+    #     return in_textum_json(run_cli(args))
+    #     # return f'Person(name={self.name}, age={self.age})'
+
+    def jq(self, jq_argumenta='.'):
+        sys.argv = self.argumenta.split(' ')
+        args = parser.parse_args()
+        # result_original = run_cli(args)
+        result_original = LinguaCodexCli(args).resultatum()
+        # print('ooi7', result_original, type(result_original))
+        # TODO: implement jq_argumenta
+        result = copy.copy(result_original)
+        # result = []
+        if len(jq_argumenta.strip('.')) > 0:
+            parts = jq_argumenta.strip('.').split('.')
+            # print('parts', parts)
+            for item in parts:
+                # print('item', item, result)
+                if result is not None and item in result:
+                    result = result[item]
+                else:
+                    result = '?!?'
+                    break
+
+        return in_textum_json(result)
+
+
+def simulationem(argumenta: str):
+    """simulationem
+    Trivia:
+    - simulātiōnem, https://en.wiktionary.org/wiki/simulatio#Latin
+
+    Args:
+        argumenta (str): Command line arguments
+    """
+    # parts = 'linguacodex.py' + ' '.split(argumenta)
+    sys.argv = argumenta.split(' ')
+    # print(sys.argv, argumenta, ' '.split(argumenta))
     args = parser.parse_args()
     print(run_cli(args))
 
