@@ -9,6 +9,7 @@ data/original/tico19-testset.zip
 data/original/tico19-testset
 !.gitignore
 !README.md
+__pycache__
 tmp/
 
 ## @see scripts/_setup-local-machine.sh

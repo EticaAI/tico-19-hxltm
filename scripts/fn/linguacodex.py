@@ -30,9 +30,12 @@
 #       CREATED:  2021-11-20 10:37 UTC v0.1 name langcodescli.py
 #       CHANGED:  2021-11-21 04:59 UTC v0.5 renamed as linguacodex.py
 # ==============================================================================
-
+"""
+pytest ./scripts/fn/linguacodex.py
+"""
 import sys
 import argparse
+from pathlib import Path
 import json
 import langcodes
 
@@ -54,6 +57,16 @@ ABOUT LANGUAGE-TERRITORY INFORMATION
 
 """.format(sys.argv[0])
 
+# DATA_EXTERNAL = __file__ .
+DATA_EXTERNAL = str(Path(__file__).parent.resolve()) + '/data-external'
+DATA_EXTERNAL_CLDR_JSON = 'https://raw.githubusercontent.com/unicode-org/' + \
+    'cldr-json/main/cldr-json/'
+
+# print('HXLTM_SYSTEMA_DIR', HXLTM_SYSTEMA_DIR)
+
+# TODO: https://stackoverflow.com/questions/39142778
+#       /python-how-to-determine-the-language
+
 parser = argparse.ArgumentParser(
     description=description,
     formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -62,6 +75,20 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     'language_code',
     help='The language code. Requires at least one option, like --info')
+parser.add_argument(
+    '--de-codex', action='store', help="""
+    The main natural language to inspect using some well know language code.
+    """)
+# This is just in case we start to add new code standards
+parser.add_argument(
+    '--de-codex-norma', action='store', default='BCP47', help="""
+    When using the code, specify the coding standard used. Defaults to BCP47
+    """)
+parser.add_argument(
+    '--de-nomen', action='store', help="""
+    The main natural language to inspect using the title of the language
+    in some natural language.
+    """)
 parser.add_argument(
     '--info', action='store_true',
     help='General information (JSON output) [default]')
@@ -153,6 +180,39 @@ def run_cli(args):
     # parser.print_help()
     # sys.exit(1)
     return info(args.language_code)
+
+
+class LinguaCodex:
+    """
+    _[eng-Latn]
+    Command line to process language codes
+
+    Trivia:
+    - lingua cōdex
+        - https://en.wiktionary.org/wiki/lingua#Latin
+        - https://en.wiktionary.org/wiki/codex#Latin
+
+    [eng-Latn]_
+    """
+    codex: str = None
+    nomen: str = None
+    codex_norma: str = 'BCP47'
+    nomen_lingua: str = None
+
+    def __init__(
+            self, codex: str, nomen: str = None,
+            codex_norma: str = 'BCP47', nomen_lingua: str = None
+    ):
+        """LinguaCodex initiāle
+        """
+        if codex:
+            self.codicem = codex
+        if nomen:
+            self.nomen = nomen
+        if codex_norma:
+            self.codex_norma = codex_norma
+        if nomen_lingua:
+            self.nomen_lingua = nomen_lingua
 
 
 if __name__ == '__main__':
