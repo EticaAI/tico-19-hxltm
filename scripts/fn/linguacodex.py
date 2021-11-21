@@ -39,14 +39,19 @@ python3 -m doctest -v ./scripts/fn/linguacodex.py
 # >>> Simulationem('linguacodex --de_codex pt').jq('.')
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex')
-'{"BCP47": "pt"}'
+{"_crudum": "pt", "BCP47": "pt"}
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex.BCP47')
-'"pt"'
+"pt"
 
 
 # >>> LinguaCodex(de_codex='pt').quid()
 # '{"de_codex": "pt", "de_codex_norma": "BCP47"}'
+
+TODO: - Need a word for Autonym/endonym, but does not exist in latin
+        Prefix here https://www.englishhints.com/latin-prefixes.html
+      - https://en.wiktionary.org/wiki/Category:Latin_words_by_prefix
+
 """
 import sys
 import argparse
@@ -92,9 +97,12 @@ DATA_EXTERNAL_CLDR_JSON = 'https://raw.githubusercontent.com/unicode-org/' + \
 
 # print('HXLTM_SYSTEMA_DIR', HXLTM_SYSTEMA_DIR)
 
-# TODO: https://stackoverflow.com/questions/39142778
-#       /python-how-to-determine-the-language
-
+# TODO: - https://stackoverflow.com/questions/39142778
+#         /python-how-to-determine-the-language
+#       - https://www.npmjs.com/package/@wikimedia/language-data
+#       - https://github.com/wikimedia/language-data
+#         /blob/master/data/language-data.json
+#
 parser = argparse.ArgumentParser(
     description=description,
     formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -185,26 +193,48 @@ class LinguaCodex:
     #     return LinguaCodexQuid.in_textum_json(self.__dict__)
 
     def quid(self, info_in_lang=False):
-        result = langcodes.Language.get(self.de_codex)
+        result_ = langcodes.Language.get(self.de_codex)
         if info_in_lang:
             if info_in_lang == 'autonym':
-                result_item = result.describe(self.de_codex)
+                result = result_.describe(self.de_codex)
             else:
-                result_item = result.describe(info_in_lang)
+                result = result_.describe(info_in_lang)
         else:
-            result_item = result.describe()
+            result = result_.describe()
 
-        result_item['bcp47'] = langcodes.standardize_tag(self.de_codex)
-        result_item['codex'] = {
-            'BCP47': langcodes.standardize_tag(self.de_codex)
+        result['bcp47'] = langcodes.standardize_tag(self.de_codex)
+        result['codex'] = {
+            '_crudum': self.de_codex,
+            'BCP47': langcodes.standardize_tag(self.de_codex),
+            'HXLTMa': '',
+            'HXLTMt': ''
         }
-        result_item['autonym'] = langcodes.Language.get(
-            self.de_codex).autonym()
-        result_item['speaking_population'] = result.speaking_population()
-        result_item['writing_population'] = result.writing_population()
-        result_item['is_valid_syntax'] = langcodes.tag_is_valid(self.de_codex)
+        # https://en.wikipedia.org/wiki/Endonym_and_exonym
+        # Autonym, https://en.wikipedia.org/wiki/Autonym
+        # endonym, https://en.wikipedia.org/wiki/Endonym_and_exonym
+        # exonym/xenonym (maybe xenomen??)
+        # nōmen, https://en.wiktionary.org/wiki/nomen#Derived_terms
+        # *-, https://www.englishhints.com/latin-prefixes.html
+        # extra-, http://www.perseus.tufts.edu/hopper
+        #         /resolveform?type=start&lookup=extra&lang=la
+        result['nomen'] = {
+            '_crudum': self.de_nomen,
+            'autonym': langcodes.Language.get(
+                self.de_codex).autonym(),
+            'exonym': {}
+        }
+        # commūnitās, https://en.wiktionary.org/wiki/communitas#Latin
+        result['communitas'] = {
+            'speaking': result_.speaking_population(),
+            'writing': result_.writing_population()
+        }
+        # result['autonym'] = langcodes.Language.get(
+        #     self.de_codex).autonym()
+        # result['speaking_population'] = result_.speaking_population()
+        # result['writing_population'] = result_.writing_population()
+        result['is_valid_syntax'] = langcodes.tag_is_valid(self.de_codex)
 
-        return result_item
+        return result
         # print(json.dumps(result_item))
         # print('ooi', result)
 
@@ -427,7 +457,7 @@ class Simulationem:
                     result = '?!?'
                     break
 
-        return in_textum_json(result)
+        print(in_textum_json(result))
 
 
 def simulationem(argumenta: str):
@@ -450,7 +480,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if len(sys.argv) > 1:
-        run_cli(args)
+        # run_cli(args)
+        print(LinguaCodexCli(args).resultatum_in_textum())
     else:
         parser.print_help()
         sys.exit(1)
