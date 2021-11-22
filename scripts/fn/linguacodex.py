@@ -468,7 +468,7 @@ def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
     return neo_rem
 
 
-def bcp47_langtag(rem: str, item: str = None) -> dict:
+def bcp47_langtag(rem: str, item: str = None, strict: bool = True) -> dict:
     """Public domain python function to process BCP47 langtag
 
     Created at 2021-11-22. Partial implementation of BCP47 (RFC 5646).
@@ -476,6 +476,8 @@ def bcp47_langtag(rem: str, item: str = None) -> dict:
 
     Args:
         rem (str): The BCP47 langtag
+        item (str): Specific value to return instead of full information
+        strict (bool): Throw exceptions. False replace values with False
 
     Returns:
         dict: Python dictionary. None means not found. False means the feature
@@ -567,6 +569,14 @@ def bcp47_langtag(rem: str, item: str = None) -> dict:
 
         >>> bcp47_langtag('pt-Latn-BR', 'language')
         'pt'
+        >>> bcp47_langtag('pt-Latn-BR', 'script')
+        'Latn'
+        >>> bcp47_langtag('pt-Latn-BR', 'region')
+        'BR'
+        >>> bcp47_langtag('es-419', 'region')
+        '419'
+        >>> bcp47_langtag('zh-Latn-CN-variant1-a-extend1-x-wadegile-private1', 'region')
+        'CN'
     """
     result = {
         'langtag': rem,
@@ -581,13 +591,56 @@ def bcp47_langtag(rem: str, item: str = None) -> dict:
 
     parts = rem.replace('_', '-').strip().split('-')
 
-    # for part in parts:
-    #     if result['language'] is None:
-            
-    result['language'] = parts[0]
+    for part in parts:
+        if result['language'] is None:
+            if part.isalnum() and len(part) == 2 or len(part) == 3:
+                result['language'] = part.lower()
+            else:
+                if not strict:
+                    result['language'] = False
+                else:
+                    raise ValueError(rem + 'language?')
+            continue
+
+        if len(part) == 4:
+            if part.isalpha() and result['script'] is None:
+                if result['region'] is None and len(result['privateuse']) == 0:
+                    result['script'] = part.capitalize()
+                else:
+                    if not strict:
+                        result['script'] = False
+                    else:
+                        raise ValueError(
+                            rem + 'script after region/privateuse')
+            else:
+                if not strict:
+                    result['script'] = False
+                else:
+                    raise ValueError(rem + 'script?')
+            continue
+
+        if len(part) == 2:
+            if part.isalpha() and result['region'] is None:
+                result['region'] = part.upper()
+            else:
+                if not strict:
+                    result['region'] = False
+                else:
+                    raise ValueError(rem + 'region?')
+
+        if len(part) == 3:
+            if part.isnumeric() and result['region'] is None:
+                result['region'] = part
+            else:
+                if not strict:
+                    result['region'] = False
+                else:
+                    raise ValueError(rem + 'region?')
+            #pass
+
+    # result['language'] = parts[0]
 
     # Stritly speaking, we shoudl check if is alpha2 or alpha3
-    
 
     if item != None:
         return result[item]
