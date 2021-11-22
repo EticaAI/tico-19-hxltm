@@ -577,37 +577,55 @@ def bcp47_langtag(rem: str, item: str = None, strict: bool = True) -> dict:
     'Latn'
     >>> bcp47_langtag('pt-Latn-BR', 'region')
     'BR'
+    >>> bcp47_langtag('de-CH-1996', 'variant')
+    ['1996']
     >>> bcp47_langtag('i-klingon', 'grandfathered')
     'i-klingon'
     >>> bcp47_langtag('zh-min-nan', 'language')
     'zh'
     >>> bcp47_langtag('zh-min-nan', 'variant')
-    'min-nan'
+    ['min-nan']
     >>> bcp47_langtag('es-419', 'region')
     '419'
+    >>> bcp47_langtag('en-a-bbb-x-a-ccc', 'privateuse')
+    ['a', 'ccc']
+    >>> bcp47_langtag('en-a-bbb-x-a-ccc', 'extension')
+    {'a': ['bbb']}
+    >>> bcp47_langtag('en-a-b-c-d-x-wadegile-private1', 'extension')
+    {'a': True, 'b': True, 'c': True, 'd': True}
 
-    >>> bcp47_langtag('zh-Latn-CN-variant1-a-extend1-x-wadegile-private1', 'region')
+    >>> bcp47_langtag(
+    ... 'zh-Latn-CN-variant1-a-extend1-x-wadegile-private1', 'region')
     'CN'
-    >>> bcp47_langtag('en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678')
-    'CN'
+    >>> bcp47_langtag(
+    ... 'en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678')
+    {'langtag': \
+'en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678', \
+'language': 'en', 'script': 'Latn', 'region': 'US', \
+'privateuse': ['a', 'b', 'c', '12345678'], \
+'extension': {'a': ['12345678', 'ABCD'], 'b': ['ABCDEFGH']}, \
+'variant': ['lojban', 'gaulish'], \
+'grandfathered': None, '_unknown': [], '_errors': []}
     """
+    # pylint: disable=too-many-branches,too-many-statements
     result = {
         'langtag': rem,
         'language': None,
         'script': None,
         'region': None,
-        'privateuse': [],
-        'extension': False,  # This will not be implemented
-        'variant': None,
+        'privateuse': [],  # Example: ['wadegile', 'private1']
+        'extension': {},   # Example {'a': ['bbb', 'ccc'], 'd': True}
+        'variant': [],
         'grandfathered': None,
         '_unknown': [],
+        '_errors': [],
     }
 
-    errors = []
+    # errors = []
     skip = 0
 
     if not isinstance(rem, str) or len(rem) == 0:
-        errors.append('Empty/wrong type')
+        result['_errors'].append('Empty/wrong type')
         skip = 1
     else:
         rem = rem.replace('_', '-').strip()
@@ -630,7 +648,7 @@ def bcp47_langtag(rem: str, item: str = None, strict: bool = True) -> dict:
         parts_r = rem.split('-')
         result['langtag'] = None
         result['language'] = parts_r.pop(0).lower()
-        result['variant'] = '-'.join(parts_r).lower()
+        result['variant'].append('-'.join(parts_r).lower())
         result['grandfathered'] = rem
         skip = 1
 
@@ -641,77 +659,97 @@ def bcp47_langtag(rem: str, item: str = None, strict: bool = True) -> dict:
     while len(parts) > 0 and skip == 0 and deep < 100:
         deep = deep + 1
         # print('parts', parts)
+
+        # BCP47 can start with private tag, without language at all
+        if parts[0].lower() == 'x':
+            parts.pop(0)
+            while len(parts) > 0:
+                result['privateuse'].append(parts.pop(0))
+            break
+
+        # BCP47 extensions start with one letter.
+        if len(parts[0]) == 1 and parts[0].isalpha():
+            if parts[0].isalpha() == 'i':
+                result['_errors'].append('Only grandfathered can use i-')
+
+            extension_key = parts.pop(0).lower()
+            if len(parts) == 0 or len(parts[0]) == 1:
+                result['extension'][extension_key] = True
+                continue
+            else:
+                result['extension'][extension_key] = []
+                while len(parts) > 0 and len(parts[0]) != 1:
+                    result['extension'][extension_key].append(parts.pop(0))
+                continue
+
         # for part in parts:
         if result['language'] is None:
             if parts[0].isalnum() and len(parts[0]) == 2 or len(parts[0]) == 3:
                 result['language'] = parts[0].lower()
             else:
                 result['language'] = False
-                errors.append('language?')
+                result['_errors'].append('language?')
                 # if not strict:
-                    
+
                 # else:
                 #     raise ValueError(rem + 'language?')
             parts.pop(0)
             continue
 
-        if len(parts[0]) == 4:
-            if parts[0].isalpha() and result['script'] is None:
+        # Edge case to test for numeric in 4 (not 3): 'de-CH-1996'
+        if len(parts[0]) == 4 and parts[0].isalpha() \
+                and result['script'] is None:
+            # if parts[0].isalpha() and result['script'] is None:
+            if parts[0].isalpha():
                 if result['region'] is None and len(result['privateuse']) == 0:
                     result['script'] = parts[0].capitalize()
                 else:
                     result['script'] = False
-                    errors.append('script after region/privateuse')
-                    # if not strict:
-                    #     result['script'] = False
-                    # else:
-                    #     raise ValueError(
-                    #         rem + 'script after region/privateuse')
+                    result['_errors'].append('script after region/privateuse')
             else:
                 result['script'] = False
-                errors.append('script?')
-                # if not strict:
-                #     result['script'] = False
-                # else:
-                #     raise ValueError(rem + 'script?')
+                result['_errors'].append('script?')
             parts.pop(0)
             continue
 
-        if len(parts[0]) == 2:
-            if parts[0].isalpha() and result['region'] is None:
+        if len(parts[0]) == 2 and result['region'] is None:
+            # if parts[0].isalpha() and result['region'] is None:
+            if parts[0].isalpha():
                 result['region'] = parts[0].upper()
             else:
                 result['region'] = False
-                errors.append('region?')
-                # if not strict:
-                #     result['region'] = False
-                # else:
-                #     raise ValueError(rem + 'region?')
+                result['_errors'].append('region?')
             parts.pop(0)
             continue
 
-        if len(parts[0]) == 3:
-            if parts[0].isnumeric() and result['region'] is None:
+        if len(parts[0]) == 3 and result['region'] is None:
+            # if parts[0].isnumeric() and result['region'] is None:
+            if parts[0].isnumeric():
                 result['region'] = parts.pop(0)
             else:
                 result['region'] = False
-                errors.append('region?')
-                # if not strict:
-                #     result['region'] = False
-                # else:
-                #     raise ValueError(rem + 'region?')
+                result['_errors'].append('region?')
                 parts.pop(0)
             continue
 
-        leftover = parts.pop(0)
+        if len(result['extension']) == 0 and len(result['privateuse']) == 0:
+            # "Variant subtags that begin with a letter (a-z, A-Z) MUST be
+            # at least five characters long."
+            # print('oi')
+            if parts[0][0].isalpha() and len(parts[0]) >= 5:
+                result['variant'].append(parts.pop(0))
+                continue
+            if parts[0][0].isnumeric() and len(parts[0]) >= 4:
+                result['variant'].append(parts.pop(0))
+                continue
 
-    # result['language'] = parts[0]
+        # print('oi', len(result['extension']), )
+        leftover.append(parts.pop(0))
 
-    # Stritly speaking, we shoudl check if is alpha2 or alpha3
     result['_unknown'] = leftover
 
-    if strict and len(errors) > 0:
-        ValueError('Errors for [' + rem + ']: ' +  ', '.join(errors))
+    if strict and len(result['_errors']) > 0:
+        ValueError('Errors for [' + rem + ']: ' + ', '.join(result['_errors']))
 
     if item != None:
         return result[item]
