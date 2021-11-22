@@ -565,18 +565,31 @@ def bcp47_langtag(rem: str, item: str = None, strict: bool = True) -> dict:
     alphanum      = (ALPHA / DIGIT)     ; letters and numbers
     -------------
 
-    Tests (run with python3 -m doctest myscript.py):
+    Test examples both from https://tools.ietf.org/search/bcp47 and
+    https://github.com/unicode-org/cldr/blob/main/tools/cldr-code
+    /src/main/resources/org/unicode/cldr/util/data/langtagTest.txt
 
-        >>> bcp47_langtag('pt-Latn-BR', 'language')
-        'pt'
-        >>> bcp47_langtag('pt-Latn-BR', 'script')
-        'Latn'
-        >>> bcp47_langtag('pt-Latn-BR', 'region')
-        'BR'
-        >>> bcp47_langtag('es-419', 'region')
-        '419'
-        >>> bcp47_langtag('zh-Latn-CN-variant1-a-extend1-x-wadegile-private1', 'region')
-        'CN'
+    TESTS (run with python3 -m doctest myscript.py):
+
+    >>> bcp47_langtag('pt-Latn-BR', 'language')
+    'pt'
+    >>> bcp47_langtag('pt-Latn-BR', 'script')
+    'Latn'
+    >>> bcp47_langtag('pt-Latn-BR', 'region')
+    'BR'
+    >>> bcp47_langtag('i-klingon', 'grandfathered')
+    'i-klingon'
+    >>> bcp47_langtag('zh-min-nan', 'language')
+    'zh'
+    >>> bcp47_langtag('zh-min-nan', 'variant')
+    'min-nan'
+    >>> bcp47_langtag('es-419', 'region')
+    '419'
+
+    >>> bcp47_langtag('zh-Latn-CN-variant1-a-extend1-x-wadegile-private1', 'region')
+    'CN'
+    >>> bcp47_langtag('en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678')
+    'CN'
     """
     result = {
         'langtag': rem,
@@ -585,62 +598,120 @@ def bcp47_langtag(rem: str, item: str = None, strict: bool = True) -> dict:
         'region': None,
         'privateuse': [],
         'extension': False,  # This will not be implemented
-        'variant': False,  # This will not be implemented
-        'grandfathered': False,  # This will not be implemented
+        'variant': None,
+        'grandfathered': None,
+        '_unknown': [],
     }
 
-    parts = rem.replace('_', '-').strip().split('-')
+    errors = []
+    skip = 0
 
-    for part in parts:
+    if not isinstance(rem, str) or len(rem) == 0:
+        errors.append('Empty/wrong type')
+        skip = 1
+    else:
+        rem = rem.replace('_', '-').strip()
+
+    # The weird tags first
+    # grandfathered/irregular
+    if rem in [
+        'en-GB-oed', 'i-ami', 'i-bnn', 'i-default', 'i-enochian',
+        'i-hak', 'i-klingon', 'i-lux', 'i-ming', 'i-navajo', 'i-pwn',
+            'i-tao', 'i-tay', 'i-tsu', 'sgn-BE-FR', 'sgn-BE-NL', 'sgn-CH-DE']:
+        result['langtag'] = None
+        result['language'] = rem.lower()
+        result['grandfathered'] = rem
+        skip = 1
+    # grandfathered/regular
+    if rem in [
+            'art-lojban', 'cel-gaulish', 'no-bok', 'no-nyn', 'zh-guoyu',
+            'zh-hakka', 'zh-min', 'zh-min-nan', 'zh-xiang']:
+
+        parts_r = rem.split('-')
+        result['langtag'] = None
+        result['language'] = parts_r.pop(0).lower()
+        result['variant'] = '-'.join(parts_r).lower()
+        result['grandfathered'] = rem
+        skip = 1
+
+    parts = rem.split('-')
+    leftover = []
+
+    deep = 0
+    while len(parts) > 0 and skip == 0 and deep < 100:
+        deep = deep + 1
+        # print('parts', parts)
+        # for part in parts:
         if result['language'] is None:
-            if part.isalnum() and len(part) == 2 or len(part) == 3:
-                result['language'] = part.lower()
+            if parts[0].isalnum() and len(parts[0]) == 2 or len(parts[0]) == 3:
+                result['language'] = parts[0].lower()
             else:
-                if not strict:
-                    result['language'] = False
-                else:
-                    raise ValueError(rem + 'language?')
+                result['language'] = False
+                errors.append('language?')
+                # if not strict:
+                    
+                # else:
+                #     raise ValueError(rem + 'language?')
+            parts.pop(0)
             continue
 
-        if len(part) == 4:
-            if part.isalpha() and result['script'] is None:
+        if len(parts[0]) == 4:
+            if parts[0].isalpha() and result['script'] is None:
                 if result['region'] is None and len(result['privateuse']) == 0:
-                    result['script'] = part.capitalize()
+                    result['script'] = parts[0].capitalize()
                 else:
-                    if not strict:
-                        result['script'] = False
-                    else:
-                        raise ValueError(
-                            rem + 'script after region/privateuse')
-            else:
-                if not strict:
                     result['script'] = False
-                else:
-                    raise ValueError(rem + 'script?')
+                    errors.append('script after region/privateuse')
+                    # if not strict:
+                    #     result['script'] = False
+                    # else:
+                    #     raise ValueError(
+                    #         rem + 'script after region/privateuse')
+            else:
+                result['script'] = False
+                errors.append('script?')
+                # if not strict:
+                #     result['script'] = False
+                # else:
+                #     raise ValueError(rem + 'script?')
+            parts.pop(0)
             continue
 
-        if len(part) == 2:
-            if part.isalpha() and result['region'] is None:
-                result['region'] = part.upper()
+        if len(parts[0]) == 2:
+            if parts[0].isalpha() and result['region'] is None:
+                result['region'] = parts[0].upper()
             else:
-                if not strict:
-                    result['region'] = False
-                else:
-                    raise ValueError(rem + 'region?')
+                result['region'] = False
+                errors.append('region?')
+                # if not strict:
+                #     result['region'] = False
+                # else:
+                #     raise ValueError(rem + 'region?')
+            parts.pop(0)
+            continue
 
-        if len(part) == 3:
-            if part.isnumeric() and result['region'] is None:
-                result['region'] = part
+        if len(parts[0]) == 3:
+            if parts[0].isnumeric() and result['region'] is None:
+                result['region'] = parts.pop(0)
             else:
-                if not strict:
-                    result['region'] = False
-                else:
-                    raise ValueError(rem + 'region?')
-            #pass
+                result['region'] = False
+                errors.append('region?')
+                # if not strict:
+                #     result['region'] = False
+                # else:
+                #     raise ValueError(rem + 'region?')
+                parts.pop(0)
+            continue
+
+        leftover = parts.pop(0)
 
     # result['language'] = parts[0]
 
     # Stritly speaking, we shoudl check if is alpha2 or alpha3
+    result['_unknown'] = leftover
+
+    if strict and len(errors) > 0:
+        ValueError('Errors for [' + rem + ']: ' +  ', '.join(errors))
 
     if item != None:
         return result[item]
