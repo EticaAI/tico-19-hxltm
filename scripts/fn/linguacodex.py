@@ -31,8 +31,7 @@
 #       CHANGED:  2021-11-21 04:59 UTC v0.5 renamed as linguacodex.py
 # ==============================================================================
 """
-python3 -m doctest ./scripts/fn/linguacodex.py
-python3 -m doctest -v ./scripts/fn/linguacodex.py
+
 
 # >>> Simulationem('linguacodex --de_codex pt').jq()
 
@@ -61,8 +60,14 @@ TODO: - Need a word for Autonym/endonym, but does not exist in latin
 # - About criticisms on ISO 639-1 ISO 639-2
 #   - https://www.eva.mpg.de/fileadmin/content_files/linguistics
 #     /conferences/2015-diversity-linguistics/Drude_slides.pdf
+
+TESTS
+    python3 -m doctest ./scripts/fn/linguacodex.py
+    python3 -m doctest -v ./scripts/fn/linguacodex.py
+    python3 -m pylint --disable=W0511 -v ./scripts/fn/linguacodex.py
 """
 import sys
+import os
 import argparse
 from pathlib import Path
 import copy
@@ -82,8 +87,8 @@ from typing import (
 import langcodes
 
 
-description = "_[eng-Latn]Command line to process language codes[eng-Latn]_"
-epilog = """
+DESCRIPTION = "_[eng-Latn]Command line to process language codes[eng-Latn]_"
+EPILOG = """
 
 ABOUT LANGUAGE-TERRITORY INFORMATION
 (--quod .communitas)
@@ -97,29 +102,14 @@ ABOUT LANGUAGE-TERRITORY INFORMATION
     See https://unicode-org.github.io/cldr-staging/charts/39/supplemental
     /territory_language_information.html
 
-""".format(sys.argv[0])
+"""
 
-# DATA_EXTERNAL = __file__ .
-DATA_EXTERNAL = str(Path(__file__).parent.resolve()) + '/data-external'
-DATA_EXTERNAL_CLDR_JSON = 'https://raw.githubusercontent.com/unicode-org/' + \
-    'cldr-json/main/cldr-json/'
-
-# print('HXLTM_SYSTEMA_DIR', HXLTM_SYSTEMA_DIR)
-
-# TODO: - https://stackoverflow.com/questions/39142778
-#         /python-how-to-determine-the-language
-#       - https://www.npmjs.com/package/@wikimedia/language-data
-#       - https://github.com/wikimedia/language-data
-#         /blob/master/data/language-data.json
-#
 parser = argparse.ArgumentParser(
-    description=description,
+    description=DESCRIPTION,
     formatter_class=argparse.RawDescriptionHelpFormatter,
-    epilog=epilog
+    epilog=EPILOG
 )
-# parser.add_argument(
-#     'language_code',
-#     help='The language code. Requires at least one option, like --info')
+
 parser.add_argument(
     '--de_codex', action='store', help="""
     The main natural language to inspect using some well know language code.
@@ -139,33 +129,23 @@ parser.add_argument(
     Dot notation to filter more exact information instead of return all
     information. Example: --quod .codex.BCP47
     """)
-# parser.add_argument(
-#     '--info', action='store_true',
-#     help='General information (JSON output) [default]')
-# parser.add_argument(
-#     '--info-in-lang', help='Same as --help, ' +
-#     'but requires a language parameter to in which language return ' +
-#     ' the description. (JSON output)')
-# parser.add_argument(
-#     '--info-in-autonym', action='store_true',
-#     help='Same as --info-in-lang, but defaults language_code, e.g. autonym ' +
-#     '(JSON output)')
-# parser.add_argument(
-#     '--bcp47', action='store_true',
-#     help='Standardize the language code to BCP47 if already not is'
-#     '(string output) as BCP47')
-# parser.add_argument(
-#     '--is-valid-syntax', action='store_true',
-#     help='Check if is valid. Return 0 plus error code if so wrong ' +
-#     'that is not even recognizable')
-# parser.add_argument(
-#     '--speaking-population', action='store_true',
-#     help='Estimated speaking population. ')
-# parser.add_argument(
-#     '--writing-population', action='store_true',
-#     help='Estimated writing population')
+# Trivi: verbōsum, https://en.wiktionary.org/wiki/verbosus#Latin
+parser.add_argument(
+    '--verbosum', action='store_true',
+    help='Verbose mode')
 
 parser.add_argument('--version', action='version', version='0.5.0')
+
+
+# DATA_EXTERNAL = __file__ .
+DATA_EXTERNAL_DEFAULT = str(Path(__file__).parent.parent.resolve()) + \
+    '/data-external'
+DATA_EXTERNAL_CLDR_JSON = 'https://raw.githubusercontent.com/unicode-org/' + \
+    'cldr-json/main/cldr-json/'
+
+# Note: is possible to specify a different place for where store the data files
+# with environment variable DATA_EXTERNAL
+DATA_EXTERNAL = os.environ.get('DATA_EXTERNAL', DATA_EXTERNAL_DEFAULT)
 
 
 class LinguaCodex:
@@ -186,6 +166,7 @@ class LinguaCodex:
     de_codex_norma: str = 'BCP47'
     # nomen_lingua: str = None
     quod: str = '.'
+    utilitas: Type['LinguaCodexUtilitas'] = None
 
     def __init__(
             self, de_codex: str = None,
@@ -193,7 +174,7 @@ class LinguaCodex:
             de_exemplum: str = None,
             de_codex_norma: str = 'BCP47',
             quod: str = '.'
-    ):
+    ):  # pylint: disable=too-many-arguments
         """LinguaCodex initiāle
         """
         if de_codex:
@@ -206,6 +187,8 @@ class LinguaCodex:
             self.de_codex_norma = de_codex_norma
         if quod:
             self.quod = quod
+
+        self.utilitas = LinguaCodexUtilitas()
 
     # def quid(self):
     #     return LinguaCodexQuid.in_textum_json(self.__dict__)
@@ -277,6 +260,99 @@ class LinguaCodex:
         # print('ooi', result)
 
 
+class LinguaCodexUtilitas:
+    """LinguaCodexUtilitas
+    _[eng-Latn]
+    Quick and hacky bunch of staticmethod functions that could be decoupled
+    [eng-Latn]_
+    Trivia:
+    - lingua cōdex
+        - https://en.wiktionary.org/wiki/lingua#Latin
+        - https://en.wiktionary.org/wiki/codex#Latin
+    - ūtilitās
+        - https://en.wiktionary.org/wiki/utilitas#Latin
+    """
+
+    # DATA_EXTERNAL can be defined as environment variable
+    data_external: str = DATA_EXTERNAL
+    likelySubtags: dict = {}
+
+    def __init__(
+            self
+            # self, de_codex: str = None,
+            # de_nomen: str = None,
+            # de_exemplum: str = None,
+            # de_codex_norma: str = 'BCP47',
+            # quod: str = '.'
+    ):  # pylint: disable=too-many-arguments
+        """LinguaCodex initiāle
+        """
+        self._init_data()
+
+    def _init_data(self):
+
+        likelySubtags = DATA_EXTERNAL + '/cldr/likelySubtags.json'
+        cldfLanguages = DATA_EXTERNAL + '/cldf/languages.csv'
+
+        with open(likelySubtags, 'r') as file_:
+            data = json.loads(file_.read())
+            self.likelySubtags = data['supplemental']['likelySubtags']
+
+        with open(cldfLanguages, 'r') as file_:
+            data = json.loads(file_.read())
+            self.likelySubtags = data['supplemental']['likelySubtags']
+
+        # pass
+
+    @staticmethod
+    def in_numerum_simplex(rem: Union[int, str]) -> int:
+        """Rem in numerum simplex?
+
+        _[eng-Latn]
+        See also hxl.datatypes.normalise_number()
+
+        Attempt to convert a value to a number.
+
+        Will convert to int type if it has no decimal places.
+        [eng-Latn]_
+
+        Author:
+            David Megginson
+
+        Trivia:
+          - rem, https://en.wiktionary.org/wiki/res#Latin
+          - in, https://en.wiktionary.org/wiki/in#Latin
+          - numerum, https://en.wiktionary.org/wiki/numerus#Latin
+          - simplex, https://en.wiktionary.org/wiki/simplex#Latin
+          - disciplīnam manuāle
+            - https://en.wikipedia.org/wiki/IEEE_754
+
+        Args:
+            rem ([Any]): Rem
+
+        Returns:
+            [Union[int, float]]: Rem in numerum IEEE integer aut IEEE 754
+
+        Exemplōrum gratiā (et Python doctest, id est, testum automata):
+
+            # >>> HXLTMTypum.in_numerum_simplex('1234')
+            # 1234
+            # >>> HXLTMTypum.in_numerum_simplex('1234.0')
+            # 1234
+        """
+        # pylint: disable=invalid-name,no-else-return
+
+        try:
+            n = float(rem)
+            if n == int(n):
+                return int(n)
+            else:
+                return n
+        except Exception as expt:
+            raise ValueError(
+                "Non numerum trānslātiōnem: {}".format(rem)) from expt
+
+
 @dataclass
 class LinguaCodexQuid:
     """LinguaCodexQuid
@@ -315,27 +391,6 @@ def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
                 break
 
     return neo_rem
-
-
-# def jq(self, jq_argumenta='.'):
-#     sys.argv = self.argumenta.split(' ')
-#     args = parser.parse_args()
-#     # result_original = run_cli(args)
-#     result_original = LinguaCodexCli(args).resultatum()
-#     # print('ooi7', result_original, type(result_original))
-#     # TODO: implement jq_argumenta
-#     result = copy.copy(result_original)
-#     # result = []
-#     if len(jq_argumenta.strip('.')) > 0:
-#         parts = jq_argumenta.strip('.').split('.')
-#         # print('parts', parts)
-#         for item in parts:
-#             # print('item', item, result)
-#             if result is not None and item in result:
-#                 result = result[item]
-#             else:
-#                 result = '?!?'
-#                 break
 
 
 def in_textum_json(
@@ -395,90 +450,13 @@ def in_textum_json(
 
     return json_textum
 
-
-# def info(language_code, info_in_lang=False):
-#     # @deprecated
-#     result = langcodes.Language.get(language_code)
-#     if info_in_lang:
-#         if info_in_lang == 'autonym':
-#             result_item = result.describe(language_code)
-#         else:
-#             result_item = result.describe(info_in_lang)
-#     else:
-#         result_item = result.describe()
-
-#     result_item['bcp47'] = langcodes.standardize_tag(language_code)
-#     result_item['codex'] = {
-#         'BCP47': langcodes.standardize_tag(language_code)
-#     }
-#     result_item['autonym'] = langcodes.Language.get(language_code).autonym()
-#     result_item['speaking_population'] = result.speaking_population()
-#     result_item['writing_population'] = result.writing_population()
-#     result_item['is_valid_syntax'] = langcodes.tag_is_valid(language_code)
-
-#     print(json.dumps(result_item))
-#     # print('ooi', result)
-
-
-# def is_valid_syntax(language_code):
-#     # @deprecated
-#     if langcodes.tag_is_valid(language_code):
-#         print(1)
-#         sys.exit(0)
-#     else:
-#         print(0)
-#         sys.exit(1)
-
-
-# def bcp47(language_code):
-#     # @deprecated
-#     print(json.dumps(langcodes.standardize_tag(language_code)))
-
-
-# def speaking_population(language_code):
-#     # @deprecated
-#     result = langcodes.Language.get(language_code)
-#     print(json.dumps(result.speaking_population()))
-
-
-# def writing_population(language_code):
-#     # @deprecated
-#     result = langcodes.Language.get(language_code)
-#     print(json.dumps(result.writing_population()))
-
-
-# def run_cli(args):
-#     # @deprecated
-#     if args.bcp47:
-#         return bcp47(args.de_codex)
-#     if args.is_valid_syntax:
-#         return is_valid_syntax(args.de_codex)
-#     if args.speaking_population:
-#         return speaking_population(args.de_codex)
-#     if args.writing_population:
-#         return writing_population(args.de_codex)
-#     if args.info_in_lang:
-#         return info(args.de_codex, args.info_in_lang)
-#     if args.info_in_autonym:
-#         return info(args.de_codex, 'autonym')
-#     if args.info:
-#         return info(args.de_codex)
-
-#     # parser.print_help()
-#     # sys.exit(1)
-#     return info(args.de_codex)
-
-# TODO: create a class just to simulate the cli interface
-#       @see https://stackoverflow.com/questions/50886471
-#       /simulating-argparse-command-line-arguments-input-while-debugging
-
-
 # def linguacodex_cli(args):
 # https://en.wiktionary.org/wiki/simulatio#Latin
 
 # https://stackoverflow.com/questions/50886471
 # /simulating-argparse-command-line-arguments-input-while-debugging
 # /50886791#50886791
+
 
 class LinguaCodexCli:
     argparse_args = None
@@ -514,16 +492,7 @@ class Simulationem:
         """
         self.argumenta = argumenta
 
-    # def __repr__(self):
-
-    #     sys.argv = self.argumenta.split(' ')
-    #     # print(sys.argv, argumenta, ' '.split(argumenta))
-    #     args = parser.parse_args()
-    #     # print(run_cli(args))
-    #     return in_textum_json(run_cli(args))
-    #     # return f'Person(name={self.name}, age={self.age})'
-
-    def jq(self, jq_argumenta='.'):
+    def jq(self, jq_argumenta='.'):  # pylint: disable=invalid-name
         sys.argv = self.argumenta.split(' ')
         args = parser.parse_args()
         # result_original = run_cli(args)
@@ -558,16 +527,17 @@ def simulationem(argumenta: str):
     sys.argv = argumenta.split(' ')
     # print(sys.argv, argumenta, ' '.split(argumenta))
     args = parser.parse_args()
-    print(run_cli(args))
+    # print(run_cli(args))
+    print(LinguaCodexCli(args).resultatum_in_textum())
 
 
 if __name__ == '__main__':
 
-    args = parser.parse_args()
+    args_ = parser.parse_args()
 
     if len(sys.argv) > 1:
         # run_cli(args)
-        print(LinguaCodexCli(args).resultatum_in_textum())
+        print(LinguaCodexCli(args_).resultatum_in_textum())
     else:
         parser.print_help()
         sys.exit(1)

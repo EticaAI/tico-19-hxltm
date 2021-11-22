@@ -47,9 +47,9 @@ if [ ! -f scripts/data-external/iso15924.txt ]; then
     head scripts/data-external/iso15924.txt > scripts/data-external/iso15924.sample.txt
 fi
 
-if [ ! -f scripts/data-external/cldf-anguages.csv ]; then
-    curl https://raw.githubusercontent.com/cldf-datasets/wals/master/cldf/languages.csv --output scripts/data-external/cldf-anguages.csv
-    head -n 15 scripts/data-external/cldf-anguages.csv > scripts/data-external/cldf-anguages.sample.csv
+if [ ! -f scripts/data-external/cldf/languages.csv ]; then
+    curl https://raw.githubusercontent.com/cldf-datasets/wals/master/cldf/languages.csv --output scripts/data-external/cldf/languages.csv
+    head -n 15 scripts/data-external/cldf/languages.csv > scripts/data-external/cldf/languages.sample.csv
 fi
 
 if [ ! -f scripts/data-external/cldr/likelySubtags.json ]; then

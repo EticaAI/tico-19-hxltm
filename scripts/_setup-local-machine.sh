@@ -51,6 +51,29 @@ else
     echo 'OK: Gemfile exists'
 fi
 
+if [ ! -f '.pylintrc' ]; then
+    VAR_pylintrc=$(cat << EOF
+# pylint --generate-rcfile
+
+[MASTER]
+ignore-patterns=tests/
+
+[MESSAGES CONTROL]
+
+disable=W0511,  # TODOs
+      ;   F0401,  # import loading
+      ;   W0511,  # todos
+      ;   E1101,  # function members
+      ;   R0801,  # duplicate code
+      ;   R0903,  # public methods
+      ;   R0915   # too many statements
+EOF
+)
+    echo "$VAR_pylintrc" > .pylintrc
+else
+    echo 'OK: .pylintrc exists'
+fi
+
 # TODO:
 # .vscode/settings.json
 # # {
