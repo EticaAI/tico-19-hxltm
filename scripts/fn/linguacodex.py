@@ -52,6 +52,15 @@ TODO: - Need a word for Autonym/endonym, but does not exist in latin
         Prefix here https://www.englishhints.com/latin-prefixes.html
       - https://en.wiktionary.org/wiki/Category:Latin_words_by_prefix
 
+# pip install pyglottolog
+# - https://github.com/glottolog/pyglottolog
+#   - https://github.com/cldf/cldf/tree/master/components/languages
+#     - https://github.com/cldf-datasets/wals/blob/master/cldf/languages.csv
+#   - https://wals.info/
+# - https://github.com/w3c/i18n-discuss/issues/13
+# - About criticisms on ISO 639-1 ISO 639-2
+#   - https://www.eva.mpg.de/fileadmin/content_files/linguistics
+#     /conferences/2015-diversity-linguistics/Drude_slides.pdf
 """
 import sys
 import argparse
@@ -61,11 +70,11 @@ import json
 from dataclasses import dataclass, InitVar
 from typing import (
     Any,
-    Dict,
-    Iterable,
-    Optional,
-    List,
-    TextIO,
+    # Dict,
+    # Iterable,
+    # Optional,
+    # List,
+    # TextIO,
     Type,
     Union,
 )

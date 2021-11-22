@@ -1,0 +1,15 @@
+ID,Name,Macroarea,Latitude,Longitude,Glottocode,ISO639P3code,Family,Subfamily,Genus,GenusIcon,ISO_codes,Samples_100,Samples_200,Country_ID,Source
+aab,Arapesh (Abu),,-3.45,142.95,,,Torricelli,,Kombio-Arapesh,c0000dd,,false,false,PG,Nekitel-1985
+aar,Aari,Africa,6,36.5833333333,aari1239,aiw,Afro-Asiatic,Omotic,South Omotic,ccccccc,aiw,false,false,ET,Hayward-1990a
+aba,Abau,Papunesia,-4,141.25,abau1245,aau,Sepik,,Upper Sepik,ddd0000,aau,false,false,PG,Bailey-1975
+abb,Arabic (Chadian),Africa,13.8333333333,20.8333333333,chad1249,shu,Afro-Asiatic,,Semitic,cdd0000,shu,false,false,TD,Abu-Absi-1995
+abd,Abidji,Africa,5.66666666667,-4.58333333333,abid1235,abi,Niger-Congo,,Kwa,d009900,abi,false,false,CI,
+abe,Arabic (Beirut),Eurasia,33.9166666667,35.5,nort3139,apc,Afro-Asiatic,,Semitic,cdd0000,apc,false,false,LB,Abdul-Karim-1979
+abh,Arabic (Bahrain),Eurasia,26,50.5,baha1259,abv,Afro-Asiatic,,Semitic,cdd0000,abv,false,false,BH,
+abi,Abipón,South America,-29,-61,abip1241,axb,Guaicuruan,,South Guaicuruan,tff6600,axb,false,true,AR,Bybee-et-al-1994 Dobrizhoffer-1902 Najlis-1966
+abk,Abkhaz,Eurasia,43.0833333333,41,abkh1244,abk,Northwest Caucasian,,Northwest Caucasian,t0000dd,abk,true,true,GE,Bybee-et-al-1994 Gecadze-1979 Hewitt-1979 Hewitt-1987 Hewitt-1989a Hewitt-1989d Hewitt-and-Khiba-1979 Lomtatidze-1967b Lomtatidze-1996 Spruyt-1986
+abm,Alabama,North America,32.3333333333,-87.4166666667,alab1237,akz,Muskogean,,Muskogean,c990099,akz,false,false,US,Lupardus-1982 Rand-1968 Sylestine-et-al-1993 Sylestine-et-al-nd
+abn,Arabana,Australia,-28.25,136.25,arab1267,ard,Pama-Nyungan,,Central Pama-Nyungan,tcccccc,ard,false,false,AU,Hercus-1994
+abo,Arbore,Africa,5,36.75,arbo1245,arv,Afro-Asiatic,Cushitic,Lowland East Cushitic,cff6600,arv,false,false,ET,Hayward-1984
+abu,Abun,Papunesia,-0.5,132.5,abun1252,kgr,West Papuan,,North-Central Bird's Head,sffffff,kgr,false,false,ID,Berry-1995a Berry-1995b Berry-and-Berry-1999
+abv,Abui,Papunesia,-8.25,124.666666667,abui1241,abz,Timor-Alor-Pantar,,Greater Alor,tcccccc,abz,false,false,ID,Kratochvil-2007
