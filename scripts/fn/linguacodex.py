@@ -468,16 +468,22 @@ def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
     return neo_rem
 
 
-def bcp47_langtag(rem: str, item: str = None, strict: bool = True) -> dict:
+def bcp47_langtag(
+        rem: str,
+        clavem: Type[Union[str, list]] = None,
+        strictum: bool = True
+) -> dict:
     """Public domain python function to process BCP47 langtag
 
     Created at 2021-11-22. Partial implementation of BCP47 (RFC 5646).
     See https://tools.ietf.org/search/bcp47.
 
     Args:
-        rem (str): The BCP47 langtag
-        item (str): Specific value to return instead of full information
-        strict (bool): Throw exceptions. False replace values with False
+        rem (str):                       The BCP47 langtag
+        clavem (Type[Union[str, list]]): Key (string) for specific value or keys
+                                         (list) to return a dict (optional)
+        strictum (bool):                 Throw exceptions. False replace values
+                                        with False (optional)
 
     Returns:
         dict: Python dictionary. None means not found. False means the feature
@@ -565,7 +571,7 @@ def bcp47_langtag(rem: str, item: str = None, strict: bool = True) -> dict:
     alphanum      = (ALPHA / DIGIT)     ; letters and numbers
     -------------
 
-    Test examples both from https://tools.ietf.org/search/bcp47 and
+    Most tests use examples from https://tools.ietf.org/search/bcp47 and
     https://github.com/unicode-org/cldr/blob/main/tools/cldr-code
     /src/main/resources/org/unicode/cldr/util/data/langtagTest.txt
 
@@ -573,30 +579,52 @@ def bcp47_langtag(rem: str, item: str = None, strict: bool = True) -> dict:
 
     >>> bcp47_langtag('pt-Latn-BR', 'language')
     'pt'
+
     >>> bcp47_langtag('pt-Latn-BR', 'script')
     'Latn'
+
     >>> bcp47_langtag('pt-Latn-BR', 'region')
     'BR'
+
     >>> bcp47_langtag('de-CH-1996', 'variant')
     ['1996']
+
+    >>> bcp47_langtag('x-fr-CH', ['language', 'region', 'privateuse'])
+    {'language': None, 'region': None, 'privateuse': ['fr', 'CH']}
+
     >>> bcp47_langtag('i-klingon', 'grandfathered')
     'i-klingon'
+
     >>> bcp47_langtag('zh-min-nan', 'language')
     'zh'
+
     >>> bcp47_langtag('zh-min-nan', 'variant')
     ['min-nan']
+
     >>> bcp47_langtag('es-419', 'region')
     '419'
+
+    >>> bcp47_langtag('en-oxendict', 'variant') # Oxford English Dictionary
+    ['oxendict']
+
+    >>> bcp47_langtag('zh-pinyin', 'variant') # Pinyin romanization
+    ['pinyin']
+
+    >>> bcp47_langtag('zh-pinyin', 'script') # Limitation: cannot infer Latn
+
     >>> bcp47_langtag('en-a-bbb-x-a-ccc', 'privateuse')
     ['a', 'ccc']
+
     >>> bcp47_langtag('en-a-bbb-x-a-ccc', 'extension')
     {'a': ['bbb']}
+
     >>> bcp47_langtag('en-a-b-c-d-x-wadegile-private1', 'extension')
     {'a': True, 'b': True, 'c': True, 'd': True}
 
     >>> bcp47_langtag(
     ... 'zh-Latn-CN-variant1-a-extend1-x-wadegile-private1', 'region')
     'CN'
+
     >>> bcp47_langtag(
     ... 'en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678')
     {'langtag': \
@@ -743,16 +771,24 @@ def bcp47_langtag(rem: str, item: str = None, strict: bool = True) -> dict:
                 result['variant'].append(parts.pop(0))
                 continue
 
-        # print('oi', len(result['extension']), )
         leftover.append(parts.pop(0))
 
     result['_unknown'] = leftover
 
-    if strict and len(result['_errors']) > 0:
+    if strictum and len(result['_errors']) > 0:
         ValueError('Errors for [' + rem + ']: ' + ', '.join(result['_errors']))
 
-    if item != None:
-        return result[item]
+    if clavem != None:
+        if isinstance(clavem, str):
+            return result[clavem]
+        elif isinstance(clavem, list):
+            result_partial = {}
+            for i_ in clavem:
+                result_partial[i_] = result[i_]
+            return result_partial
+        else:
+            raise TypeError(
+                'clavem [' + str(type(clavem)) + '] != [str, list]')
 
     return result
 
