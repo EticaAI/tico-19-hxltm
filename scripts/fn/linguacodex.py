@@ -5,16 +5,15 @@
 #
 #         USAGE:  ./scripts/fn/linguacodex.py
 #
-#   DESCRIPTION: _[eng-Latn] Command line to process language codes
-#                Install dependencies with
-#                    pip install langcodes[data]
+#   DESCRIPTION: _[eng-Latn]
+#                Expert system command line tool to aid misuse of language codes
 #                [eng-Latn]_
 #                Trivia:
 #                - lingua cōdex
 #                  - https://en.wiktionary.org/wiki/lingua#Latin
 #                  - https://en.wiktionary.org/wiki/codex#Latin
 #
-#       OPTIONS:  ---
+#       OPTIONS:  See linguacodex.py --help
 #
 #  REQUIREMENTS:  - python3
 #                   - langcodes
@@ -26,22 +25,23 @@
 #       COMPANY:  EticaAI
 #       LICENSE:  Public Domain dedication OR Zero-Clause BSD
 #                 SPDX-License-Identifier: Unlicense OR 0BSD
-#       VERSION:  v0.5
+#       VERSION:  v0.6
 #       CREATED:  2021-11-20 10:37 UTC v0.1 name langcodescli.py
 #       CHANGED:  2021-11-21 04:59 UTC v0.5 renamed as linguacodex.py
+#                 2021-11-23 09:20 UTC v0.6 --in_bcp47_simplex implemented
 # ==============================================================================
-"""
-
-
-# >>> Simulationem('linguacodex --de_codex pt').jq()
-
-# >>> Simulationem('linguacodex --de_codex pt').jq('.')
+"""linguacodex: expert system command line tool to aid misuse of language codes
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex')
 {"_crudum": "pt", "BCP47": "pt", "HXLTMa": "@TODO", "HXLTMt": "@TODO"}
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex.BCP47')
 "pt"
+
+>>> Simulationem(
+... 'linguacodex --de_codex en-b-ccc-bbb-a-aaa-X-xyz --in_bcp47_simplex')\
+    .jq('.Language-Tag_normalized')
+"en-a-aaa-b-bbb-ccc-x-xyz"
 
 
 # >>> LinguaCodex(de_codex='pt').quid()
@@ -61,10 +61,13 @@ TODO: - Need a word for Autonym/endonym, but does not exist in latin
 #   - https://www.eva.mpg.de/fileadmin/content_files/linguistics
 #     /conferences/2015-diversity-linguistics/Drude_slides.pdf
 
-TESTS
+TESTS:
     python3 -m doctest ./scripts/fn/linguacodex.py
     python3 -m doctest -v ./scripts/fn/linguacodex.py
     python3 -m pylint --disable=C0302,W0511 -v ./scripts/fn/linguacodex.py
+Manual tests (eventually remove it):
+    ./scripts/fn/linguacodex.py --de_codex pt
+    ./scripts/fn/linguacodex.py --de_codex pt --in_bcp47_simplex
 """
 import sys
 import os
@@ -93,6 +96,7 @@ EPILOG = """
 
 ABOUT LANGUAGE-TERRITORY INFORMATION
 (--quod .communitas)
+    (from python langcodes documentation)
     The estimates for "writing population" are often overestimates,
     as described in the CLDR documentation on territory data.
     In most cases, they are derived from published data about literacy rates
@@ -126,9 +130,16 @@ parser.add_argument(
     in some natural language.
     """)
 parser.add_argument(
-    '--quod', action='store', help="""
+    '--quod', action='store', default=".", help="""
     Dot notation to filter more exact information instead of return all
     information. Example: --quod .codex.BCP47
+    """)
+parser.add_argument(
+    '--in_bcp47_simplex', action='store_true', help="""
+    Define output as simple syntax parsing of input code as BCP47, without any
+    advanced processing and/or conversion. Works even without download external
+    data. Result use same key names as BCP47, except by
+    'Language-Tag_normalized', '_unknown' and '_errors' (JSON output)
     """)
 # Trivi: verbōsum, https://en.wiktionary.org/wiki/verbosus#Latin
 parser.add_argument(
@@ -161,12 +172,14 @@ class LinguaCodex:
 
     [eng-Latn]_
     """
+    # pylint: disable=too-few-public-methods
     de_codex: str = None
     de_nomen: str = None
     de_exemplum: str = None
     de_codex_norma: str = 'BCP47'
     # nomen_lingua: str = None
     quod: str = '.'
+    # in_bcp47_simplex: bool = False
     utilitas: Type['LinguaCodexUtilitas'] = None
 
     def __init__(
@@ -175,6 +188,7 @@ class LinguaCodex:
             de_exemplum: str = None,
             de_codex_norma: str = 'BCP47',
             quod: str = '.'
+            # in_bcp47_simplex: bool = False
     ):  # pylint: disable=too-many-arguments
         """LinguaCodex initiāle
         """
@@ -188,6 +202,8 @@ class LinguaCodex:
             self.de_codex_norma = de_codex_norma
         if quod:
             self.quod = quod
+        # if in_bcp47_simplex:
+        #     self.in_bcp47_simplex = in_bcp47_simplex
 
         self.utilitas = LinguaCodexUtilitas()
 
@@ -195,7 +211,16 @@ class LinguaCodex:
     #     return LinguaCodexQuid.in_textum_json(self.__dict__)
 
     def quid(self, info_in_lang=False):
+        """quid [TODO documen]
 
+        [extended_summary]
+
+        Args:
+            info_in_lang (bool, optional): [description]. Defaults to False.
+
+        Returns:
+            [type]: [description]
+        """
         # TODO: try catch with errors for codes like
         result_ = langcodes.Language.get(self.de_codex)
         if info_in_lang:
@@ -273,10 +298,11 @@ class LinguaCodexUtilitas:
     - ūtilitās
         - https://en.wiktionary.org/wiki/utilitas#Latin
     """
+    # pylint: disable=too-few-public-methods
 
     # DATA_EXTERNAL can be defined as environment variable
     data_external: str = DATA_EXTERNAL
-    likelySubtags: dict = {}
+    likely_subtags: dict = {}
     bcp47langToIso15924: dict = {}
     iso6393ToGlottocode: dict = {}
 
@@ -296,11 +322,11 @@ class LinguaCodexUtilitas:
     def _init_data_cldf(self):
         """_init_data_cldf
         """
-        cldfLanguages_path = DATA_EXTERNAL + '/cldf/languages.csv'
+        cldf_language_path = DATA_EXTERNAL + '/cldf/languages.csv'
 
-        with open(cldfLanguages_path, 'r') as file_:
+        with open(cldf_language_path, 'r') as file_:
             csv_reader = csv.DictReader(file_)
-            line_count = 0
+            # line_count = 0
             for row in csv_reader:
                 if row["ISO639P3code"]:
                     self.iso6393ToGlottocode[row["ISO639P3code"]] = \
@@ -317,11 +343,11 @@ class LinguaCodexUtilitas:
     def _init_data_cldr(self):
         """_init_data_cldr
         """
-        likelySubtags = DATA_EXTERNAL + '/cldr/likelySubtags.json'
+        likely_subtags = DATA_EXTERNAL + '/cldr/likelySubtags.json'
 
-        with open(likelySubtags, 'r') as file_:
+        with open(likely_subtags, 'r') as file_:
             data = json.loads(file_.read())
-            self.likelySubtags = data['supplemental']['likelySubtags']
+            self.likely_subtags = data['supplemental']['likelySubtags']
 
             # for item in data['supplemental']['likelySubtags']:
             #     print(item)
@@ -329,46 +355,6 @@ class LinguaCodexUtilitas:
         self._init_data_cldf()
 
     @staticmethod
-    def in_exemplum_funcion(rem: Union[int, str]) -> int:
-        """Rem in numerum simplex?
-
-        _[eng-Latn]
-        explanation here
-        [eng-Latn]_
-
-        Trivia:
-          - rem, https://en.wiktionary.org/wiki/res#Latin
-          - in, https://en.wiktionary.org/wiki/in#Latin
-          - numerum, https://en.wiktionary.org/wiki/numerus#Latin
-          - simplex, https://en.wiktionary.org/wiki/simplex#Latin
-          - disciplīnam manuāle
-            - https://en.wikipedia.org/wiki/IEEE_754
-
-        Args:
-            rem ([Any]): Rem
-
-        Returns:
-            [Union[int, float]]: Rem in numerum IEEE integer aut IEEE 754
-
-        Exemplōrum gratiā (et Python doctest, id est, testum automata):
-
-            # >>> HXLTMTypum.in_numerum_simplex('1234')
-            # 1234
-            # >>> HXLTMTypum.in_numerum_simplex('1234.0')
-            # 1234
-        """
-        # pylint: disable=invalid-name,no-else-return
-        pass
-        # try:
-        #     n = float(rem)
-        #     if n == int(n):
-        #         return int(n)
-        #     else:
-        #         return n
-        # except Exception as expt:
-        #     raise ValueError(
-        #         "Non numerum trānslātiōnem: {}".format(rem)) from expt
-
     def quod_iso15924_de_bcp47(
             rem: str,
             formosum: Union[bool, int] = None,
@@ -629,7 +615,7 @@ def bcp47_langtag(
     ... 'en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678')
     {'Language-Tag': \
 'en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678', \
-'Language-Tag_normalized-syntax': \
+'Language-Tag_normalized': \
 'en-Latn-US-lojban-gaulish-a-12345678-abcd-b-abcdefgh-x-a-b-c-12345678', \
 'language': 'en', 'script': 'Latn', 'region': 'US', \
 'variant': ['lojban', 'gaulish'], \
@@ -643,15 +629,18 @@ def bcp47_langtag(
     >>> bcp47_langtag(
     ... 'en-b-ccc-bbb-a-aaa-X-xyz')
     {'Language-Tag': 'en-b-ccc-bbb-a-aaa-X-xyz', \
-'Language-Tag_normalized-syntax': 'en-a-aaa-b-bbb-ccc-x-xyz', \
+'Language-Tag_normalized': 'en-a-aaa-b-bbb-ccc-x-xyz', \
 'language': 'en', 'script': None, 'region': None, 'variant': [], \
 'extension': {'a': ['aaa'], 'b': ['bbb', 'ccc']}, 'privateuse': ['xyz'], \
 'grandfathered': None, '_unknown': [], '_errors': []}
     """
+    # For sake of copy-and-paste portability, we ignore a few pylints:
     # pylint: disable=too-many-branches,too-many-statements,too-many-locals
     result = {
+        # The input Language-Tag, _as it is_
         'Language-Tag': rem,
-        'Language-Tag_normalized-syntax': None,
+        # The Language-Tag normalized syntax, if no errors
+        'Language-Tag_normalized': None,
         'language': None,
         'script': None,
         'region': None,
@@ -663,7 +652,6 @@ def bcp47_langtag(
         '_errors': [],
     }
 
-    # errors = []
     skip = 0
 
     if not isinstance(rem, str) or len(rem) == 0:
@@ -672,8 +660,7 @@ def bcp47_langtag(
     else:
         rem = rem.replace('_', '-').strip()
 
-    # The weird tags first
-    # grandfathered/irregular
+    # The weird tags first: grandfathered/irregular
     if rem in [
         'en-GB-oed', 'i-ami', 'i-bnn', 'i-default', 'i-enochian',
         'i-hak', 'i-klingon', 'i-lux', 'i-ming', 'i-navajo', 'i-pwn',
@@ -682,7 +669,7 @@ def bcp47_langtag(
         result['language'] = rem.lower()
         result['grandfathered'] = rem
         skip = 1
-    # grandfathered/regular
+    # The weird tags first: grandfathered/regular
     if rem in [
             'art-lojban', 'cel-gaulish', 'no-bok', 'no-nyn', 'zh-guoyu',
             'zh-hakka', 'zh-min', 'zh-min-nan', 'zh-xiang']:
@@ -798,7 +785,7 @@ def bcp47_langtag(
     if len(result['_errors']) == 0:
 
         if result['grandfathered']:
-            result['Language-Tag_normalized-syntax'] = result['grandfathered']
+            result['Language-Tag_normalized'] = result['grandfathered']
         else:
             norm = []
             if result['language']:
@@ -821,7 +808,7 @@ def bcp47_langtag(
             if len(result['privateuse']) > 0:
                 norm.append('x-' + '-'.join(result['privateuse']))
 
-            result['Language-Tag_normalized-syntax'] = '-'.join(norm)
+            result['Language-Tag_normalized'] = '-'.join(norm)
 
     if clavem is not None:
         if isinstance(clavem, str):
@@ -903,32 +890,67 @@ def in_textum_json(
 
 
 class LinguaCodexCli:
+    """LinguaCodexCli
+    """
     argparse_args = None
     linguacodex: Type['LinguaCodex'] = None
+    in_bcp47_simplex: bool = False
 
     def __init__(self, argparse_args):
         """Simulationem initiāle
         """
         self.argparse_args = argparse_args
 
-        self.linguacodex = LinguaCodex(
-            de_codex=argparse_args.de_codex,
-            de_codex_norma=argparse_args.de_codex_norma,
-            de_nomen=argparse_args.de_nomen,
-            quod=argparse_args.quod
-        )
+        if argparse_args.in_bcp47_simplex:
+            self.in_bcp47_simplex = True
+            # pass
+        else:
+            self.linguacodex = LinguaCodex(
+                de_codex=argparse_args.de_codex,
+                de_codex_norma=argparse_args.de_codex_norma,
+                de_nomen=argparse_args.de_nomen,
+                quod=argparse_args.quod
+                # in_bcp47_simplex=argparse_args.in_bcp47_simplex
+            )
 
     def resultatum(self):
+        """resultatum [summary]
+
+        [extended_summary]
+
+        Returns:
+            [type]: [description]
+        """
         # print('oooi', self.linguacodex)
         # print('oooi5', self.linguacodex.__dict__)
         # print('oooi6', self.linguacodex.quid())
+        if self.in_bcp47_simplex:
+            return in_jq(
+                bcp47_langtag(
+                    self.argparse_args.de_codex,
+                ),
+                self.argparse_args.quod
+            )
+        # else:
         return self.linguacodex.quid()
 
     def resultatum_in_textum(self):
+        """resultatum_in_textum [summary]
+
+        [extended_summary]
+
+        Returns:
+            [type]: [description]
+        """
         return in_textum_json(self.resultatum())
 
 
 class Simulationem:
+    """ [summary]
+
+    [extended_summary]
+    """
+    # pylint: disable=too-few-public-methods
     argumenta: str = None
 
     def __init__(self, argumenta):
@@ -937,6 +959,13 @@ class Simulationem:
         self.argumenta = argumenta
 
     def jq(self, jq_argumenta='.'):  # pylint: disable=invalid-name
+        """jq [summary]
+
+        [extended_summary]
+
+        Args:
+            jq_argumenta (str, optional): [description]. Defaults to '.'.
+        """
         sys.argv = self.argumenta.split(' ')
         args = parser.parse_args()
         # result_original = run_cli(args)
