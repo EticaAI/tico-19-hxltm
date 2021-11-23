@@ -33,7 +33,11 @@
 """linguacodex: expert system command line tool to aid misuse of language codes
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex')
-{"BCP47": "pt", "HXLTMa": "@TODO", "HXLTMt": "@TODO"}
+{"BCP47": "pt"}
+
+>>> Simulationem(
+...   'linguacodex --de_codex pt --imponendum_praejudicium').jq('.codex')
+{"BCP47": "pt", "ISO15924a": "Latn"}
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex.BCP47')
 "pt"
@@ -71,6 +75,9 @@ Manual tests (eventually remove it):
 
     # This is well formed, but langcodes 3.3.0 think it is invalid
     ./scripts/fn/linguacodex.py --de_codex en-GB-oxedict | jq
+
+./scripts/fn/linguacodex.py --de_nomen pt --imponendum_praejudicium | jq
+./scripts/fn/linguacodex.py --de_nomen Português --imponendum_praejudicium | jq
 """
 import sys
 import os
@@ -281,12 +288,18 @@ class LinguaCodex:
             [type]: [description]
         """
         # pylint: disable=too-many-branches
-        # TODO: try catch with errors for codes like
+
+        # TODO: implement try catch with errors for langcodes
+        # TODO: eventually refactor this entire method. Doing too much here
+
+        # imponendum_praejudicium_rem
+        ipr = []
 
         if self.de_codex:
             de_codex = self.de_codex
         elif self.de_nomen:
             de_codex = langcodes.find(self.de_nomen).to_tag()
+            ipr.append('de_codex')
             #  = self.de_codex
 
         result_ = langcodes.Language.get(de_codex)
@@ -308,8 +321,31 @@ class LinguaCodex:
         result['codex'] = {}
 
         result['codex']['BCP47'] = langcodes.standardize_tag(de_codex)
-        result['codex']['HXLTMa'] = '@TODO'
-        result['codex']['HXLTMt'] = '@TODO'
+        if 'de_codex' in ipr and result['codex']['BCP47']:
+            ipr.append('codex.BCP47')
+
+        iso15924a = cldr_likely_iso15924(
+            self.utilitas.likely_subtags,
+            de_codex,
+        )
+        if iso15924a['script']:  # type: ignore
+            if iso15924a['imponendum_praejudicium'] is False:  # type: ignore
+                # cldr_likely_iso15924 found exact match, great
+                result['codex']['ISO15924a'] = \
+                    iso15924a['script']  # type: ignore
+                # pass
+            elif self.imponendum_praejudicium is True:
+
+                # cldr_likely_iso15924 not found exact match, inference allowed
+                result['codex']['ISO15924a'] = \
+                    iso15924a['script']  # type: ignore
+                ipr.append('codex.ISO15924a')
+                # pass
+            # pass
+
+        # result['codex']['ISO15924a'] = iso15924a
+        # result['codex']['HXLTMa'] = '@TODO'
+        # result['codex']['HXLTMt'] = '@TODO'
 
         # commūnitās, https://en.wiktionary.org/wiki/communitas#Latin
         result['communitas'] = {
@@ -353,6 +389,8 @@ class LinguaCodex:
 
         # print('oi', self.quod)
 
+        result['praejudicium'] = ipr
+
         result['__meta'] = {}
         if self.de_codex:
             result['__meta']['de_codex'] = self.de_codex
@@ -361,6 +399,7 @@ class LinguaCodex:
         if self.imponendum_praejudicium:
             result['__meta']['imponendum_praejudicium'] = \
                 self.imponendum_praejudicium
+            # result['__meta']['praejudicium'] = ipr
 
         return in_jq(result, self.quod)
         # print(json.dumps(result_item))
@@ -384,8 +423,9 @@ class LinguaCodexUtilitas:
     # DATA_EXTERNAL can be defined as environment variable
     data_external: str = DATA_EXTERNAL
     likely_subtags: dict = {}
-    bcp47langToIso15924: dict = {}
+    # bcp47langToIso15924: dict = {}
     iso6393ToGlottocode: dict = {}
+    iso6393: list = []
 
     def __init__(
             self
@@ -399,6 +439,7 @@ class LinguaCodexUtilitas:
         """
         self._init_data_cldf()
         self._init_data_cldr()
+        self._init_data_iso639_3()
 
     def _init_data_cldf(self):
         """_init_data_cldf
@@ -412,14 +453,6 @@ class LinguaCodexUtilitas:
                 if row["ISO639P3code"]:
                     self.iso6393ToGlottocode[row["ISO639P3code"]] = \
                         row["Glottocode"]
-                    # self.cldfLanguages[row["ISO639P3code"]] = {
-                    #     'ISO639P3code': row["ISO639P3code"],
-                    #     'Glottocode': row["Glottocode"],
-                    #     'Name': row["Name"]
-                    # }
-
-        # print(self.iso6393ToGlottocode)
-        # pass
 
     def _init_data_cldr(self):
         """_init_data_cldr
@@ -435,64 +468,27 @@ class LinguaCodexUtilitas:
 
         self._init_data_cldf()
 
-    @staticmethod
-    def quod_iso15924_de_bcp47(
-            rem: str,
-            formosum: Union[bool, int] = None,
-            clavem_sortem: bool = False,
-            imponendum_praejudicium: bool = False
-    ) -> str:
-        """Trānslātiōnem: rem in textum JSON
+    def _init_data_iso639_3(self):
+        """_init_data_iso639_3
+        """
+        iso639_3_path = DATA_EXTERNAL + '/iso-639-3.csv'
 
-        Trivia:
-            - quod, https://en.wiktionary.org/wiki/quod#Latin
-            - rem, https://en.wiktionary.org/wiki/res#Latin
-            - in, https://en.wiktionary.org/wiki/in#Latin
-            - json, https://www.json.org/
-            - fōrmōsum, https://en.wiktionary.org/wiki/formosus
-            - impōnendum, https://en.wiktionary.org/wiki/enforcier#Old_French
-            - praejūdicium, https://en.wiktionary.org/wiki/praejudicium#Latin
-            - sortem, https://en.wiktionary.org/wiki/sors#Latin
-            - clāvem, https://en.wiktionary.org/wiki/clavis#Latin
-
-        Args:
-            rem ([Any]): Rem
-
-        Returns:
-            [str]: Rem in JSON textum
-
-        Exemplōrum gratiā (et Python doctest, id est, testum automata):
-
-    >>> rem = {"b": 2, "a": ['ت', 'ツ', '😊']}
-
-    >>> in_textum_json(rem)
-    '{"b": 2, "a": ["ت", "ツ", "😊"]}'
-
-    # >>> in_textum_json(rem, clavem_sortem=True)
-    # '{"a": ["ت", "ツ", "😊"], "b": 2}'
-    #
-    # >>> in_textum_json(rem, imponendum_praejudicium=True)
-    # '{"b": 2, "a": ["\\\u062a", "\\\u30c4", "\\\ud83d\\\ude0a"]}'
-    #
-    # >>> in_textum_json(rem, formosum=True)
-    # '{\\n    "b": 2,\\n    \
-    # "a": [\\n        "ت",\\n        "ツ",\\n        "😊"\\n    ]\\n}'
-
-    """
-
-        # print = json.dumps()
-
-        if formosum is True:
-            formosum = 4
-
-        json_textum = json.dumps(
-            rem,
-            indent=formosum,
-            sort_keys=clavem_sortem,
-            ensure_ascii=imponendum_praejudicium
-        )
-
-        return json_textum
+        with open(iso639_3_path, 'r') as file_:
+            csv_reader = csv.DictReader(file_)
+            # line_count = 0
+            for row in csv_reader:
+                self.iso6393.append({
+                    'ISO639P3code': row['Id'],
+                    'ISO639P2Bcode': row['Part2B'],
+                    'ISO639P2Tcode': row['Part2T'],
+                    'ISO639P1code': row['Part1'],
+                    'ISO639P3scope': row['Scope'],
+                    'ISO639P3languagetype': row['Language_Type'],
+                    'ISO639P3refname': row['Ref_Name'],
+                })
+                # if row["ISO639P3code"]:
+                #     self.iso6393[row["ISO639P3code"]] = \
+                #         row["Glottocode"]
 
 
 @dataclass
@@ -1003,6 +999,71 @@ def bcp47_langtag(
             'clavem [' + str(type(clavem)) + '] != [str, list]')
 
     return result
+
+
+def iso639_type(
+        dictionarium: Type['list[dict]'],
+        language: str,
+        clavem: Type[Union[str, list]] = None,
+        # strictum_certum: bool = False,
+) -> Type[Union[dict, str]]:
+    """iso639_type Inferecen about ISO 639 type (using ISO 639-3 reference)
+
+    Trivia:
+    - ISO 639-3, https://iso639-3.sil.org/
+    - langtag, https://tools.ietf.org/search/bcp47
+    - dictiōnārium, https://en.wiktionary.org/wiki/dictionarium#Latin
+    - resultātum, https://en.wiktionary.org/wiki/resultatum#Latin
+    - certum, https://en.wiktionary.org/wiki/certus#Latin
+    - strictum, https://en.wiktionary.org/wiki/strictus#Latin
+
+    Args:
+        dictionarium (dict): Python dictionary keys + values like the
+                             CLDR supplemental.likelySubtags
+        bcp47_langtag (str): [description]
+        clavem (Type[Union[str, list]], optional): Key to return.
+                                                   Defaults to None.
+        strictum_certum (bool, optional): If only accept exact match.
+                                          Defaults to False.
+
+    Returns:
+        Type[Union[dict, str]]: Either dict or exact result key
+
+    Tests:
+    >>> dictionarium = [{'ISO639P3code':'por', 'ISO639P2Bcode': 'por', \
+'ISO639P2Tcode': 'por', 'ISO639P1code': 'pt', 'ISO639P3scope': 'I', \
+'ISO639P3languagetype': 'L', 'ISO639P3refname': 'Portuguese'}]
+
+    >>> iso639_type(dictionarium, 'pt', '_type')
+    'ISO639P1code'
+
+    >>> iso639_type(dictionarium, 'por', '_type')
+    'ISO639P3code'
+
+    >>> iso639_type(dictionarium, 'zzz', '_type')
+
+    """
+    resultatum = {}
+    for item in dictionarium:
+        if language == item['ISO639P3code']:  # type: ignore
+            resultatum = item
+            resultatum['_type'] = 'ISO639P3code'
+            break
+        if language == item['ISO639P2Bcode']:  # type: ignore
+            resultatum = item
+            resultatum['_type'] = 'ISO639P2Bcode'
+        if language == item['ISO639P2Tcode']:  # type: ignore
+            resultatum = item
+            resultatum['_type'] = 'ISO639P2Tcode'
+        if language == item['ISO639P1code']:  # type: ignore
+            resultatum = item
+            resultatum['_type'] = 'ISO639P1code'
+            break
+
+    if clavem and resultatum:
+        return resultatum[clavem]
+
+    return resultatum if resultatum else None
 
 
 def in_textum_json(
