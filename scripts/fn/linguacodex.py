@@ -64,7 +64,7 @@ TODO: - Need a word for Autonym/endonym, but does not exist in latin
 TESTS
     python3 -m doctest ./scripts/fn/linguacodex.py
     python3 -m doctest -v ./scripts/fn/linguacodex.py
-    python3 -m pylint --disable=W0511 -v ./scripts/fn/linguacodex.py
+    python3 -m pylint --disable=C0302,W0511 -v ./scripts/fn/linguacodex.py
 """
 import sys
 import os
@@ -619,7 +619,7 @@ def bcp47_langtag(
     {'a': ['bbb']}
 
     >>> bcp47_langtag('en-a-b-c-d-x-wadegile-private1', 'extension')
-    {'a': True, 'b': True, 'c': True, 'd': True}
+    {'a': [True], 'b': [True], 'c': [True], 'd': [True]}
 
     >>> bcp47_langtag(
     ... 'zh-Latn-CN-variant1-a-extend1-x-wadegile-private1', 'region')
@@ -627,23 +627,37 @@ def bcp47_langtag(
 
     >>> bcp47_langtag(
     ... 'en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678')
-    {'langtag': \
+    {'Language-Tag': \
 'en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678', \
+'Language-Tag_normalized-syntax': \
+'en-Latn-US-lojban-gaulish-a-12345678-abcd-b-abcdefgh-x-a-b-c-12345678', \
 'language': 'en', 'script': 'Latn', 'region': 'US', \
-'privateuse': ['a', 'b', 'c', '12345678'], \
-'extension': {'a': ['12345678', 'ABCD'], 'b': ['ABCDEFGH']}, \
 'variant': ['lojban', 'gaulish'], \
+'extension': {'a': ['12345678', 'abcd'], 'b': ['abcdefgh']}, \
+'privateuse': ['a', 'b', 'c', '12345678'], \
+'grandfathered': None, '_unknown': [], '_errors': []}
+
+
+    # BCP47: "Example: The language tag "en-a-aaa-b-ccc-bbb-x-xyz" is in
+    # canonical form, while "en-b-ccc-bbb-a-aaa-X-xyz" is well-formed (...)
+    >>> bcp47_langtag(
+    ... 'en-b-ccc-bbb-a-aaa-X-xyz')
+    {'Language-Tag': 'en-b-ccc-bbb-a-aaa-X-xyz', \
+'Language-Tag_normalized-syntax': 'en-a-aaa-b-bbb-ccc-x-xyz', \
+'language': 'en', 'script': None, 'region': None, 'variant': [], \
+'extension': {'a': ['aaa'], 'b': ['bbb', 'ccc']}, 'privateuse': ['xyz'], \
 'grandfathered': None, '_unknown': [], '_errors': []}
     """
-    # pylint: disable=too-many-branches,too-many-statements
+    # pylint: disable=too-many-branches,too-many-statements,too-many-locals
     result = {
-        'langtag': rem,
+        'Language-Tag': rem,
+        'Language-Tag_normalized-syntax': None,
         'language': None,
         'script': None,
         'region': None,
-        'privateuse': [],  # Example: ['wadegile', 'private1']
-        'extension': {},   # Example {'a': ['bbb', 'ccc'], 'd': True}
         'variant': [],
+        'extension': {},   # Example {'a': ['bbb', 'ccc'], 'd': True}
+        'privateuse': [],  # Example: ['wadegile', 'private1']
         'grandfathered': None,
         '_unknown': [],
         '_errors': [],
@@ -664,7 +678,7 @@ def bcp47_langtag(
         'en-GB-oed', 'i-ami', 'i-bnn', 'i-default', 'i-enochian',
         'i-hak', 'i-klingon', 'i-lux', 'i-ming', 'i-navajo', 'i-pwn',
             'i-tao', 'i-tay', 'i-tsu', 'sgn-BE-FR', 'sgn-BE-NL', 'sgn-CH-DE']:
-        result['langtag'] = None
+        # result['langtag'] = None
         result['language'] = rem.lower()
         result['grandfathered'] = rem
         skip = 1
@@ -674,7 +688,7 @@ def bcp47_langtag(
             'zh-hakka', 'zh-min', 'zh-min-nan', 'zh-xiang']:
 
         parts_r = rem.split('-')
-        result['langtag'] = None
+        # result['langtag'] = None
         result['language'] = parts_r.pop(0).lower()
         result['variant'].append('-'.join(parts_r).lower())
         result['grandfathered'] = rem
@@ -686,7 +700,6 @@ def bcp47_langtag(
     deep = 0
     while len(parts) > 0 and skip == 0 and deep < 100:
         deep = deep + 1
-        # print('parts', parts)
 
         # BCP47 can start with private tag, without language at all
         if parts[0].lower() == 'x':
@@ -702,13 +715,14 @@ def bcp47_langtag(
 
             extension_key = parts.pop(0).lower()
             if len(parts) == 0 or len(parts[0]) == 1:
-                result['extension'][extension_key] = True
+                result['extension'][extension_key] = [True]
                 continue
-            else:
-                result['extension'][extension_key] = []
-                while len(parts) > 0 and len(parts[0]) != 1:
-                    result['extension'][extension_key].append(parts.pop(0))
-                continue
+            # else:
+            result['extension'][extension_key] = []
+            while len(parts) > 0 and len(parts[0]) != 1:
+                result['extension'][extension_key].append(
+                    parts.pop(0).lower())
+            continue
 
         # for part in parts:
         if result['language'] is None:
@@ -717,10 +731,6 @@ def bcp47_langtag(
             else:
                 result['language'] = False
                 result['_errors'].append('language?')
-                # if not strict:
-
-                # else:
-                #     raise ValueError(rem + 'language?')
             parts.pop(0)
             continue
 
@@ -741,7 +751,6 @@ def bcp47_langtag(
             continue
 
         if len(parts[0]) == 2 and result['region'] is None:
-            # if parts[0].isalpha() and result['region'] is None:
             if parts[0].isalpha():
                 result['region'] = parts[0].upper()
             else:
@@ -751,7 +760,6 @@ def bcp47_langtag(
             continue
 
         if len(parts[0]) == 3 and result['region'] is None:
-            # if parts[0].isnumeric() and result['region'] is None:
             if parts[0].isnumeric():
                 result['region'] = parts.pop(0)
             else:
@@ -763,7 +771,6 @@ def bcp47_langtag(
         if len(result['extension']) == 0 and len(result['privateuse']) == 0:
             # "Variant subtags that begin with a letter (a-z, A-Z) MUST be
             # at least five characters long."
-            # print('oi')
             if parts[0][0].isalpha() and len(parts[0]) >= 5:
                 result['variant'].append(parts.pop(0))
                 continue
@@ -775,20 +782,57 @@ def bcp47_langtag(
 
     result['_unknown'] = leftover
 
+    if len(result['extension']) > 0:
+        extension_norm = {}
+        # keys
+        keys_sorted = sorted(result['extension'])
+        # values
+        for key in keys_sorted:
+            extension_norm[key] = sorted(result['extension'][key])
+
+        result['extension'] = extension_norm
+
     if strictum and len(result['_errors']) > 0:
         ValueError('Errors for [' + rem + ']: ' + ', '.join(result['_errors']))
 
-    if clavem != None:
+    if len(result['_errors']) == 0:
+
+        if result['grandfathered']:
+            result['Language-Tag_normalized-syntax'] = result['grandfathered']
+        else:
+            norm = []
+            if result['language']:
+                norm.append(result['language'])
+            if result['script']:
+                norm.append(result['script'])
+            if result['region']:
+                norm.append(result['region'])
+            if len(result['variant']) > 0:
+                norm.append('-'.join(result['variant']))
+
+            if len(result['extension']) > 0:
+                for key in result['extension']:
+                    if result['extension'][key][0] is True:
+                        norm.append(key)
+                    else:
+                        norm.append(key)
+                        norm.extend(result['extension'][key])
+
+            if len(result['privateuse']) > 0:
+                norm.append('x-' + '-'.join(result['privateuse']))
+
+            result['Language-Tag_normalized-syntax'] = '-'.join(norm)
+
+    if clavem is not None:
         if isinstance(clavem, str):
             return result[clavem]
-        elif isinstance(clavem, list):
+        if isinstance(clavem, list):
             result_partial = {}
-            for i_ in clavem:
-                result_partial[i_] = result[i_]
+            for item in clavem:
+                result_partial[item] = result[item]
             return result_partial
-        else:
-            raise TypeError(
-                'clavem [' + str(type(clavem)) + '] != [str, list]')
+        raise TypeError(
+            'clavem [' + str(type(clavem)) + '] != [str, list]')
 
     return result
 
