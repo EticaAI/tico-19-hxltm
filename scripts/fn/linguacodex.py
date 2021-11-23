@@ -183,6 +183,44 @@ class LinguaCodex:
     # nomen_lingua: str = None
     quod: str = '.'
     # in_bcp47_simplex: bool = False
+
+    # TODO: maybe take the systema_locale from the current terminal.
+    #       (example from env vars: LANGUAGE=pt_BR:pt:en). For now
+    #       we're defaulting to most common scripts
+    # @see - https://www.worldatlas.com/articles
+    #        /the-world-s-most-popular-writing-scripts.html
+    #      - https://github.com/unicode-org/cldr-json/blob/main/cldr-json
+    #        /cldr-core/supplemental/likelySubtags.json
+    #      - https://unicode.org/iso15924/iso15924-codes.html
+    systema_locale: list = [
+        # Sorted by script ISO 15924 (latin) letter code
+        'ar-Arab',
+        'hy-Armn',
+        'ru-Cyrl',
+        'hi-Deva',
+        'gu-Gujr',
+        'el-Grek',
+        'ka-Geor',
+        'pa-Guru',
+        'zh-Hans',
+        'zh-Hant',
+        'he-Hebr',
+        'ko-Jamo',
+        'jv-Java',
+        'ja-Kana',
+        'km-Khmr',
+        'kn-Knda',
+        'lo-Laoo',
+        'la-Latn',
+        'my-Mymr',
+        'su-Sund',
+        'ta-Taml',
+        'te-Telu',
+        'th-Thai',
+        'bo-Tibt',
+        'ii-Yiii',
+    ]
+
     utilitas: Type['LinguaCodexUtilitas'] = None
 
     def __init__(
@@ -190,7 +228,8 @@ class LinguaCodex:
             de_nomen: str = None,
             de_exemplum: str = None,
             de_codex_norma: str = 'BCP47',
-            quod: str = '.'
+            quod: str = '.',
+            systama_locale: list = None
             # in_bcp47_simplex: bool = False
     ):  # pylint: disable=too-many-arguments
         """LinguaCodex initiāle
@@ -205,6 +244,9 @@ class LinguaCodex:
             self.de_codex_norma = de_codex_norma
         if quod:
             self.quod = quod
+
+        if systama_locale is not None:
+            self.systama_locale = systama_locale
         # if in_bcp47_simplex:
         #     self.in_bcp47_simplex = in_bcp47_simplex
 
@@ -248,6 +290,14 @@ class LinguaCodex:
         result['codex']['HXLTMa'] = '@TODO'
         result['codex']['HXLTMt'] = '@TODO'
 
+        # commūnitās, https://en.wiktionary.org/wiki/communitas#Latin
+        result['communitas'] = {
+            # litterātum, https://en.wiktionary.org/wiki/litteratus#Latin
+            'litteratum': result_.speaking_population(),
+            # scrībendum, https://en.wiktionary.org/wiki/scribo#Latin
+            'scribendum': result_.writing_population()
+        }
+
         # https://en.wikipedia.org/wiki/Endonym_and_exonym
         # Autonym, https://en.wikipedia.org/wiki/Autonym
         # endonym, https://en.wikipedia.org/wiki/Endonym_and_exonym
@@ -263,13 +313,11 @@ class LinguaCodex:
             self.de_codex).autonym()
         result['nomen']['exonym'] = {}
 
-        # commūnitās, https://en.wiktionary.org/wiki/communitas#Latin
-        result['communitas'] = {
-            # litterātum, https://en.wiktionary.org/wiki/litteratus#Latin
-            'litteratum': result_.speaking_population(),
-            # scrībendum, https://en.wiktionary.org/wiki/scribo#Latin
-            'scribendum': result_.writing_population()
-        }
+        if self.systema_locale is not None and len(self.systema_locale):
+            for lang in self.systema_locale:
+                result['nomen']['exonym'][lang] = langcodes.Language.get(
+                    self.de_codex).display_name(lang)
+
         # TODO: separate part to script
         # scrīptum, https://en.wiktionary.org/wiki/scriptum#Latin
 
