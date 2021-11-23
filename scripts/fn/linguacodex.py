@@ -130,7 +130,7 @@ parser.add_argument(
 parser.add_argument(
     '--de_nomen', action='store', help="""
     The main natural language to inspect using the title of the language
-    in some natural language.
+    in some natural language. Requires --imponendum_praejudicium.
     """)
 parser.add_argument(
     '--quod', action='store', default=".", help="""
@@ -144,7 +144,16 @@ parser.add_argument(
     data. Result use same key names as BCP47, except by
     'Language-Tag_normalized', '_unknown' and '_error' (JSON output)
     """)
-# Trivi: verbōsum, https://en.wiktionary.org/wiki/verbosus#Latin
+# Trivia:
+# - impōnendum, https://en.wiktionary.org/wiki/enforcier#Old_French
+# - praejūdicium, https://en.wiktionary.org/wiki/praejudicium#Latin
+parser.add_argument(
+    '--imponendum_praejudicium', action='store_true', default=False,
+    help="""
+    Enforce linguistic prejudgment. Default: disabled.
+    """
+)
+# Trivia: verbōsum, https://en.wiktionary.org/wiki/verbosus#Latin
 parser.add_argument(
     '--verbosum', action='store_true',
     help='Verbose mode')
@@ -175,7 +184,7 @@ class LinguaCodex:
 
     [eng-Latn]_
     """
-    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-few-public-methods,too-many-instance-attributes
     de_codex: str = None
     de_nomen: str = None
     de_exemplum: str = None
@@ -229,7 +238,8 @@ class LinguaCodex:
             de_exemplum: str = None,
             de_codex_norma: str = 'BCP47',
             quod: str = '.',
-            systama_locale: list = None
+            systama_locale: list = None,
+            imponendum_praejudicium: bool = False
             # in_bcp47_simplex: bool = False
     ):  # pylint: disable=too-many-arguments
         """LinguaCodex initiāle
@@ -244,6 +254,9 @@ class LinguaCodex:
             self.de_codex_norma = de_codex_norma
         if quod:
             self.quod = quod
+
+        if imponendum_praejudicium is not False:
+            self.imponendum_praejudicium = imponendum_praejudicium
 
         if systama_locale is not None:
             self.systama_locale = systama_locale
@@ -266,27 +279,34 @@ class LinguaCodex:
         Returns:
             [type]: [description]
         """
+        # pylint: disable=too-many-branches
         # TODO: try catch with errors for codes like
-        result_ = langcodes.Language.get(self.de_codex)
+
+        if self.de_codex:
+            de_codex = self.de_codex
+        elif self.de_nomen:
+            de_codex = langcodes.find(self.de_nomen).to_tag()
+            #  = self.de_codex
+
+        result_ = langcodes.Language.get(de_codex)
         if info_in_lang:
             if info_in_lang == 'autonym':
-                result = result_.describe(self.de_codex)
+                result = result_.describe(de_codex)
             else:
                 result = result_.describe(info_in_lang)
         else:
             result = result_.describe()
 
-        # result['bcp47'] = langcodes.standardize_tag(self.de_codex)
+        # result['bcp47'] = langcodes.standardize_tag(de_codex)
         # result['codex'] = {
-        #     '_crudum': self.de_codex,
-        #     'BCP47': langcodes.standardize_tag(self.de_codex),
+        #     '_crudum': de_codex,
+        #     'BCP47': langcodes.standardize_tag(de_codex),
         #     'HXLTMa': '',
         #     'HXLTMt': ''
         # }
         result['codex'] = {}
-        if self.de_codex:
-            result['codex']['_crudum'] = self.de_codex
-        result['codex']['BCP47'] = langcodes.standardize_tag(self.de_codex)
+
+        result['codex']['BCP47'] = langcodes.standardize_tag(de_codex)
         result['codex']['HXLTMa'] = '@TODO'
         result['codex']['HXLTMt'] = '@TODO'
 
@@ -310,13 +330,13 @@ class LinguaCodex:
         if self.de_nomen:
             result['nomen']['_crudum'] = self.de_nomen
         result['nomen']['autonym'] = langcodes.Language.get(
-            self.de_codex).autonym()
+            de_codex).autonym()
         result['nomen']['exonym'] = {}
 
-        if self.systema_locale is not None and len(self.systema_locale):
+        if self.systema_locale is not None and len(self.systema_locale) > 0:
             for lang in self.systema_locale:
                 result['nomen']['exonym'][lang] = langcodes.Language.get(
-                    self.de_codex).display_name(lang)
+                    de_codex).display_name(lang)
 
         # TODO: separate part to script
         # scrīptum, https://en.wiktionary.org/wiki/scriptum#Latin
@@ -324,13 +344,22 @@ class LinguaCodex:
         # 	errōrem, https://en.wiktionary.org/wiki/error#Latin
         # typum, https://en.wiktionary.org/wiki/typus#Latin
         # https://en.wiktionary.org/wiki/syntaxis#Latin
-        if not langcodes.tag_is_valid(self.de_codex):
+        if not langcodes.tag_is_valid(de_codex):
             result['errorem_syntaxin'] = True
 
-        # result['errorem'] = not langcodes.tag_is_valid(self.de_codex)
-        # result['errorem'] = not langcodes.tag_is_valid(self.de_codex)
+        # result['errorem'] = not langcodes.tag_is_valid(de_codex)
+        # result['errorem'] = not langcodes.tag_is_valid(de_codex)
 
         # print('oi', self.quod)
+
+        result['__meta'] = {}
+        if self.de_codex:
+            result['__meta']['de_codex'] = self.de_codex
+        if self.de_nomen:
+            result['__meta']['de_nomen'] = self.de_nomen
+        if self.imponendum_praejudicium:
+            result['__meta']['imponendum_praejudicium'] = \
+                self.imponendum_praejudicium
 
         return in_jq(result, self.quod)
         # print(json.dumps(result_item))
@@ -957,6 +986,7 @@ class LinguaCodexCli:
     argparse_args = None
     linguacodex: Type['LinguaCodex'] = None
     in_bcp47_simplex: bool = False
+    error: list = []
 
     def __init__(self, argparse_args):
         """Simulationem initiāle
@@ -971,7 +1001,8 @@ class LinguaCodexCli:
                 de_codex=argparse_args.de_codex,
                 de_codex_norma=argparse_args.de_codex_norma,
                 de_nomen=argparse_args.de_nomen,
-                quod=argparse_args.quod
+                quod=argparse_args.quod,
+                imponendum_praejudicium=argparse_args.imponendum_praejudicium
                 # in_bcp47_simplex=argparse_args.in_bcp47_simplex
             )
 
@@ -986,6 +1017,21 @@ class LinguaCodexCli:
         # print('oooi', self.linguacodex)
         # print('oooi5', self.linguacodex.__dict__)
         # print('oooi6', self.linguacodex.quid())
+
+        # print(self)
+        # print(self.argparse_args)
+        # sys.exit()
+
+        if not self.argparse_args.de_codex:
+            if not self.argparse_args.de_nomen:
+                # raise ValueError('--de_codex? --de_nomen?')
+                self.error.append('--de_codex? --de_nomen?')
+                return None
+            if not self.argparse_args.imponendum_praejudicium:
+                self.error.append('--imponendum_praejudicium?')
+                return None
+                # raise ValueError('--imponendum_praejudicium?')
+
         if self.in_bcp47_simplex:
             return in_jq(
                 bcp47_langtag(
@@ -993,7 +1039,7 @@ class LinguaCodexCli:
                 ),
                 self.argparse_args.quod
             )
-        # else:
+
         return self.linguacodex.quid()
 
     def resultatum_in_textum(self):
@@ -1004,7 +1050,15 @@ class LinguaCodexCli:
         Returns:
             [type]: [description]
         """
-        return in_textum_json(self.resultatum())
+        resultatum = self.resultatum()
+        if self.error:
+            resultatum_error = {
+                'error': self.error
+            }
+            print(in_textum_json(resultatum_error))
+            sys.exit(1)
+
+        return in_textum_json(resultatum)
 
 
 class Simulationem:
