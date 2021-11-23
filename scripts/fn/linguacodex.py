@@ -68,6 +68,9 @@ TESTS:
 Manual tests (eventually remove it):
     ./scripts/fn/linguacodex.py --de_codex pt
     ./scripts/fn/linguacodex.py --de_codex pt --in_bcp47_simplex
+
+    # This is well formed, but langcodes 3.3.0 think it is invalid
+    ./scripts/fn/linguacodex.py --de_codex en-GB-oxedict | jq
 """
 import sys
 import os
@@ -139,7 +142,7 @@ parser.add_argument(
     Define output as simple syntax parsing of input code as BCP47, without any
     advanced processing and/or conversion. Works even without download external
     data. Result use same key names as BCP47, except by
-    'Language-Tag_normalized', '_unknown' and '_errors' (JSON output)
+    'Language-Tag_normalized', '_unknown' and '_error' (JSON output)
     """)
 # Trivi: verbōsum, https://en.wiktionary.org/wiki/verbosus#Latin
 parser.add_argument(
@@ -265,7 +268,7 @@ class LinguaCodex:
             # litterātum, https://en.wiktionary.org/wiki/litteratus#Latin
             'litteratum': result_.speaking_population(),
             # scrībendum, https://en.wiktionary.org/wiki/scribo#Latin
-            'scrībendum': result_.writing_population()
+            'scribendum': result_.writing_population()
         }
         # TODO: separate part to script
         # scrīptum, https://en.wiktionary.org/wiki/scriptum#Latin
@@ -604,12 +607,19 @@ def bcp47_langtag(
     >>> bcp47_langtag('en-a-bbb-x-a-ccc', 'extension')
     {'a': ['bbb']}
 
-    >>> bcp47_langtag('en-a-b-c-d-x-wadegile-private1', 'extension')
-    {'a': [True], 'b': [True], 'c': [True], 'd': [True]}
+    >>> bcp47_langtag('tlh-a-b-foo', '_error')
+    Traceback (most recent call last):
+    ...
+    ValueError: Errors for [tlh-a-b-foo]: extension [a] empty
+
+    >>> bcp47_langtag('tlh-a-b-foo', '_error', False)
+    ['extension [a] empty']
 
     >>> bcp47_langtag(
-    ... 'zh-Latn-CN-variant1-a-extend1-x-wadegile-private1', 'region')
-    'CN'
+    ... 'zh-Latn-CN-variant1-a-extend1-x-wadegile-private1',
+    ... ['variant', 'extension', 'privateuse'])
+    {'variant': ['variant1'], 'extension': {'a': ['extend1']}, \
+'privateuse': ['wadegile', 'private1']}
 
     >>> bcp47_langtag(
     ... 'en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678')
@@ -621,8 +631,7 @@ def bcp47_langtag(
 'variant': ['lojban', 'gaulish'], \
 'extension': {'a': ['12345678', 'abcd'], 'b': ['abcdefgh']}, \
 'privateuse': ['a', 'b', 'c', '12345678'], \
-'grandfathered': None, '_unknown': [], '_errors': []}
-
+'grandfathered': None, '_unknown': [], '_error': []}
 
     # BCP47: "Example: The language tag "en-a-aaa-b-ccc-bbb-x-xyz" is in
     # canonical form, while "en-b-ccc-bbb-a-aaa-X-xyz" is well-formed (...)
@@ -632,7 +641,7 @@ def bcp47_langtag(
 'Language-Tag_normalized': 'en-a-aaa-b-bbb-ccc-x-xyz', \
 'language': 'en', 'script': None, 'region': None, 'variant': [], \
 'extension': {'a': ['aaa'], 'b': ['bbb', 'ccc']}, 'privateuse': ['xyz'], \
-'grandfathered': None, '_unknown': [], '_errors': []}
+'grandfathered': None, '_unknown': [], '_error': []}
     """
     # For sake of copy-and-paste portability, we ignore a few pylints:
     # pylint: disable=too-many-branches,too-many-statements,too-many-locals
@@ -649,13 +658,13 @@ def bcp47_langtag(
         'privateuse': [],  # Example: ['wadegile', 'private1']
         'grandfathered': None,
         '_unknown': [],
-        '_errors': [],
+        '_error': [],
     }
 
     skip = 0
 
     if not isinstance(rem, str) or len(rem) == 0:
-        result['_errors'].append('Empty/wrong type')
+        result['_error'].append('Empty/wrong type')
         skip = 1
     else:
         rem = rem.replace('_', '-').strip()
@@ -698,13 +707,17 @@ def bcp47_langtag(
         # BCP47 extensions start with one letter.
         if len(parts[0]) == 1 and parts[0].isalpha():
             if parts[0].isalpha() == 'i':
-                result['_errors'].append('Only grandfathered can use i-')
+                result['_error'].append('Only grandfathered can use i-')
 
             extension_key = parts.pop(0).lower()
             if len(parts) == 0 or len(parts[0]) == 1:
-                result['extension'][extension_key] = [True]
+                # BCP47 2.2.6. : "Each singleton MUST be followed by at least
+                # one extension subtag (...)
+                result['extension'][extension_key] = [None]
+                result['_error'].append(
+                    'extension [' + extension_key + '] empty')
                 continue
-            # else:
+
             result['extension'][extension_key] = []
             while len(parts) > 0 and len(parts[0]) != 1:
                 result['extension'][extension_key].append(
@@ -717,7 +730,7 @@ def bcp47_langtag(
                 result['language'] = parts[0].lower()
             else:
                 result['language'] = False
-                result['_errors'].append('language?')
+                result['_error'].append('language?')
             parts.pop(0)
             continue
 
@@ -730,10 +743,10 @@ def bcp47_langtag(
                     result['script'] = parts[0].capitalize()
                 else:
                     result['script'] = False
-                    result['_errors'].append('script after region/privateuse')
+                    result['_error'].append('script after region/privateuse')
             else:
                 result['script'] = False
-                result['_errors'].append('script?')
+                result['_error'].append('script?')
             parts.pop(0)
             continue
 
@@ -742,7 +755,7 @@ def bcp47_langtag(
                 result['region'] = parts[0].upper()
             else:
                 result['region'] = False
-                result['_errors'].append('region?')
+                result['_error'].append('region?')
             parts.pop(0)
             continue
 
@@ -751,7 +764,7 @@ def bcp47_langtag(
                 result['region'] = parts.pop(0)
             else:
                 result['region'] = False
-                result['_errors'].append('region?')
+                result['_error'].append('region?')
                 parts.pop(0)
             continue
 
@@ -779,10 +792,7 @@ def bcp47_langtag(
 
         result['extension'] = extension_norm
 
-    if strictum and len(result['_errors']) > 0:
-        ValueError('Errors for [' + rem + ']: ' + ', '.join(result['_errors']))
-
-    if len(result['_errors']) == 0:
+    if len(result['_error']) == 0:
 
         if result['grandfathered']:
             result['Language-Tag_normalized'] = result['grandfathered']
@@ -799,7 +809,7 @@ def bcp47_langtag(
 
             if len(result['extension']) > 0:
                 for key in result['extension']:
-                    if result['extension'][key][0] is True:
+                    if result['extension'][key][0] is None:
                         norm.append(key)
                     else:
                         norm.append(key)
@@ -809,6 +819,10 @@ def bcp47_langtag(
                 norm.append('x-' + '-'.join(result['privateuse']))
 
             result['Language-Tag_normalized'] = '-'.join(norm)
+
+    if strictum and len(result['_error']) > 0:
+        raise ValueError(
+            'Errors for [' + rem + ']: ' + ', '.join(result['_error']))
 
     if clavem is not None:
         if isinstance(clavem, str):
