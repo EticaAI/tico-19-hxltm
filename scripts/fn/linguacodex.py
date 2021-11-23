@@ -33,7 +33,7 @@
 """linguacodex: expert system command line tool to aid misuse of language codes
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex')
-{"_crudum": "pt", "BCP47": "pt", "HXLTMa": "@TODO", "HXLTMt": "@TODO"}
+{"BCP47": "pt", "HXLTMa": "@TODO", "HXLTMt": "@TODO"}
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex.BCP47')
 "pt"
@@ -192,6 +192,7 @@ class LinguaCodex:
     # nomen_lingua: str = None
     quod: str = '.'
     # in_bcp47_simplex: bool = False
+    imponendum_praejudicium: bool = False
 
     # TODO: maybe take the systema_locale from the current terminal.
     #       (example from env vars: LANGUAGE=pt_BR:pt:en). For now
@@ -532,6 +533,95 @@ def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
                 break
 
     return neo_rem
+
+
+def cldr_likely_iso15924(
+        dictionarium: dict,
+        langtag: str,
+        clavem: Type[Union[str, list]] = None,
+        strictum_certum: bool = False,
+) -> Type[Union[dict, str]]:
+    """cldr_likely_iso15924 Likely ISO 15924 (script) from BCP47 tag
+
+    Trivia:
+    - CLDR, https://cldr.unicode.org/
+    - langtag, https://tools.ietf.org/search/bcp47
+    - dictiōnārium, https://en.wiktionary.org/wiki/dictionarium#Latin
+    - resultātum, https://en.wiktionary.org/wiki/resultatum#Latin
+    - certum, https://en.wiktionary.org/wiki/certus#Latin
+    - strictum, https://en.wiktionary.org/wiki/strictus#Latin
+
+    Args:
+        dictionarium (dict): Python dictionary keys + values like the
+                             CLDR supplemental.likelySubtags
+        bcp47_langtag (str): [description]
+        clavem (Type[Union[str, list]], optional): Key to return.
+                                                   Defaults to None.
+        strictum_certum (bool, optional): If only accept exact match.
+                                          Defaults to False.
+
+    Returns:
+        Type[Union[dict, str]]: Either dict or exact result key
+
+    Tests:
+    >>> dictionarium = {'pt': 'pt-Latn-BR', 'und-BR': 'pt-Latn-BR', \
+'und-419': 'es-Latn-419', 'zh': 'zh-Hans-CN'}
+
+    >>> cldr_likely_iso15924(dictionarium, 'pt-Latn')
+    {'Language-Tag': 'pt-Latn', 'script': 'Latn', \
+'imponendum_praejudicium': False}
+
+    >>> cldr_likely_iso15924(dictionarium, 'pt')
+    {'Language-Tag': 'pt', 'script': 'Latn', 'imponendum_praejudicium': True}
+
+    >>> cldr_likely_iso15924(dictionarium, 'und-BR', 'script')
+    'Latn'
+    >>> cldr_likely_iso15924(dictionarium, 'und-BR', 'script', True)
+
+    >>> cldr_likely_iso15924(dictionarium, 'und-Latn-BR', 'script', True)
+    'Latn'
+    """
+    resultatum = {
+        'Language-Tag': langtag,
+        'script': None,
+        'imponendum_praejudicium': None
+    }
+    # exact_scriptum = bcp47_langtag(langtag, 'script')
+    langtag_certum = bcp47_langtag(langtag)
+    if langtag_certum['script']:
+        resultatum['script'] = langtag_certum['script']
+        resultatum['imponendum_praejudicium'] = False
+    elif not strictum_certum:
+        if langtag_certum['region']:
+            lpr = langtag_certum['language'] + '-' + langtag_certum['region']
+            if lpr in dictionarium:
+                langtag_non_certum = bcp47_langtag(dictionarium[lpr])
+                resultatum['script'] = langtag_non_certum['script']
+                resultatum['imponendum_praejudicium'] = True
+        # TODO: try by ISO3 too, or inverse by ISO2
+        if not resultatum['script']:
+            lll = langtag_certum['language']
+            if lll in dictionarium:
+                langtag_non_certum = bcp47_langtag(dictionarium[lll])
+                resultatum['script'] = langtag_non_certum['script']
+                resultatum['imponendum_praejudicium'] = True
+            # pass
+
+    # resultatum['__dictionarium'] = dictionarium
+    # resultatum['__langtag_certum'] = langtag_certum
+
+    if clavem is not None:
+        if isinstance(clavem, str):
+            return resultatum[clavem]
+        if isinstance(clavem, list):
+            rresultatum_partial = {}
+            for item in clavem:
+                rresultatum_partial[item] = resultatum[item]
+            return rresultatum_partial
+        raise TypeError(
+            'clavem [' + str(type(clavem)) + '] != [str, list]')
+
+    return resultatum
 
 
 def bcp47_langtag(
