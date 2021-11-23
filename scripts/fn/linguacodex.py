@@ -33,11 +33,13 @@
 """linguacodex: expert system command line tool to aid misuse of language codes
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex')
-{"BCP47": "pt"}
+{"BCP47": "pt", "ISO639P3": "por", "ISO639P2B": "por", \
+"ISO639P2T": "por", "ISO639P1": "pt", "Glotto": "port1283"}
 
 >>> Simulationem(
 ...   'linguacodex --de_codex pt --imponendum_praejudicium').jq('.codex')
-{"BCP47": "pt", "ISO15924a": "Latn"}
+{"BCP47": "pt", "ISO639P3": "por", "ISO639P2B": "por", \
+"ISO639P2T": "por", "ISO639P1": "pt", "Glotto": "port1283", "ISO15924A": "Latn"}
 
 >>> Simulationem('linguacodex --de_codex pt').jq('.codex.BCP47')
 "pt"
@@ -287,7 +289,7 @@ class LinguaCodex:
         Returns:
             [type]: [description]
         """
-        # pylint: disable=too-many-branches
+        # pylint: disable=too-many-branches,too-many-statements
 
         # TODO: implement try catch with errors for langcodes
         # TODO: eventually refactor this entire method. Doing too much here
@@ -318,11 +320,60 @@ class LinguaCodex:
         #     'HXLTMa': '',
         #     'HXLTMt': ''
         # }
+        # Trivia:
+        # - macro_linguae de
+        #   https://books.google.com.br
+        #   /books?id=D-5GAAAAcAAJ&pg=PA400&lpg=PA400&dq=%22macro+linguae%22
+        result['macro_linguae'] = None
         result['codex'] = {}
 
         result['codex']['BCP47'] = langcodes.standardize_tag(de_codex)
         if 'de_codex' in ipr and result['codex']['BCP47']:
             ipr.append('codex.BCP47')
+
+        codex_language = bcp47_langtag(de_codex, 'language')
+        # print('codex_language', codex_language)
+
+        iso639 = iso639_type(self.utilitas.iso6393, codex_language)
+
+        if iso639 and 'ISO639P3code' in iso639:
+            ipr_b = []
+            result['codex']['ISO639P3'] = iso639['ISO639P3code']  # type: ignore
+
+            ipr_b.append('codex.ISO639P3')
+
+            if iso639['ISO639P2Bcode']:  # type: ignore
+                result['codex']['ISO639P2B'] = \
+                    iso639['ISO639P2Bcode']  # type: ignore
+                ipr_b.append('codex.ISO639P2B')
+
+            if iso639['ISO639P2Tcode']:  # type: ignore
+                result['codex']['ISO639P2T'] = \
+                    iso639['ISO639P2Tcode']  # type: ignore
+                ipr_b.append('codex.ISO639P2T')
+
+            if iso639['ISO639P1code']:  # type: ignore
+                result['codex']['ISO639P1'] = \
+                    iso639['ISO639P1code']  # type: ignore
+                ipr_b.append('codex.ISO639P1')
+
+            scope = iso639['ISO639P3scope']  # type: ignore
+            if scope:
+                if scope == 'I':
+                    result['macro_linguae'] = False
+                elif scope == 'M':
+                    result['macro_linguae'] = True
+
+            if result['codex']['ISO639P3'] in self.utilitas.iso6393ToGlottocode:
+                result['codex']['Glotto'] = \
+                    self.utilitas.iso6393ToGlottocode[
+                        result['codex']['ISO639P3']]
+                ipr_b.append('codex.Glotto')
+
+            if 'de_codex' in ipr:
+                ipr.extend(ipr_b)
+
+        # glottocode
 
         iso15924a = cldr_likely_iso15924(
             self.utilitas.likely_subtags,
@@ -331,19 +382,19 @@ class LinguaCodex:
         if iso15924a['script']:  # type: ignore
             if iso15924a['imponendum_praejudicium'] is False:  # type: ignore
                 # cldr_likely_iso15924 found exact match, great
-                result['codex']['ISO15924a'] = \
+                result['codex']['ISO15924A'] = \
                     iso15924a['script']  # type: ignore
                 # pass
             elif self.imponendum_praejudicium is True:
 
                 # cldr_likely_iso15924 not found exact match, inference allowed
-                result['codex']['ISO15924a'] = \
+                result['codex']['ISO15924A'] = \
                     iso15924a['script']  # type: ignore
-                ipr.append('codex.ISO15924a')
+                ipr.append('codex.ISO15924A')
                 # pass
             # pass
 
-        # result['codex']['ISO15924a'] = iso15924a
+        # result['codex']['ISO15924A'] = iso15924a
         # result['codex']['HXLTMa'] = '@TODO'
         # result['codex']['HXLTMt'] = '@TODO'
 
@@ -449,9 +500,20 @@ class LinguaCodexUtilitas:
         with open(cldf_language_path, 'r') as file_:
             csv_reader = csv.DictReader(file_)
             # line_count = 0
+            # print('oi')
             for row in csv_reader:
-                if row["ISO639P3code"]:
-                    self.iso6393ToGlottocode[row["ISO639P3code"]] = \
+                if row["ISO639P3code"] and row["Glottocode"]:
+                    key = row["ISO639P3code"]
+
+                    # Uncomment the next block to find imperfect ISO6393 to
+                    # Glottocode. As 2021-11-23, this happens with
+                    # [eus][basq1248][basq1250]
+                    # if key in self.iso6393ToGlottocode:
+                    #     if self.iso6393ToGlottocode[key] != row["Glottocode"]:
+                    #         print('mismatch [' + row["ISO639P3code"] + '][' +
+                    #               self.iso6393ToGlottocode[key] +
+                    #               '][' + row["Glottocode"] + ']')
+                    self.iso6393ToGlottocode[key] = \
                         row["Glottocode"]
 
     def _init_data_cldr(self):
