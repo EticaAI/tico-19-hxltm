@@ -108,6 +108,44 @@ import langcodes
 DESCRIPTION = "_[eng-Latn]Command line to process language codes[eng-Latn]_"
 EPILOG = """
 
+EXEMPLUM
+1. BCP47 parsing, default JSON output, no enforced prejudgments, export maximum
+   information (as long as your initial tag already is right, which may be
+   optimistic for people working with several languages they can't even read):
+
+   $ linguacodex --de_codex=ar-Arab
+   $ linguacodex --de_codex=ru-Cyrl
+   $ linguacodex --de_codex=hi-Deva
+   $ linguacodex --de_codex=el-Grek
+   $ linguacodex --de_codex=zh-Hans
+   $ linguacodex --de_codex=my-Mymr
+
+2. Same as 1, but now ENFORCE prejudgments assuming your BCP47 code already is
+   perfect aligned with BCP47. Uses Unicode CLDR to assume the likelySubtags.
+   Note that the problem is actually not linguacodex, but in special
+   "languages" that actually are macro languages are prone to be mislabeled.
+
+   $ linguacodex --de_codex=ar --imponendum_praejudicium
+   $ linguacodex --de_codex=zh --imponendum_praejudicium
+
+3. Statistics of the speakers. How many read/speak Latin in the world? And
+   Esperanto in the world? And portuguese in Brazil? And Russian in Devanagari
+   on Vatican?
+
+   $ linguacodex --de_codex=la --quod=.communitas
+   $ linguacodex --de_codex=eo --quod=.communitas
+   $ linguacodex --de_codex=pt-BR --quod=.communitas
+   $ linguacodex --de_codex=ru-Deva-VA --quod=.communitas
+
+4. Output format: the default --in_formatum is JSON, but this can be changed to
+   CSV. The csv_caput and csv_non_caput can be used when mergint output
+   to bigger file.
+
+   $ linguacodex --de_codex=lat-Latn --in_formatum=csv
+   $ linguacodex --de_codex=lat-Latn --in_formatum=csv_caput
+   $ linguacodex --de_codex=lat-Latn --in_formatum=csv_non_caput
+
+
 ABOUT LANGUAGE-TERRITORY INFORMATION
 (--quod .communitas)
     (from python langcodes documentation)
@@ -1400,9 +1438,7 @@ class LinguaCodexCli:
         return resultatum
 
     def resultatum_in_textum(self):
-        """resultatum_in_textum [summary]
-
-        [extended_summary]
+        """resultatum_in_textum
 
         Returns:
             [type]: [description]
@@ -1415,7 +1451,22 @@ class LinguaCodexCli:
             print(in_textum_json(resultatum_error))
             sys.exit(1)
 
-        return in_textum_json(resultatum)
+        if self.argparse_args.in_formatum.lower() == 'json':
+            return in_textum_json(resultatum)
+        if self.argparse_args.in_formatum.lower() == 'csv':
+            return in_textum_csv(resultatum)
+        if self.argparse_args.in_formatum.lower() == 'csv_caput':
+            return in_textum_csv(resultatum, datum=False)
+        if self.argparse_args.in_formatum.lower() == 'csv_non_caput':
+            return in_textum_csv(resultatum, caput=False)
+        else:
+            self.error.append(
+                'in_formatum? non json, csv, csv_caput, csv_non_caput')
+            resultatum_error = {
+                'error': self.error
+            }
+            print(in_textum_json(resultatum_error))
+            sys.exit(1)
 
 
 class Simulationem:
