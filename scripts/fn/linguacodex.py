@@ -93,7 +93,7 @@ import json
 from dataclasses import dataclass, InitVar
 from typing import (
     Any,
-    # Dict,
+    Dict,
     # Iterable,
     # Optional,
     # List,
@@ -513,9 +513,108 @@ class LinguaCodex:
                 self.imponendum_praejudicium
             # result['__meta']['praejudicium'] = ipr
 
-        return in_jq(result, self.quod)
+        return quaerendum_de_punctum(result, self.quod)
         # print(json.dumps(result_item))
         # print('ooi', result)
+
+
+class LinguaCodexCli:
+    """LinguaCodexCli
+    """
+    argparse_args = None
+    linguacodex: Type['LinguaCodex'] = None
+    de_bcp47_simplex: bool = False
+    error: list = []
+
+    def __init__(self, argparse_args):
+        """Simulationem initiāle
+        """
+        self.argparse_args = argparse_args
+
+        if argparse_args.de_bcp47_simplex:
+            self.de_bcp47_simplex = True
+            # pass
+        else:
+            self.linguacodex = LinguaCodex(
+                de_codex=argparse_args.de_codex,
+                de_codex_norma=argparse_args.de_codex_norma,
+                de_nomen=argparse_args.de_nomen,
+                quod=argparse_args.quod,
+                imponendum_praejudicium=argparse_args.imponendum_praejudicium
+                # de_bcp47_simplex=argparse_args.de_bcp47_simplex
+            )
+
+    def resultatum(self):
+        """resultatum [summary]
+
+        [extended_summary]
+
+        Returns:
+            [type]: [description]
+        """
+        # print('oooi', self.linguacodex)
+        # print('oooi5', self.linguacodex.__dict__)
+        # print('oooi6', self.linguacodex.quid())
+
+        # print(self)
+        # print(self.argparse_args)
+        # sys.exit()
+
+        if not self.argparse_args.de_codex:
+            if not self.argparse_args.de_nomen:
+                # raise ValueError('--de_codex? --de_nomen?')
+                self.error.append('--de_codex? --de_nomen?')
+                return None
+            if not self.argparse_args.imponendum_praejudicium:
+                self.error.append('--imponendum_praejudicium?')
+                return None
+                # raise ValueError('--imponendum_praejudicium?')
+
+        if self.de_bcp47_simplex:
+            return quaerendum_de_punctum(
+                bcp47_langtag(
+                    self.argparse_args.de_codex,
+                ),
+                self.argparse_args.quod
+            )
+
+        resultatum = self.linguacodex.quid()
+        if self.argparse_args.in_formatum_est_planum is True:
+            resultatum = in_obiectum_planum(resultatum)
+        # in_formatum
+
+        return resultatum
+
+    def resultatum_in_textum(self):
+        """resultatum_in_textum
+
+        Returns:
+            [type]: [description]
+        """
+        resultatum = self.resultatum()
+        if self.error:
+            resultatum_error = {
+                'error': self.error
+            }
+            print(in_textum_json(resultatum_error))
+            sys.exit(1)
+
+        if self.argparse_args.in_formatum.lower() == 'json':
+            return in_textum_json(resultatum)
+        if self.argparse_args.in_formatum.lower() == 'csv':
+            return in_textum_csv(resultatum)
+        if self.argparse_args.in_formatum.lower() == 'csv_caput':
+            return in_textum_csv(resultatum, datum=False)
+        if self.argparse_args.in_formatum.lower() == 'csv_non_caput':
+            return in_textum_csv(resultatum, caput=False)
+        # else:
+        self.error.append(
+            'in_formatum? non json, csv, csv_caput, csv_non_caput')
+        resultatum_error = {
+            'error': self.error
+        }
+        print(in_textum_json(resultatum_error))
+        sys.exit(1)
 
 
 class LinguaCodexUtilitas:
@@ -717,6 +816,49 @@ def cldr_likely_iso15924(
             'clavem [' + str(type(clavem)) + '] != [str, list]')
 
     return resultatum
+
+
+class Simulationem:
+    """ [summary]
+
+    [extended_summary]
+    """
+    # pylint: disable=too-few-public-methods
+    argumenta: str = None
+
+    def __init__(self, argumenta):
+        """Simulationem initiāle
+        """
+        self.argumenta = argumenta
+
+    def jq(self, jq_argumenta='.'):  # pylint: disable=invalid-name
+        """jq [summary]
+
+        [extended_summary]
+
+        Args:
+            jq_argumenta (str, optional): [description]. Defaults to '.'.
+        """
+        sys.argv = self.argumenta.split(' ')
+        args = parser.parse_args()
+        # result_original = run_cli(args)
+        result_original = LinguaCodexCli(args).resultatum()
+        # print('ooi7', result_original, type(result_original))
+        # TODO: implement jq_argumenta
+        result = copy.copy(result_original)
+        # result = []
+        if len(jq_argumenta.strip('.')) > 0:
+            parts = jq_argumenta.strip('.').split('.')
+            # print('parts', parts)
+            for item in parts:
+                # print('item', item, result)
+                if result is not None and item in result:
+                    result = result[item]
+                else:
+                    result = '?!?'
+                    break
+
+        print(in_textum_json(result))
 
 
 def bcp47_langtag(
@@ -1165,8 +1307,69 @@ def iso639_type(
     return resultatum if resultatum else None
 
 
-def in_obiectum_planum(
+def in_obiectum_ex_planum(
         rem: dict,
+        pydictsep: str = '.',
+        pylistsep: str = ' ') -> dict:
+    """in_obiectum_planum Unflatten a nested python object
+
+    Note: the pylistsep intentionally have no effect. The object will not
+    try to convert back to list what in_obiectum_planum() converted.
+
+    Trivia:
+      - obiectum, https://en.wiktionary.org/wiki/obiectum#Latin
+      - recursiōnem, https://en.wiktionary.org/wiki/recursio#Latin
+      - praefīxum, https://en.wiktionary.org/wiki/praefixus#Latin
+      - plānum, https://en.wiktionary.org/wiki/planus
+
+    Args:
+        rem (dict): The object to flatten
+        pydictsep (pydictsep, optional): The separator for python dict keys
+        pylistsep (pydictsep, optional): The separator for python list values
+
+    Returns:
+        [dict]: A flattened python dictionary
+
+    >>> testum1_inv = {'a0.a1.a2': 'va', 'b0': '1 2 3'}
+    >>> testum1_inv5 = {'a0.a1.a2.a3.a4.a5': 'va', 'b0': '1 2 3'}
+    >>> in_obiectum_ex_planum(testum1_inv)
+    {'a0': {'a1': {'a2': 'va'}}, 'b0': '1 2 3'}
+
+    >>> in_obiectum_ex_planum(testum1_inv5)
+    {'a0': {'a1': {'a2': {'a3': {'a4': {'a5': 'va'}}}}}, 'b0': '1 2 3'}
+
+    >>> testum1_inv_sep = {'a0->a1->a2': 'va', 'b0': '1 2 3'}
+    >>> in_obiectum_ex_planum(testum1_inv_sep, pydictsep='->')
+    {'a0': {'a1': {'a2': 'va'}}, 'b0': '1 2 3'}
+
+    # Be strict about type
+    >>> in_obiectum_ex_planum([1, 2, 3, 4])
+    Traceback (most recent call last):
+    ...
+    TypeError: in_obiectum_ex_planum non dict<class 'list'>
+    """
+    resultatum = {}
+
+    if not isinstance(rem, dict):
+        raise TypeError('in_obiectum_ex_planum non dict' + str(type(rem)))
+
+    if pylistsep and pylistsep != ' ':
+        raise NotImplementedError(
+            'in_obiectum_ex_planum pylistsep ' + pylistsep)
+
+    for clavem, item in rem.items():
+        clavem_partem = clavem.split(pydictsep)
+        ad_hoc = resultatum
+        for part in clavem_partem[:-1]:
+            if part not in ad_hoc:
+                ad_hoc[part] = {}
+            ad_hoc = ad_hoc[part]
+        ad_hoc[clavem_partem[-1]] = item
+    return resultatum
+
+
+def in_obiectum_planum(
+        rem: Dict,
         pydictsep: str = '.',
         pylistsep: str = ' ') -> dict:
     """in_obiectum_planum Flatten a nested python object
@@ -1222,30 +1425,63 @@ def in_obiectum_planum(
     recursionem(rem)
 
     return resultatum
+# quaerendum, https://en.wiktionary.org/wiki/quaero#Latin (English "query")
+# pūnctum, https://en.wiktionary.org/wiki/punctum#Latin
+# , https://en.wiktionary.org/wiki/quaero#Latin (English "point<-period")
 
 
-def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
-    """in_jq TODO document
-    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.b')
+# def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
+def quaerendum_de_punctum(rem, quod: str = '.'):
+    """quaerendum_de_punctum Ad hoc simple JQ-inspired query
+
+    >>> exemplum_i = {'a': {'aa1': 1, "aa2": 2}, 'b': 10}
+    >>> quaerendum_de_punctum(exemplum_i, '.b')
     10
-    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.a')
-    {'aa1': 1, 'aa2': 2}
-    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.a.aa1')
-    1
-    """
-    neo_rem = rem
-    if len(quod.strip('.')) > 0:
-        parts = quod.strip('.').split('.')
-        # print('parts', parts)
-        for item in parts:
-            # print('item', item, result)
-            if neo_rem is not None and item in neo_rem:
-                neo_rem = neo_rem[item]
-            else:
-                neo_rem = incognitum
-                break
 
-    return neo_rem
+    >>> quaerendum_de_punctum(exemplum_i, '.a')
+    {'aa1': 1, 'aa2': 2}
+
+    >>> quaerendum_de_punctum(exemplum_i, '.a.aa1')
+    1
+
+    >>> quaerendum_de_punctum(exemplum_i, '.nonclavem')
+    Traceback (most recent call last):
+    ...
+    ValueError: quaerendum_de_punctum [.nonclavem]
+
+    >>> quaerendum_de_punctum(exemplum_i, '.nonclavem?')
+
+    """
+
+    # Note: if have only one query = return only exact value
+    # Note: if have , separed values = return object with keys
+
+    def auxilium(arem, quod):
+        neo_rem = arem
+        vigiliam = True
+        # print(quod[:-1])
+        # return ('quod', quod, quod[-1], quod[:1], quod[:1] == '?')
+        if quod[-1] == '?':
+            vigiliam = False
+            quod = quod[0:-1]
+        if len(quod.strip('.')) > 0:
+            parts = quod.strip('.').split('.')
+            # print('parts', parts)
+            for item in parts:
+                # print('item', item, result)
+                if neo_rem is not None and item in neo_rem:
+                    neo_rem = neo_rem[item]
+                else:
+                    if vigiliam:
+                        raise ValueError(
+                            'quaerendum_de_punctum [' + quod + ']')
+                    neo_rem = None
+                    break
+        return neo_rem
+
+    resultatum = auxilium(rem, quod)
+
+    return resultatum
 
 
 def in_textum_csv(
@@ -1291,13 +1527,13 @@ def in_textum_csv(
         raise TypeError('in_textum_csv non list[dict] ' + str(type(rem)))
 
     output = io.StringIO()
-    w = csv.DictWriter(output, rem[0].keys())
+    wtr = csv.DictWriter(output, rem[0].keys())
 
     if caput:
-        w.writeheader()
+        wtr.writeheader()
     for item in rem:
         if datum:
-            w.writerow(item)
+            wtr.writerow(item)
 
     resultatum = output.getvalue()
     if non_rn:
@@ -1362,172 +1598,21 @@ def in_textum_json(
 
     return json_textum
 
-# def linguacodex_cli(args):
-# https://en.wiktionary.org/wiki/simulatio#Latin
 
-# https://stackoverflow.com/questions/50886471
-# /simulating-argparse-command-line-arguments-input-while-debugging
-# /50886791#50886791
+# def simulationem(argumenta: str):
+#     """simulationem
+#     Trivia:
+#     - simulātiōnem, https://en.wiktionary.org/wiki/simulatio#Latin
 
-
-class LinguaCodexCli:
-    """LinguaCodexCli
-    """
-    argparse_args = None
-    linguacodex: Type['LinguaCodex'] = None
-    de_bcp47_simplex: bool = False
-    error: list = []
-
-    def __init__(self, argparse_args):
-        """Simulationem initiāle
-        """
-        self.argparse_args = argparse_args
-
-        if argparse_args.de_bcp47_simplex:
-            self.de_bcp47_simplex = True
-            # pass
-        else:
-            self.linguacodex = LinguaCodex(
-                de_codex=argparse_args.de_codex,
-                de_codex_norma=argparse_args.de_codex_norma,
-                de_nomen=argparse_args.de_nomen,
-                quod=argparse_args.quod,
-                imponendum_praejudicium=argparse_args.imponendum_praejudicium
-                # de_bcp47_simplex=argparse_args.de_bcp47_simplex
-            )
-
-    def resultatum(self):
-        """resultatum [summary]
-
-        [extended_summary]
-
-        Returns:
-            [type]: [description]
-        """
-        # print('oooi', self.linguacodex)
-        # print('oooi5', self.linguacodex.__dict__)
-        # print('oooi6', self.linguacodex.quid())
-
-        # print(self)
-        # print(self.argparse_args)
-        # sys.exit()
-
-        if not self.argparse_args.de_codex:
-            if not self.argparse_args.de_nomen:
-                # raise ValueError('--de_codex? --de_nomen?')
-                self.error.append('--de_codex? --de_nomen?')
-                return None
-            if not self.argparse_args.imponendum_praejudicium:
-                self.error.append('--imponendum_praejudicium?')
-                return None
-                # raise ValueError('--imponendum_praejudicium?')
-
-        if self.de_bcp47_simplex:
-            return in_jq(
-                bcp47_langtag(
-                    self.argparse_args.de_codex,
-                ),
-                self.argparse_args.quod
-            )
-
-        resultatum = self.linguacodex.quid()
-        if self.argparse_args.in_formatum_est_planum is True:
-            resultatum = in_obiectum_planum(resultatum)
-        # in_formatum
-
-        return resultatum
-
-    def resultatum_in_textum(self):
-        """resultatum_in_textum
-
-        Returns:
-            [type]: [description]
-        """
-        resultatum = self.resultatum()
-        if self.error:
-            resultatum_error = {
-                'error': self.error
-            }
-            print(in_textum_json(resultatum_error))
-            sys.exit(1)
-
-        if self.argparse_args.in_formatum.lower() == 'json':
-            return in_textum_json(resultatum)
-        if self.argparse_args.in_formatum.lower() == 'csv':
-            return in_textum_csv(resultatum)
-        if self.argparse_args.in_formatum.lower() == 'csv_caput':
-            return in_textum_csv(resultatum, datum=False)
-        if self.argparse_args.in_formatum.lower() == 'csv_non_caput':
-            return in_textum_csv(resultatum, caput=False)
-        else:
-            self.error.append(
-                'in_formatum? non json, csv, csv_caput, csv_non_caput')
-            resultatum_error = {
-                'error': self.error
-            }
-            print(in_textum_json(resultatum_error))
-            sys.exit(1)
-
-
-class Simulationem:
-    """ [summary]
-
-    [extended_summary]
-    """
-    # pylint: disable=too-few-public-methods
-    argumenta: str = None
-
-    def __init__(self, argumenta):
-        """Simulationem initiāle
-        """
-        self.argumenta = argumenta
-
-    def jq(self, jq_argumenta='.'):  # pylint: disable=invalid-name
-        """jq [summary]
-
-        [extended_summary]
-
-        Args:
-            jq_argumenta (str, optional): [description]. Defaults to '.'.
-        """
-        sys.argv = self.argumenta.split(' ')
-        args = parser.parse_args()
-        # result_original = run_cli(args)
-        result_original = LinguaCodexCli(args).resultatum()
-        # print('ooi7', result_original, type(result_original))
-        # TODO: implement jq_argumenta
-        result = copy.copy(result_original)
-        # result = []
-        if len(jq_argumenta.strip('.')) > 0:
-            parts = jq_argumenta.strip('.').split('.')
-            # print('parts', parts)
-            for item in parts:
-                # print('item', item, result)
-                if result is not None and item in result:
-                    result = result[item]
-                else:
-                    result = '?!?'
-                    break
-
-        print(in_textum_json(result))
-
-
-def simulationem(argumenta: str):
-    """simulationem
-    Trivia:
-    - simulātiōnem, https://en.wiktionary.org/wiki/simulatio#Latin
-
-    Args:
-        argumenta (str): Command line arguments
-    """
-    # parts = 'linguacodex.py' + ' '.split(argumenta)
-    sys.argv = argumenta.split(' ')
-    # print(sys.argv, argumenta, ' '.split(argumenta))
-    args = parser.parse_args()
-    # print(run_cli(args))
-    print(LinguaCodexCli(args).resultatum_in_textum())
-
-
+#     Args:
+#         argumenta (str): Command line arguments
+#     """
+#     # parts = 'linguacodex.py' + ' '.split(argumenta)
+#     sys.argv = argumenta.split(' ')
+#     # print(sys.argv, argumenta, ' '.split(argumenta))
+#     args = parser.parse_args()
+#     # print(run_cli(args))
+#     print(LinguaCodexCli(args).resultatum_in_textum())
 if __name__ == '__main__':
 
     args_ = parser.parse_args()
