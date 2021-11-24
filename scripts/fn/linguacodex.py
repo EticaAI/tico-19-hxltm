@@ -1104,7 +1104,11 @@ def iso639_type(
     return resultatum if resultatum else None
 
 
-def in_obiectum_planum(rem: dict):
+def in_obiectum_planum(
+        rem: dict,
+        praefixum: str = '',
+        pyobiectumsep: str = '.',
+        pylistsep: str = ' ') -> dict:
     """in_obiectum_1_level [summary]
 
     [extended_summary]
@@ -1115,17 +1119,69 @@ def in_obiectum_planum(rem: dict):
     Returns:
         [type]: [description]
 
-    >>> in_obiectum_planum({'a': {'a1': {'a2': 'va'}}, 'b': 'vb'})
+    >>> in_obiectum_planum({'a': {'a1': {'a2': 'va'}}, 'b': [1, 2, 3]})
+    {'a.a1.a2': 'va', 'b': '1 2 3'}
+
+
+    # This is not designed to flat arrays, but will not return error
+    >>> in_obiectum_planum([1, 2, 3, 4])
+    {'': '1 2 3 4'}
+
+    # This is not designed to flat arrays, but will not return error
+    >>> in_obiectum_planum(None)
     """
     # obiectum, https://en.wiktionary.org/wiki/obiectum#Latin
     # recursiōnem, https://en.wiktionary.org/wiki/recursio#Latin
     # praefīxum, https://en.wiktionary.org/wiki/praefixus#Latin
     # plānum, https://en.wiktionary.org/wiki/planus
+    resultatum = {}
 
     def recursionem(rrem, praefixum: str = ''):
-        pass
+        # praefixum =
+        # print('rrem', rrem)
+        # return
+        praefixum_ad_hoc = '' if praefixum == '' else praefixum + pyobiectumsep
+        if isinstance(rrem, dict):
+            for clavem in rrem:
+                recursionem(rrem[clavem], praefixum_ad_hoc + clavem)
+                # recursionem(rrem[clavem], praefixum + pyobiectumsep + clavem)
+                # recursionem(rrem[clavem], praefixum + clavem)
+        elif isinstance(rrem, list):
+            resultatum[praefixum] = pylistsep.join(map(str, rrem))
+            # resultatum[praefixum] = pylistsep.join(list1)
+            # resultatum[praefixum] = '-'.join(rrem)
+            # resultatum[praefixum] = rrem
+        else:
+            resultatum[praefixum] = rrem
+        # for clavem in rrem:
+        #     # item = rrem[clavem]
+        #     praefixum_ad_hoc = '' if praefixum == '' else praefixum + '.'
+        #     if rrem[clavem] and isinstance(rrem[clavem], dict):
+        #         resultatum = recursionem(
+        #             rrem[clavem], praefixum_ad_hoc + clavem)
+        #     elif rrem[clavem] and isinstance(rrem[clavem], list):
+        #         resultatum[praefixum_ad_hoc +
+        #                    clavem] = pylistsep.join(rrem[clavem])
+        #     else:
+        #         resultatum[praefixum_ad_hoc + clavem] = rrem[clavem]
 
-    return rem
+    def recursionem2(rrem, praefixum: str = ''):
+        for clavem in rrem:
+            # item = rrem[clavem]
+            praefixum_ad_hoc = '' if praefixum == '' else praefixum + '.'
+            if rrem[clavem] and isinstance(rrem[clavem], dict):
+                resultatum = recursionem(
+                    rrem[clavem], praefixum_ad_hoc + clavem)
+            elif rrem[clavem] and isinstance(rrem[clavem], list):
+                resultatum[praefixum_ad_hoc +
+                           clavem] = pylistsep.join(rrem[clavem])
+            else:
+                resultatum[praefixum_ad_hoc + clavem] = rrem[clavem]
+        # return resultatum
+
+    recursionem(rem, praefixum)
+
+    return resultatum
 
 
 def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
