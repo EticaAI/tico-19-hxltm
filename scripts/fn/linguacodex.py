@@ -77,6 +77,7 @@ Crash course from names in Latin to English
         - python3 -m doctest hxlm/core/bin/hxltmcli.py
 
 Some other very frequent generic terms:
+----------
 
 - ad:
     - @see https://en.wiktionary.org/wiki/ad#Latin
@@ -143,6 +144,51 @@ To Do
 - Improve the terms used for 'questions', like
   'quid'/ 'quod'
     - @see https://dcc.dickinson.edu/grammar/latin/questions
+
+
+Neologisms on linguacodex
+----------
+
+Note: the initial author really tried attested latin terms for these concepts,
+but was not viable. They actually are missing translations to non-English
+languages, so, this makes sense.
+
+- Base concept Endonym/exonym, no know Latin equivalents
+  - "Endonym and exonym" English equivalents (see)
+    https://en.wikipedia.org/wiki/Endonym_and_exonym)
+    - "Autonym" (English)
+      - "αὐτός" greek root "auto
+        https://en.wiktionary.org/wiki/%CE%B1%E1%BD%90%CF%84%CF%8C%CF%82
+      - "ἔνδον", greek root "endo"
+        https://en.wiktionary.org/wiki/%E1%BC%94%CE%BD%CE%B4%CE%BF%CE%BD#Ancient_Greek
+    - 'intra-' is more common prefix for latin terms (greek root equivalent, endo)
+      - https://en.wiktionary.org/wiki/intra-
+- intranomen: "intrā" + "nōmen"
+  - "nōmen" https://en.wiktionary.org/wiki/nomen#Latin
+  - "intrā-", https://en.wiktionary.org/wiki/intra-
+  - Then, the definition:
+    - "intranōmen" (from Latin "intra-", a prefix signifying inside, within,
+      + "-nōmen", name, also know as endonym/autonym) is a common, internal
+      name for a geographical place, group of people, language or dialect,
+      meaning that it is used inside that particular place, group,
+      or linguistic community in question; it is their self-designated
+      name for themselves, their homeland, or their language.
+  - References:
+    - http://www.perseus.tufts.edu/hopper
+      /text?doc=Perseus:text:1999.04.0059:entry=intra
+    - http://www.perseus.tufts.edu/hopper
+      /text?doc=Perseus:text:1999.04.0059:entry=nomen
+- "externomen": "exter-" + "nōmen"
+  - (from Latin "exter-", on the outside, outward, of another
+    country, foreign, strange ,+ "-nōmen", name, also know as exonym/xenonym)
+    is a common, external name for a geographical place, group of people,
+    individual person, or a language/dialect, that is used only outside that
+    particular place, group, or linguistic community
+  - References:
+    - http://www.perseus.tufts.edu/hopper
+      /text?doc=Perseus:text:1999.04.0059:entry=exter
+    - http://www.perseus.tufts.edu/hopper
+      /text?doc=Perseus:text:1999.04.0059:entry=nomen
 
 
 [eng-Latn]_
@@ -577,13 +623,18 @@ class LinguaCodex:
         result['nomen'] = {}
         if self.de_nomen:
             result['nomen']['_crudum'] = self.de_nomen
-        result['nomen']['autonym'] = langcodes.Language.get(
+        # result['nomen']['autonym'] = langcodes.Language.get(
+        #     de_codex).autonym()
+        result['nomen']['intranomen'] = langcodes.Language.get(
             de_codex).autonym()
-        result['nomen']['exonym'] = {}
+        # result['nomen']['exonym'] = {}
+        result['nomen']['externomen'] = {}
 
         if self.systema_locale is not None and len(self.systema_locale) > 0:
             for lang in self.systema_locale:
-                result['nomen']['exonym'][lang] = langcodes.Language.get(
+                # result['nomen']['exonym'][lang] = langcodes.Language.get(
+                #     de_codex).display_name(lang)
+                result['nomen']['externomen'][lang] = langcodes.Language.get(
                     de_codex).display_name(lang)
 
         # TODO: separate part to script
