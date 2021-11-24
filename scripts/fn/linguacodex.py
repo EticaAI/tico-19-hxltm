@@ -29,6 +29,7 @@
 #       CREATED:  2021-11-20 10:37 UTC v0.1 name langcodescli.py
 #       CHANGED:  2021-11-21 04:59 UTC v0.5 renamed as linguacodex.py
 #                 2021-11-23 09:20 UTC v0.6 --in_bcp47_simplex implemented
+#                 -- in_bcp47_simplex -> de_bcp47_simplex
 # ==============================================================================
 """linguacodex: expert system command line tool to aid misuse of language codes
 
@@ -45,7 +46,7 @@
 "pt"
 
 >>> Simulationem(
-... 'linguacodex --de_codex en-b-ccc-bbb-a-aaa-X-xyz --in_bcp47_simplex')\
+... 'linguacodex --de_codex en-b-ccc-bbb-a-aaa-X-xyz --de_bcp47_simplex')\
     .jq('.Language-Tag_normalized')
 "en-a-aaa-b-bbb-ccc-x-xyz"
 
@@ -73,7 +74,7 @@ TESTS:
     python3 -m pylint --disable=C0302,W0511 -v ./scripts/fn/linguacodex.py
 Manual tests (eventually remove it):
     ./scripts/fn/linguacodex.py --de_codex pt
-    ./scripts/fn/linguacodex.py --de_codex pt --in_bcp47_simplex
+    ./scripts/fn/linguacodex.py --de_codex pt --de_bcp47_simplex
 
     # This is well formed, but langcodes 3.3.0 think it is invalid
     ./scripts/fn/linguacodex.py --de_codex en-GB-oxedict | jq
@@ -83,6 +84,7 @@ Manual tests (eventually remove it):
 """
 import sys
 import os
+import io
 import argparse
 from pathlib import Path
 import copy
@@ -147,12 +149,33 @@ parser.add_argument(
     information. Example: --quod .codex.BCP47
     """)
 parser.add_argument(
-    '--in_bcp47_simplex', action='store_true', help="""
+    '--de_bcp47_simplex', action='store_true', help="""
     Define output as simple syntax parsing of input code as BCP47, without any
     advanced processing and/or conversion. Works even without download external
     data. Result use same key names as BCP47, except by
     'Language-Tag_normalized', '_unknown' and '_error' (JSON output)
     """)
+
+# fōrmātum, https://en.wiktionary.org/wiki/formatus#Latin
+parser.add_argument(
+    '--in_formatum', action='store', default='json', help="""
+    Format of the output. Valid values: 'json' (default), 'csv', 'csv_caput',
+    'csv_non_caput'.
+    """)
+
+# plānum, https://en.wiktionary.org/wiki/planus
+parser.add_argument(
+    '--in_formatum_est_planum', action='store_true', default=False, help="""
+    Flatten the keys of output. Can be used for nested object
+    """)
+
+# fōrmātum, https://en.wiktionary.org/wiki/formatus#Latin
+# parser.add_argument(
+#     '--in_formatum_json', action='store_const',
+#     metavar='in_formatum'  help="""
+#     If result is a nested object, flatten the keys
+#     """)
+
 # Trivia:
 # - impōnendum, https://en.wiktionary.org/wiki/enforcier#Old_French
 # - praejūdicium, https://en.wiktionary.org/wiki/praejudicium#Latin
@@ -200,7 +223,7 @@ class LinguaCodex:
     de_codex_norma: str = 'BCP47'
     # nomen_lingua: str = None
     quod: str = '.'
-    # in_bcp47_simplex: bool = False
+    # de_bcp47_simplex: bool = False
     imponendum_praejudicium: bool = False
 
     # TODO: maybe take the systema_locale from the current terminal.
@@ -250,7 +273,7 @@ class LinguaCodex:
             quod: str = '.',
             systama_locale: list = None,
             imponendum_praejudicium: bool = False
-            # in_bcp47_simplex: bool = False
+            # de_bcp47_simplex: bool = False
     ):  # pylint: disable=too-many-arguments
         """LinguaCodex initiāle
         """
@@ -270,8 +293,8 @@ class LinguaCodex:
 
         if systama_locale is not None:
             self.systama_locale = systama_locale
-        # if in_bcp47_simplex:
-        #     self.in_bcp47_simplex = in_bcp47_simplex
+        # if de_bcp47_simplex:
+        #     self.de_bcp47_simplex = de_bcp47_simplex
 
         self.utilitas = LinguaCodexUtilitas()
 
@@ -1106,80 +1129,59 @@ def iso639_type(
 
 def in_obiectum_planum(
         rem: dict,
-        praefixum: str = '',
-        pyobiectumsep: str = '.',
+        pydictsep: str = '.',
         pylistsep: str = ' ') -> dict:
-    """in_obiectum_1_level [summary]
+    """in_obiectum_planum Flatten a nested python object
 
-    [extended_summary]
+    Trivia:
+      - obiectum, https://en.wiktionary.org/wiki/obiectum#Latin
+      - recursiōnem, https://en.wiktionary.org/wiki/recursio#Latin
+      - praefīxum, https://en.wiktionary.org/wiki/praefixus#Latin
+      - plānum, https://en.wiktionary.org/wiki/planus
 
     Args:
-        rem (dict): [description]
+        rem (dict): The object to flatten
+        pydictsep (pydictsep, optional): The separator for python dict keys
+        pylistsep (pydictsep, optional): The separator for python list values
 
     Returns:
-        [type]: [description]
+        [dict]: A flattened python dictionary
 
-    >>> in_obiectum_planum({'a': {'a1': {'a2': 'va'}}, 'b': [1, 2, 3]})
-    {'a.a1.a2': 'va', 'b': '1 2 3'}
+    >>> testum1 = {'a0': {'a1': {'a2': 'va'}}, 'b0': [1, 2, 3]}
+    >>> in_obiectum_planum(testum1)
+    {'a0.a1.a2': 'va', 'b0': '1 2 3'}
 
+    >>> in_obiectum_planum(testum1)
+    {'a0.a1.a2': 'va', 'b0': '1 2 3'}
 
-    # This is not designed to flat arrays, but will not return error
+    >>> in_obiectum_planum(testum1, pylistsep=',')
+    {'a0.a1.a2': 'va', 'b0': '1,2,3'}
+
+    >>> in_obiectum_planum(testum1, pydictsep='->')
+    {'a0->a1->a2': 'va', 'b0': '1 2 3'}
+
+    # This is not designed to flat arrays, str, None, int, ..., only dict
     >>> in_obiectum_planum([1, 2, 3, 4])
-    {'': '1 2 3 4'}
-
-    # This is not designed to flat arrays, but will not return error
-    >>> in_obiectum_planum(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: in_obiectum_planum non dict<class 'list'>
     """
-    # obiectum, https://en.wiktionary.org/wiki/obiectum#Latin
-    # recursiōnem, https://en.wiktionary.org/wiki/recursio#Latin
-    # praefīxum, https://en.wiktionary.org/wiki/praefixus#Latin
-    # plānum, https://en.wiktionary.org/wiki/planus
     resultatum = {}
 
+    if not isinstance(rem, dict):
+        raise TypeError('in_obiectum_planum non dict' + str(type(rem)))
+
     def recursionem(rrem, praefixum: str = ''):
-        # praefixum =
-        # print('rrem', rrem)
-        # return
-        praefixum_ad_hoc = '' if praefixum == '' else praefixum + pyobiectumsep
+        praefixum_ad_hoc = '' if praefixum == '' else praefixum + pydictsep
         if isinstance(rrem, dict):
             for clavem in rrem:
                 recursionem(rrem[clavem], praefixum_ad_hoc + clavem)
-                # recursionem(rrem[clavem], praefixum + pyobiectumsep + clavem)
-                # recursionem(rrem[clavem], praefixum + clavem)
         elif isinstance(rrem, list):
             resultatum[praefixum] = pylistsep.join(map(str, rrem))
-            # resultatum[praefixum] = pylistsep.join(list1)
-            # resultatum[praefixum] = '-'.join(rrem)
-            # resultatum[praefixum] = rrem
         else:
             resultatum[praefixum] = rrem
-        # for clavem in rrem:
-        #     # item = rrem[clavem]
-        #     praefixum_ad_hoc = '' if praefixum == '' else praefixum + '.'
-        #     if rrem[clavem] and isinstance(rrem[clavem], dict):
-        #         resultatum = recursionem(
-        #             rrem[clavem], praefixum_ad_hoc + clavem)
-        #     elif rrem[clavem] and isinstance(rrem[clavem], list):
-        #         resultatum[praefixum_ad_hoc +
-        #                    clavem] = pylistsep.join(rrem[clavem])
-        #     else:
-        #         resultatum[praefixum_ad_hoc + clavem] = rrem[clavem]
 
-    def recursionem2(rrem, praefixum: str = ''):
-        for clavem in rrem:
-            # item = rrem[clavem]
-            praefixum_ad_hoc = '' if praefixum == '' else praefixum + '.'
-            if rrem[clavem] and isinstance(rrem[clavem], dict):
-                resultatum = recursionem(
-                    rrem[clavem], praefixum_ad_hoc + clavem)
-            elif rrem[clavem] and isinstance(rrem[clavem], list):
-                resultatum[praefixum_ad_hoc +
-                           clavem] = pylistsep.join(rrem[clavem])
-            else:
-                resultatum[praefixum_ad_hoc + clavem] = rrem[clavem]
-        # return resultatum
-
-    recursionem(rem, praefixum)
+    recursionem(rem)
 
     return resultatum
 
@@ -1206,6 +1208,63 @@ def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
                 break
 
     return neo_rem
+
+
+def in_textum_csv(
+        rem: Type[Union[dict, list]],
+        caput: bool = True,
+        datum: bool = True,
+        non_rn: bool = True,
+) -> str:
+    """in_textum_csv Convert dict / list[dict] to CSV
+
+    Args:
+        rem (Type[Union[dict, list]]): Dict or list of dicts to convert
+        caput (bool, optional): Print header?. Defaults to True.
+        datum (bool, optional): Return data itself?. Defaults to True.
+        non_rn (bool, optional): Remove last new line?. Defaults to True.
+
+    Raises:
+        TypeError: [description]
+
+    Returns:
+        str: [description]
+
+    Exemplōrum gratiā (et Python doctest, id est, testum automata):
+
+    >>> testum1 = {'a0': {'a1': {'a2': 'va'}}, 'b0': [1, 2, 3]}
+    >>> testum1_planum = {'a0.a1.a2': 'va', 'b0': '1 2 3'}
+    >>> list_planum = [testum1_planum, testum1_planum, testum1_planum]
+    >>> in_textum_csv(testum1)
+    'a0,b0\\r\\n{\\'a1\\': {\\'a2\\': \\'va\\'}},"[1, 2, 3]"'
+
+    >>> in_textum_csv(testum1_planum)
+    'a0.a1.a2,b0\\r\\nva,1 2 3'
+
+    >>> in_textum_csv(list_planum, caput=False)
+    'va,1 2 3\\r\\nva,1 2 3\\r\\nva,1 2 3'
+
+    >>> in_textum_csv(testum1_planum, datum=False)
+    'a0.a1.a2,b0'
+    """
+    if isinstance(rem, dict):
+        rem = [rem]
+    if not isinstance(rem, list) or not isinstance(rem[0], dict):
+        raise TypeError('in_textum_csv non list[dict] ' + str(type(rem)))
+
+    output = io.StringIO()
+    w = csv.DictWriter(output, rem[0].keys())
+
+    if caput:
+        w.writeheader()
+    for item in rem:
+        if datum:
+            w.writerow(item)
+
+    resultatum = output.getvalue()
+    if non_rn:
+        resultatum = resultatum.rstrip("\r\n")
+    return resultatum
 
 
 def in_textum_json(
@@ -1278,7 +1337,7 @@ class LinguaCodexCli:
     """
     argparse_args = None
     linguacodex: Type['LinguaCodex'] = None
-    in_bcp47_simplex: bool = False
+    de_bcp47_simplex: bool = False
     error: list = []
 
     def __init__(self, argparse_args):
@@ -1286,8 +1345,8 @@ class LinguaCodexCli:
         """
         self.argparse_args = argparse_args
 
-        if argparse_args.in_bcp47_simplex:
-            self.in_bcp47_simplex = True
+        if argparse_args.de_bcp47_simplex:
+            self.de_bcp47_simplex = True
             # pass
         else:
             self.linguacodex = LinguaCodex(
@@ -1296,7 +1355,7 @@ class LinguaCodexCli:
                 de_nomen=argparse_args.de_nomen,
                 quod=argparse_args.quod,
                 imponendum_praejudicium=argparse_args.imponendum_praejudicium
-                # in_bcp47_simplex=argparse_args.in_bcp47_simplex
+                # de_bcp47_simplex=argparse_args.de_bcp47_simplex
             )
 
     def resultatum(self):
@@ -1325,7 +1384,7 @@ class LinguaCodexCli:
                 return None
                 # raise ValueError('--imponendum_praejudicium?')
 
-        if self.in_bcp47_simplex:
+        if self.de_bcp47_simplex:
             return in_jq(
                 bcp47_langtag(
                     self.argparse_args.de_codex,
@@ -1333,7 +1392,12 @@ class LinguaCodexCli:
                 self.argparse_args.quod
             )
 
-        return self.linguacodex.quid()
+        resultatum = self.linguacodex.quid()
+        if self.argparse_args.in_formatum_est_planum is True:
+            resultatum = in_obiectum_planum(resultatum)
+        # in_formatum
+
+        return resultatum
 
     def resultatum_in_textum(self):
         """resultatum_in_textum [summary]
