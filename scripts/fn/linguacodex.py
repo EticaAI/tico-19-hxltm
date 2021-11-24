@@ -569,30 +569,6 @@ class LinguaCodexQuid:
         self.lingua_codex = lingua_codex
 
 
-def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
-    """in_jq TODO document
-    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.b')
-    10
-    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.a')
-    {'aa1': 1, 'aa2': 2}
-    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.a.aa1')
-    1
-    """
-    neo_rem = rem
-    if len(quod.strip('.')) > 0:
-        parts = quod.strip('.').split('.')
-        # print('parts', parts)
-        for item in parts:
-            # print('item', item, result)
-            if neo_rem is not None and item in neo_rem:
-                neo_rem = neo_rem[item]
-            else:
-                neo_rem = incognitum
-                break
-
-    return neo_rem
-
-
 def cldr_likely_iso15924(
         dictionarium: dict,
         langtag: str,
@@ -1126,6 +1102,54 @@ def iso639_type(
         return resultatum[clavem]
 
     return resultatum if resultatum else None
+
+
+def in_obiectum_planum(rem: dict):
+    """in_obiectum_1_level [summary]
+
+    [extended_summary]
+
+    Args:
+        rem (dict): [description]
+
+    Returns:
+        [type]: [description]
+
+    >>> in_obiectum_planum({'a': {'a1': {'a2': 'va'}}, 'b': 'vb'})
+    """
+    # obiectum, https://en.wiktionary.org/wiki/obiectum#Latin
+    # recursiōnem, https://en.wiktionary.org/wiki/recursio#Latin
+    # praefīxum, https://en.wiktionary.org/wiki/praefixus#Latin
+    # plānum, https://en.wiktionary.org/wiki/planus
+
+    def recursionem(rrem, praefixum: str = ''):
+        pass
+
+    return rem
+
+
+def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
+    """in_jq TODO document
+    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.b')
+    10
+    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.a')
+    {'aa1': 1, 'aa2': 2}
+    >>> in_jq({'a': {'aa1': 1, "aa2": 2}, 'b': 10}, '.a.aa1')
+    1
+    """
+    neo_rem = rem
+    if len(quod.strip('.')) > 0:
+        parts = quod.strip('.').split('.')
+        # print('parts', parts)
+        for item in parts:
+            # print('item', item, result)
+            if neo_rem is not None and item in neo_rem:
+                neo_rem = neo_rem[item]
+            else:
+                neo_rem = incognitum
+                break
+
+    return neo_rem
 
 
 def in_textum_json(
