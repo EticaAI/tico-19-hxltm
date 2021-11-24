@@ -33,26 +33,120 @@
 # ==============================================================================
 """linguacodex: expert system command line tool to aid misuse of language codes
 
->>> Simulationem('linguacodex --de_codex pt').jq('.codex')
-{"BCP47": "pt", "ISO639P3": "por", "ISO639P2B": "por", \
-"ISO639P2T": "por", "ISO639P1": "pt", "Glotto": "port1283"}
 
->>> Simulationem(
-...   'linguacodex --de_codex pt --imponendum_praejudicium').jq('.codex')
-{"BCP47": "pt", "ISO639P3": "por", "ISO639P2B": "por", \
-"ISO639P2T": "por", "ISO639P1": "pt", "Glotto": "port1283", "ISO15924A": "Latn"}
+_[eng-Latn]
 
->>> Simulationem('linguacodex --de_codex pt').jq('.codex.BCP47')
-"pt"
+Crash course from names in Latin to English
+----------
 
->>> Simulationem(
-... 'linguacodex --de_codex en-b-ccc-bbb-a-aaa-X-xyz --de_bcp47_simplex')\
-    .jq('.Language-Tag_normalized')
-"en-a-aaa-b-bbb-ccc-x-xyz"
+- datum, https://en.wiktionary.org/wiki/datum#Latin:
+    - Dataset
+- columnam (or crudum columnam), https://en.wiktionary.org/wiki/columna#Latin:
+    - Column, spreadsheet column, variable (of a item)
+- līneam (or crudum līneam), https://en.wiktionary.org/wiki/linea#Latin:
+    - row, spreadsheet row, line (used mostly for 'crudum rem', raw item)
+- rem, https://en.wiktionary.org/wiki/res#Latin
+    - Thing (generic)
+- conceptum, https://en.wiktionary.org/wiki/conceptus#Latin:
+    - Concept (used on HXLTM to diferenciate what is translation, rem, from
+      concept that applies to all language variants of the sabe thing)
+- fontem, https://en.wiktionary.org/wiki/fons#Latin:
+    - Source
+- objectīvum, https://en.wiktionary.org/wiki/objectivus#Latin:
+    - Objective, target (as in target language, output archive)
+- linguam, https://en.wiktionary.org/wiki/lingua#Latin:
+    - Language, natural language
+- bilingue
+    - bilingual (as used on operations with source to target language in XLIFF)
+- multiplum linguam
+    - 1 to n languages (as used on operations that work with many languages
+      like TMX and TBX)
+- collēctiōnem, https://en.wiktionary.org/wiki/collectio#Latin:
+    - collection, List, array (not sure if exist better naming in Latin, sorry)
+- obiectum, https://en.wiktionary.org/wiki/obiectum#Latin:
+    - Object (or Python Dict)
+- Caput, https://en.wiktionary.org/wiki/caput#Latin:
+    - Header
+- Vēnandum īnsectum, (https://en.wiktionary.org/wiki/venor#Latin,
+  https://en.wiktionary.org/wiki/insectum#Latin)
+    - Debugging
+- 'Exemplōrum gratiā (et Python doctest, id est, testum automata)'
+    - 'For example (and python doctest, that is, automated testing)'
+    - @see https://docs.python.org/3/library/doctest.html
+        - python3 -m doctest hxltmcli-fork-from-marcus.py
+        - python3 -m doctest hxlm/core/bin/hxltmcli.py
+
+Some other very frequent generic terms:
+
+- ad:
+    - @see https://en.wiktionary.org/wiki/ad#Latin
+        - (direction) toward, to
+        - up to (indicating direction upwards)
+        - in consequence of
+        - for, to, toward (indicating purpose or aim)
+        - in order to, to, for (indicating means)
+        - (...)
+- de:
+    - @see https://en.wiktionary.org/wiki/de#Latin
+        - of, concerning, about
+        - from, away from, down from, out of
+- in:
+    - @see https://en.wiktionary.org/wiki/in#Latin
+        - toward, towards, against, at
+        - until, for
+        - about
+        - according to
+
+> Tips:
+> - HXL-CPLP-Vocab_Auxilium-Humanitarium-API spreadsheet have additional terms
+> - Google _wiktionary term-in-english_. Sometimes Google Translate will
+>   give the perfect term, but to keep consistent, we use:
+>    - Accusative
+>        - Singular
+>            - Neuter (You know, inclusive language)
+> - 'Marcus loves/likes his dog', in Latin (same meaning different emphasis):
+>    - Marcus canem amat.
+>    - Canem Marcus amat.
+>    - Amat canem Marcus.
+>    - Marcus amat canem.
+>    - Canem amat Marcus.
+>    - Amat Marcus canem.
+>    - Marcum canis amat.
+>    - Canis Marcum amat.
+>    - Amat canis Marcum.
+>    - Marcum amat canis.
+>    - Canis amat Marcum.
+>    - Amat Marcum canis.
+> - Latin, while very expressive/verbose language (and great to use on
+>   ontologies, naming animals, etc, and this is the reason to use a few terms
+>   in Latin on hxltmcli.py), was not what 'the people' used because was
+>   hard even for the first class citizen with elite education 2000 years ago.
+>   - Most example usages with HXLTM will use the 'prestige dialect' for a
+>     ISO 15924 script (like translate from lat-Latn to ara-Arab, zho-Hant,
+>     rus-Cyrl, and etc...) even when in fact we, 'the people', will use
+>     more specific language/dialects, like por-Latn.
+
+Missing 'good' Latin terms to express meaning in English (for software)
+----------
+
+- array, list
+    - @see https://en.wiktionary.org/wiki/array
+    - Sometimes we use 'Python List' as in
+        - "Rem collēctiōnem, id est, Python List"
+- output (preferable some short word, not like prōductiōnem)
+    - @see https://en.wiktionary.org/wiki/output#English
+- input
+    - @see https://en.wiktionary.org/wiki/input
+
+To Do
+---------
+- Improve the terms used for 'questions', like
+  'quid'/ 'quod'
+    - @see https://dcc.dickinson.edu/grammar/latin/questions
 
 
-# >>> LinguaCodex(de_codex='pt').quid()
-# '{"de_codex": "pt", "de_codex_norma": "BCP47"}'
+[eng-Latn]_
+
 
 TODO: - Need a word for Autonym/endonym, but does not exist in latin
         Prefix here https://www.englishhints.com/latin-prefixes.html
@@ -81,6 +175,9 @@ Manual tests (eventually remove it):
 
 ./scripts/fn/linguacodex.py --de_nomen pt --imponendum_praejudicium | jq
 ./scripts/fn/linguacodex.py --de_nomen Português --imponendum_praejudicium | jq
+
+./scripts/fn/linguacodex.py --de_nomen='Arabicus' --imponendum_praejudicium
+    --in_formatum_est_planum --quod='.codex .communitas'
 """
 import sys
 import os
@@ -263,6 +360,8 @@ class LinguaCodex:
     quod: str = '.'
     # de_bcp47_simplex: bool = False
     imponendum_praejudicium: bool = False
+
+    error: list = []
 
     # TODO: maybe take the systema_locale from the current terminal.
     #       (example from env vars: LANGUAGE=pt_BR:pt:en). For now
@@ -578,10 +677,16 @@ class LinguaCodexCli:
                 self.argparse_args.quod
             )
 
-        resultatum = self.linguacodex.quid()
-        if self.argparse_args.in_formatum_est_planum is True:
-            resultatum = in_obiectum_planum(resultatum)
-        # in_formatum
+        try:
+            resultatum = self.linguacodex.quid()
+            if self.argparse_args.in_formatum_est_planum is True:
+                resultatum = in_obiectum_planum(resultatum)
+            # in_formatum
+        except ValueError as err:
+            self.error.append(str(err))
+            resultatum = None
+            # pass
+        # catch
 
         return resultatum
 
@@ -757,7 +862,8 @@ def cldr_likely_iso15924(
     Returns:
         Type[Union[dict, str]]: Either dict or exact result key
 
-    Tests:
+    Exemplōrum gratiā (et Python doctest, id est, testum automata):
+
     >>> dictionarium = {'pt': 'pt-Latn-BR', 'und-BR': 'pt-Latn-BR', \
 'und-419': 'es-Latn-419', 'zh': 'zh-Hans-CN'}
 
@@ -821,6 +927,31 @@ def cldr_likely_iso15924(
 class Simulationem:
     """ [summary]
 
+    TODO: this does not scale well: better emulate outside the script itself
+          eventually remove from here. But leave as it still working.
+
+>>> Simulationem('linguacodex --de_codex pt').jq('.codex')
+{"BCP47": "pt", "ISO639P3": "por", "ISO639P2B": "por", \
+"ISO639P2T": "por", "ISO639P1": "pt", "Glotto": "port1283"}
+
+>>> Simulationem(
+...   'linguacodex --de_codex pt --imponendum_praejudicium').jq('.codex')
+{"BCP47": "pt", "ISO639P3": "por", "ISO639P2B": "por", \
+"ISO639P2T": "por", "ISO639P1": "pt", "Glotto": "port1283", \
+"ISO15924A": "Latn"}
+
+>>> Simulationem('linguacodex --de_codex pt').jq('.codex.BCP47')
+"pt"
+
+>>> Simulationem(
+... 'linguacodex --de_codex en-b-ccc-bbb-a-aaa-X-xyz --de_bcp47_simplex')\
+    .jq('.Language-Tag_normalized')
+"en-a-aaa-b-bbb-ccc-x-xyz"
+
+
+# >>> LinguaCodex(de_codex='pt').quid()
+# '{"de_codex": "pt", "de_codex_norma": "BCP47"}'
+
     [extended_summary]
     """
     # pylint: disable=too-few-public-methods
@@ -830,6 +961,20 @@ class Simulationem:
         """Simulationem initiāle
         """
         self.argumenta = argumenta
+
+    # def actio(self):
+    #     # āctiō, https://en.wiktionary.org/wiki/actio#Latin
+    #     sys.argv = self.argumenta.split(' ')
+
+    #     print('sys.argv', sys.argv)
+
+    #     import re
+    #     s = 'abc,def, ghi, "jkl, mno, pqr","stu"'
+    #     for r in re.findall(r'".+?"|[\w-]+', s):
+    #         print(r)
+    #     # for r in re.findall(r'".+?"|[\w-]+', self.argumenta):
+    #     for r in re.findall(r'".+?"|[\w-]+', self.argumenta):
+    #         print(r)
 
     def jq(self, jq_argumenta='.'):  # pylint: disable=invalid-name
         """jq [summary]
@@ -842,6 +987,10 @@ class Simulationem:
         sys.argv = self.argumenta.split(' ')
         args = parser.parse_args()
         # result_original = run_cli(args)
+        # result_original = LinguaCodexCli(args).resultatum_in_textum()
+        # print(result_original)
+        # return None
+        # sys.exit(0)
         result_original = LinguaCodexCli(args).resultatum()
         # print('ooi7', result_original, type(result_original))
         # TODO: implement jq_argumenta
@@ -968,7 +1117,8 @@ def bcp47_langtag(
     https://github.com/unicode-org/cldr/blob/main/tools/cldr-code
     /src/main/resources/org/unicode/cldr/util/data/langtagTest.txt
 
-    TESTS (run with python3 -m doctest myscript.py):
+    Exemplōrum gratiā (et Python doctest, id est, testum automata):
+    (run with python3 -m doctest myscript.py)
 
     >>> bcp47_langtag('pt-Latn-BR', 'language')
     'pt'
@@ -1270,7 +1420,8 @@ def iso639_type(
     Returns:
         Type[Union[dict, str]]: Either dict or exact result key
 
-    Tests:
+    Exemplōrum gratiā (et Python doctest, id est, testum automata):
+
     >>> dictionarium = [{'ISO639P3code':'por', 'ISO639P2Bcode': 'por', \
 'ISO639P2Tcode': 'por', 'ISO639P1code': 'pt', 'ISO639P3scope': 'I', \
 'ISO639P3languagetype': 'L', 'ISO639P3refname': 'Portuguese'}]
@@ -1330,6 +1481,8 @@ def in_obiectum_ex_planum(
     Returns:
         [dict]: A flattened python dictionary
 
+    Exemplōrum gratiā (et Python doctest, id est, testum automata):
+
     >>> testum1_inv = {'a0.a1.a2': 'va', 'b0': '1 2 3'}
     >>> testum1_inv5 = {'a0.a1.a2.a3.a4.a5': 'va', 'b0': '1 2 3'}
     >>> in_obiectum_ex_planum(testum1_inv)
@@ -1388,6 +1541,8 @@ def in_obiectum_planum(
     Returns:
         [dict]: A flattened python dictionary
 
+    Exemplōrum gratiā (et Python doctest, id est, testum automata):
+
     >>> testum1 = {'a0': {'a1': {'a2': 'va'}}, 'b0': [1, 2, 3]}
     >>> in_obiectum_planum(testum1)
     {'a0.a1.a2': 'va', 'b0': '1 2 3'}
@@ -1429,10 +1584,25 @@ def in_obiectum_planum(
 # pūnctum, https://en.wiktionary.org/wiki/punctum#Latin
 # , https://en.wiktionary.org/wiki/quaero#Latin (English "point<-period")
 
-
 # def in_jq(rem, quod: str = '.', incognitum: Any = '?!?'):
-def quaerendum_de_punctum(rem, quod: str = '.'):
+
+
+def quaerendum_de_punctum(rem: dict, quod: str = '.') -> dict:
     """quaerendum_de_punctum Ad hoc simple JQ-inspired query
+
+    See test examples
+
+    Args:
+        rem ([dict]): [description]
+        quod (str, optional): Search path. Defaults to '.' (no filter)
+
+    Raises:
+        ValueError: Raise errors if keys do not end with ?
+
+    Returns:
+        [dict]: Python dict with only selected keys
+
+    Exemplōrum gratiā (et Python doctest, id est, testum automata):
 
     >>> exemplum_i = {'a': {'aa1': 1, "aa2": 2}, 'b': 10}
     >>> quaerendum_de_punctum(exemplum_i, '.b')
@@ -1444,19 +1614,23 @@ def quaerendum_de_punctum(rem, quod: str = '.'):
     >>> quaerendum_de_punctum(exemplum_i, '.a.aa1')
     1
 
+    >>> quaerendum_de_punctum(exemplum_i, '.a.aa1 .b')
+    {'a': {'aa1': 1}, 'b': 10}
+
+    # Return error for non existing keys without '?' as suffix
     >>> quaerendum_de_punctum(exemplum_i, '.nonclavem')
     Traceback (most recent call last):
     ...
     ValueError: quaerendum_de_punctum [.nonclavem]
 
+    # This key do not exist, but fail without raise exception
     >>> quaerendum_de_punctum(exemplum_i, '.nonclavem?')
-
     """
 
     # Note: if have only one query = return only exact value
     # Note: if have , separed values = return object with keys
 
-    def auxilium(arem, quod):
+    def auxilium(arem, quod: str = '.'):
         neo_rem = arem
         vigiliam = True
         # print(quod[:-1])
@@ -1478,6 +1652,17 @@ def quaerendum_de_punctum(rem, quod: str = '.'):
                     neo_rem = None
                     break
         return neo_rem
+
+    if quod.find(' ') > -1:
+        # quod_multiplum =
+        quod_multiplum = list(filter(None, quod.split(' ')))
+        resultatum_planum = {}
+        for quod_item in quod_multiplum:
+            resultatum_planum[quod_item.strip('.').strip(
+                '?')] = auxilium(rem, quod_item)
+
+        # return resultatum_planum
+        return in_obiectum_ex_planum(resultatum_planum)
 
     resultatum = auxilium(rem, quod)
 
@@ -1599,20 +1784,6 @@ def in_textum_json(
     return json_textum
 
 
-# def simulationem(argumenta: str):
-#     """simulationem
-#     Trivia:
-#     - simulātiōnem, https://en.wiktionary.org/wiki/simulatio#Latin
-
-#     Args:
-#         argumenta (str): Command line arguments
-#     """
-#     # parts = 'linguacodex.py' + ' '.split(argumenta)
-#     sys.argv = argumenta.split(' ')
-#     # print(sys.argv, argumenta, ' '.split(argumenta))
-#     args = parser.parse_args()
-#     # print(run_cli(args))
-#     print(LinguaCodexCli(args).resultatum_in_textum())
 if __name__ == '__main__':
 
     args_ = parser.parse_args()
