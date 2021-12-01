@@ -997,7 +997,7 @@ class Simulationem:
 >>> Simulationem(
 ... 'linguacodex --de_codex en-b-ccc-bbb-a-aaa-X-xyz --de_bcp47_simplex')\
     .jq('.Language-Tag_normalized')
-"en-a-aaa-b-bbb-ccc-x-xyz"
+"en-a-aaa-b-ccc-bbb-x-xyz"
 
 
 # >>> LinguaCodex(de_codex='pt').quid()
@@ -1210,7 +1210,7 @@ def bcp47_langtag(
     ['a', 'ccc']
 
     >>> bcp47_langtag('en-a-bbb-x-a-ccc', 'extension')
-    {'a': ['bbb']}
+    {'a': 'bbb'}
 
     >>> bcp47_langtag('tlh-a-b-foo', '_error')
     Traceback (most recent call last):
@@ -1223,7 +1223,7 @@ def bcp47_langtag(
     >>> bcp47_langtag(
     ... 'zh-Latn-CN-variant1-a-extend1-x-wadegile-private1',
     ... ['variant', 'extension', 'privateuse'])
-    {'variant': ['variant1'], 'extension': {'a': ['extend1']}, \
+    {'variant': ['variant1'], 'extension': {'a': 'extend1'}, \
 'privateuse': ['wadegile', 'private1']}
 
     >>> bcp47_langtag(
@@ -1234,7 +1234,7 @@ def bcp47_langtag(
 'en-Latn-US-lojban-gaulish-a-12345678-abcd-b-abcdefgh-x-a-b-c-12345678', \
 'language': 'en', 'script': 'Latn', 'region': 'US', \
 'variant': ['lojban', 'gaulish'], \
-'extension': {'a': ['12345678', 'abcd'], 'b': ['abcdefgh']}, \
+'extension': {'a': '12345678-abcd', 'b': 'abcdefgh'}, \
 'privateuse': ['a', 'b', 'c', '12345678'], \
 'grandfathered': None, '_unknown': [], '_error': []}
 
@@ -1243,9 +1243,9 @@ def bcp47_langtag(
     >>> bcp47_langtag(
     ... 'en-b-ccc-bbb-a-aaa-X-xyz')
     {'Language-Tag': 'en-b-ccc-bbb-a-aaa-X-xyz', \
-'Language-Tag_normalized': 'en-a-aaa-b-bbb-ccc-x-xyz', \
+'Language-Tag_normalized': 'en-a-aaa-b-ccc-bbb-x-xyz', \
 'language': 'en', 'script': None, 'region': None, 'variant': [], \
-'extension': {'a': ['aaa'], 'b': ['bbb', 'ccc']}, 'privateuse': ['xyz'], \
+'extension': {'a': 'aaa', 'b': 'ccc-bbb'}, 'privateuse': ['xyz'], \
 'grandfathered': None, '_unknown': [], '_error': []}
     """
     # For sake of copy-and-paste portability, we ignore a few pylints:
@@ -1323,10 +1323,21 @@ def bcp47_langtag(
                     'extension [' + extension_key + '] empty')
                 continue
 
-            result['extension'][extension_key] = []
+            # result['extension'][extension_key] = []
+            result['extension'][extension_key] = ''
             while len(parts) > 0 and len(parts[0]) != 1:
-                result['extension'][extension_key].append(
-                    parts.pop(0).lower())
+                # Extensions may have more strict rules than -x-
+                # @see https://datatracker.ietf.org/doc/html/rfc6497 (-t-)
+                # @see https://datatracker.ietf.org/doc/html/rfc6067 (-u-)
+                # result['extension'][extension_key].append(
+                #     parts.pop(0).lower())
+                result['extension'][extension_key] = \
+                    result['extension'][extension_key] + \
+                    '-' + parts.pop(0).lower()
+
+                result['extension'][extension_key] = \
+                    result['extension'][extension_key].strip('-')
+
             continue
 
         # for part in parts:
@@ -1387,15 +1398,16 @@ def bcp47_langtag(
 
     result['_unknown'] = leftover
 
-    if len(result['extension']) > 0:
-        extension_norm = {}
-        # keys
-        keys_sorted = sorted(result['extension'])
-        # values
-        for key in keys_sorted:
-            extension_norm[key] = sorted(result['extension'][key])
+    # TODO: maybe re-implement only for know extensions, like -t-, -u-, -h-
+    # if len(result['extension']) > 0:
+    #     extension_norm = {}
+    #     # keys
+    #     keys_sorted = sorted(result['extension'])
+    #     # values
+    #     for key in keys_sorted:
+    #         extension_norm[key] = sorted(result['extension'][key])
 
-        result['extension'] = extension_norm
+    #     result['extension'] = extension_norm
 
     if len(result['_error']) == 0:
 
@@ -1413,12 +1425,22 @@ def bcp47_langtag(
                 norm.append('-'.join(result['variant']))
 
             if len(result['extension']) > 0:
+                #  TODO: maybe re-implement only for know extensions,
+                #        like -t-, -u-, -h-. For now we're not trying to
+                #        normalize ordering of unknow future extensions, BUT
+                #        we sort key from different extensions
+                sorted_extension = {}
+                for key in sorted(result['extension']):
+                    sorted_extension[key] = result['extension'][key]
+                result['extension'] = sorted_extension
+
                 for key in result['extension']:
                     if result['extension'][key][0] is None:
                         norm.append(key)
                     else:
                         norm.append(key)
-                        norm.extend(result['extension'][key])
+                        # norm.extend(result['extension'][key])
+                        norm.append(result['extension'][key])
 
             if len(result['privateuse']) > 0:
                 norm.append('x-' + '-'.join(result['privateuse']))
