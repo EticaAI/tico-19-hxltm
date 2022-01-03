@@ -1068,8 +1068,34 @@ def bcp47_langtag(
 ) -> dict:
     """Public domain python function to process BCP47 langtag
 
-    Created at 2021-11-22. Partial implementation of BCP47 (RFC 5646).
-    See https://tools.ietf.org/search/bcp47.
+    The BCP47Langtag is an public domain python function to
+    aid parsing of the IETF BCP 47 language tag. It implements the syntactic
+    analysis of RFC 5646 and does not require lookup tables which makes
+    it friendly for quick analysis.
+
+    Limitations:
+       - subtags such as "-t-" and "-u- '' are not parsed on this current
+         version. They are treated as generic BCP47 extensions.
+       - The Language-Tag_normalized result would still need external data
+         lookups to stricter normalization. Yet BCP47Langtag can be used as
+         the very first step to analyze a language tag which is viable to port
+         across programming languages.
+       - The default behavior is to throw exceptions with at least some types
+         of syntactic errors, a feature which can be disabled yet reasoning is
+         exposed with _error. However, already very malformated can have
+        further bugs which different programming implementations do not need
+        to be consistent with each other.
+
+    Versions in other programming languages:
+       The initial author encourages versions to other programming languages or
+       libraries or tools which make use of this. No need to ask permission
+       upfront and there is no problem with using other licenses
+       than public domain.
+
+    Changelog:
+       - 2021-11-22: Partial implementation of BCP47 (RFC 5646)
+       - 2021-01-02: Fixes on Language-Tag_normalized (discoversed when ported
+                     JavaScript version was created)
 
     Args:
         rem (str):                       The BCP47 langtag
@@ -1231,10 +1257,10 @@ def bcp47_langtag(
     {'Language-Tag': \
 'en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678', \
 'Language-Tag_normalized': \
-'en-Latn-US-lojban-gaulish-a-12345678-abcd-b-abcdefgh-x-a-b-c-12345678', \
+'en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678', \
 'language': 'en', 'script': 'Latn', 'region': 'US', \
 'variant': ['lojban', 'gaulish'], \
-'extension': {'a': '12345678-abcd', 'b': 'abcdefgh'}, \
+'extension': {'a': '12345678-ABCD', 'b': 'ABCDEFGH'}, \
 'privateuse': ['a', 'b', 'c', '12345678'], \
 'grandfathered': None, '_unknown': [], '_error': []}
 
@@ -1309,7 +1335,7 @@ def bcp47_langtag(
                 result['privateuse'].append(parts.pop(0))
             break
 
-        # BCP47 extensions start with one letter.
+        # BCP47 extensions start with one US-ASCII letter.
         if len(parts[0]) == 1 and parts[0].isalpha():
             if parts[0].isalpha() == 'i':
                 result['_error'].append('Only grandfathered can use i-')
@@ -1318,22 +1344,26 @@ def bcp47_langtag(
             if len(parts) == 0 or len(parts[0]) == 1:
                 # BCP47 2.2.6. : "Each singleton MUST be followed by at least
                 # one extension subtag (...)
-                result['extension'][extension_key] = [None]
+                # result['extension'][extension_key] = [None]
+                result['extension'][extension_key] = {}
                 result['_error'].append(
                     'extension [' + extension_key + '] empty')
                 continue
 
-            # result['extension'][extension_key] = []
             result['extension'][extension_key] = ''
             while len(parts) > 0 and len(parts[0]) != 1:
                 # Extensions may have more strict rules than -x-
                 # @see https://datatracker.ietf.org/doc/html/rfc6497 (-t-)
                 # @see https://datatracker.ietf.org/doc/html/rfc6067 (-u-)
-                # result['extension'][extension_key].append(
-                #     parts.pop(0).lower())
+
+                # Let's avoid atempt to lowercase extensions, since this is not
+                # not explicity on BCP47 for unknow extensions
+                # result['extension'][extension_key] = \
+                #     result['extension'][extension_key] + \
+                #     '-' + parts.pop(0).lower()
                 result['extension'][extension_key] = \
                     result['extension'][extension_key] + \
-                    '-' + parts.pop(0).lower()
+                    '-' + parts.pop(0)
 
                 result['extension'][extension_key] = \
                     result['extension'][extension_key].strip('-')
@@ -1366,6 +1396,7 @@ def bcp47_langtag(
             parts.pop(0)
             continue
 
+        # Regions, such as ISO 3661-1, like BR
         if len(parts[0]) == 2 and result['region'] is None:
             if parts[0].isalpha():
                 result['region'] = parts[0].upper()
@@ -1375,6 +1406,7 @@ def bcp47_langtag(
             parts.pop(0)
             continue
 
+        # Regions, such as ISO 3661-1, like 076
         if len(parts[0]) == 3 and result['region'] is None:
             if parts[0].isnumeric():
                 result['region'] = parts.pop(0)
@@ -1385,8 +1417,11 @@ def bcp47_langtag(
             continue
 
         if len(result['extension']) == 0 and len(result['privateuse']) == 0:
-            # "Variant subtags that begin with a letter (a-z, A-Z) MUST be
-            # at least five characters long."
+            # 2.2.5. Variant Subtags
+            #   4.1 "Variant subtags that begin with a (US-ASCII)* letter
+            #       (a-z, A-Z) MUST be at least five characters long."
+            #   4.2 "Variant subtags that begin with a digit (0-9) MUST be at
+            #       least four characters long."
             if parts[0][0].isalpha() and len(parts[0]) >= 5:
                 result['variant'].append(parts.pop(0))
                 continue
@@ -1398,7 +1433,7 @@ def bcp47_langtag(
 
     result['_unknown'] = leftover
 
-    # TODO: maybe re-implement only for know extensions, like -t-, -u-, -h-
+    # @TODO: maybe re-implement only for know extensions, like -t-, -u-, -h-
     # if len(result['extension']) > 0:
     #     extension_norm = {}
     #     # keys
@@ -1409,6 +1444,7 @@ def bcp47_langtag(
 
     #     result['extension'] = extension_norm
 
+    # Language-Tag_normalized
     if len(result['_error']) == 0:
 
         if result['grandfathered']:
