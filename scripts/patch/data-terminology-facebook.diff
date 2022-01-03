@@ -1,0 +1,159 @@
+diff --git a/data/original/terminology/facebook/en_af-ZA.csv b/data/original/terminology/facebook/en_af-ZA.csv
+index 916bbc6..6f3349e 100644
+--- a/data/original/terminology/facebook/en_af-ZA.csv
++++ b/data/original/terminology/facebook/en_af-ZA.csv
+@@ -241,7 +241,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 240,en,af_ZA,self-quarantine,selfkwarantyn
+ 241,en,af_ZA,sepsis,sepsis
+ 242,en,af_ZA,septic shock,septiese skok
+-243,en,af_ZA,Severe Acute Respiratory Syndrome,Erge, akute respiratoriese sindroom
++243,en,af_ZA,Severe Acute Respiratory Syndrome,"Erge, akute respiratoriese sindroom"
+ 244,en,af_ZA,shortness of breath,kortasemigheid
+ 245,en,af_ZA,sickened,voel siek
+ 246,en,af_ZA,sickness,siekte
+diff --git a/data/original/terminology/facebook/en_be-BY.csv b/data/original/terminology/facebook/en_be-BY.csv
+index 233d331..6d94f92 100644
+--- a/data/original/terminology/facebook/en_be-BY.csv
++++ b/data/original/terminology/facebook/en_be-BY.csv
+@@ -3,7 +3,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 2,en,be_BY,acute bronchitis,востры бранхіт
+ 3,en,be_BY,acute respiratory disease,вострае рэспіраторнае захворванне
+ 4,en,be_BY,AIDS,СНІД
+-5,en,be_BY,airborne droplets,кроплі, якія пераносяцца па паветры
++5,en,be_BY,airborne droplets,"кроплі, якія пераносяцца па паветры"
+ 6,en,be_BY,airway,паветраны
+ 7,en,be_BY,alcohol-based,на аснове спірту
+ 8,en,be_BY,alcohol-based hand rub,сродак для апрацоўкі рук на аснове спірту
+@@ -81,7 +81,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 80,en,be_BY,detergent,мыйны сродак
+ 81,en,be_BY,difficulty breathing,цяжкасці з дыханнем
+ 82,en,be_BY,diabetes,дыябет
+-83,en,be_BY,diagnosable disease,захворванне, якое можна дыягнаставаць
++83,en,be_BY,diagnosable disease,"захворванне, якое можна дыягнаставаць"
+ 84,en,be_BY,diagnostic protocol,дыягнастычны пратакол
+ 85,en,be_BY,diagnostic testing,дыягнастычнае тэсціраванне
+ 86,en,be_BY,disease itself,само захворванне
+@@ -234,7 +234,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 233,en,be_BY,SARS,SARS (атыпічная пнеўманія)
+ 234,en,be_BY,SARS-CoV-2,SARS-CoV-2
+ 235,en,be_BY,SARS-CoV,SARS-CoV
+-236,en,be_BY,sars-related coronavirus,каранавірус, звязаны з атыпічнай пнеўманіяй
++236,en,be_BY,sars-related coronavirus,"каранавірус, звязаны з атыпічнай пнеўманіяй"
+ 237,en,be_BY,seasonal flu,сезонны грып
+ 238,en,be_BY,seasonal influenza,сезонная інфлюэнца
+ 239,en,be_BY,secretion,выдзяленні
+diff --git a/data/original/terminology/facebook/en_bg-BG.csv b/data/original/terminology/facebook/en_bg-BG.csv
+index 98744cb..67c64bc 100644
+--- a/data/original/terminology/facebook/en_bg-BG.csv
++++ b/data/original/terminology/facebook/en_bg-BG.csv
+@@ -81,7 +81,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 80,en,bg_BG,detergent,почистващ препарат
+ 81,en,bg_BG,difficulty breathing,затруднено дишане
+ 82,en,bg_BG,diabetes,диабет
+-83,en,bg_BG,diagnosable disease,заболяване, подлежащо на диагностициране
++83,en,bg_BG,diagnosable disease,"заболяване, подлежащо на диагностициране"
+ 84,en,bg_BG,diagnostic protocol,диагностичен протокол
+ 85,en,bg_BG,diagnostic testing,диагностично изследване
+ 86,en,bg_BG,disease itself,самата болест
+@@ -234,7 +234,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 233,en,bg_BG,SARS,SARS
+ 234,en,bg_BG,SARS-CoV-2,SARS-CoV-2
+ 235,en,bg_BG,SARS-CoV,SARS-CoV
+-236,en,bg_BG,sars-related coronavirus,коронавирус, свързан със SARS
++236,en,bg_BG,sars-related coronavirus,"коронавирус, свързан със SARS"
+ 237,en,bg_BG,seasonal flu,сезонен грип
+ 238,en,bg_BG,seasonal influenza,сезонна инфлуенца
+ 239,en,bg_BG,secretion,секреция
+diff --git a/data/original/terminology/facebook/en_mn-MN.csv b/data/original/terminology/facebook/en_mn-MN.csv
+index 8d42cb8..a5f0d2f 100644
+--- a/data/original/terminology/facebook/en_mn-MN.csv
++++ b/data/original/terminology/facebook/en_mn-MN.csv
+@@ -26,7 +26,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 25,en,mn_MN,cv19,cv19
+ 26,en,mn_MN,case fatality rate,тохиолдлын нас баралтын түвшин
+ 27,en,mn_MN,causative agent,үүсгэгч агент
+-28,en,mn_MN,CDC,Өвчний хяналт, урьдчилан сэргийлэх төвүүд
++28,en,mn_MN,CDC,"Өвчний хяналт, урьдчилан сэргийлэх төвүүд"
+ 29,en,mn_MN,chemical disinfection,химийн халдваргүйжүүлэлт
+ 30,en,mn_MN,chest x-ray,цээжний рентген зураг
+ 31,en,mn_MN,clinical diagnosis,эмнэлзүйн оношлогоо
+diff --git a/data/original/terminology/facebook/en_sl-SI.csv b/data/original/terminology/facebook/en_sl-SI.csv
+index fba2d15..fe955dc 100644
+--- a/data/original/terminology/facebook/en_sl-SI.csv
++++ b/data/original/terminology/facebook/en_sl-SI.csv
+@@ -234,7 +234,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 233,en,sl_SI,SARS,SARS
+ 234,en,sl_SI,SARS-CoV-2,SARS-CoV-2
+ 235,en,sl_SI,SARS-CoV,SARS-CoV
+-236,en,sl_SI,sars-related coronavirus,koronavirus, povezan s sarsom
++236,en,sl_SI,sars-related coronavirus,"koronavirus, povezan s sarsom"
+ 237,en,sl_SI,seasonal flu,sezonska gripa
+ 238,en,sl_SI,seasonal influenza,sezonska gripa
+ 239,en,sl_SI,secretion,izločanje
+diff --git a/data/original/terminology/facebook/en_sv-SE.csv b/data/original/terminology/facebook/en_sv-SE.csv
+index ed88818..8de1247 100644
+--- a/data/original/terminology/facebook/en_sv-SE.csv
++++ b/data/original/terminology/facebook/en_sv-SE.csv
+@@ -160,7 +160,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 159,en,sv_SE,lack of tests,brist på tester
+ 160,en,sv_SE,latest updates,senaste uppdateringar
+ 161,en,sv_SE,liver failure,leversvikt
+-162,en,sv_SE,local public health authority,lokal, offentlig hälsovårdsmyndighet
++162,en,sv_SE,local public health authority,"lokal, offentlig hälsovårdsmyndighet"
+ 163,en,sv_SE,lockdown,nedstängning
+ 164,en,sv_SE,lungs,lungor
+ 165,en,sv_SE,masks,masker
+@@ -241,7 +241,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 240,en,sv_SE,self-quarantine,självkarantän
+ 241,en,sv_SE,sepsis,sepsis
+ 242,en,sv_SE,septic shock,septisk chock
+-243,en,sv_SE,Severe Acute Respiratory Syndrome,Svår, akut luftvägssjukdom
++243,en,sv_SE,Severe Acute Respiratory Syndrome,"Svår, akut luftvägssjukdom"
+ 244,en,sv_SE,shortness of breath,svårt att andas
+ 245,en,sv_SE,sickened,insjuknade
+ 246,en,sv_SE,sickness,sjukdom
+diff --git a/data/original/terminology/facebook/en_uk-UA.csv b/data/original/terminology/facebook/en_uk-UA.csv
+index d7c92a2..fd6fc49 100644
+--- a/data/original/terminology/facebook/en_uk-UA.csv
++++ b/data/original/terminology/facebook/en_uk-UA.csv
+@@ -3,7 +3,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 2,en,uk_UA,acute bronchitis,гострий бронхіт
+ 3,en,uk_UA,acute respiratory disease,гостре респіраторне захворювання
+ 4,en,uk_UA,AIDS,AIDS
+-5,en,uk_UA,airborne droplets,крапельки, що передаються повітряно-крапельним шляхом
++5,en,uk_UA,airborne droplets,"крапельки, що передаються повітряно-крапельним шляхом"
+ 6,en,uk_UA,airway,повітряний шлях
+ 7,en,uk_UA,alcohol-based,на спиртовій основі
+ 8,en,uk_UA,alcohol-based hand rub,антисептик для рук на спиртовій основі
+@@ -77,11 +77,11 @@ id,sourceLang,targetLang,sourceString,targetString
+ 76,en,uk_UA,death rate,смертність
+ 77,en,uk_UA,death toll,показник смертності
+ 78,en,uk_UA,decontaminate,дезінфекція
+-79,en,uk_UA,detectable,такий, що можна виявити
++79,en,uk_UA,detectable,"такий, що можна виявити"
+ 80,en,uk_UA,detergent,миючий засіб
+ 81,en,uk_UA,difficulty breathing,утруднене дихання
+ 82,en,uk_UA,diabetes,діабет
+-83,en,uk_UA,diagnosable disease,захворювання, що можна діагностувати
++83,en,uk_UA,diagnosable disease,"захворювання, що можна діагностувати"
+ 84,en,uk_UA,diagnostic protocol,протокол діагностики
+ 85,en,uk_UA,diagnostic testing,діагностичне тестування
+ 86,en,uk_UA,disease itself,сама хвороба
+@@ -234,7 +234,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 233,en,uk_UA,SARS,SARS
+ 234,en,uk_UA,SARS-CoV-2,SARS-CoV-2
+ 235,en,uk_UA,SARS-CoV,SARS-CoV
+-236,en,uk_UA,sars-related coronavirus,коронавірус, пов'язаний із sars
++236,en,uk_UA,sars-related coronavirus,"коронавірус, пов'язаний із sars"
+ 237,en,uk_UA,seasonal flu,сезонний грип
+ 238,en,uk_UA,seasonal influenza,сезонна інфлюенца
+ 239,en,uk_UA,secretion,виділення
+@@ -273,7 +273,7 @@ id,sourceLang,targetLang,sourceString,targetString
+ 272,en,uk_UA,touch,дотик
+ 273,en,uk_UA,touching,торкання
+ 274,en,uk_UA,transmissibility,здатність передаватися
+-275,en,uk_UA,transmissible,такий, що передається
++275,en,uk_UA,transmissible,"такий, що передається"
+ 276,en,uk_UA,transmission,передача
+ 277,en,uk_UA,transmission potential,ймовірність передачі
+ 278,en,uk_UA,typical flu,звичайний грип

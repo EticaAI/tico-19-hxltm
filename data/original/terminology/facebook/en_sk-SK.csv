@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,sk-SK,1918 flu,chrípka z roku 1918
+2,en,sk-SK,acute bronchitis,akútny zápal priedušiek
+3,en,sk-SK,acute respiratory disease,akútne respiračné ochorenie
+4,en,sk-SK,AIDS,AIDS
+5,en,sk-SK,airborne droplets,vzduchom prenosné kvapôčky
+6,en,sk-SK,airway,dýchacie cesty
+7,en,sk-SK,alcohol-based,na báze alkoholu
+8,en,sk-SK,alcohol-based hand rub,mydlo na ruky na báze alkoholu
+9,en,sk-SK,alcohol-based hand sanitizer,dezinfekcia rúk na báze alkoholu
+10,en,sk-SK,alveolar disease,alveolárne ochorenie
+11,en,sk-SK,an epidemic,epidémia
+12,en,sk-SK,annual flu,každoročná chrípka
+13,en,sk-SK,anti-inflammatory drug,protizápalový liek
+14,en,sk-SK,antiviral drug,protivírusový liek
+15,en,sk-SK,antiviral treatment,protivírusová liečba
+16,en,sk-SK,assay,analýza
+17,en,sk-SK,asymptomatic,bezpríznakový
+18,en,sk-SK,avian flu,vtáčia chrípka
+19,en,sk-SK,Black Plague,čierny mor
+20,en,sk-SK,blood pressure,krvný tlak
+21,en,sk-SK,body fluid,telesná tekutina
+22,en,sk-SK,breathing,dýchanie
+23,en,sk-SK,bubonic plague,bubonický mor
+24,en,sk-SK,c19,c19
+25,en,sk-SK,cv19,cv19
+26,en,sk-SK,case fatality rate,miera smrtnosti prípadov
+27,en,sk-SK,causative agent,pôvodca
+28,en,sk-SK,CDC,agentúra CDC
+29,en,sk-SK,chemical disinfection,chemická dezinfekcia
+30,en,sk-SK,chest x-ray,röntgen hrudníka
+31,en,sk-SK,clinical diagnosis,klinická diagnóza
+32,en,sk-SK,clinical trial,klinický test
+33,en,sk-SK,close contact,uzavrieť zmluvu
+34,en,sk-SK,cvirus,kvírus
+35,en,sk-SK,chronic respiratory disease,chronické respiračné ochorenie
+36,en,sk-SK,common cold,bežné prechladnutie
+37,en,sk-SK,common flu,bežná chrípka
+38,en,sk-SK,communicable disease,prenosné ochorenie
+39,en,sk-SK,community spread,komunitné šírenie
+40,en,sk-SK,community transmission,komunitný prenos
+41,en,sk-SK,compromised immune system,oslabený imunitný systém
+42,en,sk-SK,contagion,nákaza
+43,en,sk-SK,contagious,nákazlivý
+44,en,sk-SK,contagiousness,nákazlivosť
+45,en,sk-SK,corona,korona
+46,en,sk-SK,corona virus,korona vírus
+47,en,sk-SK,corona virus epidemic,epidémia korona vírusu
+48,en,sk-SK,corona virus outbreak,vypuknutie korona vírusu
+49,en,sk-SK,corona virus scare,panika z korona vírusu
+50,en,sk-SK,coronavirus,koronavírus
+51,en,sk-SK,coronavirus cases,prípady koronavírusu
+52,en,sk-SK,coronavirus outbreak,vypuknutie koronavírusu
+53,en,sk-SK,coronavirus pandemic,pandémia koronavírusu
+54,en,sk-SK,coronavirus scare,panika z koronavírusu
+55,en,sk-SK,cough,kašeľ
+56,en,sk-SK,cough etiquette,pravidlá správania pri kašli
+57,en,sk-SK,coughing,kašľanie
+58,en,sk-SK,cov 19,cov 19
+59,en,sk-SK,cov19,cov19
+60,en,sk-SK,COVID,COVID
+61,en,sk-SK,COVID-19 crisis,kríza COVID-19
+62,en,sk-SK,covid-19,covid-19
+63,en,sk-SK,covid19,covid19
+64,en,sk-SK,COVID-19 epidemic,epidémia COVID-19
+65,en,sk-SK,COVID-19 outbreak,vypuknutie COVID-19
+66,en,sk-SK,COVID-19 pandemic,pandémia COVID-19
+67,en,sk-SK,COVID 19,COVID 19
+68,en,sk-SK,current crisis,súčasná kríza
+69,en,sk-SK,current health crisis,súčasná zdravotná kríza
+70,en,sk-SK,current outbreak,súčasné vypuknutie
+71,en,sk-SK,current pandemic,súčasná pandémia
+72,en,sk-SK,CV,CV
+73,en,sk-SK,CV-19,CV-19
+74,en,sk-SK,deadly,smrtiaci
+75,en,sk-SK,deadly virus,smrtiaci vírus
+76,en,sk-SK,death rate,smrtnosť
+77,en,sk-SK,death toll,úmrtnosť
+78,en,sk-SK,decontaminate,dekontaminovať
+79,en,sk-SK,detectable,rozpoznateľný
+80,en,sk-SK,detergent,umývací prostriedok
+81,en,sk-SK,difficulty breathing,ťažkosti s dýchaním
+82,en,sk-SK,diabetes,cukrovka
+83,en,sk-SK,diagnosable disease,diagnostikovateľné ochorenie
+84,en,sk-SK,diagnostic protocol,diagnostický protokol
+85,en,sk-SK,diagnostic testing,diagnostické testovanie
+86,en,sk-SK,disease itself,samotné ochorenie
+87,en,sk-SK,disease outbreak,vypuknutie ochorenia
+88,en,sk-SK,disinfectant,dezinfekčný prostriedok
+89,en,sk-SK,disposable,na jedno použitie
+90,en,sk-SK,droplet transmission,kvapôčkový prenos
+91,en,sk-SK,droplets,kvapôčky
+92,en,sk-SK,dry cough,suchý kašeľ
+93,en,sk-SK,dry surface contamination,kontaminácia suchých povrchov
+94,en,sk-SK,ebola,ebola
+95,en,sk-SK,effective treatment,účinná liečba
+96,en,sk-SK,electron microscope,elektrónový mikroskop
+97,en,sk-SK,emergency department,oddelenie pohotovosti
+98,en,sk-SK,epidemic,epidémia
+99,en,sk-SK,epidemic curve,epidemická krivka
+100,en,sk-SK,epidemic peak,vrchol epidémie
+101,en,sk-SK,epidemiologist,epidemiológ
+102,en,sk-SK,exposure,vystavenie
+103,en,sk-SK,extreme caution,extrémna obozretnosť
+104,en,sk-SK,eye protection,ochrana očí
+105,en,sk-SK,face mask,rúško
+106,en,sk-SK,face masks,rúška
+107,en,sk-SK,family cluster,rodinné zoskupenie
+108,en,sk-SK,fatality rate,miera smrtnosti
+109,en,sk-SK,fecal contamination,fekálna kontaminácia
+110,en,sk-SK,fever,horúčka
+111,en,sk-SK,flatten the infection curve,zrazenie krivky infekcie
+112,en,sk-SK,flu,chrípka
+113,en,sk-SK,food safety,bezpečnosť potravín
+114,en,sk-SK,formaldehyde,formaldehyd
+115,en,sk-SK,gastroenteritis,gastroenteritída
+116,en,sk-SK,germicide,germicíd
+117,en,sk-SK,global pandemic,celosvetová pandémia
+118,en,sk-SK,global warming,celosvetové varovanie
+119,en,sk-SK,good respiratory hygiene,dobrá respiračná hygiena
+120,en,sk-SK,Guangdong,Kuang-tung
+121,en,sk-SK,H1N1,H1N1
+122,en,sk-SK,H1N1 virus,vírus H1N1
+123,en,sk-SK,hand disinfectant,dezinfekčný prostriedok na ruky
+124,en,sk-SK,hand sanitizer,dezinfekcia na ruky
+125,en,sk-SK,health care provider,poskytovateľ zdravotnej starostlivosti
+126,en,sk-SK,health crisis,zdravotná kríza
+127,en,sk-SK,health plan carrier,zdravotnícky program poisťovne
+128,en,sk-SK,health services,zdravotnícke služby
+129,en,sk-SK,heart failure,zlyhanie srdca
+130,en,sk-SK,high fever,vysoká horúčka
+131,en,sk-SK,HIV,HIV
+132,en,sk-SK,hospitalize,hospitalizovať
+133,en,sk-SK,household bleach,bielidlá do domácnosti
+134,en,sk-SK,Hubei,Chu-pej
+135,en,sk-SK,hydrogen peroxide,peroxid vodíka
+136,en,sk-SK,hygiene,hygiena
+137,en,sk-SK,immune system,imunitný systém
+138,en,sk-SK,immunity,imunita
+139,en,sk-SK,immunocompromised,s oslabeným imunitným systémom
+140,en,sk-SK,immunologist,imunológ
+141,en,sk-SK,incubation,inkubácia
+142,en,sk-SK,incubation period,inkubačná doba
+143,en,sk-SK,indirect contact,nepriamy kontakt
+144,en,sk-SK,infect,nakaziť
+145,en,sk-SK,infection,infekcia
+146,en,sk-SK,infectious,infekčný
+147,en,sk-SK,infectivity,infekčnosť
+148,en,sk-SK,influenza,chrípka
+149,en,sk-SK,initial transmission event,prípad počiatočného prenosu
+150,en,sk-SK,intensive care equipment,vybavenie intenzívnej starostlivosti
+151,en,sk-SK,intermediate host,dočasný hostiteľ
+152,en,sk-SK,intrauterine,vnútromaternicový
+153,en,sk-SK,intubation,intubácia
+154,en,sk-SK,isolation,izolácia
+155,en,sk-SK,Isopropanol,izopropanol
+156,en,sk-SK,laboratory test kit,laboratórna testovacia súprava
+157,en,sk-SK,laboratory testing,laboratórne testovanie
+158,en,sk-SK,lack of testing,nedostatok testovania
+159,en,sk-SK,lack of tests,nedostatok testov
+160,en,sk-SK,latest updates,najnovšie informácie
+161,en,sk-SK,liver failure,zlyhanie pečene
+162,en,sk-SK,local public health authority,miestny orgán verejného zdravotníctva
+163,en,sk-SK,lockdown,uzatvorenie
+164,en,sk-SK,lungs,pľúca
+165,en,sk-SK,masks,masky
+166,en,sk-SK,measles,osýpky
+167,en,sk-SK,mechanical ventilation,mechanická ventilácia
+168,en,sk-SK,media coverage,spravodajstvo
+169,en,sk-SK,medical care,lekárska starostlivosť
+170,en,sk-SK,MERS,MERS
+171,en,sk-SK,MERS CoV,MERS CoV
+172,en,sk-SK,microbiologist,mikrobiológ
+173,en,sk-SK,mild cough,mierny kašeľ
+174,en,sk-SK,mortality rate,miera úmrtnosti
+175,en,sk-SK,multi-organ failure,zlyhanie mnohých orgánov
+176,en,sk-SK,nasal congestion,upchatý nos
+177,en,sk-SK,neutral detergent,neutrálny umývací prostriedok
+178,en,sk-SK,new normal,nová norma
+179,en,sk-SK,novel corona virus,nový korona vírus
+180,en,sk-SK,novel coronavirus,nový koronavírus
+181,en,sk-SK,novel coronavirus outbreak,vypuknutie nového koronavírusu
+182,en,sk-SK,novel virus,nový vírus
+183,en,sk-SK,online medical consultation,lekárske poradenstvo online
+184,en,sk-SK,onset,prepuknutie
+185,en,sk-SK,outbreak,vypuknutie
+186,en,sk-SK,outbreak readiness,pripravenosť na vypuknutie
+187,en,sk-SK,overall case fatality,celková smrtnosť prípadov
+188,en,sk-SK,pandemic,pandémia
+189,en,sk-SK,pangolin,šupinavce
+190,en,sk-SK,pathogen,patogén
+191,en,sk-SK,pathology,patológia
+192,en,sk-SK,patient care equipment,vybavenie ambulantnej starostlivosti
+193,en,sk-SK,personal protective equipment,osobné ochranné prostriedky
+194,en,sk-SK,person-to-person transmission,prenos z osoby na osobu
+195,en,sk-SK,phlegm,hlien
+196,en,sk-SK,physical contact,fyzický kontakt
+197,en,sk-SK,plague,mor
+198,en,sk-SK,pneumonia,zápal pľúc
+199,en,sk-SK,pneumonias,zápaly pľúc
+200,en,sk-SK,positive test,pozitívny test
+201,en,sk-SK,precaution,preventívne opatrenie
+202,en,sk-SK,precautionary,preventívny
+203,en,sk-SK,pre-existing condition,existujúce ochorenia
+204,en,sk-SK,preparedness,pripravenosť
+205,en,sk-SK,prognosis,prognóza
+206,en,sk-SK,protect myself,chrániť samého seba
+207,en,sk-SK,protect others,chrániť ostatných
+208,en,sk-SK,protect yourself,chrániť sa
+209,en,sk-SK,protective measures,ochranné opatrenia
+210,en,sk-SK,public health crisis,verejná zdravotná kríza
+211,en,sk-SK,pulmonary tissue damage,poškodenie pľúcneho tkaniva
+212,en,sk-SK,quarantine,karanténa
+213,en,sk-SK,rapid risk assessment,rýchle hodnotenie rizika
+214,en,sk-SK,reagent,činidlo
+215,en,sk-SK,regular flu,zvyčajná chrípka
+216,en,sk-SK,reinfection,opätovná infekcia
+217,en,sk-SK,renal disease,ochorenie obličiek
+218,en,sk-SK,renal failure,zlyhanie obličiek
+219,en,sk-SK,respirator,respirátor
+220,en,sk-SK,respiratory,respiračný
+221,en,sk-SK,respiratory disease,respiračné ochorenie
+222,en,sk-SK,respiratory distress,respiračná tieseň
+223,en,sk-SK,respiratory droplets,respiračné kvapôčky
+224,en,sk-SK,respiratory hygiene,respiračná hygiena
+225,en,sk-SK,respiratory illness,respiračné ochorenie
+226,en,sk-SK,respiratory syndrome,respiračný syndróm
+227,en,sk-SK,respiratory tract disease,ochorenie dýchacích ciest
+228,en,sk-SK,restrictions,obmedzenia
+229,en,sk-SK,resurge,opätovne sa vyskytnúť
+230,en,sk-SK,RNA,RNA
+231,en,sk-SK,rubeola,osýpky
+232,en,sk-SK,runny nose,nádcha
+233,en,sk-SK,SARS,SARS
+234,en,sk-SK,SARS-CoV-2,SARS-CoV-2
+235,en,sk-SK,SARS-CoV,SARS-CoV
+236,en,sk-SK,sars-related coronavirus,koronavírus týkajúci sa sarsu
+237,en,sk-SK,seasonal flu,sezónna chrípka
+238,en,sk-SK,seasonal influenza,sezónna chrípka
+239,en,sk-SK,secretion,vylučovanie
+240,en,sk-SK,self-quarantine,samokaranténa
+241,en,sk-SK,sepsis,otrava krvi
+242,en,sk-SK,septic shock,septický šok
+243,en,sk-SK,Severe Acute Respiratory Syndrome,závažný akútny respiračný syndróm
+244,en,sk-SK,shortness of breath,ťažkosti pri dýchaní
+245,en,sk-SK,sickened,príznakový
+246,en,sk-SK,sickness,choroba
+247,en,sk-SK,sneeze,kýchnutie
+248,en,sk-SK,sneezes,kýchnutia
+249,en,sk-SK,sneezing,kýchanie
+250,en,sk-SK,social distancing,spoločenský odstup
+251,en,sk-SK,sore throat,bolesť hrdla
+252,en,sk-SK,spanish flu,španielska chrípka
+253,en,sk-SK,specimen collection,odoberanie vzoriek
+254,en,sk-SK,spread,šírenie
+255,en,sk-SK,sputum,hlien
+256,en,sk-SK,stigmatisation,stigmatizácia
+257,en,sk-SK,supportive,nápomocný
+258,en,sk-SK,surface,povrch
+259,en,sk-SK,surfaces,povrchy
+260,en,sk-SK,suspected infection,podozrenie na infekciu
+261,en,sk-SK,swab,výter
+262,en,sk-SK,swine flu,prasacia chrípka
+263,en,sk-SK,symptom,príznak
+264,en,sk-SK,symptomatic,príznakový
+265,en,sk-SK,symptoms,príznaky
+266,en,sk-SK,targeted disinfection,cielená dezinfekcia
+267,en,sk-SK,test kit,testovacia súprava
+268,en,sk-SK,testing error,chyba testovania
+269,en,sk-SK,tissue damage,poškodenie tkaniva
+270,en,sk-SK,tp shortage,nedostatok toaletného
+271,en,sk-SK,toilet paper shortage,nedostatok toaletného papiera
+272,en,sk-SK,touch,dotyk
+273,en,sk-SK,touching,dotýkanie sa
+274,en,sk-SK,transmissibility,prenosnosť
+275,en,sk-SK,transmissible,prenosný
+276,en,sk-SK,transmission,prenos
+277,en,sk-SK,transmission potential,potenciálny prenos
+278,en,sk-SK,typical flu,typická chrípka
+279,en,sk-SK,underlying disease,základné ochorenie
+280,en,sk-SK,updates,aktualizácie informácií
+281,en,sk-SK,vaccine,vakcína
+282,en,sk-SK,vaccines,vakcíny
+283,en,sk-SK,ventilation,ventilácia
+284,en,sk-SK,ventilator,ventilátor
+285,en,sk-SK,ventilators,ventilátory
+286,en,sk-SK,viral infection,vírusová infekcia
+287,en,sk-SK,viral outbreak,vypuknutie vírusu
+288,en,sk-SK,viral pandemic,pandémia vírusu
+289,en,sk-SK,viral pneumonia,vírusový zápal pľúc
+290,en,sk-SK,virtual care,virtuálna starostlivosť
+291,en,sk-SK,virulence,nákazlivosť
+292,en,sk-SK,virus itself,samotný vírus
+293,en,sk-SK,virus outbreak,vypuknutie vírusu
+294,en,sk-SK,virus scare,panika z vírusu
+295,en,sk-SK,virus spreads,šírenie vírusu
+296,en,sk-SK,virus strain,kmeň vírusu
+297,en,sk-SK,viral transmission,prenos vírusu
+298,en,sk-SK,vivid-19,vivid-19
+299,en,sk-SK,washing hands,umývanie rúk
+300,en,sk-SK,washing ones hands,umývanie si rúk
+301,en,sk-SK,wash your hands,umývať si ruky
+302,en,sk-SK,white blood cell count,počet bielych krviniek
+303,en,sk-SK,widespread transmission,rozsiahly prenos
+304,en,sk-SK,working from home,práca z domu
+305,en,sk-SK,WFH,práca z domu
+306,en,sk-SK,Wuhan,Wu-chan

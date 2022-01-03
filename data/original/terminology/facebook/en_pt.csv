@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,pt,1918 flu,gripe de 1918
+2,en,pt,acute bronchitis,bronquite aguda
+3,en,pt,acute respiratory disease,doença respiratória aguda
+4,en,pt,AIDS,SIDA
+5,en,pt,airborne droplets,gotículas suspensas no ar
+6,en,pt,airway,vias respiratórias
+7,en,pt,alcohol-based,à base de álcool
+8,en,pt,alcohol-based hand rub,toalhetes para as mãos à base de álcool
+9,en,pt,alcohol-based hand sanitizer,desinfetante para as mãos à base de álcool
+10,en,pt,alveolar disease,doença alveolar
+11,en,pt,an epidemic,uma epidemia
+12,en,pt,annual flu,gripe anual
+13,en,pt,anti-inflammatory drug,medicamento anti-inflamatório
+14,en,pt,antiviral drug,medicamento antiviral
+15,en,pt,antiviral treatment,tratamento antiviral
+16,en,pt,assay,análise
+17,en,pt,asymptomatic,assintomático
+18,en,pt,avian flu,gripe das aves
+19,en,pt,Black Plague,Peste Negra
+20,en,pt,blood pressure,tensão arterial
+21,en,pt,body fluid,fluido corporal
+22,en,pt,breathing,respiração
+23,en,pt,bubonic plague,peste bubónica
+24,en,pt,c19,c19
+25,en,pt,cv19,cv19
+26,en,pt,case fatality rate,taxa de mortalidade de casos
+27,en,pt,causative agent,agente causador
+28,en,pt,CDC,CDC
+29,en,pt,chemical disinfection,desinfeção química
+30,en,pt,chest x-ray,raio X ao tórax
+31,en,pt,clinical diagnosis,diagnóstico clínico
+32,en,pt,clinical trial,triagem clínica
+33,en,pt,close contact,contacto estreito
+34,en,pt,cvirus,cvírus (coronavírus)
+35,en,pt,chronic respiratory disease,doença respiratória crónica
+36,en,pt,common cold,constipação comum
+37,en,pt,common flu,gripe comum
+38,en,pt,communicable disease,doença transmissível
+39,en,pt,community spread,propagação na comunidade
+40,en,pt,community transmission,transmissão na comunidade
+41,en,pt,compromised immune system,sistema imunitário comprometido
+42,en,pt,contagion,contágio
+43,en,pt,contagious,contagioso(a)
+44,en,pt,contagiousness,contagiosidade
+45,en,pt,corona,corona
+46,en,pt,corona virus,coronavírus
+47,en,pt,corona virus epidemic,epidemia de coronavírus
+48,en,pt,corona virus outbreak,surto de coronavírus
+49,en,pt,corona virus scare,medo do coronavírus
+50,en,pt,coronavirus,coronavírus
+51,en,pt,coronavirus cases,casos de coronavírus
+52,en,pt,coronavirus outbreak,surto de coronavírus
+53,en,pt,coronavirus pandemic,pandemia de coronavírus
+54,en,pt,coronavirus scare,medo do coronavírus
+55,en,pt,cough,tosse
+56,en,pt,cough etiquette,protocolo para a tosse
+57,en,pt,coughing,tossir
+58,en,pt,cov 19,cov 19
+59,en,pt,cov19,cov19
+60,en,pt,COVID,COVID
+61,en,pt,COVID-19 crisis,crise da COVID-19
+62,en,pt,covid-19,covid-19
+63,en,pt,covid19,covid19
+64,en,pt,COVID-19 epidemic,epidemia da COVID-19
+65,en,pt,COVID-19 outbreak,surto da COVID-19
+66,en,pt,COVID-19 pandemic,pandemia da COVID-19
+67,en,pt,COVID 19,COVID 19
+68,en,pt,current crisis,crise atual
+69,en,pt,current health crisis,crise de saúde atual
+70,en,pt,current outbreak,surto atual
+71,en,pt,current pandemic,pandemia atual
+72,en,pt,CV,CV
+73,en,pt,CV-19,CV-19
+74,en,pt,deadly,mortal
+75,en,pt,deadly virus,vírus mortal
+76,en,pt,death rate,taxa de mortalidade
+77,en,pt,death toll,números da mortalidade
+78,en,pt,decontaminate,descontaminar
+79,en,pt,detectable,detetável
+80,en,pt,detergent,detergente
+81,en,pt,difficulty breathing,dificuldade respiratória
+82,en,pt,diabetes,diabetes
+83,en,pt,diagnosable disease,doença diagnosticável
+84,en,pt,diagnostic protocol,protocolo de diagnóstico
+85,en,pt,diagnostic testing,testes de diagnóstico
+86,en,pt,disease itself,a própria doença
+87,en,pt,disease outbreak,surto da doença
+88,en,pt,disinfectant,desinfetante
+89,en,pt,disposable,descartável
+90,en,pt,droplet transmission,transmissão por gotículas
+91,en,pt,droplets,gotículas
+92,en,pt,dry cough,tosse seca
+93,en,pt,dry surface contamination,contaminação da superfície seca
+94,en,pt,ebola,ébola
+95,en,pt,effective treatment,tratamento eficaz
+96,en,pt,electron microscope,microscópio eletrónico
+97,en,pt,emergency department,departamento de emergência
+98,en,pt,epidemic,epidemia
+99,en,pt,epidemic curve,curva epidémica
+100,en,pt,epidemic peak,pico epidémico
+101,en,pt,epidemiologist,epidemiologista
+102,en,pt,exposure,exposição
+103,en,pt,extreme caution,cuidado extremo
+104,en,pt,eye protection,proteção dos olhos
+105,en,pt,face mask,máscara facial
+106,en,pt,face masks,máscaras faciais
+107,en,pt,family cluster,agrupamento familiar
+108,en,pt,fatality rate,taxa de mortalidade
+109,en,pt,fecal contamination,contaminação fecal
+110,en,pt,fever,febre
+111,en,pt,flatten the infection curve,achatar a curva de infeção
+112,en,pt,flu,gripe
+113,en,pt,food safety,segurança alimentar
+114,en,pt,formaldehyde,formaldeído
+115,en,pt,gastroenteritis,gastroenterite
+116,en,pt,germicide,germicida
+117,en,pt,global pandemic,pandemia global
+118,en,pt,global warming,aquecimento global
+119,en,pt,good respiratory hygiene,boa higiene respiratória
+120,en,pt,Guangdong,Cantão
+121,en,pt,H1N1,H1N1
+122,en,pt,H1N1 virus,Gripe A subtipo H1N1
+123,en,pt,hand disinfectant,desinfetante para as mãos
+124,en,pt,hand sanitizer,antissético para as mãos
+125,en,pt,health care provider,prestador de cuidados de saúde
+126,en,pt,health crisis,crise de saúde
+127,en,pt,health plan carrier,operadora de plano de saúde
+128,en,pt,health services,serviços de saúde
+129,en,pt,heart failure,insuficiência cardíaca
+130,en,pt,high fever,febre alta
+131,en,pt,HIV,VIH
+132,en,pt,hospitalize,hospitalizar
+133,en,pt,household bleach,lixívia doméstica
+134,en,pt,Hubei,Hubei
+135,en,pt,hydrogen peroxide,peróxido de hidrogénio
+136,en,pt,hygiene,higiene
+137,en,pt,immune system,sistema imunitário
+138,en,pt,immunity,imunidade
+139,en,pt,immunocompromised,imunocomprometido
+140,en,pt,immunologist,imunologista
+141,en,pt,incubation,incubação
+142,en,pt,incubation period,período de incubação
+143,en,pt,indirect contact,contacto indireto
+144,en,pt,infect,infetar
+145,en,pt,infection,infeção
+146,en,pt,infectious,infeccioso
+147,en,pt,infectivity,infecciosidade
+148,en,pt,influenza,gripe
+149,en,pt,initial transmission event,evento de transmissão inicial
+150,en,pt,intensive care equipment,equipamento de cuidados intensivos
+151,en,pt,intermediate host,hospedeiro intermediário
+152,en,pt,intrauterine,intrauterino
+153,en,pt,intubation,intubação
+154,en,pt,isolation,isolamento
+155,en,pt,Isopropanol,Isopropanol
+156,en,pt,laboratory test kit,kit de teste de laboratório
+157,en,pt,laboratory testing,testes de laboratório
+158,en,pt,lack of testing,falta de verificação
+159,en,pt,lack of tests,falta de testes
+160,en,pt,latest updates,últimas atualizações
+161,en,pt,liver failure,falência hepática
+162,en,pt,local public health authority,autoridade local de saúde pública
+163,en,pt,lockdown,isolamento
+164,en,pt,lungs,pulmões
+165,en,pt,masks,máscaras faciais
+166,en,pt,measles,sarampo
+167,en,pt,mechanical ventilation,ventilação mecânica
+168,en,pt,media coverage,cobertura mediática
+169,en,pt,medical care,cuidados médicos
+170,en,pt,MERS,MERS (Síndrome Respiratória do Médio Oriente)
+171,en,pt,MERS CoV,MERS CoV (Síndrome Respiratória do Médio Oriente)
+172,en,pt,microbiologist,microbiologista
+173,en,pt,mild cough,tosse ligeira
+174,en,pt,mortality rate,taxa de mortalidade
+175,en,pt,multi-organ failure,falência de múltiplos órgãos
+176,en,pt,nasal congestion,congestão nasal
+177,en,pt,neutral detergent,detergente neutro
+178,en,pt,new normal,novo normal
+179,en,pt,novel corona virus,novo coronavírus
+180,en,pt,novel coronavirus,novo coronavírus
+181,en,pt,novel coronavirus outbreak,surto do novo coronavírus
+182,en,pt,novel virus,vírus novo
+183,en,pt,online medical consultation,consulta médica online
+184,en,pt,onset,início
+185,en,pt,outbreak,surto
+186,en,pt,outbreak readiness,preparação para surtos
+187,en,pt,overall case fatality,letalidade global de casos
+188,en,pt,pandemic,pandemia
+189,en,pt,pangolin,pangolim
+190,en,pt,pathogen,patogénico
+191,en,pt,pathology,patologia
+192,en,pt,patient care equipment,equipamentos de cuidados ao paciente
+193,en,pt,personal protective equipment,equipamento de proteção pessoal
+194,en,pt,person-to-person transmission,transmissão de pessoa para pessoa
+195,en,pt,phlegm,muco
+196,en,pt,physical contact,contacto físico
+197,en,pt,plague,praga
+198,en,pt,pneumonia,pneumonia
+199,en,pt,pneumonias,pneumonias
+200,en,pt,positive test,teste positivo
+201,en,pt,precaution,precaução
+202,en,pt,precautionary,da precaução
+203,en,pt,pre-existing condition,condição de saúde preexistente
+204,en,pt,preparedness,preparação
+205,en,pt,prognosis,prognóstico
+206,en,pt,protect myself,proteger-me
+207,en,pt,protect others,proteger os outros
+208,en,pt,protect yourself,proteger-se
+209,en,pt,protective measures,medidas de proteção
+210,en,pt,public health crisis,crise de saúde pública
+211,en,pt,pulmonary tissue damage,danos no tecido pulmonar
+212,en,pt,quarantine,quarentena
+213,en,pt,rapid risk assessment,rápida avaliação de riscos
+214,en,pt,reagent,reagente
+215,en,pt,regular flu,gripe regular
+216,en,pt,reinfection,reinfeção
+217,en,pt,renal disease,doença renal
+218,en,pt,renal failure,falência renal
+219,en,pt,respirator,respirador
+220,en,pt,respiratory,respiratório
+221,en,pt,respiratory disease,doença respiratória
+222,en,pt,respiratory distress,desconforto respiratório
+223,en,pt,respiratory droplets,gotículas respiratórias
+224,en,pt,respiratory hygiene,higiene respiratória
+225,en,pt,respiratory illness,doença respiratória
+226,en,pt,respiratory syndrome,síndrome respiratória
+227,en,pt,respiratory tract disease,doença do trato respiratório
+228,en,pt,restrictions,restrições
+229,en,pt,resurge,voltar a surgir
+230,en,pt,RNA,RNA
+231,en,pt,rubeola,rubéola
+232,en,pt,runny nose,prurido no nariz
+233,en,pt,SARS,SARS (síndrome respiratória aguda grave)
+234,en,pt,SARS-CoV-2,SARS-CoV-2
+235,en,pt,SARS-CoV,SARS-CoV
+236,en,pt,sars-related coronavirus,coronavírus relacionado com a sars (síndrome respiratória aguda grave)
+237,en,pt,seasonal flu,gripe sazonal
+238,en,pt,seasonal influenza,influenza sazonal (gripe sazonal)
+239,en,pt,secretion,secreção
+240,en,pt,self-quarantine,autoquarentena
+241,en,pt,sepsis,sépsis
+242,en,pt,septic shock,choque sético
+243,en,pt,Severe Acute Respiratory Syndrome,Síndrome Respiratória Aguda Grave
+244,en,pt,shortness of breath,dificuldade em respirar
+245,en,pt,sickened,doente
+246,en,pt,sickness,doença
+247,en,pt,sneeze,espirrar
+248,en,pt,sneezes,espirros
+249,en,pt,sneezing,espirrar
+250,en,pt,social distancing,distanciamento social
+251,en,pt,sore throat,dor de garganta
+252,en,pt,spanish flu,gripe espanhola
+253,en,pt,specimen collection,colheita de amostras
+254,en,pt,spread,espalhar
+255,en,pt,sputum,escarro
+256,en,pt,stigmatisation,estigmatização
+257,en,pt,supportive,de apoio
+258,en,pt,surface,superfície
+259,en,pt,surfaces,superfícies
+260,en,pt,suspected infection,suspeita de infeção
+261,en,pt,swab,cotonete
+262,en,pt,swine flu,gripe suína
+263,en,pt,symptom,sintoma
+264,en,pt,symptomatic,sintomático
+265,en,pt,symptoms,sintomas
+266,en,pt,targeted disinfection,desinfeção dirigida
+267,en,pt,test kit,kit de teste
+268,en,pt,testing error,erro de teste
+269,en,pt,tissue damage,danos dos tecidos
+270,en,pt,tp shortage,escassez de pap. hig.
+271,en,pt,toilet paper shortage,escassez de papel higiénico
+272,en,pt,touch,tocar
+273,en,pt,touching,comovente
+274,en,pt,transmissibility,transmissibilidade
+275,en,pt,transmissible,transmissível
+276,en,pt,transmission,transmissão
+277,en,pt,transmission potential,potencial transmissão
+278,en,pt,typical flu,gripe típica
+279,en,pt,underlying disease,doença subjacente
+280,en,pt,updates,atualizações
+281,en,pt,vaccine,vacina
+282,en,pt,vaccines,vacinas
+283,en,pt,ventilation,ventilação
+284,en,pt,ventilator,ventilador
+285,en,pt,ventilators,ventiladores
+286,en,pt,viral infection,infeção viral
+287,en,pt,viral outbreak,surto viral
+288,en,pt,viral pandemic,pandemia viral
+289,en,pt,viral pneumonia,pneumonia viral
+290,en,pt,virtual care,cuidados virtuais
+291,en,pt,virulence,virulência
+292,en,pt,virus itself,o próprio vírus
+293,en,pt,virus outbreak,surto de vírus
+294,en,pt,virus scare,medo do vírus
+295,en,pt,virus spreads,propagações do vírus
+296,en,pt,virus strain,estirpe do vírus
+297,en,pt,viral transmission,transmissão viral
+298,en,pt,vivid-19,vivid-19
+299,en,pt,washing hands,lavar as mãos
+300,en,pt,washing ones hands,lavar as mãos
+301,en,pt,wash your hands,lavar as suas mãos
+302,en,pt,white blood cell count,contagem de glóbulos brancos
+303,en,pt,widespread transmission,transmissão generalizada
+304,en,pt,working from home,trabalhar a partir de casa
+305,en,pt,WFH,Teletrabalho
+306,en,pt,Wuhan,Wuhan

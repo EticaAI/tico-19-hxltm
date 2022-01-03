@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,tl,1918 flu,1918 trangkaso
+2,en,tl,acute bronchitis,talamak na brongkitis
+3,en,tl,acute respiratory disease,matinding sakit sa paghinga
+4,en,tl,AIDS,AIDS
+5,en,tl,airborne droplets,mga airlete droplets
+6,en,tl,airway,daanan ng hangin
+7,en,tl,alcohol-based,nakabatay sa alkohol
+8,en,tl,alcohol-based hand rub,kamay na nakabase sa alkohol
+9,en,tl,alcohol-based hand sanitizer,sanitizer ng kamay na nakabatay sa alkohol
+10,en,tl,alveolar disease,sakit sa alveolar
+11,en,tl,an epidemic,isang epidemya
+12,en,tl,annual flu,taunang trangkaso
+13,en,tl,anti-inflammatory drug,anti-namumula na gamot
+14,en,tl,antiviral drug,gamot na antiviral
+15,en,tl,antiviral treatment,paggamot sa antivirus
+16,en,tl,assay,assay
+17,en,tl,asymptomatic,walang simtomatiko
+18,en,tl,avian flu,trangkaso ng avian
+19,en,tl,Black Plague,Itim na Salot
+20,en,tl,blood pressure,presyon ng dugo
+21,en,tl,body fluid,likido sa katawan
+22,en,tl,breathing,paghinga
+23,en,tl,bubonic plague,salot ng bubonic
+24,en,tl,c19,C19
+25,en,tl,cv19,CV19
+26,en,tl,case fatality rate,rate ng pagkamatay ng kaso
+27,en,tl,causative agent,ahente ng sanhi
+28,en,tl,CDC,CDC
+29,en,tl,chemical disinfection,pagdidisimpekta ng kemikal
+30,en,tl,chest x-ray,x-ray ng dibdib
+31,en,tl,clinical diagnosis,klinikal na diagnosis
+32,en,tl,clinical trial,klinikal na pagsubok
+33,en,tl,close contact,malapit na pakikipag-ugnay
+34,en,tl,cvirus,Cvirus
+35,en,tl,chronic respiratory disease,talamak na sakit sa paghinga
+36,en,tl,common cold,sipon
+37,en,tl,common flu,karaniwang trangkaso
+38,en,tl,communicable disease,nakakahawang sakit
+39,en,tl,community spread,kumalat ang pamayanan
+40,en,tl,community transmission,paghahatid ng komunidad
+41,en,tl,compromised immune system,nakompromiso ang immune system
+42,en,tl,contagion,pagbagsak
+43,en,tl,contagious,nakahahawa
+44,en,tl,contagiousness,Nakakahawa
+45,en,tl,corona,korona
+46,en,tl,corona virus,virus corona
+47,en,tl,corona virus epidemic,epidemya ng corona virus
+48,en,tl,corona virus outbreak,Pagkasabog ng corona virus
+49,en,tl,corona virus scare,takot sa corona virus
+50,en,tl,coronavirus,koronavirus
+51,en,tl,coronavirus cases,mga kaso ng coronavirus
+52,en,tl,coronavirus outbreak,pagsiklab ng coronavirus
+53,en,tl,coronavirus pandemic,pandemya ng coronavirus
+54,en,tl,coronavirus scare,takot ng coronavirus
+55,en,tl,cough,ubo
+56,en,tl,cough etiquette,kaugalian ng ubo
+57,en,tl,coughing,pag-ubo
+58,en,tl,cov 19,Cov 19
+59,en,tl,cov19,Cov19
+60,en,tl,COVID,KOVID
+61,en,tl,COVID-19 crisis,COVID-19 na krisis
+62,en,tl,covid-19,Covid-19
+63,en,tl,covid19,Covid19
+64,en,tl,COVID-19 epidemic,Epidemya ng COVID-19
+65,en,tl,COVID-19 outbreak,Ang pagsabog ng COVID-19
+66,en,tl,COVID-19 pandemic,Pandemya ng COVID-19
+67,en,tl,COVID 19,KOVID 19
+68,en,tl,current crisis,kasalukuyang krisis
+69,en,tl,current health crisis,kasalukuyang krisis sa kalusugan
+70,en,tl,current outbreak,kasalukuyang pagsiklab
+71,en,tl,current pandemic,kasalukuyang pandemya
+72,en,tl,CV,KV
+73,en,tl,CV-19,KV-19
+74,en,tl,deadly,nakamamatay
+75,en,tl,deadly virus,nakamamatay na virus
+76,en,tl,death rate,rate ng kamatayan
+77,en,tl,death toll,toll ng kamatayan
+78,en,tl,decontaminate,pag-decontaminate
+79,en,tl,detectable,nakikita
+80,en,tl,detergent,naglilinis
+81,en,tl,difficulty breathing,kahirapan sa paghinga
+82,en,tl,diabetes,diyabetis
+83,en,tl,diagnosable disease,may sakit na diagnosis
+84,en,tl,diagnostic protocol,diagnostic na protocol
+85,en,tl,diagnostic testing,pagsusuri ng diagnostic
+86,en,tl,disease itself,sakit mismo
+87,en,tl,disease outbreak,pagsiklab ng sakit
+88,en,tl,disinfectant,disimpektante
+89,en,tl,disposable,matapon
+90,en,tl,droplet transmission,paghahatid ng droplet
+91,en,tl,droplets,mga titik
+92,en,tl,dry cough,tuyong ubo
+93,en,tl,dry surface contamination,kontaminasyong pang-ibabaw
+94,en,tl,ebola,Ebola
+95,en,tl,effective treatment,mabisang paggamot
+96,en,tl,electron microscope,Electron microscope
+97,en,tl,emergency department,kagawaran ng emergency
+98,en,tl,epidemic,epidemya
+99,en,tl,epidemic curve,curve ng epidemya
+100,en,tl,epidemic peak,epidemya rurok
+101,en,tl,epidemiologist,Epidemiologist
+102,en,tl,exposure,pagkakalantad
+103,en,tl,extreme caution,matinding pag-iingat
+104,en,tl,eye protection,pangangalaga sa mata
+105,en,tl,face mask,mukha mask
+106,en,tl,face masks,mukha masks
+107,en,tl,family cluster,kumpol ng pamilya
+108,en,tl,fatality rate,rate ng pagkamatay
+109,en,tl,fecal contamination,kontaminasyon ng fecal
+110,en,tl,fever,lagnat
+111,en,tl,flatten the infection curve,banayad ang curve ng impeksyon
+112,en,tl,flu,trangkaso
+113,en,tl,food safety,kaligtasan ng pagkain
+114,en,tl,formaldehyde,Formaldehyde
+115,en,tl,gastroenteritis,Gastroenteritis
+116,en,tl,germicide,mikrobyo
+117,en,tl,global pandemic,pandaigdigang pandemya
+118,en,tl,global warming,pag-iinit ng mundo
+119,en,tl,good respiratory hygiene,mahusay na kalinisan sa paghinga
+120,en,tl,Guangdong,guangdong province
+121,en,tl,H1N1,h1n1
+122,en,tl,H1N1 virus,h1n1 bayrus
+123,en,tl,hand disinfectant,disimpektante ng kamay
+124,en,tl,hand sanitizer,kamay sanitizer
+125,en,tl,health care provider,tagabigay ng pangangalaga sa kalusugan
+126,en,tl,health crisis,krisis sa kalusugan
+127,en,tl,health plan carrier,tagadala ng planong pangkalusugan
+128,en,tl,health services,Serbisyong pangkalusugan
+129,en,tl,heart failure,pagpalya ng puso
+130,en,tl,high fever,mataas na lagnat
+131,en,tl,HIV,H.I.V.
+132,en,tl,hospitalize,ma-ospital
+133,en,tl,household bleach,pampaputi ng sambahayan
+134,en,tl,Hubei,hubei
+135,en,tl,hydrogen peroxide,Hydrogen peroxide
+136,en,tl,hygiene,kalinisan
+137,en,tl,immune system,sistema ng naturalesa
+138,en,tl,immunity,kaligtasan
+139,en,tl,immunocompromised,nakompromiso si immuno
+140,en,tl,immunologist,Immunologist
+141,en,tl,incubation,pagpapapisa ng itlog
+142,en,tl,incubation period,panahon ng pagpapapisa ng itlog
+143,en,tl,indirect contact,hindi direktang pakikipag-ugnay
+144,en,tl,infect,makahawa
+145,en,tl,infection,impeksyon
+146,en,tl,infectious,nakakahawa
+147,en,tl,infectivity,hawaan
+148,en,tl,influenza,Trangkaso
+149,en,tl,initial transmission event,paunang pangyayari sa paghahatid
+150,en,tl,intensive care equipment,masinsinang kagamitan sa pangangalaga
+151,en,tl,intermediate host,intermedya maybahay
+152,en,tl,intrauterine,Intrauterine
+153,en,tl,intubation,Intubation
+154,en,tl,isolation,paghihiwalay
+155,en,tl,Isopropanol,alkohol
+156,en,tl,laboratory test kit,kit ng pagsubok sa laboratoryo
+157,en,tl,laboratory testing,pagsubok sa laboratoryo
+158,en,tl,lack of testing,kawalan ng pagsubok
+159,en,tl,lack of tests,kakulangan ng mga pagsubok
+160,en,tl,latest updates,pinakabagong mga update
+161,en,tl,liver failure,kabiguan sa atay
+162,en,tl,local public health authority,lokal na awtoridad sa kalusugan ng publiko
+163,en,tl,lockdown,pag-lock
+164,en,tl,lungs,baga
+165,en,tl,masks,maskara
+166,en,tl,measles,tigdas
+167,en,tl,mechanical ventilation,mekanikal na bentilasyon
+168,en,tl,media coverage,saklaw ng media
+169,en,tl,medical care,Medikal na pangangalaga
+170,en,tl,MERS,M.E.R.S.
+171,en,tl,MERS CoV,M.E.R.S. CoV
+172,en,tl,microbiologist,Microbiologist
+173,en,tl,mild cough,banayad na ubo
+174,en,tl,mortality rate,rate ng namamatay
+175,en,tl,multi-organ failure,pagkabigo ng multi-organ
+176,en,tl,nasal congestion,kasikipan ng ilong
+177,en,tl,neutral detergent,neutral na naglilinis
+178,en,tl,new normal,bagong normal
+179,en,tl,novel corona virus,virus ng nobelang corona
+180,en,tl,novel coronavirus,nobelang coronavirus
+181,en,tl,novel coronavirus outbreak,pagsiklab ng nobelang coronavirus
+182,en,tl,novel virus,nobelang virus
+183,en,tl,online medical consultation,konsultasyong medikal sa online
+184,en,tl,onset,simula
+185,en,tl,outbreak,pagsiklab
+186,en,tl,outbreak readiness,pagsiklab ng kahandaan
+187,en,tl,overall case fatality,pangkalahatang pagkamatay ng kaso
+188,en,tl,pandemic,pandemya
+189,en,tl,pangolin,anteater
+190,en,tl,pathogen,Pathogen
+191,en,tl,pathology,patolohiya
+192,en,tl,patient care equipment,kagamitan sa pangangalaga ng pasyente
+193,en,tl,personal protective equipment,personal na kagamitan sa proteksiyon
+194,en,tl,person-to-person transmission,pagpapadala ng tao-sa-tao
+195,en,tl,phlegm,plema
+196,en,tl,physical contact,pisikal na pakikipag-ugnay
+197,en,tl,plague,salot
+198,en,tl,pneumonia,pulmonya
+199,en,tl,pneumonias,pneuteras
+200,en,tl,positive test,positibong pagsubok
+201,en,tl,precaution,pag-iingat
+202,en,tl,precautionary,Maingat
+203,en,tl,pre-existing condition,pre-umiiral na kondisyon
+204,en,tl,preparedness,kahandaana
+205,en,tl,prognosis,pagbabala
+206,en,tl,protect myself,protektahan ang aking sarili
+207,en,tl,protect others,protektahan ang iba
+208,en,tl,protect yourself,protektahan ang iyong sarili
+209,en,tl,protective measures,mga panukalang proteksyon
+210,en,tl,public health crisis,krisis sa kalusugan ng publiko
+211,en,tl,pulmonary tissue damage,pinsala sa baga
+212,en,tl,quarantine,kuwarentina
+213,en,tl,rapid risk assessment,mabilis na pagtatasa ng peligro
+214,en,tl,reagent,Reagent
+215,en,tl,regular flu,regular na trangkaso
+216,en,tl,reinfection,muling pagsasama
+217,en,tl,renal disease,sakit sa bato
+218,en,tl,renal failure,pagkabigo ng bato
+219,en,tl,respirator,respirador
+220,en,tl,respiratory,panghinga
+221,en,tl,respiratory disease,karamdaman sa paghinga
+222,en,tl,respiratory distress,paghihirap sa paghinga
+223,en,tl,respiratory droplets,mga droplet ng paghinga
+224,en,tl,respiratory hygiene,kalinisan sa paghinga
+225,en,tl,respiratory illness,sakit sa paghinga
+226,en,tl,respiratory syndrome,sindrom sa paghinga
+227,en,tl,respiratory tract disease,sakit sa respiratory tract
+228,en,tl,restrictions,mga paghihigpit
+229,en,tl,resurge,muling mabuhay
+230,en,tl,RNA,R.N.A.
+231,en,tl,rubeola,morbilli
+232,en,tl,runny nose,runny ilong
+233,en,tl,SARS,S.A.R.S.
+234,en,tl,SARS-CoV-2,S.A.R.S.-CoV-2
+235,en,tl,SARS-CoV,S.A.R.S.-CoV
+236,en,tl,sars-related coronavirus,coronavirus na may kinalaman sa SARS
+237,en,tl,seasonal flu,pana-panahong flu
+238,en,tl,seasonal influenza,pana-panahong trangkaso
+239,en,tl,secretion,pagtatago
+240,en,tl,self-quarantine,sariling kuwarentenas
+241,en,tl,sepsis,Sepsis
+242,en,tl,septic shock,septic linda
+243,en,tl,Severe Acute Respiratory Syndrome,Malubhang Talamak na respiratory Syndrome
+244,en,tl,shortness of breath,igsi ng hininga
+245,en,tl,sickened,may sakit
+246,en,tl,sickness,karamdaman
+247,en,tl,sneeze,pagbahing
+248,en,tl,sneezes,bumahing
+249,en,tl,sneezing,bumabahing
+250,en,tl,social distancing,paglalakbay sa lipunan
+251,en,tl,sore throat,namamagang lalamunan
+252,en,tl,spanish flu,trangkaso ng espanyol
+253,en,tl,specimen collection,pagkolekta ng ispesimen
+254,en,tl,spread,kumalat
+255,en,tl,sputum,dura
+256,en,tl,stigmatisation,pagkabulok
+257,en,tl,supportive,matulungin
+258,en,tl,surface,ibabaw
+259,en,tl,surfaces,na panig
+260,en,tl,suspected infection,pinaghihinalaang impeksiyon
+261,en,tl,swab,pang-isís
+262,en,tl,swine flu,trangkaso ng baboy
+263,en,tl,symptom,sintomas
+264,en,tl,symptomatic,nagpapakilala
+265,en,tl,symptoms,mga sintomas
+266,en,tl,targeted disinfection,naka-target na pagdidisimpekta
+267,en,tl,test kit,kit ng pagsusuri
+268,en,tl,testing error,mali sa pagsubok
+269,en,tl,tissue damage,pinsala sa tisyu
+270,en,tl,tp shortage,kakulangan ng tp
+271,en,tl,toilet paper shortage,kakulangan sa papel sa banyo
+272,en,tl,touch,hawakan
+273,en,tl,touching,nakakaantig
+274,en,tl,transmissibility,paglilipat
+275,en,tl,transmissible,maililipat
+276,en,tl,transmission,paghahatid
+277,en,tl,transmission potential,potensyal na paghahatid
+278,en,tl,typical flu,tipikal na trangkaso
+279,en,tl,underlying disease,napapailalim na sakit
+280,en,tl,updates,mga update
+281,en,tl,vaccine,bakuna
+282,en,tl,vaccines,mga bakuna
+283,en,tl,ventilation,bentilasyon
+284,en,tl,ventilator,bentilador
+285,en,tl,ventilators,mga bentilador
+286,en,tl,viral infection,impeksyon sa virus
+287,en,tl,viral outbreak,pagsilakbo ng virus
+288,en,tl,viral pandemic,viral pandemya
+289,en,tl,viral pneumonia,viral pulmunya
+290,en,tl,virtual care,virtual na pangangalaga
+291,en,tl,virulence,birtud
+292,en,tl,virus itself,virus mismo
+293,en,tl,virus outbreak,pagsiklab ng virus
+294,en,tl,virus scare,takot sa virus
+295,en,tl,virus spreads,kumakalat ang virus
+296,en,tl,virus strain,virus pilay
+297,en,tl,viral transmission,pagpapadala ng virus
+298,en,tl,vivid-19,matingkad-19
+299,en,tl,washing hands,paghuhugas ng kamay
+300,en,tl,washing ones hands,naghuhugas ng mga kamay
+301,en,tl,wash your hands,hugasan ang iyong mga kamay
+302,en,tl,white blood cell count,bilang ng puting selula ng dugo
+303,en,tl,widespread transmission,laganap na paghahatid
+304,en,tl,working from home,nagtatrabaho mula sa bahay
+305,en,tl,WFH,W.F.H.
+306,en,tl,Wuhan,"Wuhan, China"

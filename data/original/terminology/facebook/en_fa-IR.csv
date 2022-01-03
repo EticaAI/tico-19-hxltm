@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,fa-IR,1918 flu,آنفلوانزای 1918
+2,en,fa-IR,acute bronchitis,برونشیت حاد
+3,en,fa-IR,acute respiratory disease,بیماری حاد تنفسی
+4,en,fa-IR,AIDS,AIDS
+5,en,fa-IR,airborne droplets,قطرات ریز انتقال یافته توسط هوا
+6,en,fa-IR,airway,مجرای تنفسی
+7,en,fa-IR,alcohol-based,دارای پایه الکلی
+8,en,fa-IR,alcohol-based hand rub,ضدعفونی کننده دست دارای پایه الکلی
+9,en,fa-IR,alcohol-based hand sanitizer,ضدعفونی کننده دست دارای پایه الکلی
+10,en,fa-IR,alveolar disease,بیماری آلوئولی
+11,en,fa-IR,an epidemic,یک اپیدمی
+12,en,fa-IR,annual flu,آنفلوانزای سالانه
+13,en,fa-IR,anti-inflammatory drug,داروی ضد التهاب
+14,en,fa-IR,antiviral drug,داروی ضد ویروس
+15,en,fa-IR,antiviral treatment,درمان ضد ویروسی
+16,en,fa-IR,assay,سنجش
+17,en,fa-IR,asymptomatic,بدون علامت
+18,en,fa-IR,avian flu,آنفلوانزای پرندگان
+19,en,fa-IR,Black Plague,طاعون سیاه
+20,en,fa-IR,blood pressure,فشار خون
+21,en,fa-IR,body fluid,مایعات بدن
+22,en,fa-IR,breathing,تنفس
+23,en,fa-IR,bubonic plague,طاعون خیارکی
+24,en,fa-IR,c19,c19
+25,en,fa-IR,cv19,cv19
+26,en,fa-IR,case fatality rate,نرخ مرگ ومیر
+27,en,fa-IR,causative agent,عامل ایجاد کننده
+28,en,fa-IR,CDC,CDC
+29,en,fa-IR,chemical disinfection,ضدعفونی کردن شیمیایی
+30,en,fa-IR,chest x-ray,عکس قفسه سینه
+31,en,fa-IR,clinical diagnosis,تشخیص بالینی
+32,en,fa-IR,clinical trial,کارآزمایی بالینی
+33,en,fa-IR,close contact,تماس نزدیک
+34,en,fa-IR,cvirus,cvirus
+35,en,fa-IR,chronic respiratory disease,بیماری مزمن تنفسی
+36,en,fa-IR,common cold,سرماخوردگی
+37,en,fa-IR,common flu,آنفلوانزای معمولی
+38,en,fa-IR,communicable disease,بیماری واگیر
+39,en,fa-IR,community spread,گسترش اجتماعی
+40,en,fa-IR,community transmission,انتقال اجتماعی
+41,en,fa-IR,compromised immune system,سیستم ایمنی ضعیف
+42,en,fa-IR,contagion,واگیری
+43,en,fa-IR,contagious,واگیردار
+44,en,fa-IR,contagiousness,واگیری
+45,en,fa-IR,corona,کرونا
+46,en,fa-IR,corona virus,کرونا ویروس
+47,en,fa-IR,corona virus epidemic,اپیدمی کرونا ویروس
+48,en,fa-IR,corona virus outbreak,شیوع کرونا ویروس
+49,en,fa-IR,corona virus scare,ترس از کرونا ویروس
+50,en,fa-IR,coronavirus,کرونا ویروس
+51,en,fa-IR,coronavirus cases,موارد کرونا ویروس
+52,en,fa-IR,coronavirus outbreak,شیوع کرونا ویروس
+53,en,fa-IR,coronavirus pandemic,پاندمی کرونا ویروس
+54,en,fa-IR,coronavirus scare,ترس از کرونا ویروس
+55,en,fa-IR,cough,سرفه
+56,en,fa-IR,cough etiquette,اتیکت سرفه
+57,en,fa-IR,coughing,سرفه
+58,en,fa-IR,cov 19,cov 19
+59,en,fa-IR,cov19,cov19
+60,en,fa-IR,COVID,COVID
+61,en,fa-IR,COVID-19 crisis,بحران COVID-19
+62,en,fa-IR,covid-19,covid-19
+63,en,fa-IR,covid19,covid19
+64,en,fa-IR,COVID-19 epidemic,اپیدمی COVID-19
+65,en,fa-IR,COVID-19 outbreak,شیوع COVID-19
+66,en,fa-IR,COVID-19 pandemic,پاندمی COVID-19
+67,en,fa-IR,COVID 19,COVID-19
+68,en,fa-IR,current crisis,بحران جاری
+69,en,fa-IR,current health crisis,بحران جاری سلامت
+70,en,fa-IR,current outbreak,شیوع فعلی
+71,en,fa-IR,current pandemic,پاندمی فعلی
+72,en,fa-IR,CV,CV
+73,en,fa-IR,CV-19,CV-19
+74,en,fa-IR,deadly,مرگبار
+75,en,fa-IR,deadly virus,ویروس مرگبار
+76,en,fa-IR,death rate,میزان مرگ م میر
+77,en,fa-IR,death toll,شمار کشتگان
+78,en,fa-IR,decontaminate,ضدعفونی کردن
+79,en,fa-IR,detectable,قابل شناسایی
+80,en,fa-IR,detergent,پاک کننده
+81,en,fa-IR,difficulty breathing,تنگی نفس
+82,en,fa-IR,diabetes,دیابت
+83,en,fa-IR,diagnosable disease,بیماری قابل تشخیص
+84,en,fa-IR,diagnostic protocol,پروتکل تشخیصی
+85,en,fa-IR,diagnostic testing,آزمایش تشخیصی
+86,en,fa-IR,disease itself,خودِ بیماری
+87,en,fa-IR,disease outbreak,شیوع بیماری
+88,en,fa-IR,disinfectant,ضدعفونی
+89,en,fa-IR,disposable,دورانداختنی
+90,en,fa-IR,droplet transmission,انتقال قطرات
+91,en,fa-IR,droplets,قطرات
+92,en,fa-IR,dry cough,سرفه خشک
+93,en,fa-IR,dry surface contamination,آلودگی سطح خشک
+94,en,fa-IR,ebola,اِبولا
+95,en,fa-IR,effective treatment,درمان موثر
+96,en,fa-IR,electron microscope,میکروسکوپ الکترونی
+97,en,fa-IR,emergency department,بخش اورژانس
+98,en,fa-IR,epidemic,اپیدمی
+99,en,fa-IR,epidemic curve,منحنی اپیدمی
+100,en,fa-IR,epidemic peak,نقطه اوج اپیدمی
+101,en,fa-IR,epidemiologist,اپیدمیولوژیست
+102,en,fa-IR,exposure,در معرض قرار گرفتن
+103,en,fa-IR,extreme caution,نهایت احتیاط
+104,en,fa-IR,eye protection,محافظت از چشم
+105,en,fa-IR,face mask,ماسک صورت
+106,en,fa-IR,face masks,ماسک های صورت
+107,en,fa-IR,family cluster,خوشه خانوادگی
+108,en,fa-IR,fatality rate,نرخ مرگ و میر
+109,en,fa-IR,fecal contamination,آلودگی مدفوع
+110,en,fa-IR,fever,تب
+111,en,fa-IR,flatten the infection curve,صاف کردن منحنی عفونت
+112,en,fa-IR,flu,آنفلوانزا
+113,en,fa-IR,food safety,ایمنی مواد غذایی
+114,en,fa-IR,formaldehyde,فرمالدئید
+115,en,fa-IR,gastroenteritis,گاستروانتریت
+116,en,fa-IR,germicide,میکرب کُش
+117,en,fa-IR,global pandemic,پاندمی جهانی
+118,en,fa-IR,global warming,گرم شدن کره زمین
+119,en,fa-IR,good respiratory hygiene,بهداشت مناسب تنفسی
+120,en,fa-IR,Guangdong,گوانگ دونگ
+121,en,fa-IR,H1N1,H1N1
+122,en,fa-IR,H1N1 virus,ویروس H1N1
+123,en,fa-IR,hand disinfectant,ضدعفونی کننده دست
+124,en,fa-IR,hand sanitizer,ضدعفونی کننده دست
+125,en,fa-IR,health care provider,ارائه دهنده  خدمات بهداشتی و درمانی
+126,en,fa-IR,health crisis,بحران سلامتی
+127,en,fa-IR,health plan carrier,حامل برنامه درمانی
+128,en,fa-IR,health services,مراقبت های بهداشتی و درمانی
+129,en,fa-IR,heart failure,نارسایی قلبی
+130,en,fa-IR,high fever,تب بالا
+131,en,fa-IR,HIV,HIV
+132,en,fa-IR,hospitalize,بستری شدن
+133,en,fa-IR,household bleach,سفید کننده خانگی
+134,en,fa-IR,Hubei,هوبِی
+135,en,fa-IR,hydrogen peroxide,پِراُکسید هیدروژن
+136,en,fa-IR,hygiene,بهداشت
+137,en,fa-IR,immune system,سیستم ایمنی
+138,en,fa-IR,immunity,ایمنی
+139,en,fa-IR,immunocompromised,دچار ضعف سیستم ایمنی
+140,en,fa-IR,immunologist,ایمیونولوژیست
+141,en,fa-IR,incubation,اَنکوباسیون
+142,en,fa-IR,incubation period,دوره نهفتگی
+143,en,fa-IR,indirect contact,تماس غیرمستقیم
+144,en,fa-IR,infect,آلوده کردن
+145,en,fa-IR,infection,عفونت
+146,en,fa-IR,infectious,عفونی
+147,en,fa-IR,infectivity,عفونت زایی
+148,en,fa-IR,influenza,آنفلوانزا
+149,en,fa-IR,initial transmission event,رویداد انتقال اولیه
+150,en,fa-IR,intensive care equipment,ابزار مراقبت ویژه
+151,en,fa-IR,intermediate host,میزبان واسط
+152,en,fa-IR,intrauterine,درون رحمی
+153,en,fa-IR,intubation,اَنتوباسیون
+154,en,fa-IR,isolation,ایزولاسیون
+155,en,fa-IR,Isopropanol,ایزوپروپانول
+156,en,fa-IR,laboratory test kit,کیت تشخیص آزمایشگاهی
+157,en,fa-IR,laboratory testing,تست کردن آزمایشگاهی
+158,en,fa-IR,lack of testing,تست نکردن
+159,en,fa-IR,lack of tests,فقدان آزمایشات
+160,en,fa-IR,latest updates,آخرین به روز رسانی ها
+161,en,fa-IR,liver failure,نارسایی کبدی
+162,en,fa-IR,local public health authority,مقامات محلی بهداشت عمومی
+163,en,fa-IR,lockdown,قفل کردن
+164,en,fa-IR,lungs,شش ها
+165,en,fa-IR,masks,ماسک ها
+166,en,fa-IR,measles,سرخک
+167,en,fa-IR,mechanical ventilation,ونتیلاسیون مکانیکی
+168,en,fa-IR,media coverage,پوشش رسانه ای
+169,en,fa-IR,medical care,مراقبت پزشکی
+170,en,fa-IR,MERS,MERS
+171,en,fa-IR,MERS CoV,MERS CoV
+172,en,fa-IR,microbiologist,میکروبیولوژیست
+173,en,fa-IR,mild cough,سرفه خفیف
+174,en,fa-IR,mortality rate,میزان مورتالیته
+175,en,fa-IR,multi-organ failure,نارسایی ارگان های مختلف
+176,en,fa-IR,nasal congestion,احتقان بینی
+177,en,fa-IR,neutral detergent,پاک کننده خنثی
+178,en,fa-IR,new normal,هنجار نو
+179,en,fa-IR,novel corona virus,کرونا ویروس جدید
+180,en,fa-IR,novel coronavirus,کرونا ویروس جدید
+181,en,fa-IR,novel coronavirus outbreak,شیوع کرونا ویروس جدید
+182,en,fa-IR,novel virus,ویروس جدید
+183,en,fa-IR,online medical consultation,مشاوره پزشکی آنلاین
+184,en,fa-IR,onset,شروع
+185,en,fa-IR,outbreak,شیوع
+186,en,fa-IR,outbreak readiness,آمادگی برای شیوع
+187,en,fa-IR,overall case fatality,میزان کلی مرگ ومیر
+188,en,fa-IR,pandemic,پاندمی
+189,en,fa-IR,pangolin,پانگولین
+190,en,fa-IR,pathogen,آسیب زا
+191,en,fa-IR,pathology,آسیب شناسی
+192,en,fa-IR,patient care equipment,ابزار مراقبت از بیمار
+193,en,fa-IR,personal protective equipment,ابزار محافظت شخصی
+194,en,fa-IR,person-to-person transmission,انتقال فرد به فرد
+195,en,fa-IR,phlegm,خلط
+196,en,fa-IR,physical contact,تماس فیزیکی
+197,en,fa-IR,plague,طاعون
+198,en,fa-IR,pneumonia,ذات الریه
+199,en,fa-IR,pneumonias,ذات الریه ها
+200,en,fa-IR,positive test,تست مثبت
+201,en,fa-IR,precaution,احتیاط
+202,en,fa-IR,precautionary,احتیاطی
+203,en,fa-IR,pre-existing condition,بیماری زمینه ای
+204,en,fa-IR,preparedness,آمادگی
+205,en,fa-IR,prognosis,پیش آگهی
+206,en,fa-IR,protect myself,محافظت از خودم
+207,en,fa-IR,protect others,محافظت از دیگران
+208,en,fa-IR,protect yourself,محافظت از خودتان
+209,en,fa-IR,protective measures,اقدامات احتیاطی
+210,en,fa-IR,public health crisis,بحران سلامت همگانی
+211,en,fa-IR,pulmonary tissue damage,صدمه به بافت ریه
+212,en,fa-IR,quarantine,قرنطینه
+213,en,fa-IR,rapid risk assessment,ارزیابی سریع از خطر
+214,en,fa-IR,reagent,معرف
+215,en,fa-IR,regular flu,آنفلوانزای معمولی
+216,en,fa-IR,reinfection,عفونت مجدد
+217,en,fa-IR,renal disease,بیماری کلیوی
+218,en,fa-IR,renal failure,نارسایی کلیوی
+219,en,fa-IR,respirator,رسپیراتور
+220,en,fa-IR,respiratory,تنفسی
+221,en,fa-IR,respiratory disease,بیماری تنفسی
+222,en,fa-IR,respiratory distress,زجرتنفسی
+223,en,fa-IR,respiratory droplets,قطرات تنفسی
+224,en,fa-IR,respiratory hygiene,بهداشت تنفسی
+225,en,fa-IR,respiratory illness,بیماری تنفسی
+226,en,fa-IR,respiratory syndrome,سندرم تنفسی
+227,en,fa-IR,respiratory tract disease,بیماری مجرای تنفسی
+228,en,fa-IR,restrictions,محدودیت ها
+229,en,fa-IR,resurge,زنده شدن
+230,en,fa-IR,RNA,آر اِن اِی
+231,en,fa-IR,rubeola,سرخک
+232,en,fa-IR,runny nose,آبریزش بینی
+233,en,fa-IR,SARS,SARS
+234,en,fa-IR,SARS-CoV-2,SARS-CoV-2
+235,en,fa-IR,SARS-CoV,SARS-CoV
+236,en,fa-IR,sars-related coronavirus,کرونا ویروس مرتبط با sars
+237,en,fa-IR,seasonal flu,آنفلوانزای فصلی
+238,en,fa-IR,seasonal influenza,آنفلوانزای فصلی
+239,en,fa-IR,secretion,ترشح
+240,en,fa-IR,self-quarantine,خود قرنطینگی
+241,en,fa-IR,sepsis,سپسیس
+242,en,fa-IR,septic shock,شوک سپتیک
+243,en,fa-IR,Severe Acute Respiratory Syndrome,سندرم حاد تنفسی شدید
+244,en,fa-IR,shortness of breath,تنگی نفس
+245,en,fa-IR,sickened,بیمار شدن
+246,en,fa-IR,sickness,بیماری
+247,en,fa-IR,sneeze,عطسه
+248,en,fa-IR,sneezes,عطسه ها
+249,en,fa-IR,sneezing,عطسه کردن
+250,en,fa-IR,social distancing,فاصله گیری اجتماعی
+251,en,fa-IR,sore throat,گلودرد
+252,en,fa-IR,spanish flu,آنفلوانزای اسپانیایی
+253,en,fa-IR,specimen collection,نمونه گیری
+254,en,fa-IR,spread,گسترش
+255,en,fa-IR,sputum,خلط
+256,en,fa-IR,stigmatisation,داغ ننگ زدن
+257,en,fa-IR,supportive,محافظتی
+258,en,fa-IR,surface,سطح
+259,en,fa-IR,surfaces,سطوح
+260,en,fa-IR,suspected infection,عفونت مشکوک
+261,en,fa-IR,swab,سوآب
+262,en,fa-IR,swine flu,آنفلوانزای خوکی
+263,en,fa-IR,symptom,علامت
+264,en,fa-IR,symptomatic,علامتدار
+265,en,fa-IR,symptoms,علائم
+266,en,fa-IR,targeted disinfection,ضدعفونی کردن هدفمند
+267,en,fa-IR,test kit,کیت تشخیصی
+268,en,fa-IR,testing error,خطای آزمایش
+269,en,fa-IR,tissue damage,صدمه بافتی
+270,en,fa-IR,tp shortage,کمبود دستمال توالت
+271,en,fa-IR,toilet paper shortage,کمبود دستمال توالت
+272,en,fa-IR,touch,لمس
+273,en,fa-IR,touching,لمس کردن
+274,en,fa-IR,transmissibility,قابلیت انتقال
+275,en,fa-IR,transmissible,قابل انتقال
+276,en,fa-IR,transmission,انتقال
+277,en,fa-IR,transmission potential,پتانسیل انتقال
+278,en,fa-IR,typical flu,نفلوانزای معمول
+279,en,fa-IR,underlying disease,بیماری زمینه ای
+280,en,fa-IR,updates,به روز رسانی ها
+281,en,fa-IR,vaccine,واکسن
+282,en,fa-IR,vaccines,واکسن ها
+283,en,fa-IR,ventilation,تهویه
+284,en,fa-IR,ventilator,ونتیلاتور
+285,en,fa-IR,ventilators,ونتیلاتورها
+286,en,fa-IR,viral infection,عفونت ویروسی
+287,en,fa-IR,viral outbreak,شیوع ویروسی
+288,en,fa-IR,viral pandemic,پاندمی ویروسی
+289,en,fa-IR,viral pneumonia,ذات الریه ویروسی
+290,en,fa-IR,virtual care,مراقبت مجازی
+291,en,fa-IR,virulence,شدت بیماری زایی
+292,en,fa-IR,virus itself,خودِ ویروس
+293,en,fa-IR,virus outbreak,شیوع ویروسی
+294,en,fa-IR,virus scare,ترس از ویروس
+295,en,fa-IR,virus spreads,گسترش ویروس
+296,en,fa-IR,virus strain,سوش ویروس
+297,en,fa-IR,viral transmission,انتقال ویروسی
+298,en,fa-IR,vivid-19,vivid-19
+299,en,fa-IR,washing hands,دست شستن
+300,en,fa-IR,washing ones hands,دست های خود را شستن
+301,en,fa-IR,wash your hands,دستانتان را بشویید.
+302,en,fa-IR,white blood cell count,شمارش گلبول های سفید خون
+303,en,fa-IR,widespread transmission,انتقال گسترده
+304,en,fa-IR,working from home,دورکاری
+305,en,fa-IR,WFH,دورکاری
+306,en,fa-IR,Wuhan,Wuhan

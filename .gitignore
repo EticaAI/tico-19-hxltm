@@ -1,0 +1,75 @@
+data/original-git/
+data/original/paper/
+data/original/terminologies/
+data/original/TM/
+data/original/fb_covid-19.zip
+data/original/google_covid-19.zip
+data/original/terminologies.zip
+data/original/tico19-testset.zip
+data/original/tico19-testset
+!.gitignore
+.pylintrc
+!README.md
+__pycache__
+tmp/
+
+## @see scripts/_setup-local-machine.sh
+#  This is a symbolic link to scripts/ to allow local preview of the site.
+docs/scripts
+#  This is a symbolic link to data/ to allow local preview of the site.
+docs/data
+
+# scripts/data-external/*
+# !scripts/data-external/.gitkeep
+# !scripts/data-external/iso15924__sample.csv
+# !scripts/data-external/iso15924__sample.txt
+# !scripts/data-external/iso-639-3__sample.csv
+# !scripts/data-external/iso-639-3__sample.tab
+# !scripts/data-external/cldr/aliases__sample.json
+# !scripts/data-external/cldr/likelySubtags__sample.json
+
+# # temp
+# data/original/terminology/tico-19-terminology-facebook.csv
+# temp
+data/tico-19-terminology-google.tm2.hxl.csv
+data/tico-19-terminology-facebook.tm2.hxl.csv
+
+# temporary
+data/original/translation-memory/translators-without-borders/all/*.tmx
+data/original/translation-memory/translators-without-borders/all/*.zip
+data/original/translation-memory/translators-without-borders/all_bi_en_tmx
+
+### ascidoctor _________________________________________________________________
+# Dont' commit books on the working branch, just the website
+docs/*.pdf
+docs/*.epub
+# cat Gemfile 
+#    (real example at .github/workflows/tico-19-hxltm_etica-ai.yml)
+# To install
+#    bundle
+# To test
+#    bundle exec asciidoctor --version
+#    bundle exec asciidoctor-pdf --version
+#    bundle exec asciidoctor-epub3 --version
+#    bundle exec asciidoctor-pdf docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.pdf
+#    bundle exec asciidoctor-epub3 docs/eng-Latn/index.adoc --out-file docs/tico-19-hxltm_eng-Latn.epub
+vendor
+.bundle
+Gemfile
+Gemfile.lock
+
+
+### asciidoctor, end -----
+
+# https://github.com/datasets/language-codes
+scripts/language-codes-git
+
+.vscode/settings.json
+# {
+#     "xml.fileAssociations": [
+#         {
+#             "pattern": "**/*.tmx",
+#             "systemId": "scripts/dtd/tmx14.dtd"
+#         }
+#     ]
+# }

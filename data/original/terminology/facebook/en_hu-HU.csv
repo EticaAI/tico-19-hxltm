@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,hu-HU,1918 flu,1918 influenza
+2,en,hu-HU,acute bronchitis,akut hörghurut
+3,en,hu-HU,acute respiratory disease,akut légúti betegség
+4,en,hu-HU,AIDS,AIDS
+5,en,hu-HU,airborne droplets,levegőben terjedő cseppek
+6,en,hu-HU,airway,légúti
+7,en,hu-HU,alcohol-based,alkohol-alapú
+8,en,hu-HU,alcohol-based hand rub,alkohol alapú kéztörlő
+9,en,hu-HU,alcohol-based hand sanitizer,alkohol alapú kézfertőtlenítő
+10,en,hu-HU,alveolar disease,alveoláris betegség
+11,en,hu-HU,an epidemic,egy járvány
+12,en,hu-HU,annual flu,éves influenza
+13,en,hu-HU,anti-inflammatory drug,gyulladáscsökkentő gyógyszer
+14,en,hu-HU,antiviral drug,vírusellenes gyógyszer
+15,en,hu-HU,antiviral treatment,vírusellenes kezelés
+16,en,hu-HU,assay,vizsgálat
+17,en,hu-HU,asymptomatic,tünetmentes
+18,en,hu-HU,avian flu,madárinfluenza
+19,en,hu-HU,Black Plague,Fekete Pestis
+20,en,hu-HU,blood pressure,vérnyomás
+21,en,hu-HU,body fluid,testnedv
+22,en,hu-HU,breathing,légzés
+23,en,hu-HU,bubonic plague,bubópestis
+24,en,hu-HU,c19,c19
+25,en,hu-HU,cv19,cv19
+26,en,hu-HU,case fatality rate,halálozási arány
+27,en,hu-HU,causative agent,kórokozó
+28,en,hu-HU,CDC,CDC
+29,en,hu-HU,chemical disinfection,kémiai fertőtlenítés
+30,en,hu-HU,chest x-ray,mellkas röntgen
+31,en,hu-HU,clinical diagnosis,klinikai diagnózis
+32,en,hu-HU,clinical trial,klinikai vizsgálat
+33,en,hu-HU,close contact,közeli kapcsolat
+34,en,hu-HU,cvirus,cvírus
+35,en,hu-HU,chronic respiratory disease,krónikus légúti betegség
+36,en,hu-HU,common cold,átlagos megfázás
+37,en,hu-HU,common flu,átlagos influenza
+38,en,hu-HU,communicable disease,fertőző betegség
+39,en,hu-HU,community spread,közösségi terjedés
+40,en,hu-HU,community transmission,közösségi átvitel
+41,en,hu-HU,compromised immune system,sérült immunrendszer
+42,en,hu-HU,contagion,fertőzés
+43,en,hu-HU,contagious,fertőző
+44,en,hu-HU,contagiousness,fertőzőképesség
+45,en,hu-HU,corona,korona
+46,en,hu-HU,corona virus,koronavírus
+47,en,hu-HU,corona virus epidemic,koronavírus járvány
+48,en,hu-HU,corona virus outbreak,coronavírus kitörés
+49,en,hu-HU,corona virus scare,koronavírus-félelem
+50,en,hu-HU,coronavirus,koronavírus
+51,en,hu-HU,coronavirus cases,koronavírus esetek
+52,en,hu-HU,coronavirus outbreak,coronavírus kitörés
+53,en,hu-HU,coronavirus pandemic,koronavírus járvány
+54,en,hu-HU,coronavirus scare,koronavírus-félelem
+55,en,hu-HU,cough,köhögés
+56,en,hu-HU,cough etiquette,köhögési etikett
+57,en,hu-HU,coughing,köhögés
+58,en,hu-HU,cov 19,cov 19
+59,en,hu-HU,cov19,cov19
+60,en,hu-HU,COVID,COVID
+61,en,hu-HU,COVID-19 crisis,COVID-19 krízis
+62,en,hu-HU,covid-19,covid-19
+63,en,hu-HU,covid19,covid19
+64,en,hu-HU,COVID-19 epidemic,COVID-19 járvány
+65,en,hu-HU,COVID-19 outbreak,COVID-19 kitörés
+66,en,hu-HU,COVID-19 pandemic,COVID-19 járvány
+67,en,hu-HU,COVID 19,COVID 19
+68,en,hu-HU,current crisis,jelenlegi krízis
+69,en,hu-HU,current health crisis,jelenlegi egészségügyi krízis
+70,en,hu-HU,current outbreak,jelenlegi kitörés
+71,en,hu-HU,current pandemic,jelenlegi járvány
+72,en,hu-HU,CV,CV
+73,en,hu-HU,CV-19,CV-19
+74,en,hu-HU,deadly,halálos
+75,en,hu-HU,deadly virus,halálos vírus
+76,en,hu-HU,death rate,halálozási ráta
+77,en,hu-HU,death toll,halálos áldozatok száma
+78,en,hu-HU,decontaminate,fertőtlenít
+79,en,hu-HU,detectable,kimutatható
+80,en,hu-HU,detergent,tisztítószer
+81,en,hu-HU,difficulty breathing,nehéz légzés
+82,en,hu-HU,diabetes,cukorbetegség
+83,en,hu-HU,diagnosable disease,diagnosztizálható betegség
+84,en,hu-HU,diagnostic protocol,diagnosztikai protokoll
+85,en,hu-HU,diagnostic testing,diagnosztikai tesztelés
+86,en,hu-HU,disease itself,maga a betegség
+87,en,hu-HU,disease outbreak,betegség kitörése
+88,en,hu-HU,disinfectant,fertőtlenítő
+89,en,hu-HU,disposable,egyszer használatos
+90,en,hu-HU,droplet transmission,cseppek továbbítása
+91,en,hu-HU,droplets,cseppek
+92,en,hu-HU,dry cough,száraz köhögés
+93,en,hu-HU,dry surface contamination,száraz felület szennyeződése
+94,en,hu-HU,ebola,Ebola
+95,en,hu-HU,effective treatment,hatékony kezelés
+96,en,hu-HU,electron microscope,elektron mikroszkóp
+97,en,hu-HU,emergency department,sürgősségi osztály
+98,en,hu-HU,epidemic,járvány
+99,en,hu-HU,epidemic curve,járványgörbe
+100,en,hu-HU,epidemic peak,járványcsúcs
+101,en,hu-HU,epidemiologist,epidemiológus
+102,en,hu-HU,exposure,kitettség
+103,en,hu-HU,extreme caution,rendkívüli óvatosság
+104,en,hu-HU,eye protection,Szemvédelem
+105,en,hu-HU,face mask,arc maszk
+106,en,hu-HU,face masks,arcmaszkok
+107,en,hu-HU,family cluster,családi klaszter
+108,en,hu-HU,fatality rate,halálozási arány
+109,en,hu-HU,fecal contamination,széklet-szennyeződés
+110,en,hu-HU,fever,láz
+111,en,hu-HU,flatten the infection curve,fertőzési görbe lapítása
+112,en,hu-HU,flu,influenza
+113,en,hu-HU,food safety,élelmiszerbiztonság
+114,en,hu-HU,formaldehyde,formaldehid
+115,en,hu-HU,gastroenteritis,gyomorbél-hurut
+116,en,hu-HU,germicide,fertőtlenítő szer
+117,en,hu-HU,global pandemic,globális járvány
+118,en,hu-HU,global warming,globális felmelegedés
+119,en,hu-HU,good respiratory hygiene,jó légzési higiénia
+120,en,hu-HU,Guangdong,Guangdong
+121,en,hu-HU,H1N1,H1N1
+122,en,hu-HU,H1N1 virus,H1N1 vírus
+123,en,hu-HU,hand disinfectant,kézfertőtlenítő
+124,en,hu-HU,hand sanitizer,kézfertőtlenítő
+125,en,hu-HU,health care provider,egészségügyi szolgáltató
+126,en,hu-HU,health crisis,egészségügyi krízis
+127,en,hu-HU,health plan carrier,egészségügyi terv hordozó
+128,en,hu-HU,health services,egészségügyi szolgáltatások
+129,en,hu-HU,heart failure,szív elégtelenség
+130,en,hu-HU,high fever,magas láz
+131,en,hu-HU,HIV,HIV
+132,en,hu-HU,hospitalize,korházba utalás
+133,en,hu-HU,household bleach,háztartási fehérítő
+134,en,hu-HU,Hubei,Hubei
+135,en,hu-HU,hydrogen peroxide,hidrogén-peroxid
+136,en,hu-HU,hygiene,higiénia
+137,en,hu-HU,immune system,immunrendszer
+138,en,hu-HU,immunity,immunitás
+139,en,hu-HU,immunocompromised,immunhiányos
+140,en,hu-HU,immunologist,immunológus
+141,en,hu-HU,incubation,lappangás
+142,en,hu-HU,incubation period,lappangási idő
+143,en,hu-HU,indirect contact,közvetett kapcsolat
+144,en,hu-HU,infect,fertőz
+145,en,hu-HU,infection,fertőzés
+146,en,hu-HU,infectious,fertőző
+147,en,hu-HU,infectivity,fertőzőképesség
+148,en,hu-HU,influenza,influenza
+149,en,hu-HU,initial transmission event,kezdeti átviteli esemény
+150,en,hu-HU,intensive care equipment,intenzív ápolási berendezések
+151,en,hu-HU,intermediate host,köztes gazda
+152,en,hu-HU,intrauterine,méhen belüli
+153,en,hu-HU,intubation,csőbevezetés
+154,en,hu-HU,isolation,izoláció
+155,en,hu-HU,Isopropanol,izopropanol
+156,en,hu-HU,laboratory test kit,laboratóriumi vizsgálati készlet
+157,en,hu-HU,laboratory testing,laboratóriumi vizsgálat
+158,en,hu-HU,lack of testing,a tesztelés hiánya
+159,en,hu-HU,lack of tests,a tesztek hiánya
+160,en,hu-HU,latest updates,legújabb frissítések
+161,en,hu-HU,liver failure,májelégtelenség
+162,en,hu-HU,local public health authority,helyi közegészségügyi hatóság
+163,en,hu-HU,lockdown,lezárás
+164,en,hu-HU,lungs,tüdő
+165,en,hu-HU,masks,maszkok
+166,en,hu-HU,measles,kanyaró
+167,en,hu-HU,mechanical ventilation,gépi lélegeztetés
+168,en,hu-HU,media coverage,média közvetítés
+169,en,hu-HU,medical care,egészségügyi ellátás
+170,en,hu-HU,MERS,MERS
+171,en,hu-HU,MERS CoV,MERS CoV
+172,en,hu-HU,microbiologist,mikrobiológus
+173,en,hu-HU,mild cough,enyhe köhögés
+174,en,hu-HU,mortality rate,halálozási ráta
+175,en,hu-HU,multi-organ failure,több-szervi elégtelenség
+176,en,hu-HU,nasal congestion,orrdugulás
+177,en,hu-HU,neutral detergent,semleges tisztítószer
+178,en,hu-HU,new normal,új normál
+179,en,hu-HU,novel corona virus,új koronavírus
+180,en,hu-HU,novel coronavirus,új koronavírus
+181,en,hu-HU,novel coronavirus outbreak,új koronavírus-kitörés
+182,en,hu-HU,novel virus,új vírus
+183,en,hu-HU,online medical consultation,online orvosi konzultáció
+184,en,hu-HU,onset,kezdeti tünetek
+185,en,hu-HU,outbreak,kitörés
+186,en,hu-HU,outbreak readiness,kitörési készenlét
+187,en,hu-HU,overall case fatality,összes halálozási eset
+188,en,hu-HU,pandemic,járvány
+189,en,hu-HU,pangolin,tobzoska
+190,en,hu-HU,pathogen,kórokozó
+191,en,hu-HU,pathology,patológia
+192,en,hu-HU,patient care equipment,betegápolási felszerelések
+193,en,hu-HU,personal protective equipment,egyéni védőeszközök
+194,en,hu-HU,person-to-person transmission,személytől-személyig átviteli
+195,en,hu-HU,phlegm,váladék
+196,en,hu-HU,physical contact,fizikai kapcsolat
+197,en,hu-HU,plague,pestis
+198,en,hu-HU,pneumonia,tüdőgyulladás
+199,en,hu-HU,pneumonias,tüdőgyulladások
+200,en,hu-HU,positive test,pozitív teszt
+201,en,hu-HU,precaution,elővigyázat
+202,en,hu-HU,precautionary,elővigyázatosság
+203,en,hu-HU,pre-existing condition,már meglévő állapot
+204,en,hu-HU,preparedness,készültség
+205,en,hu-HU,prognosis,prognózis
+206,en,hu-HU,protect myself,önmagam védelme
+207,en,hu-HU,protect others,mások védelme
+208,en,hu-HU,protect yourself,Önmaga védelme
+209,en,hu-HU,protective measures,védőintézkedések
+210,en,hu-HU,public health crisis,közegészségügyi válság
+211,en,hu-HU,pulmonary tissue damage,tüdőszövet károsodása
+212,en,hu-HU,quarantine,karantén
+213,en,hu-HU,rapid risk assessment,gyors kockázatértékelés
+214,en,hu-HU,reagent,reagens
+215,en,hu-HU,regular flu,átlagos influenze
+216,en,hu-HU,reinfection,újrafertőződés
+217,en,hu-HU,renal disease,vesebetegség
+218,en,hu-HU,renal failure,veseelégtelenség
+219,en,hu-HU,respirator,breathing apparatus
+220,en,hu-HU,respiratory,légúti
+221,en,hu-HU,respiratory disease,légúti betegség
+222,en,hu-HU,respiratory distress,légzési zavar
+223,en,hu-HU,respiratory droplets,légúti cseppek
+224,en,hu-HU,respiratory hygiene,légúti higiénia
+225,en,hu-HU,respiratory illness,légúti megbetegedés
+226,en,hu-HU,respiratory syndrome,légúti szindróma
+227,en,hu-HU,respiratory tract disease,légúti traktus betegség
+228,en,hu-HU,restrictions,korlátozások
+229,en,hu-HU,resurge,újjáéledés
+230,en,hu-HU,RNA,RNA
+231,en,hu-HU,rubeola,rózsahimlő
+232,en,hu-HU,runny nose,orrfolyás
+233,en,hu-HU,SARS,SARS
+234,en,hu-HU,SARS-CoV-2,SARS-CoV-2
+235,en,hu-HU,SARS-CoV,SARS-CoV
+236,en,hu-HU,sars-related coronavirus,a sars-al kapcsolatos koronavírus
+237,en,hu-HU,seasonal flu,szezonális influenza
+238,en,hu-HU,seasonal influenza,szezonális influenza
+239,en,hu-HU,secretion,váladék
+240,en,hu-HU,self-quarantine,ön-karantén
+241,en,hu-HU,sepsis,vérmérgezés
+242,en,hu-HU,septic shock,szeptikus sokk
+243,en,hu-HU,Severe Acute Respiratory Syndrome,Súlyos akut légúti szindróma
+244,en,hu-HU,shortness of breath,légszomj
+245,en,hu-HU,sickened,megbetegített
+246,en,hu-HU,sickness,betegség
+247,en,hu-HU,sneeze,tüsszent
+248,en,hu-HU,sneezes,tüsszentések
+249,en,hu-HU,sneezing,tüsszentés
+250,en,hu-HU,social distancing,szociális távolságtartás
+251,en,hu-HU,sore throat,torokfájás
+252,en,hu-HU,spanish flu,spanyol influenza
+253,en,hu-HU,specimen collection,mintagyűjtés
+254,en,hu-HU,spread,terjedés
+255,en,hu-HU,sputum,köpet
+256,en,hu-HU,stigmatisation,stigmatizáció
+257,en,hu-HU,supportive,szupportív
+258,en,hu-HU,surface,felület
+259,en,hu-HU,surfaces,felületek
+260,en,hu-HU,suspected infection,gyanított fertőzés
+261,en,hu-HU,swab,felmosó
+262,en,hu-HU,swine flu,sertésinfluenza
+263,en,hu-HU,symptom,tünet
+264,en,hu-HU,symptomatic,szimptomatikus
+265,en,hu-HU,symptoms,tünetek
+266,en,hu-HU,targeted disinfection,célzott fertőtlenítés
+267,en,hu-HU,test kit,tesztkészlet
+268,en,hu-HU,testing error,tesztelési hiba
+269,en,hu-HU,tissue damage,szövetkárosodás
+270,en,hu-HU,tp shortage,WC-papír hiány
+271,en,hu-HU,toilet paper shortage,WC-papír hiány
+272,en,hu-HU,touch,érint
+273,en,hu-HU,touching,érintés
+274,en,hu-HU,transmissibility,átadhatóság
+275,en,hu-HU,transmissible,átadható
+276,en,hu-HU,transmission,átadás
+277,en,hu-HU,transmission potential,átadási potenciál
+278,en,hu-HU,typical flu,tipikus influenza
+279,en,hu-HU,underlying disease,mögöttes betegség
+280,en,hu-HU,updates,frissítések
+281,en,hu-HU,vaccine,vakcina
+282,en,hu-HU,vaccines,vakcinák
+283,en,hu-HU,ventilation,szellőzés
+284,en,hu-HU,ventilator,ventilátor
+285,en,hu-HU,ventilators,ventilátorok
+286,en,hu-HU,viral infection,vírusos fertőzés
+287,en,hu-HU,viral outbreak,víruskitörés
+288,en,hu-HU,viral pandemic,vírusos járvány
+289,en,hu-HU,viral pneumonia,vírusos tüdőgyulladás
+290,en,hu-HU,virtual care,virtuális gondozás
+291,en,hu-HU,virulence,virulencia
+292,en,hu-HU,virus itself,maga a vírus
+293,en,hu-HU,virus outbreak,víruskitörés
+294,en,hu-HU,virus scare,vírus félelem
+295,en,hu-HU,virus spreads,vírus terjedés
+296,en,hu-HU,virus strain,vírustörzs
+297,en,hu-HU,viral transmission,vírus átadás
+298,en,hu-HU,vivid-19,vivid-19
+299,en,hu-HU,washing hands,kézmosás
+300,en,hu-HU,washing ones hands,kezünk megmosása
+301,en,hu-HU,wash your hands,mossa meg a kezét
+302,en,hu-HU,white blood cell count,fehérvérsejtszám
+303,en,hu-HU,widespread transmission,széles körű átadás
+304,en,hu-HU,working from home,otthonról dolgozás
+305,en,hu-HU,WFH,WFH
+306,en,hu-HU,Wuhan,Wuhan

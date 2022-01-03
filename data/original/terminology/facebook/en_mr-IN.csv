@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,mr-IN,1918 flu,1918 फ्लू
+2,en,mr-IN,acute bronchitis,गंभीर ब्रॉंकायटीस
+3,en,mr-IN,acute respiratory disease,गंभीर स्वरूपाचा श्वसनाचा रोग
+4,en,mr-IN,AIDS,एड्स
+5,en,mr-IN,airborne droplets,वायुजनित संक्रमण
+6,en,mr-IN,airway,हवेद्वारे
+7,en,mr-IN,alcohol-based,अल्कोहोल-असलेले
+8,en,mr-IN,alcohol-based hand rub,अल्कोहोल-असलेले हॅंड रब
+9,en,mr-IN,alcohol-based hand sanitizer,अल्कोहोल-असलेले हॅंड सॅनिटायझर
+10,en,mr-IN,alveolar disease,अल्व्होलरचे आजार
+11,en,mr-IN,an epidemic,साथीचा रोग
+12,en,mr-IN,annual flu,हंगामी फ्लू
+13,en,mr-IN,anti-inflammatory drug,दाह कमी करणारे औषध
+14,en,mr-IN,antiviral drug,विषाणू प्रतिरोधक औषध
+15,en,mr-IN,antiviral treatment,विषाणू प्रतिरोधक उपचार
+16,en,mr-IN,assay,एॅसे
+17,en,mr-IN,asymptomatic,लक्षणे न दर्शविणारा
+18,en,mr-IN,avian flu,एवियन फ्लू
+19,en,mr-IN,Black Plague,ब्लॅक प्लेग
+20,en,mr-IN,blood pressure,रक्तदाब
+21,en,mr-IN,body fluid,शरीरातील द्रव
+22,en,mr-IN,breathing,श्वासोच्छवास
+23,en,mr-IN,bubonic plague,ब्यूबोनिक प्लेग
+24,en,mr-IN,c19,c19
+25,en,mr-IN,cv19,cv19
+26,en,mr-IN,case fatality rate,रोगामुळे होणार्‍या मृत्यूचा दर
+27,en,mr-IN,causative agent,कारणीभूत असणारा घटक
+28,en,mr-IN,CDC,CDC
+29,en,mr-IN,chemical disinfection,रासायनिक कीटनाशक
+30,en,mr-IN,chest x-ray,छातीचा एक्स-रे
+31,en,mr-IN,clinical diagnosis,वैद्यकिय निदान
+32,en,mr-IN,clinical trial,वैद्यकिय चाचणी
+33,en,mr-IN,close contact,जवळील संपर्क
+34,en,mr-IN,cvirus,सी व्हायरस
+35,en,mr-IN,chronic respiratory disease,जुना स्वरूपाचा श्वसनाचा रोग
+36,en,mr-IN,common cold,साधारण सर्दी
+37,en,mr-IN,common flu,साधारण फ्लू
+38,en,mr-IN,communicable disease,संक्रमक रोग
+39,en,mr-IN,community spread,समुदायात पसरणारा
+40,en,mr-IN,community transmission,समुदाय संक्रमण
+41,en,mr-IN,compromised immune system,कमी झालेली रोगप्रतिकारशक्ती
+42,en,mr-IN,contagion,संसर्ग
+43,en,mr-IN,contagious,संसर्गजन्य
+44,en,mr-IN,contagiousness,संसर्गजन्यता
+45,en,mr-IN,corona,कोरोना
+46,en,mr-IN,corona virus,कोरोना व्हायरस
+47,en,mr-IN,corona virus epidemic,कोरोना व्हायरस साथीचा रोग
+48,en,mr-IN,corona virus outbreak,कोरोना व्हायरसचा उद्रेक
+49,en,mr-IN,corona virus scare,कोरोना व्हायरसची भीती
+50,en,mr-IN,coronavirus,कोरोना व्हायरस
+51,en,mr-IN,coronavirus cases,कोरोना व्हायरसची प्रकरणे
+52,en,mr-IN,coronavirus outbreak,कोरोना व्हायरसचा उद्रेक
+53,en,mr-IN,coronavirus pandemic,संपूर्ण देशभर पसरलेला कोरोना व्हायरस
+54,en,mr-IN,coronavirus scare,कोरोना व्हायरसची भीती
+55,en,mr-IN,cough,खोकला
+56,en,mr-IN,cough etiquette,खोण्‍याची पद्धत
+57,en,mr-IN,coughing,खोकला येणे
+58,en,mr-IN,cov 19,cov 19
+59,en,mr-IN,cov19,cov19
+60,en,mr-IN,COVID,कोविड
+61,en,mr-IN,COVID-19 crisis,कोविड-19 संकट
+62,en,mr-IN,covid-19,कोविड-19
+63,en,mr-IN,covid19,कोविड19
+64,en,mr-IN,COVID-19 epidemic,कोविड-19 साथीचा रोग
+65,en,mr-IN,COVID-19 outbreak,कोविड-19 चा उद्रेक
+66,en,mr-IN,COVID-19 pandemic,संपूर्ण देशभर पसरलेला कोविड-19
+67,en,mr-IN,COVID 19,कोविड 19
+68,en,mr-IN,current crisis,वर्तमान संकट
+69,en,mr-IN,current health crisis,वर्तमान आरोग्याचे संकट
+70,en,mr-IN,current outbreak,वर्तमान उद्रेक
+71,en,mr-IN,current pandemic,सध्‍या संपूर्ण देशभर पसरलेला
+72,en,mr-IN,CV,CV
+73,en,mr-IN,CV-19,CV-19
+74,en,mr-IN,deadly,प्राणघातक
+75,en,mr-IN,deadly virus,प्राणघातक व्हायरस
+76,en,mr-IN,death rate,मृत्यू दर
+77,en,mr-IN,death toll,मृतांची संख्‍या
+78,en,mr-IN,decontaminate,निर्जंतुकीकरण
+79,en,mr-IN,detectable,शोधण्‍यायोग्य
+80,en,mr-IN,detergent,डिटर्जंट
+81,en,mr-IN,difficulty breathing,श्वास घेण्‍यात त्रास होणे
+82,en,mr-IN,diabetes,मधुमेह
+83,en,mr-IN,diagnosable disease,निदान करता येणारा रोग
+84,en,mr-IN,diagnostic protocol,निदानात्मक प्रोटोकॉल
+85,en,mr-IN,diagnostic testing,निदानात्मक चाचणी
+86,en,mr-IN,disease itself,स्वत: आजार
+87,en,mr-IN,disease outbreak,रोगाचा उद्रेक
+88,en,mr-IN,disinfectant,निर्जंतुकीकरण करणारा
+89,en,mr-IN,disposable,डिस्पोजेबल
+90,en,mr-IN,droplet transmission,हवेद्वारे होणारे संक्रमण
+91,en,mr-IN,droplets,थेंब
+92,en,mr-IN,dry cough,कोरडा खोकला
+93,en,mr-IN,dry surface contamination,कोरड्या पृष्‍ठभागावरील संसर्ग
+94,en,mr-IN,ebola,इबोला
+95,en,mr-IN,effective treatment,प्रभावी उपचार
+96,en,mr-IN,electron microscope,इलेक्ट्रॉन सूक्ष्मदर्शक
+97,en,mr-IN,emergency department,आपात्कालीन विभाग
+98,en,mr-IN,epidemic,साथीचा रोग
+99,en,mr-IN,epidemic curve,साथीच्या रोगाची आकडेवारी
+100,en,mr-IN,epidemic peak,साथीच्या रोगाचे तीव्र स्वरूप
+101,en,mr-IN,epidemiologist,साथीच्या रोगाचे तज्ञ
+102,en,mr-IN,exposure,प्रगटीकरण
+103,en,mr-IN,extreme caution,अत्यंत सावधगिरी
+104,en,mr-IN,eye protection,डोळ्‍यांचे संरक्षण
+105,en,mr-IN,face mask,चेहर्‍याचा मास्क
+106,en,mr-IN,face masks,चेहर्‍याचे मास्क
+107,en,mr-IN,family cluster,कुटुंबातील सदस्यांचे एकत्रीकरण
+108,en,mr-IN,fatality rate,मृत्यूचा दर
+109,en,mr-IN,fecal contamination,मल संसर्ग
+110,en,mr-IN,fever,ताप
+111,en,mr-IN,flatten the infection curve,संक्रमणाची आकडेवारी कमी करणे
+112,en,mr-IN,flu,फ्लू
+113,en,mr-IN,food safety,खाद्यपदार्थंची सुरक्षा
+114,en,mr-IN,formaldehyde,फॉर्मलडिहाइड
+115,en,mr-IN,gastroenteritis,गॅस्ट्रोइंटेरायटिस
+116,en,mr-IN,germicide,जंतुनाशक
+117,en,mr-IN,global pandemic,जगभरात पसरणारा
+118,en,mr-IN,global warming,जागतिक तापमानवाढ
+119,en,mr-IN,good respiratory hygiene,उत्तम श्वासोच्छवासाचे आरोग्य
+120,en,mr-IN,Guangdong,ग्वांगडॉंग
+121,en,mr-IN,H1N1,H1N1
+122,en,mr-IN,H1N1 virus,H1N1 व्हायरस
+123,en,mr-IN,hand disinfectant,हाताचे निर्जंतुकीकरण करणारा
+124,en,mr-IN,hand sanitizer,हातासाठी असलेले सॅनिटायझर
+125,en,mr-IN,health care provider,हेल्थ केअर प्रदाता
+126,en,mr-IN,health crisis,आरोग्याचे संकट
+127,en,mr-IN,health plan carrier,हेल्थ प्लॅन कॅरियर
+128,en,mr-IN,health services,आरोग्य विषयक सेवा
+129,en,mr-IN,heart failure,हृदय बंद पडणे
+130,en,mr-IN,high fever,खूप ताप
+131,en,mr-IN,HIV,एचआयव्ही
+132,en,mr-IN,hospitalize,रूग्णालयात दाखल करणे
+133,en,mr-IN,household bleach,घरगुती ब्लिच
+134,en,mr-IN,Hubei,ह्यूबेई
+135,en,mr-IN,hydrogen peroxide,हायड्रोजन पेरॉक्साइड
+136,en,mr-IN,hygiene,स्वच्छता
+137,en,mr-IN,immune system,रोगप्रतिकारशक्ती
+138,en,mr-IN,immunity,रोगप्रतिकारक्षमता
+139,en,mr-IN,immunocompromised,कमी झालेली रोगप्रतिकारक्षमता
+140,en,mr-IN,immunologist,रोगप्रतिकारशास्त्रज्ञ
+141,en,mr-IN,incubation,इनक्यूबेशन
+142,en,mr-IN,incubation period,इनक्यूबेशन कालावधी
+143,en,mr-IN,indirect contact,अप्रत्यक्ष संपर्क
+144,en,mr-IN,infect,संसर्ग होणे
+145,en,mr-IN,infection,संसर्ग
+146,en,mr-IN,infectious,संसर्गजन्य
+147,en,mr-IN,infectivity,संसर्गजन्यता
+148,en,mr-IN,influenza,इन्फ्लूएन्झा
+149,en,mr-IN,initial transmission event,सुरवातीची संसर्गाची घटना
+150,en,mr-IN,intensive care equipment,अतिदक्षता विभागातील उपकरण
+151,en,mr-IN,intermediate host,इंटरमिजिएट होस्ट
+152,en,mr-IN,intrauterine,इंट्रायूट्रिन
+153,en,mr-IN,intubation,इनट्यूबेशन
+154,en,mr-IN,isolation,विलगीकरण
+155,en,mr-IN,Isopropanol,आयसोप्रोपेनॉल
+156,en,mr-IN,laboratory test kit,प्रयोगशाळेतील चाचणीचे साधन
+157,en,mr-IN,laboratory testing,प्रयोगशाळेतील चाचणी
+158,en,mr-IN,lack of testing,चाचणीचा अभाव
+159,en,mr-IN,lack of tests,चाचण्यांचा अभाव
+160,en,mr-IN,latest updates,नवीनतम अद्यतने
+161,en,mr-IN,liver failure,यकृताचे कार्य बंद होणे
+162,en,mr-IN,local public health authority,स्थानिक सार्वजनिक आरोग्य प्राधिकरण
+163,en,mr-IN,lockdown,लॉकडाउन
+164,en,mr-IN,lungs,फुप्फुसे
+165,en,mr-IN,masks,मास्क
+166,en,mr-IN,measles,गोवर
+167,en,mr-IN,mechanical ventilation,मॅकेनिकल व्हेंटिलेशन
+168,en,mr-IN,media coverage,मीडिया वृत्त
+169,en,mr-IN,medical care,वैद्यकिय काळजी
+170,en,mr-IN,MERS,मर्स
+171,en,mr-IN,MERS CoV,मर्स CoV
+172,en,mr-IN,microbiologist,सूक्ष्मजीवशास्त्रज्ञ
+173,en,mr-IN,mild cough,सौम्य खोकला
+174,en,mr-IN,mortality rate,मृत्यूचा दर
+175,en,mr-IN,multi-organ failure,एकाधिक अवयांचे कार्य बंद पडणे
+176,en,mr-IN,nasal congestion,नाक चोंदणे
+177,en,mr-IN,neutral detergent,न्यूट्रल डिटर्जंट
+178,en,mr-IN,new normal,न्यू नॉर्मल
+179,en,mr-IN,novel corona virus,नोवल कोरोना व्हायरस
+180,en,mr-IN,novel coronavirus,नोवल कोरोना व्हायरस
+181,en,mr-IN,novel coronavirus outbreak,नोवल कोरोना व्हायरसचा उद्रेक
+182,en,mr-IN,novel virus,नोवल व्हायरस
+183,en,mr-IN,online medical consultation,ऑनलाइन वैद्यकिय सल्ला
+184,en,mr-IN,onset,ऑनसेट
+185,en,mr-IN,outbreak,उद्रेक
+186,en,mr-IN,outbreak readiness,उद्रेकाचा सामना करण्‍यासाठी तयार असणे
+187,en,mr-IN,overall case fatality,रोगामुळे होणार्‍या मृत्यूचा एकंदर दर
+188,en,mr-IN,pandemic,संपूर्ण देशभर पसरलेला
+189,en,mr-IN,pangolin,पॅन्गोलियन
+190,en,mr-IN,pathogen,पॅथोजन
+191,en,mr-IN,pathology,पॅथॉलॉजी
+192,en,mr-IN,patient care equipment,रूग्णांची काळजी घेण्‍यासाठी असलेले उपकरण
+193,en,mr-IN,personal protective equipment,वैयक्तिक संरक्षणात्मक उपकरण
+194,en,mr-IN,person-to-person transmission,व्यक्ती दर व्यक्ती संक्रमण
+195,en,mr-IN,phlegm,कफ
+196,en,mr-IN,physical contact,शारीरिक संपर्क
+197,en,mr-IN,plague,प्लेग
+198,en,mr-IN,pneumonia,न्यूमोनिया
+199,en,mr-IN,pneumonias,न्यूमोनिया होणारे
+200,en,mr-IN,positive test,रोग झाल्याची चाचणी
+201,en,mr-IN,precaution,खबरदारी
+202,en,mr-IN,precautionary,खबरदारीचा
+203,en,mr-IN,pre-existing condition,आधीच अस्तित्वात असलेली स्थिती
+204,en,mr-IN,preparedness,तयारी
+205,en,mr-IN,prognosis,रोगनिदान
+206,en,mr-IN,protect myself,स्वत:चे संरक्षण करणे
+207,en,mr-IN,protect others,इतरांचे संरक्षण करणे
+208,en,mr-IN,protect yourself,तुमचे संरक्षण करणे
+209,en,mr-IN,protective measures,संरक्षणात्मक उपाययोगजना
+210,en,mr-IN,public health crisis,सार्वजनिक आरोग्याचे संकट
+211,en,mr-IN,pulmonary tissue damage,फुफ्फुसाचे टिश्यू खराब होणे
+212,en,mr-IN,quarantine,क्वारंटाइन
+213,en,mr-IN,rapid risk assessment,जलद धोक्याचे मू्ल्यांकन
+214,en,mr-IN,reagent,रिएजंट
+215,en,mr-IN,regular flu,नेहमीचा फ्लू
+216,en,mr-IN,reinfection,पुन्हा संसर्ग होणे
+217,en,mr-IN,renal disease,मूत्रपिंडासंबंधीचा रोग
+218,en,mr-IN,renal failure,मूत्रपिंडाचे कार्य बंद पडणे
+219,en,mr-IN,respirator,श्वसन
+220,en,mr-IN,respiratory,श्वसनाविषयी
+221,en,mr-IN,respiratory disease,श्वसनाचा रोग
+222,en,mr-IN,respiratory distress,श्वसनाचा त्रास
+223,en,mr-IN,respiratory droplets,श्वसनाद्वारे उडालेले थेंब
+224,en,mr-IN,respiratory hygiene,श्वसनाचे आरोग्य
+225,en,mr-IN,respiratory illness,श्वसनाचा आजार
+226,en,mr-IN,respiratory syndrome,श्वसनाविषयक सिंड्रोम
+227,en,mr-IN,respiratory tract disease,श्वसन मार्गातील रोग
+228,en,mr-IN,restrictions,निर्बंध
+229,en,mr-IN,resurge,पुनरुत्थान
+230,en,mr-IN,RNA,आरएनए
+231,en,mr-IN,rubeola,रूबेला
+232,en,mr-IN,runny nose,वाहणारे नाक
+233,en,mr-IN,SARS,सार्स
+234,en,mr-IN,SARS-CoV-2,सार्स-CoV-2
+235,en,mr-IN,SARS-CoV,सार्स-CoV
+236,en,mr-IN,sars-related coronavirus,सार्स-संबंधित कोरोना व्हायरस
+237,en,mr-IN,seasonal flu,हंगामी फ्लू
+238,en,mr-IN,seasonal influenza,हंगामी इन्फ्लूएन्झा
+239,en,mr-IN,secretion,विमोचन
+240,en,mr-IN,self-quarantine,स्वत:ला-क्वारंटाइन करणे
+241,en,mr-IN,sepsis,पू होणे
+242,en,mr-IN,septic shock,सेप्टिक शॉक
+243,en,mr-IN,Severe Acute Respiratory Syndrome,गंभीर श्वसनाविषयक सिंड्रोम
+244,en,mr-IN,shortness of breath,श्वासोच्छवास करण्यात त्रास होणे
+245,en,mr-IN,sickened,आजारी
+246,en,mr-IN,sickness,आजारपण
+247,en,mr-IN,sneeze,शिंक
+248,en,mr-IN,sneezes,शिंका
+249,en,mr-IN,sneezing,शिंकणे
+250,en,mr-IN,social distancing,सामाजिक अंतर
+251,en,mr-IN,sore throat,खवखवणारा घसा
+252,en,mr-IN,spanish flu,स्पॅनिश फ्लू
+253,en,mr-IN,specimen collection,नमुना घेणे
+254,en,mr-IN,spread,पसरणे
+255,en,mr-IN,sputum,थुंकी
+256,en,mr-IN,stigmatisation,भिती
+257,en,mr-IN,supportive,सहयोगात्मक
+258,en,mr-IN,surface,पृष्‍ठभाग
+259,en,mr-IN,surfaces,पृष्‍ठभाग
+260,en,mr-IN,suspected infection,संशयास्पद संसर्ग
+261,en,mr-IN,swab,स्वॅब
+262,en,mr-IN,swine flu,स्वाइन फ्लू
+263,en,mr-IN,symptom,लक्षण
+264,en,mr-IN,symptomatic,लक्षणात्मक
+265,en,mr-IN,symptoms,लक्षणे
+266,en,mr-IN,targeted disinfection,लक्ष्यित निर्जंतुकीकरण
+267,en,mr-IN,test kit,चाचणीचे साधन
+268,en,mr-IN,testing error,चाचणीतील चूक
+269,en,mr-IN,tissue damage,टिश्यू खराब होणे
+270,en,mr-IN,tp shortage,टीपी तुटवडा
+271,en,mr-IN,toilet paper shortage,टॉयलेट पेपरचा तुटवडा
+272,en,mr-IN,touch,स्पर्श
+273,en,mr-IN,touching,स्पश करणे
+274,en,mr-IN,transmissibility,संक्रमणक्षमता
+275,en,mr-IN,transmissible,संक्रमण होण्यायोग्य
+276,en,mr-IN,transmission,संक्रमण
+277,en,mr-IN,transmission potential,संक्रमण संभाव्यता
+278,en,mr-IN,typical flu,विशिष्‍ट फ्लू
+279,en,mr-IN,underlying disease,अधोरेखित केलेले रोग
+280,en,mr-IN,updates,अद्यतने
+281,en,mr-IN,vaccine,लस
+282,en,mr-IN,vaccines,लसी
+283,en,mr-IN,ventilation,व्हेन्टिलेशन
+284,en,mr-IN,ventilator,व्हेन्टिलेटर
+285,en,mr-IN,ventilators,व्हेन्टिलेटर्स
+286,en,mr-IN,viral infection,व्हायरल संसर्ग
+287,en,mr-IN,viral outbreak,व्हायरल उद्रेक
+288,en,mr-IN,viral pandemic,संपूर्ण देशभर पसरलेला व्हायरल
+289,en,mr-IN,viral pneumonia,व्हायरल न्यूमोनिया
+290,en,mr-IN,virtual care,व्हायरल संबंधी काळजी घेणे
+291,en,mr-IN,virulence,विषारीपणा
+292,en,mr-IN,virus itself,स्वत: व्हायरस
+293,en,mr-IN,virus outbreak,व्हायरसचा उद्रेक
+294,en,mr-IN,virus scare,व्हायरससंबंधित भिती
+295,en,mr-IN,virus spreads,व्हायरसचा प्रसार
+296,en,mr-IN,virus strain,व्हायरससंबंधित मानसिक ताण
+297,en,mr-IN,viral transmission,व्हायरल संक्रमण
+298,en,mr-IN,vivid-19,विविड-19
+299,en,mr-IN,washing hands,हात धुणे
+300,en,mr-IN,washing ones hands,एखाद्याचे हात धुणे
+301,en,mr-IN,wash your hands,तुमचे हात धुवा
+302,en,mr-IN,white blood cell count,पांढर्‍या रक्त पेशींची संख्या
+303,en,mr-IN,widespread transmission,सर्वत्र पसरणारे संक्रमण
+304,en,mr-IN,working from home,घरून कार्य करणे
+305,en,mr-IN,WFH,WFH
+306,en,mr-IN,Wuhan,वुहान

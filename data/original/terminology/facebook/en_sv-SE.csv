@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,sv-SE,1918 flu,Influensan 1918
+2,en,sv-SE,acute bronchitis,akut bronkit
+3,en,sv-SE,acute respiratory disease,akut luftvägssjukdom
+4,en,sv-SE,AIDS,AIDS
+5,en,sv-SE,airborne droplets,luftburna partiklar
+6,en,sv-SE,airway,luftväg
+7,en,sv-SE,alcohol-based,alkoholbaserad
+8,en,sv-SE,alcohol-based hand rub,alkoholbaserad handgnuggning
+9,en,sv-SE,alcohol-based hand sanitizer,alkoholbaserad handsprit
+10,en,sv-SE,alveolar disease,alveolär sjukdom
+11,en,sv-SE,an epidemic,en epidemi
+12,en,sv-SE,annual flu,årlig influensa
+13,en,sv-SE,anti-inflammatory drug,anti-inflammatoriskt läkemedel
+14,en,sv-SE,antiviral drug,antiviralt läkemedel
+15,en,sv-SE,antiviral treatment,antiviral behandling
+16,en,sv-SE,assay,analys
+17,en,sv-SE,asymptomatic,asymtomatisk
+18,en,sv-SE,avian flu,fågelinfluensa
+19,en,sv-SE,Black Plague,digerdöden
+20,en,sv-SE,blood pressure,blodtryck
+21,en,sv-SE,body fluid,kroppsvätska
+22,en,sv-SE,breathing,andning
+23,en,sv-SE,bubonic plague,böldpest
+24,en,sv-SE,c19,c19
+25,en,sv-SE,cv19,cv19
+26,en,sv-SE,case fatality rate,dödlighet
+27,en,sv-SE,causative agent,smittämne
+28,en,sv-SE,CDC,smittskyddsmyndighet
+29,en,sv-SE,chemical disinfection,kemisk desinficering
+30,en,sv-SE,chest x-ray,lungröntgen
+31,en,sv-SE,clinical diagnosis,klinisk diagnos
+32,en,sv-SE,clinical trial,klinisk prövning
+33,en,sv-SE,close contact,närkontakt
+34,en,sv-SE,cvirus,cvirus
+35,en,sv-SE,chronic respiratory disease,kronisk luftvägssjukdom
+36,en,sv-SE,common cold,vanlig förkylning
+37,en,sv-SE,common flu,vanlig influensa
+38,en,sv-SE,communicable disease,smittsam sjukdom
+39,en,sv-SE,community spread,samhällsspridning
+40,en,sv-SE,community transmission,samhällsspridning
+41,en,sv-SE,compromised immune system,nedsatt immunförsvar
+42,en,sv-SE,contagion,smitta
+43,en,sv-SE,contagious,smittsam
+44,en,sv-SE,contagiousness,smittsamhet
+45,en,sv-SE,corona,corona
+46,en,sv-SE,corona virus,coronavirus
+47,en,sv-SE,corona virus epidemic,coronavirusepidemi
+48,en,sv-SE,corona virus outbreak,utbrott av coronavirus
+49,en,sv-SE,corona virus scare,coronaviruspanik
+50,en,sv-SE,coronavirus,coronavirus
+51,en,sv-SE,coronavirus cases,fall av coronavirus
+52,en,sv-SE,coronavirus outbreak,utbrott av coronavirus
+53,en,sv-SE,coronavirus pandemic,coronaviruspandemi
+54,en,sv-SE,coronavirus scare,coronaviruspanik
+55,en,sv-SE,cough,hosta
+56,en,sv-SE,cough etiquette,uppförande vid hosta
+57,en,sv-SE,coughing,hostande
+58,en,sv-SE,cov 19,cov-19
+59,en,sv-SE,cov19,cov19
+60,en,sv-SE,COVID,COVID
+61,en,sv-SE,COVID-19 crisis,COVID-19-krisen
+62,en,sv-SE,covid-19,covid-19
+63,en,sv-SE,covid19,covid19
+64,en,sv-SE,COVID-19 epidemic,COVID-19-epidemi
+65,en,sv-SE,COVID-19 outbreak,COVID-19-utbrott
+66,en,sv-SE,COVID-19 pandemic,COVID-19-pandemi
+67,en,sv-SE,COVID 19,COVID 19
+68,en,sv-SE,current crisis,nuvarande kris
+69,en,sv-SE,current health crisis,nuvarande hälsokris
+70,en,sv-SE,current outbreak,nuvarande utbrott
+71,en,sv-SE,current pandemic,nuvarande pandemi
+72,en,sv-SE,CV,CV
+73,en,sv-SE,CV-19,CV-19
+74,en,sv-SE,deadly,dödlig
+75,en,sv-SE,deadly virus,dödligt virus
+76,en,sv-SE,death rate,dödstal
+77,en,sv-SE,death toll,dödssiffra
+78,en,sv-SE,decontaminate,sanera
+79,en,sv-SE,detectable,möjlig att upptäcka
+80,en,sv-SE,detergent,rengöringsmedel
+81,en,sv-SE,difficulty breathing,andningssvårigheter
+82,en,sv-SE,diabetes,diabetes
+83,en,sv-SE,diagnosable disease,diagnosticerbar sjukdom
+84,en,sv-SE,diagnostic protocol,diagnosprotokoll
+85,en,sv-SE,diagnostic testing,diagnostestning
+86,en,sv-SE,disease itself,sjukdomen i sig
+87,en,sv-SE,disease outbreak,sjukdomsutbrott
+88,en,sv-SE,disinfectant,desinficering
+89,en,sv-SE,disposable,engångs-
+90,en,sv-SE,droplet transmission,droppsmitta
+91,en,sv-SE,droplets,droppar
+92,en,sv-SE,dry cough,torrhosta
+93,en,sv-SE,dry surface contamination,kontaminering av torr yta
+94,en,sv-SE,ebola,ebola
+95,en,sv-SE,effective treatment,effektiv behandling
+96,en,sv-SE,electron microscope,elektronmikroskop
+97,en,sv-SE,emergency department,akutmottagning
+98,en,sv-SE,epidemic,epidemi
+99,en,sv-SE,epidemic curve,epidemikurva
+100,en,sv-SE,epidemic peak,kulmen av epidemin
+101,en,sv-SE,epidemiologist,epidemiolog
+102,en,sv-SE,exposure,exponering
+103,en,sv-SE,extreme caution,extrem försiktighet
+104,en,sv-SE,eye protection,ögonskydd
+105,en,sv-SE,face mask,ansiktsmask
+106,en,sv-SE,face masks,ansiktsmasker
+107,en,sv-SE,family cluster,familjekluster
+108,en,sv-SE,fatality rate,dödlighet
+109,en,sv-SE,fecal contamination,förorenad avföring
+110,en,sv-SE,fever,feber
+111,en,sv-SE,flatten the infection curve,jämna ut infektionskurvan
+112,en,sv-SE,flu,influensa
+113,en,sv-SE,food safety,matsäkerhet
+114,en,sv-SE,formaldehyde,formaldehyd
+115,en,sv-SE,gastroenteritis,gastroenterit
+116,en,sv-SE,germicide,bakteriedödande medel
+117,en,sv-SE,global pandemic,global pandemi
+118,en,sv-SE,global warming,global uppvärmning
+119,en,sv-SE,good respiratory hygiene,god andningshygien
+120,en,sv-SE,Guangdong,Guangdong
+121,en,sv-SE,H1N1,H1N1
+122,en,sv-SE,H1N1 virus,H1N1-virus
+123,en,sv-SE,hand disinfectant,handdesinficering
+124,en,sv-SE,hand sanitizer,handsprit
+125,en,sv-SE,health care provider,vårdgivare
+126,en,sv-SE,health crisis,vårdkris
+127,en,sv-SE,health plan carrier,vårdplansbärare
+128,en,sv-SE,health services,vårdtjänster
+129,en,sv-SE,heart failure,hjärtfel
+130,en,sv-SE,high fever,hög feber
+131,en,sv-SE,HIV,HIV
+132,en,sv-SE,hospitalize,läggas in på sjukhus
+133,en,sv-SE,household bleach,blekmedel för hushåll
+134,en,sv-SE,Hubei,Hubei
+135,en,sv-SE,hydrogen peroxide,väteperoxid
+136,en,sv-SE,hygiene,hygien
+137,en,sv-SE,immune system,immunsystem
+138,en,sv-SE,immunity,immunitet
+139,en,sv-SE,immunocompromised,immunbristsjukdom
+140,en,sv-SE,immunologist,immunolog
+141,en,sv-SE,incubation,inkubation
+142,en,sv-SE,incubation period,inkubationstid
+143,en,sv-SE,indirect contact,indirekt kontakt
+144,en,sv-SE,infect,smitta
+145,en,sv-SE,infection,smitta
+146,en,sv-SE,infectious,smittsam
+147,en,sv-SE,infectivity,smittspridning
+148,en,sv-SE,influenza,influensa
+149,en,sv-SE,initial transmission event,ursprunglig överföringshändelse
+150,en,sv-SE,intensive care equipment,intensivvårdsutrustning
+151,en,sv-SE,intermediate host,mellanvärd
+152,en,sv-SE,intrauterine,intrauterin
+153,en,sv-SE,intubation,intubation
+154,en,sv-SE,isolation,isolering
+155,en,sv-SE,Isopropanol,Isopropanol
+156,en,sv-SE,laboratory test kit,labbtesturustning
+157,en,sv-SE,laboratory testing,labbtestning
+158,en,sv-SE,lack of testing,brist på testning
+159,en,sv-SE,lack of tests,brist på tester
+160,en,sv-SE,latest updates,senaste uppdateringar
+161,en,sv-SE,liver failure,leversvikt
+162,en,sv-SE,local public health authority,"lokal, offentlig hälsovårdsmyndighet"
+163,en,sv-SE,lockdown,nedstängning
+164,en,sv-SE,lungs,lungor
+165,en,sv-SE,masks,masker
+166,en,sv-SE,measles,mässling
+167,en,sv-SE,mechanical ventilation,konstgjord andning
+168,en,sv-SE,media coverage,massmedial uppmärksamhet
+169,en,sv-SE,medical care,medicinsk vård
+170,en,sv-SE,MERS,MERS
+171,en,sv-SE,MERS CoV,MERS CoV
+172,en,sv-SE,microbiologist,mikrobiolog
+173,en,sv-SE,mild cough,mild hosta
+174,en,sv-SE,mortality rate,dödstal
+175,en,sv-SE,multi-organ failure,multiorgansvikt
+176,en,sv-SE,nasal congestion,nästäppa
+177,en,sv-SE,neutral detergent,neutralt rengöringsmedel
+178,en,sv-SE,new normal,nya normala
+179,en,sv-SE,novel corona virus,nytt coronavirus
+180,en,sv-SE,novel coronavirus,nytt coronavirus
+181,en,sv-SE,novel coronavirus outbreak,nytt coronavirusutbrott
+182,en,sv-SE,novel virus,nytt virus
+183,en,sv-SE,online medical consultation,medicinsk konsultation online
+184,en,sv-SE,onset,början
+185,en,sv-SE,outbreak,utbrott
+186,en,sv-SE,outbreak readiness,beredskap för utbrott
+187,en,sv-SE,overall case fatality,total dödsfallsfrekvens
+188,en,sv-SE,pandemic,pandemi
+189,en,sv-SE,pangolin,myrkott
+190,en,sv-SE,pathogen,patogen
+191,en,sv-SE,pathology,patologi
+192,en,sv-SE,patient care equipment,patientvårdsutrustning
+193,en,sv-SE,personal protective equipment,personlig skyddsutrustning
+194,en,sv-SE,person-to-person transmission,överföring från människa till människa
+195,en,sv-SE,phlegm,slem
+196,en,sv-SE,physical contact,fysisk kontakt
+197,en,sv-SE,plague,pest
+198,en,sv-SE,pneumonia,lunginflammation
+199,en,sv-SE,pneumonias,lunginflammationer
+200,en,sv-SE,positive test,positiv test
+201,en,sv-SE,precaution,skyddsåtgärd
+202,en,sv-SE,precautionary,skyddande
+203,en,sv-SE,pre-existing condition,underliggande sjukdom
+204,en,sv-SE,preparedness,beredskap
+205,en,sv-SE,prognosis,prognos
+206,en,sv-SE,protect myself,skydda mig själv
+207,en,sv-SE,protect others,skydda andra
+208,en,sv-SE,protect yourself,skydda dig själv
+209,en,sv-SE,protective measures,skyddsåtgärder
+210,en,sv-SE,public health crisis,allmän vårdkris
+211,en,sv-SE,pulmonary tissue damage,lunvävnadsskada
+212,en,sv-SE,quarantine,karantän
+213,en,sv-SE,rapid risk assessment,snabb riskbedömning
+214,en,sv-SE,reagent,reagens
+215,en,sv-SE,regular flu,vanlig influensa
+216,en,sv-SE,reinfection,återsmitta
+217,en,sv-SE,renal disease,njursjukdom
+218,en,sv-SE,renal failure,njursvikt
+219,en,sv-SE,respirator,respirator
+220,en,sv-SE,respiratory,andnings-
+221,en,sv-SE,respiratory disease,luftvägssjukdom
+222,en,sv-SE,respiratory distress,andningssvårigheter
+223,en,sv-SE,respiratory droplets,droppar från luftvägarna
+224,en,sv-SE,respiratory hygiene,andningshygien
+225,en,sv-SE,respiratory illness,luftvägssjukdom
+226,en,sv-SE,respiratory syndrome,luftvägssyndrom
+227,en,sv-SE,respiratory tract disease,luftvägsinfektion
+228,en,sv-SE,restrictions,restriktioner
+229,en,sv-SE,resurge,återupplivas
+230,en,sv-SE,RNA,RNA
+231,en,sv-SE,rubeola,rubeola
+232,en,sv-SE,runny nose,rinnande näsa
+233,en,sv-SE,SARS,SARS
+234,en,sv-SE,SARS-CoV-2,SARS-CoV-2
+235,en,sv-SE,SARS-CoV,SARS-CoV
+236,en,sv-SE,sars-related coronavirus,sars-relaterat coronavirus
+237,en,sv-SE,seasonal flu,årstidsinfluensa
+238,en,sv-SE,seasonal influenza,årstidsinfluensa
+239,en,sv-SE,secretion,sekret
+240,en,sv-SE,self-quarantine,självkarantän
+241,en,sv-SE,sepsis,sepsis
+242,en,sv-SE,septic shock,septisk chock
+243,en,sv-SE,Severe Acute Respiratory Syndrome,"Svår, akut luftvägssjukdom"
+244,en,sv-SE,shortness of breath,svårt att andas
+245,en,sv-SE,sickened,insjuknade
+246,en,sv-SE,sickness,sjukdom
+247,en,sv-SE,sneeze,nysa
+248,en,sv-SE,sneezes,nysningar
+249,en,sv-SE,sneezing,nysande
+250,en,sv-SE,social distancing,socialt avståndstagande
+251,en,sv-SE,sore throat,ont i halsen
+252,en,sv-SE,spanish flu,spanska sjukan
+253,en,sv-SE,specimen collection,provinsamling
+254,en,sv-SE,spread,sprida
+255,en,sv-SE,sputum,sputum
+256,en,sv-SE,stigmatisation,stigmatisering
+257,en,sv-SE,supportive,stödjande
+258,en,sv-SE,surface,yta
+259,en,sv-SE,surfaces,ytor
+260,en,sv-SE,suspected infection,misstänkt smitta
+261,en,sv-SE,swab,svabba
+262,en,sv-SE,swine flu,svininfluensa
+263,en,sv-SE,symptom,symtom
+264,en,sv-SE,symptomatic,symtomatisk
+265,en,sv-SE,symptoms,symtom
+266,en,sv-SE,targeted disinfection,anpassad desinficering
+267,en,sv-SE,test kit,testutrustning
+268,en,sv-SE,testing error,testfel
+269,en,sv-SE,tissue damage,vävnadsskada
+270,en,sv-SE,tp shortage,brist på toapapper
+271,en,sv-SE,toilet paper shortage,brist på toalettpapper
+272,en,sv-SE,touch,vidröra
+273,en,sv-SE,touching,virdör
+274,en,sv-SE,transmissibility,överförbarhet
+275,en,sv-SE,transmissible,överförbar
+276,en,sv-SE,transmission,överföring
+277,en,sv-SE,transmission potential,överföringspotential
+278,en,sv-SE,typical flu,typisk influensa
+279,en,sv-SE,underlying disease,underliggande sjukdom
+280,en,sv-SE,updates,uppdateringar
+281,en,sv-SE,vaccine,vaccin
+282,en,sv-SE,vaccines,vacciner
+283,en,sv-SE,ventilation,andningshjälp
+284,en,sv-SE,ventilator,respirator
+285,en,sv-SE,ventilators,respiratorer
+286,en,sv-SE,viral infection,virusinfektion
+287,en,sv-SE,viral outbreak,virusutbrott
+288,en,sv-SE,viral pandemic,viruspandemi
+289,en,sv-SE,viral pneumonia,lunginflammation orsakad av virus
+290,en,sv-SE,virtual care,virtuell vård
+291,en,sv-SE,virulence,virulens
+292,en,sv-SE,virus itself,viruset själv
+293,en,sv-SE,virus outbreak,virusutbrott
+294,en,sv-SE,virus scare,rädsla för virus
+295,en,sv-SE,virus spreads,virus sprids
+296,en,sv-SE,virus strain,virussort
+297,en,sv-SE,viral transmission,virusspridning
+298,en,sv-SE,vivid-19,vivid-19
+299,en,sv-SE,washing hands,tvätta händerna
+300,en,sv-SE,washing ones hands,tvätta händerna
+301,en,sv-SE,wash your hands,tvätta händerna
+302,en,sv-SE,white blood cell count,antal vita blodkroppar
+303,en,sv-SE,widespread transmission,stor spridning
+304,en,sv-SE,working from home,arbetar hemifrån
+305,en,sv-SE,WFH,arbeta hemifrån
+306,en,sv-SE,Wuhan,Wuhan

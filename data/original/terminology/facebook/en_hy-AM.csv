@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,hy-AM,1918 flu,1918թ․ գրիպ
+2,en,hy-AM,acute bronchitis,սուր բրոնխիտ
+3,en,hy-AM,acute respiratory disease,սուր շնչառական հիվանդություն
+4,en,hy-AM,AIDS,ՁԻԱՀ
+5,en,hy-AM,airborne droplets,օդակաթիլային
+6,en,hy-AM,airway,շնչառական ուղիներ
+7,en,hy-AM,alcohol-based,ալկոհոլային հիմքով
+8,en,hy-AM,alcohol-based hand rub,ալկոհոլային հիմքով ձեռքի քսուկ
+9,en,hy-AM,alcohol-based hand sanitizer,ալկոհոլային հիմքով ախտահանիչ
+10,en,hy-AM,alveolar disease,ալվեոլային հիվանդություն
+11,en,hy-AM,an epidemic,համաճարակ
+12,en,hy-AM,annual flu,սեզոնային գրիպ
+13,en,hy-AM,anti-inflammatory drug,հակաբորբոքային դեղամիջոց
+14,en,hy-AM,antiviral drug,հակավիրուսային դեղամիջոց
+15,en,hy-AM,antiviral treatment,հակավիրուսային բուժում
+16,en,hy-AM,assay,փորձ
+17,en,hy-AM,asymptomatic,ասիմպտոմ
+18,en,hy-AM,avian flu,թռչնագրիպ
+19,en,hy-AM,Black Plague,Սև Մահ
+20,en,hy-AM,blood pressure,արյան ճնշում
+21,en,hy-AM,body fluid,կենսաբանական հեղուկ
+22,en,hy-AM,breathing,շնչառություն
+23,en,hy-AM,bubonic plague,բուբոնային ժանտախտ
+24,en,hy-AM,c19,c19
+25,en,hy-AM,cv19,cv19
+26,en,hy-AM,case fatality rate,մահացության ցուցանիշ
+27,en,hy-AM,causative agent,հարուցիչ
+28,en,hy-AM,CDC,Հիվանդությունների վերահսկման և կանխարգելման կենտրոն (ՀՎԿԿ)
+29,en,hy-AM,chemical disinfection,քիմիական ախտահանում
+30,en,hy-AM,chest x-ray,կրծքավանդակի ռենտգեն
+31,en,hy-AM,clinical diagnosis,կլինիկական ախտորոշում
+32,en,hy-AM,clinical trial,կլինիկական փորձարկում
+33,en,hy-AM,close contact,սերտ շփում
+34,en,hy-AM,cvirus,C-վարակ
+35,en,hy-AM,chronic respiratory disease,խրոնիկ ռեսպիրատորային հիվանդություն
+36,en,hy-AM,common cold,մրսածություն
+37,en,hy-AM,common flu,հասարակ գրիպ
+38,en,hy-AM,communicable disease,ինֆեկցիոն հիվանդություն
+39,en,hy-AM,community spread,համայնքային տարածում
+40,en,hy-AM,community transmission,համայնքային փոխանցում
+41,en,hy-AM,compromised immune system,թուլացած իմունային համակարգ
+42,en,hy-AM,contagion,վարակ
+43,en,hy-AM,contagious,վարակիչ
+44,en,hy-AM,contagiousness,վարակիչություն
+45,en,hy-AM,corona,կորոնա
+46,en,hy-AM,corona virus,կորոնա վիրուս
+47,en,hy-AM,corona virus epidemic,կորոնավիրուսի համաճարակ
+48,en,hy-AM,corona virus outbreak,կորոնավիրուսի բռնկում
+49,en,hy-AM,corona virus scare,կորոնավիրուսային տագնապ
+50,en,hy-AM,coronavirus,կորոնավիրուս
+51,en,hy-AM,coronavirus cases,կորոնավիրուսի դեպքեր
+52,en,hy-AM,coronavirus outbreak,կորոնավիրուսի բռնկում
+53,en,hy-AM,coronavirus pandemic,կորոնավիրուսի պանդեմիա
+54,en,hy-AM,coronavirus scare,կորոնավիրուսային տագնապ
+55,en,hy-AM,cough,հազ
+56,en,hy-AM,cough etiquette,հազալու վերվելակարգ
+57,en,hy-AM,coughing,հազալ
+58,en,hy-AM,cov 19,cov 19
+59,en,hy-AM,cov19,cov19
+60,en,hy-AM,COVID,COVID
+61,en,hy-AM,COVID-19 crisis,COVID-19-ի ճգնաժամ
+62,en,hy-AM,covid-19,covid-19
+63,en,hy-AM,covid19,covid19
+64,en,hy-AM,COVID-19 epidemic,COVID-19-ի համաճարակ
+65,en,hy-AM,COVID-19 outbreak,COVID-19-ի բռնկում
+66,en,hy-AM,COVID-19 pandemic,COVID-19-ի պանդեմիա
+67,en,hy-AM,COVID 19,COVID 19
+68,en,hy-AM,current crisis,ներկա ճգնաժամ
+69,en,hy-AM,current health crisis,ներկա առողջական ճգնաժամ
+70,en,hy-AM,current outbreak,ներկա բռնկում
+71,en,hy-AM,current pandemic,ներկա պանդեմիա
+72,en,hy-AM,CV,CV
+73,en,hy-AM,CV-19,CV-19
+74,en,hy-AM,deadly,մահացու
+75,en,hy-AM,deadly virus,մահացու վիրուս
+76,en,hy-AM,death rate,մահացություն
+77,en,hy-AM,death toll,զոհերի քանակ
+78,en,hy-AM,decontaminate,ախտահանել
+79,en,hy-AM,detectable,հայտնաբերելի
+80,en,hy-AM,detergent,մաքրող միջոց
+81,en,hy-AM,difficulty breathing,դժվար շնչառություն
+82,en,hy-AM,diabetes,շաքարային դիաբետ
+83,en,hy-AM,diagnosable disease,ախտորոշվող հիվանդություն
+84,en,hy-AM,diagnostic protocol,ախտորոշման արձանագրություն
+85,en,hy-AM,diagnostic testing,ախտորոշիչ թեստավորում
+86,en,hy-AM,disease itself,հիվանդությունն ինքնին
+87,en,hy-AM,disease outbreak,հիվանդության բռնկում
+88,en,hy-AM,disinfectant,ախտահանող միջոց
+89,en,hy-AM,disposable,մեկանգամյա
+90,en,hy-AM,droplet transmission,կաթիլային ճանապարհով փոխանցում
+91,en,hy-AM,droplets,կաթիլներ
+92,en,hy-AM,dry cough,չոր հազ
+93,en,hy-AM,dry surface contamination,չոր մակերեսի ախտոտվածություն
+94,en,hy-AM,ebola,էբոլա
+95,en,hy-AM,effective treatment,արդյունավետ բուժում
+96,en,hy-AM,electron microscope,էլեկտրոնային մանրադիտակ
+97,en,hy-AM,emergency department,շտապ օգնության բաժանմունք
+98,en,hy-AM,epidemic,համաճարակ
+99,en,hy-AM,epidemic curve,համաճարակի կոր
+100,en,hy-AM,epidemic peak,համաճարակի գագաթնակետ
+101,en,hy-AM,epidemiologist,համաճարակաբան
+102,en,hy-AM,exposure,ազդեցություն
+103,en,hy-AM,extreme caution,ծայրահեղ զգուշության
+104,en,hy-AM,eye protection,աչքերի պաշտպանություն
+105,en,hy-AM,face mask,դիմակ
+106,en,hy-AM,face masks,դիմակներ
+107,en,hy-AM,family cluster,ընտանեկան խումբ
+108,en,hy-AM,fatality rate,մահացության ցուցանիշ
+109,en,hy-AM,fecal contamination,ֆեկալ աղտոտում
+110,en,hy-AM,fever,տենդ
+111,en,hy-AM,flatten the infection curve,հարթեցնել վարակի կորը
+112,en,hy-AM,flu,գրիպ
+113,en,hy-AM,food safety,սննդային անվտանգություն
+114,en,hy-AM,formaldehyde,ֆորմալդեհիդ
+115,en,hy-AM,gastroenteritis,գաստրոէնտերիտ
+116,en,hy-AM,germicide,մանրէազերծում
+117,en,hy-AM,global pandemic,գլոբալ պանդեմիա
+118,en,hy-AM,global warming,գլոբալ տաքացում
+119,en,hy-AM,good respiratory hygiene,պատշաճ շնչառական հիգիենա
+120,en,hy-AM,Guangdong,Գուանդուն
+121,en,hy-AM,H1N1,H1N1
+122,en,hy-AM,H1N1 virus,H1N1 վարակ
+123,en,hy-AM,hand disinfectant,ձեռքի ախտահանիչ
+124,en,hy-AM,hand sanitizer,ձեռքի ախտահանիչ
+125,en,hy-AM,health care provider,բուժաշխատող
+126,en,hy-AM,health crisis,առողջապահական ճգնաժամ
+127,en,hy-AM,health plan carrier,առողջապահական պլանի կատարող
+128,en,hy-AM,health services,առողջապահական ծառայություններ
+129,en,hy-AM,heart failure,սրտային անբավարարություն
+130,en,hy-AM,high fever,բարձր ջերմություն
+131,en,hy-AM,HIV,ՄԻԱՎ
+132,en,hy-AM,hospitalize,հոսպիտալացնել
+133,en,hy-AM,household bleach,կենցաղային ժավել
+134,en,hy-AM,Hubei,Հուբեի
+135,en,hy-AM,hydrogen peroxide,ջրածնի պերօքսիդ
+136,en,hy-AM,hygiene,հիգիենա
+137,en,hy-AM,immune system,իմմունային համակարգ
+138,en,hy-AM,immunity,անվարակելիություն
+139,en,hy-AM,immunocompromised,իմունազերծված
+140,en,hy-AM,immunologist,իմունոլոգ
+141,en,hy-AM,incubation,ինկուբացիա
+142,en,hy-AM,incubation period,ինկուբացիոն շրջան
+143,en,hy-AM,indirect contact,անուղղակի շփում
+144,en,hy-AM,infect,վարակել
+145,en,hy-AM,infection,վարակ
+146,en,hy-AM,infectious,վարակիչ
+147,en,hy-AM,infectivity,վարակելիություն
+148,en,hy-AM,influenza,գրիպ
+149,en,hy-AM,initial transmission event,սկզբնական փոխանցման դեպք
+150,en,hy-AM,intensive care equipment,ինտենսիվ թերապիայի սարքավորումներ
+151,en,hy-AM,intermediate host,վարակակիր
+152,en,hy-AM,intrauterine,ներարգանդային
+153,en,hy-AM,intubation,ինտուբացիա
+154,en,hy-AM,isolation,մեկուսացում
+155,en,hy-AM,Isopropanol,Իզոպրոպանոլ
+156,en,hy-AM,laboratory test kit,լաբորատոր փորձարկման կոմպլեկտ
+157,en,hy-AM,laboratory testing,լաբորատոր փորձարկում
+158,en,hy-AM,lack of testing,փորձարկումների պակաս
+159,en,hy-AM,lack of tests,թեստերի պակաս
+160,en,hy-AM,latest updates,վերջին թարմացումները
+161,en,hy-AM,liver failure,լյարդային անբարարություն
+162,en,hy-AM,local public health authority,տեղական առողջապահական մարմիններ
+163,en,hy-AM,lockdown,արգելափակում
+164,en,hy-AM,lungs,թոքեր
+165,en,hy-AM,masks,դիմակներ
+166,en,hy-AM,measles,կարմրուկ
+167,en,hy-AM,mechanical ventilation,մեխանիկական վ
+168,en,hy-AM,media coverage,լրատվամիջոցների լուսաբանում
+169,en,hy-AM,medical care,բժշկական օգնություն
+170,en,hy-AM,MERS,MERS
+171,en,hy-AM,MERS CoV,MERS CoV
+172,en,hy-AM,microbiologist,մանրէաբան
+173,en,hy-AM,mild cough,մեղմ հազ
+174,en,hy-AM,mortality rate,մահացության ցուցանիշ
+175,en,hy-AM,multi-organ failure,բազմաօրգանային անբավարարություն
+176,en,hy-AM,nasal congestion,քթի փակ լինել
+177,en,hy-AM,neutral detergent,չեզոք մաքրող միջոց
+178,en,hy-AM,new normal,նոր նորմ
+179,en,hy-AM,novel corona virus,նոր տիպի կորոնա վիրուս
+180,en,hy-AM,novel coronavirus,նոր տիպի կորոնավիրուս
+181,en,hy-AM,novel coronavirus outbreak,նոր տիպի կորոնավիրուսի բռնկում
+182,en,hy-AM,novel virus,նոր տիպի վարակ
+183,en,hy-AM,online medical consultation,առցանց բժշկական խորհրդատվություն
+184,en,hy-AM,onset,սկիզբ
+185,en,hy-AM,outbreak,բռնկում
+186,en,hy-AM,outbreak readiness,պատրաստվածություն բռնկմանը
+187,en,hy-AM,overall case fatality,ընդհանուր մահացություն
+188,en,hy-AM,pandemic,պանդեմիա
+189,en,hy-AM,pangolin,պանգոլին
+190,en,hy-AM,pathogen,պաթոգեն
+191,en,hy-AM,pathology,պաթոլոգիա
+192,en,hy-AM,patient care equipment,հիվանդների խնամքի միջոցներ
+193,en,hy-AM,personal protective equipment,անձնական պաշտպանվածության միջոցներ
+194,en,hy-AM,person-to-person transmission,միջանձնային փոխանցում
+195,en,hy-AM,phlegm,լորձ
+196,en,hy-AM,physical contact,ֆիզիկական շփում
+197,en,hy-AM,plague,ժանտախտ
+198,en,hy-AM,pneumonia,թոքաբորբ
+199,en,hy-AM,pneumonias,թոքաբորբեր
+200,en,hy-AM,positive test,դրական թեստ
+201,en,hy-AM,precaution,նախազգուշացում
+202,en,hy-AM,precautionary,նախազգուշական
+203,en,hy-AM,pre-existing condition,նախապես գոյություն ունեցող պայման
+204,en,hy-AM,preparedness,պատրաստվածություն
+205,en,hy-AM,prognosis,կանխատեսում
+206,en,hy-AM,protect myself,պաշտպանում եմ ինքս ինձ
+207,en,hy-AM,protect others,պաշտպանում եմ մյուսներին
+208,en,hy-AM,protect yourself,պաշտպանիր ինքդ քեզ
+209,en,hy-AM,protective measures,պաշտպանական միջոցներ
+210,en,hy-AM,public health crisis,հանրային առողջության ճգնաժամ
+211,en,hy-AM,pulmonary tissue damage,թոքային հյուսվածքի վնասում
+212,en,hy-AM,quarantine,կարանտին
+213,en,hy-AM,rapid risk assessment,ռիսկի արագ գնահատում
+214,en,hy-AM,reagent,ռեակտիվ
+215,en,hy-AM,regular flu,սովորական գրիպ
+216,en,hy-AM,reinfection,կրկնակի վարակում
+217,en,hy-AM,renal disease,երիկամային հիվանդություն
+218,en,hy-AM,renal failure,երիկամային անբավարարություն
+219,en,hy-AM,respirator,ռեսպիրատոր
+220,en,hy-AM,respiratory,շնչառական
+221,en,hy-AM,respiratory disease,շնչառական հիվանդություն
+222,en,hy-AM,respiratory distress,շնչառական խնդիր
+223,en,hy-AM,respiratory droplets,շնչառական կաթիլներ
+224,en,hy-AM,respiratory hygiene,շնչառական հիգիենա
+225,en,hy-AM,respiratory illness,շնչառական հիվանդություն
+226,en,hy-AM,respiratory syndrome,շնչառական սւնդրոմ
+227,en,hy-AM,respiratory tract disease,շնչառական համակարգի հիվանդություն
+228,en,hy-AM,restrictions,սահամափակումներ
+229,en,hy-AM,resurge,կրկնվել
+230,en,hy-AM,RNA,ՌՆԹ
+231,en,hy-AM,rubeola,ռուբոլա
+232,en,hy-AM,runny nose,վազող քիթ
+233,en,hy-AM,SARS,SARS
+234,en,hy-AM,SARS-CoV-2,SARS-CoV-2
+235,en,hy-AM,SARS-CoV,SARS-CoV
+236,en,hy-AM,sars-related coronavirus,SARS-վերաբերելի կորոնավիրուս
+237,en,hy-AM,seasonal flu,սեզոնային գրիպ
+238,en,hy-AM,seasonal influenza,սեզոնային գրիպ
+239,en,hy-AM,secretion,արտադրություն
+240,en,hy-AM,self-quarantine,ինքնամեկուսացում
+241,en,hy-AM,sepsis,սեպսիս
+242,en,hy-AM,septic shock,սեպտիկ շոկ
+243,en,hy-AM,Severe Acute Respiratory Syndrome,սուր շնչառական համախտանիշ
+244,en,hy-AM,shortness of breath,շնչառության դժվարություն
+245,en,hy-AM,sickened,հիվանդացած
+246,en,hy-AM,sickness,հիվանդություն
+247,en,hy-AM,sneeze,փռշտոց
+248,en,hy-AM,sneezes,փռշտոցներ
+249,en,hy-AM,sneezing,փռշտալ
+250,en,hy-AM,social distancing,սոցիալական հեռավորություն
+251,en,hy-AM,sore throat,հիվանդ կոկորդ
+252,en,hy-AM,spanish flu,Իսպանական գրիպ
+253,en,hy-AM,specimen collection,նմուշների հավաքագրում
+254,en,hy-AM,spread,տարածում
+255,en,hy-AM,sputum,ջղաձգություն
+256,en,hy-AM,stigmatisation,ստիգմատիզացիա
+257,en,hy-AM,supportive,պատրաստակամ
+258,en,hy-AM,surface,մակերես
+259,en,hy-AM,surfaces,մակերեսներ
+260,en,hy-AM,suspected infection,կասկածվող վարակ
+261,en,hy-AM,swab,քսուկ
+262,en,hy-AM,swine flu,խոզի գրիպ
+263,en,hy-AM,symptom,համախտանիշ
+264,en,hy-AM,symptomatic,սիմպտոմատիկ
+265,en,hy-AM,symptoms,համախտանիշներ
+266,en,hy-AM,targeted disinfection,նպատակային ախտահանում
+267,en,hy-AM,test kit,թեստի կոմպլեկտ
+268,en,hy-AM,testing error,փորձարկման սխալ
+269,en,hy-AM,tissue damage,հյուսվածքների վնասվածք
+270,en,hy-AM,tp shortage,զուգ թղթի պակաս
+271,en,hy-AM,toilet paper shortage,զուգարանի թղթի պակաս
+272,en,hy-AM,touch,հպում
+273,en,hy-AM,touching,հպվել
+274,en,hy-AM,transmissibility,փոխանցելիություն
+275,en,hy-AM,transmissible,փոխանցելի
+276,en,hy-AM,transmission,փոխանցում
+277,en,hy-AM,transmission potential,փոխանցման հավանականություն
+278,en,hy-AM,typical flu,տիպիկ գրիպ
+279,en,hy-AM,underlying disease,հիմքում ընկած հիվանդություն
+280,en,hy-AM,updates,թարմացումներ
+281,en,hy-AM,vaccine,պատվաստանյութ
+282,en,hy-AM,vaccines,պատվաստանյութեր
+283,en,hy-AM,ventilation,օդափոխություն
+284,en,hy-AM,ventilator,օդափոխիչ
+285,en,hy-AM,ventilators,օդափոխիչներ
+286,en,hy-AM,viral infection,վիրուսային վարակ
+287,en,hy-AM,viral outbreak,վիրուսային բռնկում
+288,en,hy-AM,viral pandemic,վիրուսային պանդեմիա
+289,en,hy-AM,viral pneumonia,վիրուսային թոքաբորբ
+290,en,hy-AM,virtual care,վիրտուալ խնամք
+291,en,hy-AM,virulence,վիրուլենտություն
+292,en,hy-AM,virus itself,վարակն ինքնին
+293,en,hy-AM,virus outbreak,վարակի բռնկում
+294,en,hy-AM,virus scare,վարակի վախ
+295,en,hy-AM,virus spreads,վարակիը տարածում
+296,en,hy-AM,virus strain,վարակի շտամ
+297,en,hy-AM,viral transmission,վարակային փոխանցում
+298,en,hy-AM,vivid-19,vivid-19
+299,en,hy-AM,washing hands,ձեռքերի լվացում
+300,en,hy-AM,washing ones hands,սեփական ձեռքերի լվացում
+301,en,hy-AM,wash your hands,լվացեք ձեր ձեռքերը
+302,en,hy-AM,white blood cell count,լեյկոցիտների քանակ
+303,en,hy-AM,widespread transmission,լայնածավալ տարածում
+304,en,hy-AM,working from home,աշխատանք տնից
+305,en,hy-AM,WFH,ԱՏ
+306,en,hy-AM,Wuhan,Ուհան

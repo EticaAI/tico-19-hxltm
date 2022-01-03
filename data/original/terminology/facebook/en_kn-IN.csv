@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,kn-IN,1918 flu,1918 ಪ್ಲೂ
+2,en,kn-IN,acute bronchitis,ತೀವ್ರವಾದ ಬ್ರಾಂಕೈಟಿಸ್
+3,en,kn-IN,acute respiratory disease,ತೀವ್ರ ಉಸಿರಾಟದ ಕಾಯಿಲೆ
+4,en,kn-IN,AIDS,ಏಡ್ಸ್
+5,en,kn-IN,airborne droplets,ಏರ್‌ಬೊನ್ ಹನಿಗಳು
+6,en,kn-IN,airway,ವಾಯುಮಾರ್ಗ
+7,en,kn-IN,alcohol-based,ಆಲ್ಕೋಹಾಲ್-ಆಧಾರಿತ
+8,en,kn-IN,alcohol-based hand rub,ಆಲ್ಕೋಹಾಲ್-ಆಧಾರಿತ ಹ್ಯಾಂಡ್ ರಬ್
+9,en,kn-IN,alcohol-based hand sanitizer,ಆಲ್ಕೋಹಾಲ್ ಆಧಾರಿತ ಹ್ಯಾಂಡ್ ಸ್ಯಾನಿಟೈಜರ್
+10,en,kn-IN,alveolar disease,ಅಲ್ವಿಯೋಲಾರ್ ಕಾಯಿಲೆ
+11,en,kn-IN,an epidemic,ಒಂದು ಸಾಂಕ್ರಾಮಿಕ
+12,en,kn-IN,annual flu,ವಾರ್ಷಿಕ ಜ್ವರ
+13,en,kn-IN,anti-inflammatory drug,ಉರಿಯೂತದ ಔಷಧ
+14,en,kn-IN,antiviral drug,ಆಂಟಿವೈರಲ್ ಔಷಧ
+15,en,kn-IN,antiviral treatment,ಆಂಟಿವೈರಲ್ ಚಿಕಿತ್ಸೆ
+16,en,kn-IN,assay,ಆಸ್ಸೆ
+17,en,kn-IN,asymptomatic,ಲಕ್ಷಣರಹಿತ
+18,en,kn-IN,avian flu,ಏವಿಯನ್ ಪ್ಲೂ
+19,en,kn-IN,Black Plague,ಬ್ಲಾಕ್ ಪ್ಲೇಗ್
+20,en,kn-IN,blood pressure,ರಕ್ತದೊತ್ತಡ
+21,en,kn-IN,body fluid,ದೇಹದ ದ್ರವ
+22,en,kn-IN,breathing,ಉಸಿರಾಡುವಿಕೆ
+23,en,kn-IN,bubonic plague,ಬುಬೊನಿಕ್ ಪ್ಲೇಗ್
+24,en,kn-IN,c19,c19
+25,en,kn-IN,cv19,cv19
+26,en,kn-IN,case fatality rate,ಪ್ರಕರಣದ ಮರಣದ ಪ್ರಮಾಣ
+27,en,kn-IN,causative agent,ಕಾಸಿಟಿವ್ ಏಜೆಂಟ್
+28,en,kn-IN,CDC,CDC
+29,en,kn-IN,chemical disinfection,ರಾಸಾಯನಿಕ ಸೋಂಕುಗಳೆತ
+30,en,kn-IN,chest x-ray,ಎದೆಯ ಎಕ್ಸ್-ರೇ
+31,en,kn-IN,clinical diagnosis,ವೈದ್ಯಕೀಯ ಪರೀಕ್ಷಿಸುವಿಕೆ
+32,en,kn-IN,clinical trial,ವೈದ್ಯಕೀಯ ಪ್ರಯೋಗ
+33,en,kn-IN,close contact,ನಿಕಟ ಸಂಪರ್ಕ
+34,en,kn-IN,cvirus,ಸಿವೈರಸ್
+35,en,kn-IN,chronic respiratory disease,ದೀರ್ಘಕಾಲದ ಉಸಿರಾಟದ ಕಾಯಿಲೆ
+36,en,kn-IN,common cold,ಸಾಮಾನ್ಯ ನೆಗಡಿ
+37,en,kn-IN,common flu,ಸಾಮಾನ್ಯ ಪ್ಲೂ
+38,en,kn-IN,communicable disease,ಸಾಂಕ್ರಾಮಿಕ ರೋಗ
+39,en,kn-IN,community spread,ಸಮುದಾಯ ಹರಡುವಿಕೆ
+40,en,kn-IN,community transmission,ಸಮುದಾಯ ಪ್ರಸರಣ
+41,en,kn-IN,compromised immune system,ರಾಜಿ ಮಾಡಿರುವ ಪ್ರತಿರಕ್ಷಣಾ ವ್ಯವಸ್ಥೆ
+42,en,kn-IN,contagion,ಅಂಟುರೋಗ
+43,en,kn-IN,contagious,ಅಂಟು ರೋಗಗಳು
+44,en,kn-IN,contagiousness,ಅಂಟುರೋಗಗಳು
+45,en,kn-IN,corona,ಕೊರೊನಾ
+46,en,kn-IN,corona virus,ಕೊರೊನಾ ವೈರಸ್
+47,en,kn-IN,corona virus epidemic,ಕರೋನಾ ವೈರಸ್ ಸಾಂಕ್ರಾಮಿಕ
+48,en,kn-IN,corona virus outbreak,ಕರೋನಾ ವೈರಸ್ ಸ್ಫೋಟೋ
+49,en,kn-IN,corona virus scare,ಕರೋನಾ ವೈರಸ್ ಸ್ಫೋಟ
+50,en,kn-IN,coronavirus,ಕೊರೊನಾವೈರಸ್
+51,en,kn-IN,coronavirus cases,ಕರೋನಾವೈರಸ್ ಪ್ರಕರಣಗಳು
+52,en,kn-IN,coronavirus outbreak,ಕೊರೊನಾವೈರಸ್ ಸ್ಫೋಟ
+53,en,kn-IN,coronavirus pandemic,ಕರೋನಾವೈರಸ್ ಪಿಡುಗು
+54,en,kn-IN,coronavirus scare,ಕರೋನಾವೈರಸ್ ಭೀತಿ
+55,en,kn-IN,cough,ಕೆಮ್ಮು
+56,en,kn-IN,cough etiquette,ಕೆಮ್ಮಿನ ಶಿಷ್ಟತೆ
+57,en,kn-IN,coughing,ಕೆಮ್ಮುವಿಕೆ
+58,en,kn-IN,cov 19,ಕೋವ್ 19
+59,en,kn-IN,cov19,ಕೋವ್19
+60,en,kn-IN,COVID,ಕೋವಿಡ್
+61,en,kn-IN,COVID-19 crisis,ಕೋವಿಡ್-19 ಬಿಕ್ಕಟ್ಟು
+62,en,kn-IN,covid-19,ಕೋವಿಡ್-19
+63,en,kn-IN,covid19,ಕೋವಿಡ್19
+64,en,kn-IN,COVID-19 epidemic,ಕೋವಿಡ್-19 ಸಾಂಕ್ರಾಮಿಕ
+65,en,kn-IN,COVID-19 outbreak,ಕೋವಿಡ್-19 ಸ್ಫೋಟ
+66,en,kn-IN,COVID-19 pandemic,ಕೋವಿಡ್-19 ಪಿಡುಗು
+67,en,kn-IN,COVID 19,ಕೋವಿಡ್ 19
+68,en,kn-IN,current crisis,ಪ್ರಸ್ತುತ ಬಿಕ್ಕಟ್ಟು
+69,en,kn-IN,current health crisis,ಪ್ರಸ್ತುತ ಆರೋಗ್ಯ ಬಿಕ್ಕಟ್ಟು
+70,en,kn-IN,current outbreak,ಪ್ರಸ್ತುತ ಸ್ಫೋಟ
+71,en,kn-IN,current pandemic,ಪ್ರಸ್ತುತ ಪಿಡುಗು
+72,en,kn-IN,CV,CV
+73,en,kn-IN,CV-19,CV-19
+74,en,kn-IN,deadly,ಮಾರಕ
+75,en,kn-IN,deadly virus,ಮಾರಕ ವೈರಸ್
+76,en,kn-IN,death rate,ಮರಣ ಪ್ರಮಾಣ
+77,en,kn-IN,death toll,ಸಾವಿನ ಸಂಖ್ಯೆ
+78,en,kn-IN,decontaminate,ಶುಚಿಗೊಳಿಸು
+79,en,kn-IN,detectable,ಪತ್ತೆಹಚ್ಚಬಹುದಾದ
+80,en,kn-IN,detergent,ಡಿಟರ್ಜೆಂಟ್
+81,en,kn-IN,difficulty breathing,ಉಸಿರಾಟದ ತೊಂದರೆ
+82,en,kn-IN,diabetes,ಮಧುಮೇಹ
+83,en,kn-IN,diagnosable disease,ರೋಗನಿರ್ಣಯ ಮಾಡಬಹುದಾದ ಕಾಯಿಲೆ
+84,en,kn-IN,diagnostic protocol,ರೋಗನಿರ್ಣಯದ ಪ್ರೋಟೋಕಾಲ್
+85,en,kn-IN,diagnostic testing,ರೋಗನಿರ್ಣಯದ ಪರೀಕ್ಷೆ
+86,en,kn-IN,disease itself,ಸ್ವತಃ ರೋಗ
+87,en,kn-IN,disease outbreak,ಕಾಯಿಲೆ ಸ್ಛೋಟ
+88,en,kn-IN,disinfectant,ಸೋಂಕುನಿವಾರಕ
+89,en,kn-IN,disposable,ವಿಲೇವಾರಿ ಮಾಡಬಹುದಾದ
+90,en,kn-IN,droplet transmission,ಹನಿ ಪ್ರಸರಣ
+91,en,kn-IN,droplets,ಹನಿಗಳು
+92,en,kn-IN,dry cough,ಒಣ ಕೆಮ್ಮು
+93,en,kn-IN,dry surface contamination,ಒಣ ಮೇಲ್ಮೈ ಮಾಲಿನ್ಯ
+94,en,kn-IN,ebola,ಎಬೋಲಾ
+95,en,kn-IN,effective treatment,ಪರಿಣಾಮಕಾರಿ ಚಿಕಿತ್ಸೆ
+96,en,kn-IN,electron microscope,ಎಲೆಕ್ಟ್ರಾನ್ ಸೂಕ್ಷ್ಮದರ್ಶಕ
+97,en,kn-IN,emergency department,ತುರ್ತುಪರಿಸ್ಥಿತಿ ವಿಭಾಗ
+98,en,kn-IN,epidemic,ಸಾಂಕ್ರಾಮಿಕ
+99,en,kn-IN,epidemic curve,ಸಾಂಕ್ರಾಮಿಕ ತಿರುವು
+100,en,kn-IN,epidemic peak,ಸಾಂಕ್ರಾಮಿಕ ಗರಿಷ್ಠತೆ
+101,en,kn-IN,epidemiologist,ಸಾಂಕ್ರಾಮಿಕ ರೋಗಶಾಸ್ತ್ರಜ್ಞ
+102,en,kn-IN,exposure,ಒಡ್ಡುವಿಕೆ
+103,en,kn-IN,extreme caution,ತೀವ್ರ ಎಚ್ಚರಿಕೆ
+104,en,kn-IN,eye protection,ಕಣ್ಣಿನ ರಕ್ಷಣೆ
+105,en,kn-IN,face mask,ಮುಖವಾಡ
+106,en,kn-IN,face masks,ಮುಖದ ಮುಖವಾಡಗಳು
+107,en,kn-IN,family cluster,ಕುಟುಂಬ ಗುಂಪು
+108,en,kn-IN,fatality rate,ಮರಣದ ದರ
+109,en,kn-IN,fecal contamination,ಮಲದ ಮಾಲಿನ್ಯ
+110,en,kn-IN,fever,ಜ್ವರ
+111,en,kn-IN,flatten the infection curve,ಸೋಂಕು ರೇಖೆಯನ್ನು ಸಮತಟ್ಟಾಗಿಸಿ
+112,en,kn-IN,flu,ಪ್ಲೂ
+113,en,kn-IN,food safety,ಆಹಾರ ಸುರಕ್ಷತೆ
+114,en,kn-IN,formaldehyde,ಫಾರ್ಮಾಲ್ಡಿಹೈಡ್
+115,en,kn-IN,gastroenteritis,ಜಠರದ ಉರಿತ
+116,en,kn-IN,germicide,ರೋಗಾಣುನಾಶ
+117,en,kn-IN,global pandemic,ಜಾಗತಿಕ ಸಾಂಕ್ರಾಮಿಕ
+118,en,kn-IN,global warming,ಜಾಗತಿಕ ತಾಪಮಾನ ಏರಿಕೆ
+119,en,kn-IN,good respiratory hygiene,ಉತ್ತಮ ಉಸಿರಾಟದ ನೈರ್ಮಲ್ಯ
+120,en,kn-IN,Guangdong,ಗುವಾಂಗ್‌ಡಾಂಗ್
+121,en,kn-IN,H1N1,ಹೆಚ್1ಎನ್1
+122,en,kn-IN,H1N1 virus,ಹೆಚ್1ಎನ್1 ವೈರಸ್
+123,en,kn-IN,hand disinfectant,ಕೈ ಸೋಂಕುನಿವಾರಕ
+124,en,kn-IN,hand sanitizer,ಹ್ಯಾಂಡ್ ಸ್ಯಾನಿಟೈಜರ್
+125,en,kn-IN,health care provider,ಆರೋಗ್ಯ ರಕ್ಷಣೆ ನೀಡುಗರು
+126,en,kn-IN,health crisis,ಆರೋಗ್ಯ ಬಿಕ್ಕಟ್ಟು
+127,en,kn-IN,health plan carrier,ಆರೋಗ್ಯ ಯೋಜನೆ ವಾಹಕ
+128,en,kn-IN,health services,ಆರೋಗ್ಯ ಸೇವೆಗಳು
+129,en,kn-IN,heart failure,ಹೃದಯಾಘಾತ
+130,en,kn-IN,high fever,ಹೆಚ್ಚಿನ ಜ್ವರ
+131,en,kn-IN,HIV,ಹೆಚ್‌ಐವಿ
+132,en,kn-IN,hospitalize,ಆಸ್ಪತ್ರೆಗೆ ದಾಖಲು
+133,en,kn-IN,household bleach,ಮನೆಯ ಬ್ಲೀಚ್
+134,en,kn-IN,Hubei,ಹುಬೈ
+135,en,kn-IN,hydrogen peroxide,ಹೈಡ್ರೋಜನ್ ಪೆರಾಕ್ಸೈಡ್
+136,en,kn-IN,hygiene,ನೈರ್ಮಲ್ಯ
+137,en,kn-IN,immune system,ಪ್ರತಿರೋಧಕ ವ್ಯವಸ್ಥೆ
+138,en,kn-IN,immunity,ಪ್ರತಿರೋಧಕತೆ
+139,en,kn-IN,immunocompromised,ಇಮ್ಯುನೊಕಾಂಪ್ರೊಮೈಸ್ಡ್
+140,en,kn-IN,immunologist,ಪ್ರತಿರಕ್ಷಾಶಾಸ್ತ್ರಜ್ಞ
+141,en,kn-IN,incubation,ಇನ್‌ಕ್ಯೂಬೇಶನ್
+142,en,kn-IN,incubation period,ಇನ್‌ಕ್ಯೂಬೇಶನ್ ಅವಧಿ
+143,en,kn-IN,indirect contact,ಪರೋಕ್ಷ ಸಂಪರ್ಕ
+144,en,kn-IN,infect,ಸೋಂಕುಗೊಳಿಸು
+145,en,kn-IN,infection,ಸೋಂಕು
+146,en,kn-IN,infectious,ಸಾಂಕ್ರಾಮಿಕಗಳು
+147,en,kn-IN,infectivity,ಸಾಂಕ್ರಾಮಿಕತೆ
+148,en,kn-IN,influenza,ಶೀತಜ್ವರ
+149,en,kn-IN,initial transmission event,ಆರಂಭಿಕ ಪ್ರಸರಣ ಈವೆಂಟ್
+150,en,kn-IN,intensive care equipment,ತೀವ್ರ ನಿಗಾ ಉಪಕರಣಗಳು
+151,en,kn-IN,intermediate host,ಮಧ್ಯಂತರ ಹೋಸ್ಟ್
+152,en,kn-IN,intrauterine,ಗರ್ಭಾಶಯ
+153,en,kn-IN,intubation,ಇನ್ಟುಬೇಷನ್
+154,en,kn-IN,isolation,ಪ್ರತ್ಯೇಕಿಸುವಿಕೆ
+155,en,kn-IN,Isopropanol,ಐಸೊಪ್ರೊಪನಾಲ್
+156,en,kn-IN,laboratory test kit,ಪ್ರಯೋಗಾಲಯ ಪರೀಕ್ಷಾ ಕಿಟ್
+157,en,kn-IN,laboratory testing,ಪ್ರಯೋಗಾಲಯ ಪರೀಕ್ಷಿಸುವಿಕೆ
+158,en,kn-IN,lack of testing,ಪರೀಕ್ಷೆಯ ಕೊರತೆ
+159,en,kn-IN,lack of tests,ಪರೀಕ್ಷೆಗಳ ಕೊರತೆ
+160,en,kn-IN,latest updates,ಇತ್ತೀಚಿನ ನವೀಕರಣಗಳು
+161,en,kn-IN,liver failure,ಯಕೃತ್ತು ವೈಫಲ್ಯ
+162,en,kn-IN,local public health authority,ಸ್ಥಳೀಯ ಸಾರ್ವಜನಿಕ ಆರೋಗ್ಯ ಪ್ರಾಧಿಕಾರ
+163,en,kn-IN,lockdown,ಮುಚ್ಚುವಿಕೆ
+164,en,kn-IN,lungs,ಶ್ವಾಸಕೋಶಗಳು
+165,en,kn-IN,masks,ಮಾಸ್ಕ್‌ಗಳು
+166,en,kn-IN,measles,ದಡಾರ
+167,en,kn-IN,mechanical ventilation,ಯಾಂತ್ರಿಕ ವಾತಾಯನ
+168,en,kn-IN,media coverage,ಮಾಧ್ಯಮ ಪ್ರಸಾರ
+169,en,kn-IN,medical care,ವೈದ್ಯಕೀಯ ಚಿಕಿತ್ಸೆ
+170,en,kn-IN,MERS,ಎಮ್‌‌ಐಆರ್‌ಎಸ್
+171,en,kn-IN,MERS CoV,ಎಮ್‌‌ಐಆರ್‌ಎಸ್ CoV
+172,en,kn-IN,microbiologist,ಸೂಕ್ಷ್ಮಜೀವಶಾಸ್ತ್ರಜ್ಞ
+173,en,kn-IN,mild cough,ಮಧ್ಯಮ ಕೆಮ್ಮು
+174,en,kn-IN,mortality rate,ಸಾವಿನ ಪ್ರಮಾಣ
+175,en,kn-IN,multi-organ failure,ಬಹು-ಅಂಗಾಂಗ ವೈಫಲ್ಯ
+176,en,kn-IN,nasal congestion,ಮೂಗು ಕಟ್ಟಿರುವುದು
+177,en,kn-IN,neutral detergent,ತಟಸ್ಥ ಮಾರ್ಜಕ
+178,en,kn-IN,new normal,ಹೊಸ ಸಾಮಾನ್ಯ
+179,en,kn-IN,novel corona virus,ನೋವೆಲ್ ಕೊರೊನಾ ವೈರಸ್
+180,en,kn-IN,novel coronavirus,ನೋವೆಲ್ ಕೊರೊನಾವೈರಸ್
+181,en,kn-IN,novel coronavirus outbreak,ನೋವೆಲ್ ಕೊರೊನಾವೈರಸ್ ಸ್ಫೋಟ
+182,en,kn-IN,novel virus,ನೋವೆಲ್ ವೈರಸ್
+183,en,kn-IN,online medical consultation,ಆನ್‌ಲೈನ್ ವೈದ್ಯಕೀಯ ಸಮಾಲೋಚನೆ
+184,en,kn-IN,onset,ಪ್ರಾರಂಭ
+185,en,kn-IN,outbreak,ಸ್ಪೋಟ
+186,en,kn-IN,outbreak readiness,ಸ್ಫೋಟ ಸಿದ್ಧತೆ
+187,en,kn-IN,overall case fatality,ಒಟ್ಟಾರೆ ಮರಣದ ಪ್ರಕರಣ
+188,en,kn-IN,pandemic,ಪಿಡುಗು
+189,en,kn-IN,pangolin,ಪ್ಯಾಂಗೊಲಿನ್
+190,en,kn-IN,pathogen,ರೋಗಕಾರಕ
+191,en,kn-IN,pathology,ರೋಗಶಾಸ್ತ್ರ
+192,en,kn-IN,patient care equipment,ರೋಗಿಗಳ ಆರೈಕೆ ಉಪಕರಣಗಳು
+193,en,kn-IN,personal protective equipment,ವೈಯಕ್ತಿಕ ರಕ್ಷಣಾ ಸಲಕರಣೆ
+194,en,kn-IN,person-to-person transmission,ವ್ಯಕ್ತಿಯಿಂದ ವ್ಯಕ್ತಿಗೆ ಹರಡುವಿಕೆ
+195,en,kn-IN,phlegm,ಕಫ
+196,en,kn-IN,physical contact,ದೈಹಿಕ ಸಂಪರ್ಕ
+197,en,kn-IN,plague,ಪ್ಲೇಗ್
+198,en,kn-IN,pneumonia,ನ್ಯುಮೋನಿಯಾ
+199,en,kn-IN,pneumonias,ನ್ಯುಮೋನಿಯಾಗಳು
+200,en,kn-IN,positive test,ಧನಾತ್ಮಕ ಪರೀಕ್ಷೆ
+201,en,kn-IN,precaution,ಮುನ್ನೆಚ್ಚರಿಕೆ
+202,en,kn-IN,precautionary,ಮುನ್ನೆಚ್ಚರಿಕೆ ಮಾಡುವಿಕೆ
+203,en,kn-IN,pre-existing condition,ಮೊದಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಸ್ಥಿತಿ
+204,en,kn-IN,preparedness,ಸನ್ನದ್ಧತೆ
+205,en,kn-IN,prognosis,ಮುನ್ನರಿವುಗಳು
+206,en,kn-IN,protect myself,ನಮ್ಮನ್ನು ನಾವು ರಕ್ಷಿಸಿಕೊಳ್ಳುವಿಕೆ
+207,en,kn-IN,protect others,ಇತರರನ್ನು ರಕ್ಷಿಸಿ
+208,en,kn-IN,protect yourself,ನಿಮ್ಮನ್ನು ನೀವು ರಕ್ಷಿಸಿಕೊಳ್ಳುವಿಕೆ
+209,en,kn-IN,protective measures,ರಕ್ಷಣಾತ್ಮಕ ಕ್ರಮಗಳು
+210,en,kn-IN,public health crisis,ಸಾರ್ವಜನಿಕ ಆರೋಗ್ಯ ಬಿಕ್ಕಟ್ಟು
+211,en,kn-IN,pulmonary tissue damage,ಶ್ವಾಸಕೋಶದ ಅಂಗಾಂಶ ಹಾನಿ
+212,en,kn-IN,quarantine,ಮೂಲೆಗುಂಪು
+213,en,kn-IN,rapid risk assessment,ತ್ವರಿತ ಅಪಾಯದ ಮೌಲ್ಯಮಾಪನ
+214,en,kn-IN,reagent,ರಿಯೇಜಂಟ್
+215,en,kn-IN,regular flu,ಸಾಮಾನ್ಯ ಜ್ವರ
+216,en,kn-IN,reinfection,ಮರುಹೊಂದಿಸುವಿಕೆ
+217,en,kn-IN,renal disease,ಮೂತ್ರಪಿಂಡ ಕಾಯಿಲೆ
+218,en,kn-IN,renal failure,ಮೂತ್ರಪಿಂಡ ವೈಫಲ್ಯ
+219,en,kn-IN,respirator,ರೆಸ್ಪಿರೇಟರ್
+220,en,kn-IN,respiratory,ರೆಸ್ಪಿರೇಟರಿ
+221,en,kn-IN,respiratory disease,ಉಸಿರಾಟದ ಕಾಯಿಲೆ
+222,en,kn-IN,respiratory distress,ಉಸಿರಾಟದ ತೊಂದರೆ
+223,en,kn-IN,respiratory droplets,ಉಸಿರಾಟದ ಹನಿಗಳು
+224,en,kn-IN,respiratory hygiene,ಉಸಿರಾಟದ ನೈರ್ಮಲ್ಯ
+225,en,kn-IN,respiratory illness,ಉಸಿರಾಟದ ರೋಗ
+226,en,kn-IN,respiratory syndrome,ಉಸಿರಾಟದ ಸಿಂಡ್ರೋಮ್
+227,en,kn-IN,respiratory tract disease,ಉಸಿರಾಟದ ಪ್ರದೇಶದ ಕಾಯಿಲೆ
+228,en,kn-IN,restrictions,ನಿರ್ಬಂಧಗಳು
+229,en,kn-IN,resurge,ಪುನರುತ್ಥಾನ
+230,en,kn-IN,RNA,ಆರ್‌ಎನ್‌ಎ
+231,en,kn-IN,rubeola,ರುಬೊಲಾ
+232,en,kn-IN,runny nose,ಮುಗು ಸೋರುವಿಕೆ
+233,en,kn-IN,SARS,ಸಾರ್ಸ್
+234,en,kn-IN,SARS-CoV-2,ಸಾರ್ಸ್-CoV-2
+235,en,kn-IN,SARS-CoV,ಸಾರ್ಸ್-CoV
+236,en,kn-IN,sars-related coronavirus,ಸಾರ್ಸ್-ಸಂಬಂಧಿತ ಕೊರೊನಾವೈರಸ್
+237,en,kn-IN,seasonal flu,ಕಾಲೋಚಿತ ಪ್ಲೂ
+238,en,kn-IN,seasonal influenza,ಕಾಲೋಚಿತ ಶೀತಜ್ವರ
+239,en,kn-IN,secretion,ಸ್ರವಿಸುವಿಕೆ
+240,en,kn-IN,self-quarantine,ಸ್ವಯಂ-ಸಂಪರ್ಕತಡೆ
+241,en,kn-IN,sepsis,ಸೆಪ್ಸಿಸ್
+242,en,kn-IN,septic shock,ಸೆಪ್ಟಿಕ್ ಆಘಾತ
+243,en,kn-IN,Severe Acute Respiratory Syndrome,ತೀವ್ರ ಉಸಿರಾಟದ ಸಿಂಡ್ರೋಮ್
+244,en,kn-IN,shortness of breath,ಕಡಿಮೆ ಉಸಿರಾಡುವಿಕೆ
+245,en,kn-IN,sickened,ಅನಾರೋಗ್ಯ
+246,en,kn-IN,sickness,ಕಾಯಿಲೆ
+247,en,kn-IN,sneeze,ಸೀನು
+248,en,kn-IN,sneezes,ಸೀನುಗಳು
+249,en,kn-IN,sneezing,ಸೀನುವಿಕೆ
+250,en,kn-IN,social distancing,ಸಾಮಾಜಿಕ ದೂರ
+251,en,kn-IN,sore throat,ಗಂಟಲು ಕೆರತ
+252,en,kn-IN,spanish flu,ಸ್ಪ್ಯಾನಿಷ್ ಪ್ಲೂ
+253,en,kn-IN,specimen collection,ಮಾದರಿ ಸಂಗ್ರಹ
+254,en,kn-IN,spread,ಹರಡುವಿಕೆ
+255,en,kn-IN,sputum,ಕಫ
+256,en,kn-IN,stigmatisation,ಸ್ಟಿಗ್‌ಮಿಟೈಜೆಶನ್
+257,en,kn-IN,supportive,ಬೆಂಬಲ
+258,en,kn-IN,surface,ಮೇಲ್ಮೈ
+259,en,kn-IN,surfaces,ಮೇಲ್ಮೈಗಳು
+260,en,kn-IN,suspected infection,ಶಂಕಿತ ಸೋಂಕು
+261,en,kn-IN,swab,ಸ್ವ್ಯಾಬ್
+262,en,kn-IN,swine flu,ಹಂದಿ ಪ್ಲೂ
+263,en,kn-IN,symptom,ರೋಗಲಕ್ಷಣ
+264,en,kn-IN,symptomatic,ಲಕ್ಷಣ ರೂಪದ
+265,en,kn-IN,symptoms,ಲಕ್ಷಣಗಳು
+266,en,kn-IN,targeted disinfection,ಉದ್ದೇಶಿತ ಸೋಂಕು
+267,en,kn-IN,test kit,ಪರೀಕ್ಷಾ ಕಿಟ್
+268,en,kn-IN,testing error,ಪರೀಕ್ಷಾ ದೋಷ
+269,en,kn-IN,tissue damage,ಅಂಗಾಂಶ ಹಾನಿ
+270,en,kn-IN,tp shortage,ಟಿಪಿ ಕೊರತೆ
+271,en,kn-IN,toilet paper shortage,ಟಾಯ್ಲೆಟ್ ಪೇಪರ್ ಕೊರತೆ
+272,en,kn-IN,touch,ಸ್ಪರ್ಶ
+273,en,kn-IN,touching,ಸ್ಪರ್ಶಿಸುವುದು
+274,en,kn-IN,transmissibility,ಪ್ರಸರಣ ಮಾಡುವಿಕೆ
+275,en,kn-IN,transmissible,ವರ್ಗಾಯಿಸುವಿಕೆ
+276,en,kn-IN,transmission,ಪ್ರಸರಣ
+277,en,kn-IN,transmission potential,ಪ್ರಸರಣ ಸಂಭವತೆ
+278,en,kn-IN,typical flu,ವಿಶಿಷ್ಟ ಪ್ಲೂ
+279,en,kn-IN,underlying disease,ಆಧಾರವಾಗಿರುವ ಕಾಯಿಲೆ
+280,en,kn-IN,updates,ನವೀಕರಣಗಳು
+281,en,kn-IN,vaccine,ಲಸಿಕೆ
+282,en,kn-IN,vaccines,ಲಸಿಕೆಗಳು
+283,en,kn-IN,ventilation,ವೆಂಟಿಲೇಶನ್
+284,en,kn-IN,ventilator,ವೆಂಟಿಲೇಟರ್
+285,en,kn-IN,ventilators,ವೆಂಟಿಲೇಟರ್‌ಗಳು
+286,en,kn-IN,viral infection,ವೈರಲ್ ಸೋಂಕು
+287,en,kn-IN,viral outbreak,ವೈರಲ್ ಸ್ಫೋಟ
+288,en,kn-IN,viral pandemic,ವೈರಲ್ ಪಿಡುಗು
+289,en,kn-IN,viral pneumonia,ವೈರಲ್ ನ್ಯುಮೋನಿಯಾ
+290,en,kn-IN,virtual care,ವಾಸ್ತವ ಆರೈಕೆ
+291,en,kn-IN,virulence,ವೈರಲೆನ್ಸ್
+292,en,kn-IN,virus itself,ಸ್ವತಃ ವೈರಸ್
+293,en,kn-IN,virus outbreak,ವೈರಸ್ ಸ್ಫೋಟ
+294,en,kn-IN,virus scare,ವೈರಸ್ ಭೀತಿ
+295,en,kn-IN,virus spreads,ವೈರಸ್ ಹರಡುವಿಕೆ
+296,en,kn-IN,virus strain,ವೈರಸ್ ತಳಿ
+297,en,kn-IN,viral transmission,ಸೂಕ್ಷ್ಣಾಣುಜೀವಿ ಪ್ರಸರಣ
+298,en,kn-IN,vivid-19,ವಿವಿಡ್-19
+299,en,kn-IN,washing hands,ಕೈಗಳನ್ನು ತೊಳೆಯುವುದು
+300,en,kn-IN,washing ones hands,ಒಮ್ಮೆ ಕೈಗಳನ್ನು ತೊಳೆಯುವುದು
+301,en,kn-IN,wash your hands,ನಿಮ್ಮ ಕೈಗಳನ್ನು ತೊಳೆಯಿರಿ
+302,en,kn-IN,white blood cell count,ಬಿಳಿ ರಕ್ತ ಕಣಗಳ ಎಣಿಕೆ
+303,en,kn-IN,widespread transmission,ವ್ಯಾಪಕ ಪ್ರಸರಣ
+304,en,kn-IN,working from home,ಮನೆಯಿಂದ ಕೆಲಸ
+305,en,kn-IN,WFH,ಡಬ್ಯೂಎಫ್‌ಎಚ್
+306,en,kn-IN,Wuhan,ವುಹಾನ್

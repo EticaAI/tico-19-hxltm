@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,wo-SN,1918 flu,sibbiru 1918
+2,en,wo-SN,acute bronchitis,feebaru-xëtër bu tar
+3,en,wo-SN,acute respiratory disease,feebaru noyyi bu tar
+4,en,wo-SN,AIDS,SIDA
+5,en,wo-SN,airborne droplets,toqi ndox yu ngelaw li di yóbbu
+6,en,wo-SN,airway,jaar ci ngelaw
+7,en,wo-SN,alcohol-based,bu am alkol
+8,en,wo-SN,alcohol-based hand rub,ndox ak alkol ngir raxas loxo
+9,en,wo-SN,alcohol-based hand sanitizer,ndox ak alkol ngir setal loxo
+10,en,wo-SN,alveolar disease,feebaru alveole yi
+11,en,wo-SN,an epidemic,epidemi
+12,en,wo-SN,annual flu,sibbiru buy am at mu nekk
+13,en,wo-SN,anti-inflammatory drug,garabu wàññi metit
+14,en,wo-SN,antiviral drug,garab guy ray doomu-jàngoro ji
+15,en,wo-SN,antiviral treatment,saafara bu ray doomu-jàngoro ji
+16,en,wo-SN,assay,saytu
+17,en,wo-SN,asymptomatic,mëna-wàlle
+18,en,wo-SN,avian flu,sibbiru buy dal nganaaw yi
+19,en,wo-SN,Black Plague,Peste bu ñuul
+20,en,wo-SN,blood pressure,tensioŋu nit ki
+21,en,wo-SN,body fluid,ndox yiy génn ci yaram
+22,en,wo-SN,breathing,noyyi
+23,en,wo-SN,bubonic plague,peste bubonik
+24,en,wo-SN,c19,c19
+25,en,wo-SN,cv19,cv19
+26,en,wo-SN,case fatality rate,bariwaayu faat gi
+27,en,wo-SN,causative agent,mbir yi koy joxe
+28,en,wo-SN,CDC,CDC
+29,en,wo-SN,chemical disinfection,ray jangoro ji ci chimie
+30,en,wo-SN,chest x-ray,rajo xëtër bi
+31,en,wo-SN,clinical diagnosis,càmbar ci klinik
+32,en,wo-SN,clinical trial,saytu baaxaayu paj gi
+33,en,wo-SN,close contact,jonjoo
+34,en,wo-SN,cvirus,mbassum corona
+35,en,wo-SN,chronic respiratory disease,feebaru noyyi bu yàgg
+36,en,wo-SN,common cold,soj
+37,en,wo-SN,common flu,sibbiru
+38,en,wo-SN,communicable disease,feebar buy wàlle
+39,en,wo-SN,community spread,tasaaroo ci gox
+40,en,wo-SN,community transmission,wàllaate ci gox
+41,en,wo-SN,compromised immune system,yaram wu amatul kaaraange
+42,en,wo-SN,contagion,wàll
+43,en,wo-SN,contagious,wàlle
+44,en,wo-SN,contagiousness,wàllaate
+45,en,wo-SN,corona,korona
+46,en,wo-SN,corona virus,mbassum corona
+47,en,wo-SN,corona virus epidemic,mbassum corona bu law
+48,en,wo-SN,corona virus outbreak,ndorteelu mbassum corona
+49,en,wo-SN,corona virus scare,ragal mbassum corona
+50,en,wo-SN,coronavirus,mbassum corona
+51,en,wo-SN,coronavirus cases,ñi am mbassum corona
+52,en,wo-SN,coronavirus outbreak,ndorteelu mbassum corona
+53,en,wo-SN,coronavirus pandemic,pandemi mbassum corona
+54,en,wo-SN,coronavirus scare,ragal mbassum corona
+55,en,wo-SN,cough,sëqët
+56,en,wo-SN,cough etiquette,màndarga sëqët
+57,en,wo-SN,coughing,sëqët
+58,en,wo-SN,cov 19,cov 19
+59,en,wo-SN,cov19,cov19
+60,en,wo-SN,COVID,COVID
+61,en,wo-SN,COVID-19 crisis,musiba COVID-19
+62,en,wo-SN,covid-19,covid-19
+63,en,wo-SN,covid19,covid19
+64,en,wo-SN,COVID-19 epidemic,Epidemi COVID-19
+65,en,wo-SN,COVID-19 outbreak,Epidemi COVID-19
+66,en,wo-SN,COVID-19 pandemic,Pandemi COVID-19
+67,en,wo-SN,COVID 19,COVID 19
+68,en,wo-SN,current crisis,musiba bi fi nekk
+69,en,wo-SN,current health crisis,musiba sanitaire bi fi nekk
+70,en,wo-SN,current outbreak,epidemi bi fi nekk
+71,en,wo-SN,current pandemic,pandemi bi fi nekk
+72,en,wo-SN,CV,CV
+73,en,wo-SN,CV-19,CV-19
+74,en,wo-SN,deadly,buy raye
+75,en,wo-SN,deadly virus,mbass buy raye
+76,en,wo-SN,death rate,tolluwaay dee g
+77,en,wo-SN,death toll,limu ñi ci faatu
+78,en,wo-SN,decontaminate,dakkal wàllaate
+79,en,wo-SN,detectable,mën nañu ko gis
+80,en,wo-SN,detergent,raxasukaay
+81,en,wo-SN,difficulty breathing,jafe-jafe noyyi
+82,en,wo-SN,diabetes,jabet
+83,en,wo-SN,diagnosable disease,feebar buñ mëna càmbar
+84,en,wo-SN,diagnostic protocol,ni ñu koy càmbaree
+85,en,wo-SN,diagnostic testing,saytug càmbar
+86,en,wo-SN,disease itself,feebar bi ci boppam
+87,en,wo-SN,disease outbreak,ndorteelu feebar gi
+88,en,wo-SN,disinfectant,rayuokaayu jàngoro
+89,en,wo-SN,disposable,bu ñuy sànni
+90,en,wo-SN,droplet transmission,wàllee ci toqu ndox
+91,en,wo-SN,droplets,toqu ndox
+92,en,wo-SN,dry cough,sëqët su waw
+93,en,wo-SN,dry surface contamination,wàlle ci fu loxo di tegu
+94,en,wo-SN,ebola,ebola
+95,en,wo-SN,effective treatment,garab gi ci baax
+96,en,wo-SN,electron microscope,microscope electronik
+97,en,wo-SN,emergency department,wàllu tawat gu jamp
+98,en,wo-SN,epidemic,epidemi
+99,en,wo-SN,epidemic curve,kurb epidemi
+100,en,wo-SN,epidemic peak,collu epidemi
+101,en,wo-SN,epidemiologist,ki xam wàllu epidimi
+102,en,wo-SN,exposure,jege feebar bi
+103,en,wo-SN,extreme caution,moytu bu baax
+104,en,wo-SN,eye protection,aar say bët
+105,en,wo-SN,face mask,masku kanam
+106,en,wo-SN,face masks,maski kanam
+107,en,wo-SN,family cluster,toog sa kër
+108,en,wo-SN,fatality rate,tolluwaayu dee gi
+109,en,wo-SN,fecal contamination,wàlle ciy neefere
+110,en,wo-SN,fever,yaram wu tàng
+111,en,wo-SN,flatten the infection curve,Wàññi wàllaate bi bu baax
+112,en,wo-SN,flu,sibbiru
+113,en,wo-SN,food safety,am dund gu doy
+114,en,wo-SN,formaldehyde,formaldehyde
+115,en,wo-SN,gastroenteritis,gastro-enterit
+116,en,wo-SN,germicide,ray doomu jàngoro
+117,en,wo-SN,global pandemic,pandemi bu wër àdduna
+118,en,wo-SN,global warming,adduna suy gëna tàng
+119,en,wo-SN,good respiratory hygiene,noyyi gelaw ludul lore
+120,en,wo-SN,Guangdong,Guangdong
+121,en,wo-SN,H1N1,H1N1
+122,en,wo-SN,H1N1 virus,Jàngoro H1N1
+123,en,wo-SN,hand disinfectant,setalukaayu loxo
+124,en,wo-SN,hand sanitizer,raxasukaayu loxo
+125,en,wo-SN,health care provider,barabu fajukaay
+126,en,wo-SN,health crisis,musiba wérgi-yaram
+127,en,wo-SN,health plan carrier,Liggéey ci wàllu paj
+128,en,wo-SN,health services,Ñiy faje
+129,en,wo-SN,heart failure,kris karjaak
+130,en,wo-SN,high fever,yaram wu tank jër
+131,en,wo-SN,HIV,HIV
+132,en,wo-SN,hospitalize,entre opitaal
+133,en,wo-SN,household bleach,eau de javelu kër
+134,en,wo-SN,Hubei,Hubei
+135,en,wo-SN,hydrogen peroxide,peroxyde d'hydrogène
+136,en,wo-SN,hygiene,set
+137,en,wo-SN,immune system,kaaraange yaram
+138,en,wo-SN,immunity,mëna mucc ci feebar
+139,en,wo-SN,immunocompromised,mënul mucc ci feebar
+140,en,wo-SN,immunologist,kiy saytu mën mucc gi
+141,en,wo-SN,incubation,màgug jàngor ji
+142,en,wo-SN,incubation period,diiru màggug jàngoro ji
+143,en,wo-SN,indirect contact,jonjoo gu laalantewul
+144,en,wo-SN,infect,joxe jàngoro
+145,en,wo-SN,infection,Joxeg jàngor ji
+146,en,wo-SN,infectious,joxaate jàngoro
+147,en,wo-SN,infectivity,gaawaayu wàlle gi
+148,en,wo-SN,influenza,sibbiru
+149,en,wo-SN,initial transmission event,li waral wall gu njëkk gi
+150,en,wo-SN,intensive care equipment,jumtukaayu paj mu tar
+151,en,wo-SN,intermediate host,keneen ku koy wàlle
+152,en,wo-SN,intrauterine,ci biir cëru jurukaay
+153,en,wo-SN,intubation,roof raakool ci boli gi
+154,en,wo-SN,isolation,ber
+155,en,wo-SN,Isopropanol,Isopropanol
+156,en,wo-SN,laboratory test kit,kit saytu laboratoire
+157,en,wo-SN,laboratory testing,saytu laboratoire
+158,en,wo-SN,lack of testing,ñàkk saytukaay
+159,en,wo-SN,lack of tests,ñàkk ay saytukaay
+160,en,wo-SN,latest updates,xibaar yu mujj yi
+161,en,wo-SN,liver failure,res bu baaxatul
+162,en,wo-SN,local public health authority,kilifay wérgi-yaram
+163,en,wo-SN,lockdown,tëj
+164,en,wo-SN,lungs,xëtër
+165,en,wo-SN,masks,mask yi
+166,en,wo-SN,measles,xureet
+167,en,wo-SN,mechanical ventilation,ventilation mekanik
+168,en,wo-SN,media coverage,ni taskatu xibaar yi jëlee
+169,en,wo-SN,medical care,garab yi
+170,en,wo-SN,MERS,MERS
+171,en,wo-SN,MERS CoV,MERS CoV
+172,en,wo-SN,microbiologist,microbiologiste
+173,en,wo-SN,mild cough,sëqët bu woyof
+174,en,wo-SN,mortality rate,tolluwaayu de
+175,en,wo-SN,multi-organ failure,cër yu doxul yu bari
+176,en,wo-SN,nasal congestion,bakkan bu fatt
+177,en,wo-SN,neutral detergent,setalukaay bu amul melo
+178,en,wo-SN,new normal,jaadu bees
+179,en,wo-SN,novel corona virus,mbassu corona ju bees
+180,en,wo-SN,novel coronavirus,mbassu corona-ju-bees
+181,en,wo-SN,novel coronavirus outbreak,ep mbassu corona ju bees
+182,en,wo-SN,novel virus,jàngoro ju bees
+183,en,wo-SN,online medical consultation,fajkat bi ci net bi
+184,en,wo-SN,onset,ndoorte
+185,en,wo-SN,outbreak,ndoorteel
+186,en,wo-SN,outbreak readiness,waajalu ndoorteel
+187,en,wo-SN,overall case fatality,rayaate wër àdduna
+188,en,wo-SN,pandemic,pandemi
+189,en,wo-SN,pangolin,pangolin
+190,en,wo-SN,pathogen,li ko mëna joxe
+191,en,wo-SN,pathology,feebar
+192,en,wo-SN,patient care equipment,jumtukaay ngir ki feebar
+193,en,wo-SN,personal protective equipment,jumtukaay ngir aar ku nekk
+194,en,wo-SN,person-to-person transmission,wàllaate nit ak nit
+195,en,wo-SN,phlegm,flegme
+196,en,wo-SN,physical contact,laal dara
+197,en,wo-SN,plague,peste
+198,en,wo-SN,pneumonia,pneumoni
+199,en,wo-SN,pneumonias,pneumoni
+200,en,wo-SN,positive test,saytu mu am
+201,en,wo-SN,precaution,matuwaay
+202,en,wo-SN,precautionary,matuwaay
+203,en,wo-SN,pre-existing condition,anam yi fi nekkoon
+204,en,wo-SN,preparedness,waajal
+205,en,wo-SN,prognosis,Xam-jëmuwaay
+206,en,wo-SN,protect myself,aar sama bopp
+207,en,wo-SN,protect others,aar ñeneen ñi
+208,en,wo-SN,protect yourself,aaral sa bopp
+209,en,wo-SN,protective measures,matuwaayi kaaraange
+210,en,wo-SN,public health crisis,musiba ci wérgi-yaramu askan wi
+211,en,wo-SN,pulmonary tissue damage,yàq ci biir xëtër wi
+212,en,wo-SN,quarantine,ber
+213,en,wo-SN,rapid risk assessment,wàlle gu mëna gëna gaaw
+214,en,wo-SN,reagent,mbir muy feeñal
+215,en,wo-SN,regular flu,sibbiru
+216,en,wo-SN,reinfection,wàllaat
+217,en,wo-SN,renal disease,feebaru roño
+218,en,wo-SN,renal failure,roño bu mënatul
+219,en,wo-SN,respirator,noyyikaay
+220,en,wo-SN,respiratory,noyyi
+221,en,wo-SN,respiratory disease,feebaru noyyi
+222,en,wo-SN,respiratory distress,ñàkka mën noyyi
+223,en,wo-SN,respiratory droplets,toqi noyyi
+224,en,wo-SN,respiratory hygiene,noyyi lu set
+225,en,wo-SN,respiratory illness,feebaru noyyi
+226,en,wo-SN,respiratory syndrome,feebaru noyyi
+227,en,wo-SN,respiratory tract disease,feebar buy jàpp sa noyyikaay
+228,en,wo-SN,restrictions,tere yi
+229,en,wo-SN,resurge,dekkalaat
+230,en,wo-SN,RNA,ARN
+231,en,wo-SN,rubeola,rubeola
+232,en,wo-SN,runny nose,bakkan buy sotti
+233,en,wo-SN,SARS,SARS
+234,en,wo-SN,SARS-CoV-2,SARS-CoV-2
+235,en,wo-SN,SARS-CoV,SARS-CoV
+236,en,wo-SN,sars-related coronavirus,jàngoro Corona bu laal sars
+237,en,wo-SN,seasonal flu,sibbiru buy am at mu nekk
+238,en,wo-SN,seasonal influenza,sibbiru buy am at mu nekk
+239,en,wo-SN,secretion,génne
+240,en,wo-SN,self-quarantine,ber sa bopp
+241,en,wo-SN,sepsis,teewaay ci yaram doomu jàngoro buy indi ay jafe jafe
+242,en,wo-SN,septic shock,jafe jafe ci wàllu wergu yaram gu wër
+243,en,wo-SN,Severe Acute Respiratory Syndrome,Feebaru Noppi Gu Tar
+244,en,wo-SN,shortness of breath,gaawa sonn
+245,en,wo-SN,sickened,daanu feebar
+246,en,wo-SN,sickness,feebar bi
+247,en,wo-SN,sneeze,tisooli
+248,en,wo-SN,sneezes,tisooli
+249,en,wo-SN,sneezing,tisooli
+250,en,wo-SN,social distancing,sori nit ñi
+251,en,wo-SN,sore throat,baat buy metti
+252,en,wo-SN,spanish flu,sibbiru español
+253,en,wo-SN,specimen collection,Jël dara ngir càmbar
+254,en,wo-SN,spread,tasaare
+255,en,wo-SN,sputum,seentu
+256,en,wo-SN,stigmatisation,joxoñ
+257,en,wo-SN,supportive,dimbali
+258,en,wo-SN,surface,surfaas
+259,en,wo-SN,surfaces,surfaas yi
+260,en,wo-SN,suspected infection,kuñ jàpp ni am na doomu jangoro bi
+261,en,wo-SN,swab,bóof
+262,en,wo-SN,swine flu,sibbiru mbaam xuux
+263,en,wo-SN,symptom,feeñal
+264,en,wo-SN,symptomatic,ci liy feeñ
+265,en,wo-SN,symptoms,feeñal
+266,en,wo-SN,targeted disinfection,li ñuy faj
+267,en,wo-SN,test kit,jumtukaayu saytu
+268,en,wo-SN,testing error,njuumteg saytu
+269,en,wo-SN,tissue damage,yàq der bi
+270,en,wo-SN,tp shortage,ñàkug TP
+271,en,wo-SN,toilet paper shortage,Ñàkug papier toilet
+272,en,wo-SN,touch,laal
+273,en,wo-SN,touching,daw-yaram
+274,en,wo-SN,transmissibility,wàllaate gi
+275,en,wo-SN,transmissible,mëna wàlle
+276,en,wo-SN,transmission,wàllaate
+277,en,wo-SN,transmission potential,wàllaate gu mëna nekk
+278,en,wo-SN,typical flu,sibbiru biñ xam
+279,en,wo-SN,underlying disease,feebar yi ciy judduwaale
+280,en,wo-SN,updates,xibaar yi mujj
+281,en,wo-SN,vaccine,ñaq
+282,en,wo-SN,vaccines,ñaq
+283,en,wo-SN,ventilation,upp-barab
+284,en,wo-SN,ventilator,uppukaay
+285,en,wo-SN,ventilators,uppukaay
+286,en,wo-SN,viral infection,wàllaate doomu jàngoro
+287,en,wo-SN,viral outbreak,ndorteelu jàngoro
+288,en,wo-SN,viral pandemic,pandemi jàngoro
+289,en,wo-SN,viral pneumonia,pneumoni jàngoro
+290,en,wo-SN,virtual care,fajee ci masin
+291,en,wo-SN,virulence,taraay
+292,en,wo-SN,virus itself,jàngoro ci boppam
+293,en,wo-SN,virus outbreak,ndorteelu jàngoro
+294,en,wo-SN,virus scare,ragal jàngoro ji
+295,en,wo-SN,virus spreads,jàngoro dafay tasaaroo
+296,en,wo-SN,virus strain,sosukaayu jàngoro ji
+297,en,wo-SN,viral transmission,wàllaate jàngoro
+298,en,wo-SN,vivid-19,vif-19
+299,en,wo-SN,washing hands,raxas say loxo
+300,en,wo-SN,washing ones hands,raxas loxo
+301,en,wo-SN,wash your hands,raxasal say loxo
+302,en,wo-SN,white blood cell count,limu globule blanc yi
+303,en,wo-SN,widespread transmission,wàllaate gu jéggi dayo
+304,en,wo-SN,working from home,liggéeyee sa kër
+305,en,wo-SN,WFH,WFH
+306,en,wo-SN,Wuhan,Wuhan

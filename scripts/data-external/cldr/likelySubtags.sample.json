@@ -1,0 +1,15 @@
+{
+  "supplemental": {
+    "version": {
+      "_unicodeVersion": "14.0.0",
+      "_cldrVersion": "40"
+    },
+    "likelySubtags": {
+      "aa": "aa-Latn-ET",
+      "aai": "aai-Latn-ZZ",
+      "aak": "aak-Latn-ZZ",
+      "aau": "aau-Latn-ZZ",
+      "ab": "ab-Cyrl-GE",
+      "abi": "abi-Latn-ZZ",
+      "abq": "abq-Cyrl-ZZ",
+      "abr": "abr-Latn-GH",

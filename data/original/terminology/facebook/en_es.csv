@@ -1,0 +1,613 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,es,1918 flu,La gripe de 1918
+2,en,es,acute bronchitis,Bronquitis aguda
+3,en,es,acute respiratory disease,enfermedades respiratorias agudas
+4,en,es,AIDS,SIDA
+5,en,es,airborne droplets,gotas suspendidas en el aire
+6,en,es,airway,vía respiratoria
+7,en,es,alcohol-based,a base de alcohol
+8,en,es,alcohol-based hand rub,desinfectante de manos a base de alcohol
+9,en,es,alcohol-based hand sanitizer,desinfectante de manos a base de alcohol
+10,en,es,alveolar disease,enfermedad alveolar
+11,en,es,an epidemic,una epidemia
+12,en,es,annual flu,gripe anual
+13,en,es,anti-inflammatory drug,antiinflamatorio
+14,en,es,antiviral drug,antiviral
+15,en,es,antiviral treatment,tratamiento antiviral
+16,en,es,assay,ensayo
+17,en,es,asymptomatic,asintomático
+18,en,es,avian flu,gripe aviar
+19,en,es,Black Plague,Peste negra
+20,en,es,blood pressure,presión sanguínea
+21,en,es,body fluid,fluido corporal
+22,en,es,breathing,respiración
+23,en,es,bubonic plague,peste bubónica
+24,en,es,c19,c19
+25,en,es,cv19,cv19
+26,en,es,case fatality rate,tasa de letalidad
+27,en,es,causative agent,agente causal
+28,en,es,CDC,CDC
+29,en,es,chemical disinfection,desinfección química
+30,en,es,chest x-ray,radiografía de tórax
+31,en,es,clinical diagnosis,diagnóstico clínico
+32,en,es,clinical trial,ensayo clínico
+33,en,es,close contact,contacto cercano
+34,en,es,cvirus,cvirus
+35,en,es,chronic respiratory disease,enfermedades respiratorias crónicas
+36,en,es,common cold,resfriado común
+37,en,es,common flu,gripe común
+38,en,es,communicable disease,enfermedad infecciosa
+39,en,es,community spread,propagación en la comunidad
+40,en,es,community transmission,transmisión del virus en la comunidad
+41,en,es,compromised immune system,sistema inmune comprometido
+42,en,es,contagion,contagio
+43,en,es,contagious,contagioso
+44,en,es,contagiousness,contagioso
+45,en,es,corona,corona
+46,en,es,corona virus,corona virus
+47,en,es,corona virus epidemic,epidemia de virus corona
+48,en,es,corona virus outbreak,brote de virus corona
+49,en,es,corona virus scare,posible corona virus
+50,en,es,coronavirus,coronavirus
+51,en,es,coronavirus cases,casos de coronavirus
+52,en,es,coronavirus outbreak,brote de coronavirus
+53,en,es,coronavirus pandemic,pandemia de coronavirus
+54,en,es,coronavirus scare,posible coronavirus
+55,en,es,cough,tos
+56,en,es,cough etiquette,etiqueta de tos
+57,en,es,coughing,toser
+58,en,es,cov 19,cov 19
+59,en,es,cov19,cov19
+60,en,es,COVID,COVID
+61,en,es,COVID-19 crisis,crisis de COVID-19
+62,en,es,covid-19,covid-19
+63,en,es,covid19,covid19
+64,en,es,COVID-19 epidemic,epidemia de COVID-19
+65,en,es,COVID-19 outbreak,brote de COVID-19
+66,en,es,COVID-19 pandemic,pandemia de COVID-19
+67,en,es,COVID 19,COVID 19
+68,en,es,current crisis,crisis actual
+69,en,es,current health crisis,crisis sanitaria actual
+70,en,es,current outbreak,brote actual
+71,en,es,current pandemic,pandemia actual
+72,en,es,CV,CV
+73,en,es,CV-19,CV-19
+74,en,es,deadly,mortal
+75,en,es,deadly virus,virus mortal
+76,en,es,death rate,tasa de mortalidad
+77,en,es,death toll,muertes
+78,en,es,decontaminate,descontaminar
+79,en,es,detectable,detectable
+80,en,es,detergent,detergente
+81,en,es,difficulty breathing,dificultad para respirar
+82,en,es,diabetes,diabetes
+83,en,es,diagnosable disease,enfermedad diagnosticable
+84,en,es,diagnostic protocol,protocolo de diagnóstico
+85,en,es,diagnostic testing,pruebas diagnósticas
+86,en,es,disease itself,enfermedad en sí
+87,en,es,disease outbreak,brote de la enfermedad
+88,en,es,disinfectant,desinfectante
+89,en,es,disposable,desechable
+90,en,es,droplet transmission,transmisión por gotitas
+91,en,es,droplets,gotas
+92,en,es,dry cough,tos seca
+93,en,es,dry surface contamination,contaminación de la superficie seca
+94,en,es,ebola,ebola
+95,en,es,effective treatment,tratamiento efectivo
+96,en,es,electron microscope,microscopio electrónico
+97,en,es,emergency department,departamento de emergencias
+98,en,es,epidemic,epidemia
+99,en,es,epidemic curve,curva epidémica
+100,en,es,epidemic peak,pico epidémico
+101,en,es,epidemiologist,epidemiólogo
+102,en,es,exposure,exposición
+103,en,es,extreme caution,precaución extrema
+104,en,es,eye protection,proteccion ocular
+105,en,es,face mask,mascarilla
+106,en,es,face masks,mascarillas
+107,en,es,family cluster,grupo familiar
+108,en,es,fatality rate,tasa de mortalidad
+109,en,es,fecal contamination,contaminación fecal
+110,en,es,fever,fiebre
+111,en,es,flatten the infection curve,aplanar la curva de infección
+112,en,es,flu,gripe
+113,en,es,food safety,seguridad alimentaria
+114,en,es,formaldehyde,formaldehído
+115,en,es,gastroenteritis,gastroenteritis
+116,en,es,germicide,germicida
+117,en,es,global pandemic,pandemia mundial
+118,en,es,global warming,calentamiento global
+119,en,es,good respiratory hygiene,buena higiene respiratoria
+120,en,es,Guangdong,Guangdong
+121,en,es,H1N1,H1N1
+122,en,es,H1N1 virus,virus H1N1
+123,en,es,hand disinfectant,desinfectante para manos
+124,en,es,hand sanitizer,desinfectante para manos
+125,en,es,health care provider,proveedor de salud
+126,en,es,health crisis,crisis de salud
+127,en,es,health plan carrier,aseguradora del plan de salud
+128,en,es,health services,servicios de salud
+129,en,es,heart failure,insuficiencia cardíaca
+130,en,es,high fever,fiebre alta
+131,en,es,HIV,VIH
+132,en,es,hospitalize,hospitalizar
+133,en,es,household bleach,lejía de uso doméstico
+134,en,es,Hubei,Hubei
+135,en,es,hydrogen peroxide,peróxido de hidrógeno
+136,en,es,hygiene,higiene
+137,en,es,immune system,sistema inmune
+138,en,es,immunity,inmunidad
+139,en,es,immunocompromised,inmunocomprometido
+140,en,es,immunologist,inmunólogo
+141,en,es,incubation,incubación
+142,en,es,incubation period,periodo de incubación
+143,en,es,indirect contact,contacto indirecto
+144,en,es,infect,infecta
+145,en,es,infection,infección
+146,en,es,infectious,infeccioso
+147,en,es,infectivity,infectividad
+148,en,es,influenza,influenza
+149,en,es,initial transmission event,evento de transmisión inicial
+150,en,es,intensive care equipment,equipos de cuidados intensivos
+151,en,es,intermediate host,anfitrión intermedio
+152,en,es,intrauterine,intrauterino
+153,en,es,intubation,intubación
+154,en,es,isolation,aislamiento
+155,en,es,Isopropanol,isopropanol
+156,en,es,laboratory test kit,kit de pruebas de laboratorio
+157,en,es,laboratory testing,pruebas de laboratorio
+158,en,es,lack of testing,falta de pruebas
+159,en,es,lack of tests,falta de tests
+160,en,es,latest updates,últimas noticias
+161,en,es,liver failure,insuficiencia hepática
+162,en,es,local public health authority,autoridad local de salud pública
+163,en,es,lockdown,encierro
+164,en,es,lungs,pulmones
+165,en,es,masks,mascarillas
+166,en,es,measles,sarampión
+167,en,es,mechanical ventilation,ventilación mecánica
+168,en,es,media coverage,cobertura mediática
+169,en,es,medical care,cuidado médico
+170,en,es,MERS,MERS
+171,en,es,MERS CoV,MERS CoV
+172,en,es,microbiologist,microbiólogo
+173,en,es,mild cough,tos leve
+174,en,es,mortality rate,tasa de mortalidad
+175,en,es,multi-organ failure,insuficiencia multiorgánica
+176,en,es,nasal congestion,congestión nasal
+177,en,es,neutral detergent,detergente neutro
+178,en,es,new normal,nueva normalidad
+179,en,es,novel corona virus,nuevo virus corona
+180,en,es,novel coronavirus,nuevo coronavirus
+181,en,es,novel coronavirus outbreak,nuevo brote de coronavirus
+182,en,es,novel virus,nuevo virus
+183,en,es,online medical consultation,consulta médica en línea
+184,en,es,onset,inicio
+185,en,es,outbreak,brote
+186,en,es,outbreak readiness,preparación ante el estallido
+187,en,es,overall case fatality,tasa de letalidad general
+188,en,es,pandemic,pandemia
+189,en,es,pangolin,pangolin
+190,en,es,pathogen,patógeno
+191,en,es,pathology,patología
+192,en,es,patient care equipment,equipo de atención al paciente
+193,en,es,personal protective equipment,equipo de protección personal
+194,en,es,person-to-person transmission,transmisión de persona a persona
+195,en,es,phlegm,flema
+196,en,es,physical contact,contacto físico
+197,en,es,plague,plaga
+198,en,es,pneumonia,neumonía
+199,en,es,pneumonias,neumonías
+200,en,es,positive test,prueba positiva
+201,en,es,precaution,precaución
+202,en,es,precautionary,cautelares
+203,en,es,pre-existing condition,condición preexistente
+204,en,es,preparedness,preparación
+205,en,es,prognosis,pronóstico
+206,en,es,protect myself,protegerme
+207,en,es,protect others,proteger a otros
+208,en,es,protect yourself,protegerse
+209,en,es,protective measures,medidas de protección
+210,en,es,public health crisis,crisis de salud pública
+211,en,es,pulmonary tissue damage,daño del tejido pulmonar
+212,en,es,quarantine,cuarentena
+213,en,es,rapid risk assessment,evaluación rápida del riesgo
+214,en,es,reagent,reactivo
+215,en,es,regular flu,gripe regular
+216,en,es,reinfection,reinfección
+217,en,es,renal disease,enfermedad renal
+218,en,es,renal failure,insuficiencia renal
+219,en,es,respirator,respirador
+220,en,es,respiratory,respiratorio
+221,en,es,respiratory disease,enfermedad respiratoria
+222,en,es,respiratory distress,dificultad respiratoria
+223,en,es,respiratory droplets,gotitas respiratorias
+224,en,es,respiratory hygiene,higiene respiratoria
+225,en,es,respiratory illness,enfermedad respiratorias
+226,en,es,respiratory syndrome,síndrome respiratorio
+227,en,es,respiratory tract disease,enfermedad de las vías respiratorias
+228,en,es,restrictions,restricciones
+229,en,es,resurge,resurgimiento
+230,en,es,RNA,ARN
+231,en,es,rubeola,rubéola
+232,en,es,runny nose,nariz que moquea
+233,en,es,SARS,SARS
+234,en,es,SARS-CoV-2,SARS-CoV-2
+235,en,es,SARS-CoV,SARS-CoV
+236,en,es,sars-related coronavirus,coronavirus relacionados con sars
+237,en,es,seasonal flu,gripe estacional
+238,en,es,seasonal influenza,gripe estacional
+239,en,es,secretion,secresión
+240,en,es,self-quarantine,auto-cuarentena
+241,en,es,sepsis,sepsis
+242,en,es,septic shock,shock séptico
+243,en,es,Severe Acute Respiratory Syndrome,Síndrome Respiratorio Agudo Severo
+244,en,es,shortness of breath,dificultad para respirar
+245,en,es,sickened,enfermado
+246,en,es,sickness,enfermedad
+247,en,es,sneeze,estornudo
+248,en,es,sneezes,estornudos
+249,en,es,sneezing,estornudar
+250,en,es,social distancing,distanciamiento social
+251,en,es,sore throat,dolor de garganta
+252,en,es,spanish flu,gripe española
+253,en,es,specimen collection,colección de especímenes
+254,en,es,spread,propagación
+255,en,es,sputum,esputo
+256,en,es,stigmatisation,estigmatización
+257,en,es,supportive,apoyo
+258,en,es,surface,superficie
+259,en,es,surfaces,superficies
+260,en,es,suspected infection,sospecha de infección
+261,en,es,swab,muestra
+262,en,es,swine flu,gripe porcina
+263,en,es,symptom,síntoma
+264,en,es,symptomatic,sintomático
+265,en,es,symptoms,síntomas
+266,en,es,targeted disinfection,desinfección focalizada
+267,en,es,test kit,kit de prueba
+268,en,es,testing error,error de prueba
+269,en,es,tissue damage,daño a los tejidos
+270,en,es,tp shortage,escasez de papel higiénico
+271,en,es,toilet paper shortage,escasez de papel higiénico
+272,en,es,touch,toque
+273,en,es,touching,tocar
+274,en,es,transmissibility,transmisibilidad
+275,en,es,transmissible,transmisible
+276,en,es,transmission,transmisión
+277,en,es,transmission potential,potencial de transmisión
+278,en,es,typical flu,gripe típica
+279,en,es,underlying disease,enfermedad subyacente
+280,en,es,updates,actualizaciones
+281,en,es,vaccine,vacuna
+282,en,es,vaccines,vacunas
+283,en,es,ventilation,ventilación
+284,en,es,ventilator,ventilador
+285,en,es,ventilators,ventiladores
+286,en,es,viral infection,infección viral
+287,en,es,viral outbreak,brote viral
+288,en,es,viral pandemic,pandemia viral
+289,en,es,viral pneumonia,neumonía viral
+290,en,es,virtual care,cuidado virtual
+291,en,es,virulence,virulencia
+292,en,es,virus itself,el virus mismo
+293,en,es,virus outbreak,brote de virus
+294,en,es,virus scare,miedo al virus
+295,en,es,virus spreads,diseminación del virus
+296,en,es,virus strain,cepa de virus
+297,en,es,viral transmission,transmisión viral
+298,en,es,vivid-19,vivid-19
+299,en,es,washing hands,lavado de manos
+300,en,es,washing ones hands,lavarse las manos
+301,en,es,wash your hands,lávate las manos
+302,en,es,white blood cell count,conteo de células blancas
+303,en,es,widespread transmission,transmisión generalizada
+304,en,es,working from home,trabajar desde casa
+305,en,es,WFH,Teletrabajo
+306,en,es,Wuhan,Wuhan
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,
+,,es,,

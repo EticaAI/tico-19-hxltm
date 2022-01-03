@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,et-EE,1918 flu,1918. aasta gripp
+2,en,et-EE,acute bronchitis,äge bronhiit
+3,en,et-EE,acute respiratory disease,äge hingamisteede haigus
+4,en,et-EE,AIDS,AIDS
+5,en,et-EE,airborne droplets,lenduvad piisad
+6,en,et-EE,airway,hingamisteed
+7,en,et-EE,alcohol-based,alkoholipõhine
+8,en,et-EE,alcohol-based hand rub,alkoholipõhine käte antiseptik
+9,en,et-EE,alcohol-based hand sanitizer,alkoholipõhine käte antiseptik
+10,en,et-EE,alveolar disease,alveolaarne haigus
+11,en,et-EE,an epidemic,epideemia
+12,en,et-EE,annual flu,hooajaline gripp
+13,en,et-EE,anti-inflammatory drug,põletikuvastane ravim
+14,en,et-EE,antiviral drug,viirusevastane ravim
+15,en,et-EE,antiviral treatment,viirusevastane ravi
+16,en,et-EE,assay,test
+17,en,et-EE,asymptomatic,asümptomaatiline
+18,en,et-EE,avian flu,linnugripp
+19,en,et-EE,Black Plague,must katk
+20,en,et-EE,blood pressure,vererõhk
+21,en,et-EE,body fluid,kehavedelik
+22,en,et-EE,breathing,hingamine
+23,en,et-EE,bubonic plague,muhkkatk
+24,en,et-EE,c19,c19
+25,en,et-EE,cv19,cv19
+26,en,et-EE,case fatality rate,suremus
+27,en,et-EE,causative agent,haigustekitaja
+28,en,et-EE,CDC,Haiguste kontrolli ja tõrje keskus
+29,en,et-EE,chemical disinfection,keemiline desinfitseerimine
+30,en,et-EE,chest x-ray,rindkere röntgen
+31,en,et-EE,clinical diagnosis,kliiniline diagnoos
+32,en,et-EE,clinical trial,kliiniline uuring
+33,en,et-EE,close contact,lähikontakt
+34,en,et-EE,cvirus,viirus
+35,en,et-EE,chronic respiratory disease,kroonilline hingamisteede haigus
+36,en,et-EE,common cold,tavaline külmetus
+37,en,et-EE,common flu,tavaline gripp
+38,en,et-EE,communicable disease,nakkushaigus
+39,en,et-EE,community spread,kogukondlik levik
+40,en,et-EE,community transmission,kogukondlik edasikandumine
+41,en,et-EE,compromised immune system,nõrgenenud immuunsüsteem
+42,en,et-EE,contagion,nakatumine
+43,en,et-EE,contagious,nakkav
+44,en,et-EE,contagiousness,nakkavus
+45,en,et-EE,corona,koroona
+46,en,et-EE,corona virus,koroonaviirus
+47,en,et-EE,corona virus epidemic,koroonaviiruse epideemia
+48,en,et-EE,corona virus outbreak,koroonaviiruse puhang
+49,en,et-EE,corona virus scare,koroonaviiruse hirm
+50,en,et-EE,coronavirus,koroonaviirus
+51,en,et-EE,coronavirus cases,koroonaviiruse juhtumid
+52,en,et-EE,coronavirus outbreak,koroonaviiruse puhang
+53,en,et-EE,coronavirus pandemic,koroonaviiruse pandeemia
+54,en,et-EE,coronavirus scare,koroonaviiruse paanika
+55,en,et-EE,cough,köha
+56,en,et-EE,cough etiquette,köhimise etikett
+57,en,et-EE,coughing,köhimine
+58,en,et-EE,cov 19,cov 19
+59,en,et-EE,cov19,cov19
+60,en,et-EE,COVID,COVID
+61,en,et-EE,COVID-19 crisis,COVID-19 kriis
+62,en,et-EE,covid-19,covid-19
+63,en,et-EE,covid19,covid19
+64,en,et-EE,COVID-19 epidemic,COVID-19 epideemia
+65,en,et-EE,COVID-19 outbreak,COVID-19 puhang
+66,en,et-EE,COVID-19 pandemic,COVID-19 pandeemia
+67,en,et-EE,COVID 19,COVID 19
+68,en,et-EE,current crisis,praegune kriis
+69,en,et-EE,current health crisis,praegune tervisekriis
+70,en,et-EE,current outbreak,praegune puhang
+71,en,et-EE,current pandemic,praegune pandeemia
+72,en,et-EE,CV,CV
+73,en,et-EE,CV-19,CV-19
+74,en,et-EE,deadly,surmav
+75,en,et-EE,deadly virus,surmav viirus
+76,en,et-EE,death rate,suremus
+77,en,et-EE,death toll,surnute arv
+78,en,et-EE,decontaminate,dekontamineerima
+79,en,et-EE,detectable,tuvastatav
+80,en,et-EE,detergent,pesuvahend
+81,en,et-EE,difficulty breathing,hingamisraskused
+82,en,et-EE,diabetes,diabeet
+83,en,et-EE,diagnosable disease,diagnoositav haigus
+84,en,et-EE,diagnostic protocol,diagnostiline protokoll
+85,en,et-EE,diagnostic testing,diagnostiline testimine
+86,en,et-EE,disease itself,haigus ise
+87,en,et-EE,disease outbreak,haiguspuhang
+88,en,et-EE,disinfectant,desinfitseerimisvahend
+89,en,et-EE,disposable,ühekordseks kasutamiseks
+90,en,et-EE,droplet transmission,piiskade ülekanne
+91,en,et-EE,droplets,piisad
+92,en,et-EE,dry cough,kuiv köha
+93,en,et-EE,dry surface contamination,kuiva pinna saastumine
+94,en,et-EE,ebola,ebola
+95,en,et-EE,effective treatment,efektiivne ravi
+96,en,et-EE,electron microscope,elektronmikroskoop
+97,en,et-EE,emergency department,erakorralise meditsiini osakond
+98,en,et-EE,epidemic,epideemia
+99,en,et-EE,epidemic curve,epideemiakõver
+100,en,et-EE,epidemic peak,epideemia tipp
+101,en,et-EE,epidemiologist,epidemioloog
+102,en,et-EE,exposure,kokkupuude
+103,en,et-EE,extreme caution,äärmine ettevaatus
+104,en,et-EE,eye protection,silmade kaitse
+105,en,et-EE,face mask,näomask
+106,en,et-EE,face masks,näomaskid
+107,en,et-EE,family cluster,perekonnapuhang
+108,en,et-EE,fatality rate,suremus
+109,en,et-EE,fecal contamination,fekaalne saastumine
+110,en,et-EE,fever,palavik
+111,en,et-EE,flatten the infection curve,nakatumiskõvera tasandamine
+112,en,et-EE,flu,gripp
+113,en,et-EE,food safety,toiduohutus
+114,en,et-EE,formaldehyde,formaldehüüd
+115,en,et-EE,gastroenteritis,gastroenteriit
+116,en,et-EE,germicide,antiseptikum
+117,en,et-EE,global pandemic,globaalne pandeemia
+118,en,et-EE,global warming,globaalne soojenemine
+119,en,et-EE,good respiratory hygiene,hea hingamisteede hügieen
+120,en,et-EE,Guangdong,Guangdong
+121,en,et-EE,H1N1,H1N1
+122,en,et-EE,H1N1 virus,H1N1 viirus
+123,en,et-EE,hand disinfectant,käte antiseptik
+124,en,et-EE,hand sanitizer,käte antiseptik
+125,en,et-EE,health care provider,tervishoiuteenuse pakkuja
+126,en,et-EE,health crisis,tervisekriis
+127,en,et-EE,health plan carrier,tervisekindlustuse pakkuja
+128,en,et-EE,health services,tervishoiuteenused
+129,en,et-EE,heart failure,südamepuudulikkus
+130,en,et-EE,high fever,kõrge palavik
+131,en,et-EE,HIV,HIV
+132,en,et-EE,hospitalize,haiglaravil
+133,en,et-EE,household bleach,majapidamises kasutatav pleegitaja
+134,en,et-EE,Hubei,Hubei
+135,en,et-EE,hydrogen peroxide,vesinikperoksiid
+136,en,et-EE,hygiene,hügieen
+137,en,et-EE,immune system,immuunsüsteem
+138,en,et-EE,immunity,immuunsus
+139,en,et-EE,immunocompromised,immuunpuudulikkusega
+140,en,et-EE,immunologist,immunoloog
+141,en,et-EE,incubation,inkubeerimine
+142,en,et-EE,incubation period,inkubatsiooniperiood
+143,en,et-EE,indirect contact,kaudne kontakt
+144,en,et-EE,infect,nakatama
+145,en,et-EE,infection,nakkus
+146,en,et-EE,infectious,nakkav
+147,en,et-EE,infectivity,nakkavus
+148,en,et-EE,influenza,gripp
+149,en,et-EE,initial transmission event,esialgne ülekandesündmus
+150,en,et-EE,intensive care equipment,intensiivraviseadmed
+151,en,et-EE,intermediate host,vaheperemees
+152,en,et-EE,intrauterine,emakasisene
+153,en,et-EE,intubation,intubeerimine
+154,en,et-EE,isolation,isoleerimine
+155,en,et-EE,Isopropanol,Isopropanool
+156,en,et-EE,laboratory test kit,laboratoorse testi komplekt
+157,en,et-EE,laboratory testing,laboratoorsed uuringud
+158,en,et-EE,lack of testing,testimise puudumine
+159,en,et-EE,lack of tests,testide puudumine
+160,en,et-EE,latest updates,uusimad värskendused
+161,en,et-EE,liver failure,maksapuudulikkus
+162,en,et-EE,local public health authority,kohalik rahvatervise amet
+163,en,et-EE,lockdown,lukustamine
+164,en,et-EE,lungs,kopsud
+165,en,et-EE,masks,maskid
+166,en,et-EE,measles,leetrid
+167,en,et-EE,mechanical ventilation,mehaaniline ventilatsioon
+168,en,et-EE,media coverage,meedias kajastamine
+169,en,et-EE,medical care,arstiabi
+170,en,et-EE,MERS,MERS
+171,en,et-EE,MERS CoV,MERS CoV
+172,en,et-EE,microbiologist,mikrobioloog
+173,en,et-EE,mild cough,kerge köha
+174,en,et-EE,mortality rate,suremus
+175,en,et-EE,multi-organ failure,mitme organi puudulikkus
+176,en,et-EE,nasal congestion,ninakinnisus
+177,en,et-EE,neutral detergent,neutraalne puhastusvahend
+178,en,et-EE,new normal,uus normaalne
+179,en,et-EE,novel corona virus,uus koroonaviirus
+180,en,et-EE,novel coronavirus,uus koroonaviirus
+181,en,et-EE,novel coronavirus outbreak,uue koroonaviiruse puhang
+182,en,et-EE,novel virus,uus viirus
+183,en,et-EE,online medical consultation,veebipõhine meditsiiniline konsultatsioon
+184,en,et-EE,onset,algus
+185,en,et-EE,outbreak,puhang
+186,en,et-EE,outbreak readiness,haiguspuhanguteks valmisolek
+187,en,et-EE,overall case fatality,haigusjuhtude üldine suremus
+188,en,et-EE,pandemic,pandeemia
+189,en,et-EE,pangolin,pangoliin
+190,en,et-EE,pathogen,patogeen
+191,en,et-EE,pathology,patoloogia
+192,en,et-EE,patient care equipment,seadmed patsiendi hooldamiseks
+193,en,et-EE,personal protective equipment,isikukaitsevahendid
+194,en,et-EE,person-to-person transmission,edastamine inimeselt inimesele
+195,en,et-EE,phlegm,röga
+196,en,et-EE,physical contact,füüsiline kontakt
+197,en,et-EE,plague,katk
+198,en,et-EE,pneumonia,kopsupõletik
+199,en,et-EE,pneumonias,kopsupõletikud
+200,en,et-EE,positive test,positiivne test
+201,en,et-EE,precaution,ettevaatus
+202,en,et-EE,precautionary,ettevaatusabinõud
+203,en,et-EE,pre-existing condition,eelnev seisund
+204,en,et-EE,preparedness,valmisolek
+205,en,et-EE,prognosis,prognoos
+206,en,et-EE,protect myself,kaitsta ennast
+207,en,et-EE,protect others,kaitsta teisi
+208,en,et-EE,protect yourself,kaitsta ennast
+209,en,et-EE,protective measures,kaitsemeetmed
+210,en,et-EE,public health crisis,rahvatervise kriis
+211,en,et-EE,pulmonary tissue damage,kopsukoe kahjustus
+212,en,et-EE,quarantine,karantiin
+213,en,et-EE,rapid risk assessment,kiire riskihindamine
+214,en,et-EE,reagent,reagent
+215,en,et-EE,regular flu,tavaline gripp
+216,en,et-EE,reinfection,uuesti nakatumine
+217,en,et-EE,renal disease,neeruhaigus
+218,en,et-EE,renal failure,neerupuudulikkus
+219,en,et-EE,respirator,respiraator
+220,en,et-EE,respiratory,hingamisteede
+221,en,et-EE,respiratory disease,hingamisteede haigus
+222,en,et-EE,respiratory distress,hingamisraskused
+223,en,et-EE,respiratory droplets,respiratoorsed eritised
+224,en,et-EE,respiratory hygiene,hingamisteede hügieen
+225,en,et-EE,respiratory illness,hingamisteede haigus
+226,en,et-EE,respiratory syndrome,hingamissündroom
+227,en,et-EE,respiratory tract disease,hingamisteede haigus
+228,en,et-EE,restrictions,piirangud
+229,en,et-EE,resurge,taasteke
+230,en,et-EE,RNA,RNA
+231,en,et-EE,rubeola,leetrid
+232,en,et-EE,runny nose,nohu
+233,en,et-EE,SARS,SARS
+234,en,et-EE,SARS-CoV-2,SARS-CoV-2
+235,en,et-EE,SARS-CoV,SARS-CoV
+236,en,et-EE,sars-related coronavirus,sars-seotud koroonaviirus
+237,en,et-EE,seasonal flu,hooajaline gripp
+238,en,et-EE,seasonal influenza,hooajaline gripp
+239,en,et-EE,secretion,eritis
+240,en,et-EE,self-quarantine,enesekarantiin
+241,en,et-EE,sepsis,sepsis
+242,en,et-EE,septic shock,septiline šokk
+243,en,et-EE,Severe Acute Respiratory Syndrome,raske äge respiratoorne sündroom
+244,en,et-EE,shortness of breath,õhupuudus
+245,en,et-EE,sickened,haigestunud
+246,en,et-EE,sickness,haigus
+247,en,et-EE,sneeze,aevastama
+248,en,et-EE,sneezes,aevastab
+249,en,et-EE,sneezing,aevastamine
+250,en,et-EE,social distancing,sotsiaalne distantseerumine
+251,en,et-EE,sore throat,valus kurk
+252,en,et-EE,spanish flu,Hispaania gripp
+253,en,et-EE,specimen collection,proovi võtmine
+254,en,et-EE,spread,levima
+255,en,et-EE,sputum,röga
+256,en,et-EE,stigmatisation,häbimärgistamine
+257,en,et-EE,supportive,toetav
+258,en,et-EE,surface,pind
+259,en,et-EE,surfaces,pinnad
+260,en,et-EE,suspected infection,nakkuskahtlus
+261,en,et-EE,swab,tampoon
+262,en,et-EE,swine flu,seagripp
+263,en,et-EE,symptom,sümptom
+264,en,et-EE,symptomatic,sümptomaatiline
+265,en,et-EE,symptoms,sümptomid
+266,en,et-EE,targeted disinfection,sihipärane desinfitseerimine
+267,en,et-EE,test kit,testi komplekt
+268,en,et-EE,testing error,testimisviga
+269,en,et-EE,tissue damage,koekahjustus
+270,en,et-EE,tp shortage,tualettpaberi puudus
+271,en,et-EE,toilet paper shortage,tualettpaberi puudus
+272,en,et-EE,touch,katsuda
+273,en,et-EE,touching,katsumine
+274,en,et-EE,transmissibility,ülekantavus
+275,en,et-EE,transmissible,ülekantav
+276,en,et-EE,transmission,ülekanne
+277,en,et-EE,transmission potential,ülekandepotentsiaal
+278,en,et-EE,typical flu,tüüpiline gripp
+279,en,et-EE,underlying disease,põhihaigus
+280,en,et-EE,updates,värskendused
+281,en,et-EE,vaccine,vaktsiin
+282,en,et-EE,vaccines,vaktsiinid
+283,en,et-EE,ventilation,ventilatsioon
+284,en,et-EE,ventilator,ventilaator
+285,en,et-EE,ventilators,ventilaatorid
+286,en,et-EE,viral infection,viirusnakkus
+287,en,et-EE,viral outbreak,viirusepuhang
+288,en,et-EE,viral pandemic,viiruspandeemia
+289,en,et-EE,viral pneumonia,viiruslik kopsupõletik
+290,en,et-EE,virtual care,virtuaalne hooldus
+291,en,et-EE,virulence,virulentsus
+292,en,et-EE,virus itself,viirus ise
+293,en,et-EE,virus outbreak,viiruse puhang
+294,en,et-EE,virus scare,viiruse hirm
+295,en,et-EE,virus spreads,viirus levib
+296,en,et-EE,virus strain,viiruse tüvi
+297,en,et-EE,viral transmission,viiruse ülekandumine
+298,en,et-EE,vivid-19,vivid-19
+299,en,et-EE,washing hands,käte pesemine
+300,en,et-EE,washing ones hands,käte pesemine
+301,en,et-EE,wash your hands,pese oma käed
+302,en,et-EE,white blood cell count,valgevereliblede arv
+303,en,et-EE,widespread transmission,laialt levinud
+304,en,et-EE,working from home,kodust töötamine
+305,en,et-EE,WFH,WFH
+306,en,et-EE,Wuhan,Wuhan

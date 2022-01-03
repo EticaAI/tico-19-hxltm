@@ -1,0 +1,307 @@
+id,sourceLang,targetLang,sourceString,targetString
+1,en,hr-HR,1918 flu,gripa 1918.
+2,en,hr-HR,acute bronchitis,akutni bronhitis
+3,en,hr-HR,acute respiratory disease,akutna respiratorna bolest
+4,en,hr-HR,AIDS,AIDS
+5,en,hr-HR,airborne droplets,kapljice nošene zrakom
+6,en,hr-HR,airway,dišni put
+7,en,hr-HR,alcohol-based,na bazi alkohola
+8,en,hr-HR,alcohol-based hand rub,sredstvo za čišćenje ruku na bazi alkohola
+9,en,hr-HR,alcohol-based hand sanitizer,sredstvo za dezinfekciju ruku na bazi alkohola
+10,en,hr-HR,alveolar disease,alveolarna bolest
+11,en,hr-HR,an epidemic,epidemija
+12,en,hr-HR,annual flu,sezonska gripa
+13,en,hr-HR,anti-inflammatory drug,protuupalni lijek
+14,en,hr-HR,antiviral drug,antivirusni lijek
+15,en,hr-HR,antiviral treatment,antivirusna terapija
+16,en,hr-HR,assay,analiza
+17,en,hr-HR,asymptomatic,asimptomatski
+18,en,hr-HR,avian flu,ptičja gripa
+19,en,hr-HR,Black Plague,crna smrt
+20,en,hr-HR,blood pressure,krvni tlak
+21,en,hr-HR,body fluid,tjelesna tekućina
+22,en,hr-HR,breathing,disanje
+23,en,hr-HR,bubonic plague,bubonska kuga
+24,en,hr-HR,c19,c19
+25,en,hr-HR,cv19,cv19
+26,en,hr-HR,case fatality rate,stopa smrtnosti za bolest
+27,en,hr-HR,causative agent,uzročnik
+28,en,hr-HR,CDC,CDC
+29,en,hr-HR,chemical disinfection,kemijska dezinfekcija
+30,en,hr-HR,chest x-ray,rendgen pluća
+31,en,hr-HR,clinical diagnosis,klinička dijagnoza
+32,en,hr-HR,clinical trial,kliničko ispitivanje
+33,en,hr-HR,close contact,bliski kontakt
+34,en,hr-HR,cvirus,kvirus
+35,en,hr-HR,chronic respiratory disease,kronična respiratorna bolest
+36,en,hr-HR,common cold,prehlada
+37,en,hr-HR,common flu,gripa
+38,en,hr-HR,communicable disease,prenosiva bolest
+39,en,hr-HR,community spread,širenje u zajednici
+40,en,hr-HR,community transmission,prijenos u zajednici
+41,en,hr-HR,compromised immune system,ugrožen imunološki sustav
+42,en,hr-HR,contagion,zaraza
+43,en,hr-HR,contagious,zarazan
+44,en,hr-HR,contagiousness,zaraznost
+45,en,hr-HR,corona,korona
+46,en,hr-HR,corona virus,korona virus
+47,en,hr-HR,corona virus epidemic,epidemija korona virusa
+48,en,hr-HR,corona virus outbreak,izbijanje epidemije korona virusa
+49,en,hr-HR,corona virus scare,strah od širenja korona virusa
+50,en,hr-HR,coronavirus,korona virus
+51,en,hr-HR,coronavirus cases,slučajevi zaraze korona virusom
+52,en,hr-HR,coronavirus outbreak,izbijanje epidemije koronavirusa
+53,en,hr-HR,coronavirus pandemic,pandemija koronavirusa
+54,en,hr-HR,coronavirus scare,strah od širenja koronavirusa
+55,en,hr-HR,cough,kašalj
+56,en,hr-HR,cough etiquette,ponašanje pri kašljanju
+57,en,hr-HR,coughing,kašljanje
+58,en,hr-HR,cov 19,cov 19
+59,en,hr-HR,cov19,cov19
+60,en,hr-HR,COVID,COVID
+61,en,hr-HR,COVID-19 crisis,kriza zbog virusa COVID-19
+62,en,hr-HR,covid-19,covid-19
+63,en,hr-HR,covid19,covid19
+64,en,hr-HR,COVID-19 epidemic,epidemija COVID-19
+65,en,hr-HR,COVID-19 outbreak,izbijanje epidemije COVID-19
+66,en,hr-HR,COVID-19 pandemic,pandemija COVID-19
+67,en,hr-HR,COVID 19,COVID 19
+68,en,hr-HR,current crisis,postojeća kriza
+69,en,hr-HR,current health crisis,postojeća zdravstvena kriza
+70,en,hr-HR,current outbreak,postojeće izbijanje epidemije
+71,en,hr-HR,current pandemic,postojeća pandemija
+72,en,hr-HR,CV,CV
+73,en,hr-HR,CV-19,CV-19
+74,en,hr-HR,deadly,smrtonosan
+75,en,hr-HR,deadly virus,smrtonosan virus
+76,en,hr-HR,death rate,stopa smrtnosti
+77,en,hr-HR,death toll,broj umrlih
+78,en,hr-HR,decontaminate,dekontaminirati
+79,en,hr-HR,detectable,može se otkriti
+80,en,hr-HR,detergent,deterdžent
+81,en,hr-HR,difficulty breathing,otežano disanje
+82,en,hr-HR,diabetes,dijabetes
+83,en,hr-HR,diagnosable disease,bolest koja se može dijagnosticirati
+84,en,hr-HR,diagnostic protocol,dijagnostički protokol
+85,en,hr-HR,diagnostic testing,dijagnostičko testiranje
+86,en,hr-HR,disease itself,sama bolest
+87,en,hr-HR,disease outbreak,izbijanje bolesti
+88,en,hr-HR,disinfectant,dezinficijens
+89,en,hr-HR,disposable,jednokratan
+90,en,hr-HR,droplet transmission,prijenos kapljicama
+91,en,hr-HR,droplets,kapljice
+92,en,hr-HR,dry cough,suhi kašalj
+93,en,hr-HR,dry surface contamination,kontaminacija suhih površina
+94,en,hr-HR,ebola,ebola
+95,en,hr-HR,effective treatment,učinkovita terapija
+96,en,hr-HR,electron microscope,elektronski mikroskop
+97,en,hr-HR,emergency department,hitna služba
+98,en,hr-HR,epidemic,epidemija
+99,en,hr-HR,epidemic curve,krivulja epidemije
+100,en,hr-HR,epidemic peak,vrhunac epidemije
+101,en,hr-HR,epidemiologist,epidemiolog
+102,en,hr-HR,exposure,izloženost
+103,en,hr-HR,extreme caution,izniman oprez
+104,en,hr-HR,eye protection,zaštita za oči
+105,en,hr-HR,face mask,maska za lice
+106,en,hr-HR,face masks,maske za lice
+107,en,hr-HR,family cluster,obiteljska skupina
+108,en,hr-HR,fatality rate,stopa smrtnosti
+109,en,hr-HR,fecal contamination,fekalna kontaminacija
+110,en,hr-HR,fever,povišena temperatura
+111,en,hr-HR,flatten the infection curve,izravnati krivulju zaraze
+112,en,hr-HR,flu,gripa
+113,en,hr-HR,food safety,sigurnost hrane
+114,en,hr-HR,formaldehyde,formaldehid
+115,en,hr-HR,gastroenteritis,gastroenteritis
+116,en,hr-HR,germicide,germicid
+117,en,hr-HR,global pandemic,svjetska pandemija
+118,en,hr-HR,global warming,globalno zagrijavanje
+119,en,hr-HR,good respiratory hygiene,dobra respiratorna higijena
+120,en,hr-HR,Guangdong,Guangdong
+121,en,hr-HR,H1N1,H1N1
+122,en,hr-HR,H1N1 virus,virus H1N1
+123,en,hr-HR,hand disinfectant,sredstvo za dezinfekciju ruku
+124,en,hr-HR,hand sanitizer,sredstvo za dezinfekciju ruku
+125,en,hr-HR,health care provider,zdravstveni djelatnik
+126,en,hr-HR,health crisis,zdravstvena kriza
+127,en,hr-HR,health plan carrier,davatelj zdravstvenog osiguranja
+128,en,hr-HR,health services,zdravstvene usluge
+129,en,hr-HR,heart failure,zatajenje srca
+130,en,hr-HR,high fever,visoka temperatura
+131,en,hr-HR,HIV,HIV
+132,en,hr-HR,hospitalize,hospitalizirati
+133,en,hr-HR,household bleach,kućni izbjeljivač
+134,en,hr-HR,Hubei,Hubei
+135,en,hr-HR,hydrogen peroxide,vodikov peroksid
+136,en,hr-HR,hygiene,higijena
+137,en,hr-HR,immune system,imunološki sustav
+138,en,hr-HR,immunity,imunitet
+139,en,hr-HR,immunocompromised,imunokompromitirani
+140,en,hr-HR,immunologist,imunolog
+141,en,hr-HR,incubation,inkubacija
+142,en,hr-HR,incubation period,razdoblje inkubacije
+143,en,hr-HR,indirect contact,neizravan kontakt
+144,en,hr-HR,infect,zaraziti
+145,en,hr-HR,infection,zaraza
+146,en,hr-HR,infectious,zarazan
+147,en,hr-HR,infectivity,zaraznost
+148,en,hr-HR,influenza,influenca
+149,en,hr-HR,initial transmission event,početni prijenos bolesti
+150,en,hr-HR,intensive care equipment,oprema za intenzivnu njegu
+151,en,hr-HR,intermediate host,prijelazni domaćin
+152,en,hr-HR,intrauterine,intrauterini
+153,en,hr-HR,intubation,intubacija
+154,en,hr-HR,isolation,izolacija
+155,en,hr-HR,Isopropanol,izopropanol
+156,en,hr-HR,laboratory test kit,laboratorijski komplet za testiranje
+157,en,hr-HR,laboratory testing,laboratorijsko testiranje
+158,en,hr-HR,lack of testing,nedostatak testiranja
+159,en,hr-HR,lack of tests,nedostatak testova
+160,en,hr-HR,latest updates,najnovije informacije
+161,en,hr-HR,liver failure,otkazivanje jetre
+162,en,hr-HR,local public health authority,lokalno tijelo javnog zdravstva
+163,en,hr-HR,lockdown,ograničenje kretanja
+164,en,hr-HR,lungs,pluća
+165,en,hr-HR,masks,maske
+166,en,hr-HR,measles,ospice
+167,en,hr-HR,mechanical ventilation,mehanička ventilacija
+168,en,hr-HR,media coverage,izvješćivanje u medijima
+169,en,hr-HR,medical care,medicinska skrb
+170,en,hr-HR,MERS,MERS
+171,en,hr-HR,MERS CoV,MERS CoV
+172,en,hr-HR,microbiologist,mikrobiolog
+173,en,hr-HR,mild cough,blagi kašalj
+174,en,hr-HR,mortality rate,stopa mortaliteta
+175,en,hr-HR,multi-organ failure,multiorganska insuficijencija
+176,en,hr-HR,nasal congestion,začepljenost nosa
+177,en,hr-HR,neutral detergent,neutralni deterdžent
+178,en,hr-HR,new normal,novi standard
+179,en,hr-HR,novel corona virus,novi korona virus
+180,en,hr-HR,novel coronavirus,novi koronavirus
+181,en,hr-HR,novel coronavirus outbreak,izbijanje epidemije novog koronavirusa
+182,en,hr-HR,novel virus,novi virus
+183,en,hr-HR,online medical consultation,online posjet liječniku
+184,en,hr-HR,onset,početak
+185,en,hr-HR,outbreak,izbijanje
+186,en,hr-HR,outbreak readiness,pripravnost za izbijanje
+187,en,hr-HR,overall case fatality,ukupna smrtnost za bolest
+188,en,hr-HR,pandemic,pandemija
+189,en,hr-HR,pangolin,ljuskavac
+190,en,hr-HR,pathogen,patogen
+191,en,hr-HR,pathology,patologija
+192,en,hr-HR,patient care equipment,oprema za njegu pacijenata
+193,en,hr-HR,personal protective equipment,osobna zaštitna oprema
+194,en,hr-HR,person-to-person transmission,prijenos s osobe na osobu
+195,en,hr-HR,phlegm,sputum
+196,en,hr-HR,physical contact,fizički kontakt
+197,en,hr-HR,plague,kuga
+198,en,hr-HR,pneumonia,upala pluća
+199,en,hr-HR,pneumonias,upale pluća
+200,en,hr-HR,positive test,pozitivan test
+201,en,hr-HR,precaution,predostrožnost
+202,en,hr-HR,precautionary,predostrožan
+203,en,hr-HR,pre-existing condition,prethodno postojeća bolest
+204,en,hr-HR,preparedness,pripravnost
+205,en,hr-HR,prognosis,predviđanje
+206,en,hr-HR,protect myself,samozaštita
+207,en,hr-HR,protect others,zaštita drugih
+208,en,hr-HR,protect yourself,zaštititi sebe
+209,en,hr-HR,protective measures,zaštitne mjere
+210,en,hr-HR,public health crisis,javnozdravstvena kriza
+211,en,hr-HR,pulmonary tissue damage,oštećenje plućnog tkiva
+212,en,hr-HR,quarantine,karantena
+213,en,hr-HR,rapid risk assessment,brza procjena rizika
+214,en,hr-HR,reagent,reagens
+215,en,hr-HR,regular flu,obična gripa
+216,en,hr-HR,reinfection,ponovna zaraza
+217,en,hr-HR,renal disease,bolest bubrega
+218,en,hr-HR,renal failure,zatajenje bubrega
+219,en,hr-HR,respirator,respirator
+220,en,hr-HR,respiratory,respiratorni
+221,en,hr-HR,respiratory disease,respiratorna bolest
+222,en,hr-HR,respiratory distress,respiratorni šok
+223,en,hr-HR,respiratory droplets,respiratorne kapljice
+224,en,hr-HR,respiratory hygiene,respiratorna higijena
+225,en,hr-HR,respiratory illness,respiratorna bolest
+226,en,hr-HR,respiratory syndrome,respiratorni sindrom
+227,en,hr-HR,respiratory tract disease,bolest respiratornog trakta
+228,en,hr-HR,restrictions,ograničenja
+229,en,hr-HR,resurge,ponovno se pojaviti
+230,en,hr-HR,RNA,RNK
+231,en,hr-HR,rubeola,rubeola
+232,en,hr-HR,runny nose,curenje iz nosa
+233,en,hr-HR,SARS,SARS
+234,en,hr-HR,SARS-CoV-2,SARS-CoV-2
+235,en,hr-HR,SARS-CoV,SARS-CoV
+236,en,hr-HR,sars-related coronavirus,koronavirus povezan sa SARS-om
+237,en,hr-HR,seasonal flu,sezonska gripa
+238,en,hr-HR,seasonal influenza,sezonska influenca
+239,en,hr-HR,secretion,iscjedak
+240,en,hr-HR,self-quarantine,samoizolacija
+241,en,hr-HR,sepsis,sepsa
+242,en,hr-HR,septic shock,septički šok
+243,en,hr-HR,Severe Acute Respiratory Syndrome,teški akutni respiratorni sindrom
+244,en,hr-HR,shortness of breath,kratak dah
+245,en,hr-HR,sickened,oboljeli
+246,en,hr-HR,sickness,bolest
+247,en,hr-HR,sneeze,kihati
+248,en,hr-HR,sneezes,kihanja
+249,en,hr-HR,sneezing,kihanje
+250,en,hr-HR,social distancing,držanje udaljenosti od drugih ljudi
+251,en,hr-HR,sore throat,grlobolja
+252,en,hr-HR,spanish flu,španjolska gripa
+253,en,hr-HR,specimen collection,uzimanje uzorka
+254,en,hr-HR,spread,širenje
+255,en,hr-HR,sputum,sputum
+256,en,hr-HR,stigmatisation,stigmatiziranje
+257,en,hr-HR,supportive,pomaganje
+258,en,hr-HR,surface,površina
+259,en,hr-HR,surfaces,površine
+260,en,hr-HR,suspected infection,sumnja na infekciju
+261,en,hr-HR,swab,bris
+262,en,hr-HR,swine flu,svinjska gripa
+263,en,hr-HR,symptom,simptom
+264,en,hr-HR,symptomatic,simptomatski
+265,en,hr-HR,symptoms,simptomi
+266,en,hr-HR,targeted disinfection,ciljana dezinfekcija
+267,en,hr-HR,test kit,komplet za testiranje
+268,en,hr-HR,testing error,pogreška pri testiranju
+269,en,hr-HR,tissue damage,oštećenje tkiva
+270,en,hr-HR,tp shortage,nestašica WC papira
+271,en,hr-HR,toilet paper shortage,nestašica toaletnog papira
+272,en,hr-HR,touch,dodir
+273,en,hr-HR,touching,dodirivanje
+274,en,hr-HR,transmissibility,prenosivost
+275,en,hr-HR,transmissible,prenosiv
+276,en,hr-HR,transmission,prijenos
+277,en,hr-HR,transmission potential,mogućnost prijenosa
+278,en,hr-HR,typical flu,tipična gripa
+279,en,hr-HR,underlying disease,latentna bolest
+280,en,hr-HR,updates,novosti
+281,en,hr-HR,vaccine,cjepivo
+282,en,hr-HR,vaccines,cjepiva
+283,en,hr-HR,ventilation,ventilacija
+284,en,hr-HR,ventilator,ventilator
+285,en,hr-HR,ventilators,ventilatori
+286,en,hr-HR,viral infection,virusna infekcija
+287,en,hr-HR,viral outbreak,izbijanje virusne infekcije
+288,en,hr-HR,viral pandemic,virusna pandemija
+289,en,hr-HR,viral pneumonia,virusna upala pluća
+290,en,hr-HR,virtual care,virtualna skrb
+291,en,hr-HR,virulence,virulencija
+292,en,hr-HR,virus itself,sami virus
+293,en,hr-HR,virus outbreak,pojava virusa
+294,en,hr-HR,virus scare,strah od širenja virusa
+295,en,hr-HR,virus spreads,širenja virusa
+296,en,hr-HR,virus strain,soj virusa
+297,en,hr-HR,viral transmission,prijenos virusa
+298,en,hr-HR,vivid-19,vivid-19
+299,en,hr-HR,washing hands,pranje ruku
+300,en,hr-HR,washing ones hands,pranje ruku
+301,en,hr-HR,wash your hands,perite ruke
+302,en,hr-HR,white blood cell count,broj leukocita
+303,en,hr-HR,widespread transmission,rašireni prijenos
+304,en,hr-HR,working from home,rad od kuće
+305,en,hr-HR,WFH,rad od kuće
+306,en,hr-HR,Wuhan,Wuhan
